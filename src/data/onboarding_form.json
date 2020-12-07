@@ -1,0 +1,367 @@
+[
+  {
+    "header": "Account Contact Information",
+    "fields": [
+      {
+        "type": "heading",
+        "text": "Company Information"
+      },
+      {
+        "type": "text",
+        "required": true,
+        "text": "Company Name"
+      },
+      {
+        "type": "text",
+        "required": true,
+        "text": "Company Website"
+      },
+      {
+        "type": "heading",
+        "text": "Account Owner Information",
+        "info": "The Account Owner is the person authorized to make policy changes on the Account."
+      },
+      {
+        "type": "text",
+        "required": true,
+        "text": "Account Owner's Name"
+      },
+      {
+        "type": "text",
+        "required": true,
+        "text": "Account Owner's Title"
+      },
+      {
+        "type": "tel",
+        "required": true,
+        "text": "Account Owner's Phone Number"
+      },
+      {
+        "type": "email",
+        "required": true,
+        "text": "Account Owner's Email"
+      },
+      {
+        "type": "heading",
+        "text": "Security and Privacy Officers' Information",
+        "info": "The Security and Privacy Officers are individuals in your organization to be contacted for security or privacy related matters.\nThese contacts do not have authority over the account."
+      },
+      {
+        "type": "text",
+        "required": true,
+        "text": "Security Officer's Name"
+      },
+      {
+        "type": "email",
+        "required": true,
+        "text": "Security Officer's Email"
+      },
+      {
+        "type": "text",
+        "required": true,
+        "text": "Privacy Officer's Name"
+      },
+      {
+        "type": "email",
+        "required": true,
+        "text": "Privacy Officer's Email"
+      }
+    ]
+  },
+  {
+    "header": "Reseller Information",
+    "fields": [
+      {
+        "type": "heading",
+        "text": "Reseller Information",
+        "info": "Filling out these fields is recommended for clients who have managed print/professional IT services from their MFP Reseller.\nThe Reseller is required to install the XM Fax and XM SendSecure apps on the MFP for Xerox and HP."
+      },
+      {
+        "type": "text",
+        "hint": 0,
+        "required": false,
+        "text": "Reseller's Name"
+      },
+      {
+        "type": "email",
+        "hint": 0,
+        "required": false,
+        "text": "Reseller's Contact Email"
+      },
+      {
+        "type": "heading",
+        "text": "Reseller Notifications"
+      },
+      {
+        "type": "switch",
+        "name": "ticketNotifSwitch",
+        "hint": 1,
+        "required": true,
+        "text": "Notify Reseller about new Onboarding Tickets"
+      },
+      {
+        "type": "switch",
+        "name": "resupplyNotifSwitch",
+        "hint": 2,
+        "required": true,
+        "text": "Notify Reseller of Credit resupply"
+      },
+      {
+        "type": "heading",
+        "text": "MFP Installation Contact Information"
+      },
+      {
+        "type": "email",
+        "hint": 3,
+        "required": true,
+        "text": "Reseller Contact's Email"
+      },
+      {
+        "type": "tel",
+        "hint": 3,
+        "required": true,
+        "text": "Reseller Contact's Phone"
+      }
+    ],
+    "hints": [
+      "Please provide this information if your Reseller will be involved in the Onboarding process. If not, you can ignore this section.",
+      "Allow the Reseller to follow up on open onboarding tickets",
+      "Besides resupply notification, Clients may add and notify alternates including reseller contacts. Note that you can modify this at any time in your Enterprise settings.",
+      "For Xerox and HP : The reseller is required to install the XM Fax and XM SendSecure apps on the MFP. XMedius Pro Services, when purchased, will assist with configuring XM Fax and XM SendSecure on the MFP."
+    ]
+  },
+  {
+    "header": "MFP Information",
+    "fields": [
+      {
+        "type": "heading",
+        "text": "Technical Contact Information",
+        "info": "This information is used to identify who will be responsible for the configuration of XMedius applications on the OEM specific MFPs."
+      },
+      {
+        "type": "text",
+        "hint": 0,
+        "required": true,
+        "text": "Technical Contact's Name"
+      },
+      {
+        "type": "tel",
+        "hint": 0,
+        "required": true,
+        "text": "Technical Contact's Phone"
+      },
+      {
+        "type": "email",
+        "hint": 0,
+        "required": true,
+        "text": "Technical Contact's Email"
+      },
+      {
+        "type": "heading",
+        "text": "Equipment Information",
+        "info": "The equipment delivery dates are used for scheduling purposes.\nInbound faxing cannot be completed until one new number is available or one porting request has been completed.\nDepending on the MFPs in use, a server may be required to host the XM Fax software. Additional charges may apply."
+      },
+      {
+        "type": "date",
+        "name": "installDatePicker",
+        "hint": 1,
+        "required": true,
+        "text": "Install Date"
+      },
+      {
+        "type": "date",
+        "name": "removalDatePicker",
+        "hint": 1,
+        "required": true,
+        "text": "Removal Date"
+      },
+      {
+        "type": "box",
+        "name": "installAppsBox",
+        "opt": 0,
+        "required": true,
+        "text": "Install XMedius Apps on:",
+        "size": "full"
+      },
+      {
+        "type": "box",
+        "name": "integrationAppsBox",
+        "opt": 1,
+        "required": true,
+        "text": "Configure Advanced Workflow Integration",
+        "size": "full"
+      }
+    ],
+    "hints": [
+      "This is for the IT support contact for the help with the network setting should assistance be required. This could be internal to the client or third-party service provider.",
+      "Specify when MFPs will be installed, and old MFPs removed. Note that inbound faxing cannot be configured until at least one new number or porting request has been completed.",
+      "XM Fax and XM SendSecure support secure fax or image transfer using the Xerox App Gallery for iSeries, VersaLink, or AltaLink devices. Legacy Xerox EIP only devices require a server to host the XM Fax Application Software and additional Professional Services.",
+      "The reseller is required to install the XM Fax on the MFP.",
+      "Depending on the MFPs in use, a PC or server might be required to host the XM Fax application software. Additional Professional Services charges might apply.",
+      "SMTP/Email only submission for any email capable MFP.",
+      "Depending on the MFP(s) in use, different methods are available to support automatic printing of incoming fax pages. Active Directory, Single Sign-On, or MFP printing set-up might require additional Professional Services."
+    ],
+    "options": [
+      [
+        "Xerox iSeries",
+        "Xerox VersaLink or AltaLink",
+        "Xerox Legacy EIP only capable devices",
+        "HP Workpath",
+        "Ricoh ESO (SDK/J or SmartOP)",
+        "Toshiba eBRIDGE",
+        "Sharp OSA",
+        "Lexmark eSF",
+        "Email Only"
+      ],
+      [
+        "Print Confirmation Pages",
+        "Print Incoming Pages",
+        "Active Directory Synchronization",
+        "Single Sign-On"
+      ]
+    ]
+  },
+  {
+    "header": "Configuration Details",
+    "fields": [
+      {
+        "type": "heading",
+        "text": "Account Configuration",
+        "info": "This information is used to create the account and setup where the account will be hosted, the account name, and and activation date.\nYou must select at least one solution."
+      },
+      {
+        "type": "select",
+        "name": "cloudHostingSelect",
+        "hint": 0,
+        "opt": 0,
+        "required": true,
+        "text": "Cloud Hosting Locale"
+      },
+      {
+        "type": "text",
+        "hint": 1,
+        "required": true,
+        "text": "Account Name"
+      },
+      {
+        "type": "date",
+        "name": "activationDatePicker",
+        "hint": 2,
+        "required": true,
+        "text": "Desired Activation Date"
+      },
+      {
+        "type": "box",
+        "name": "enableSolutionsBox",
+        "hint": 3,
+        "opt": 1,
+        "required": true,
+        "text": "Configure Enabled Solutions",
+        "size": "half"
+      },
+      {
+        "type": "heading",
+        "text": "Account Administrator Information",
+        "info": "The administrator(s) will have authority over the account and may be separate from the Account Owner.\nA Primary Administrator is required and it is recommended to have a Secondary Administrator for backup and support."
+      },
+      {
+        "type": "email",
+        "hint": 4,
+        "required": true,
+        "text": "Primary Administrator's Email"
+      },
+      {
+        "type": "email",
+        "required": true,
+        "text": "Secondary Administrator's Email"
+      },
+      {
+        "type": "heading",
+        "text": "Fax Retention Policy",
+        "info": "The minimum retention is 7 days.\nSelect \"Unlimited\" if you do not want faxes to be deleted at all.\nSelect \"Zero Days\" if you want faxes to be deleted immediately after successful delivery (the fax metadata will be retained for 7 days)."
+      },
+      {
+        "type": "slider",
+        "name": "retentionPolicySelect",
+        "hint": 5,
+        "opt": 2,
+        "required": true,
+        "text": "Adjust slider to select XM Fax Retention Policy"
+      },
+      {
+        "type": "heading",
+        "text": "Transmission Data Information",
+        "info": "Depending on the market, we can configure industry compliance standards.\nThis information can be useful for certain requirements such as automatically printing fax pages at the MFP.\nDepending on the compliance profile, printing pages may require sFTP service to deliver pages."
+      },
+      {
+        "type": "box",
+        "name": "dataTransmitBox",
+        "hint": 6,
+        "opt": 3,
+        "required": true,
+        "text": "Configure Data Transmission Types",
+        "size": "full"
+      }
+    ],
+    "hints": [
+      "The regional platform on which the customer account and data will be stored.",
+      "This will be part of the URL to log into the account. The name must be unique and can only contain letters, numbers, dash \"-\" and underscore \"_\".",
+      "Must be at least one day after valid order submit date.",
+      "By default, both solutions are enabled for all users and may be controlled on a per-user basis in user profile settings.",
+      "Only Primary Admin is mandatory but best practice is to have a Primary and Secondary Admin for back up and support. The Administrator(s) will have authority over the account and may be different than the Account Owner.",
+      "Specify \u201cUnlimited\u201d if you don\u2019t want faxes to be deleted at all. The minimum retention is 7 days. Asking for 1-6 days will result in 7 days of retention. Specify \u201cZero Days\u201d for fax images to be deleted immediately after successful delivery. In that case, the fax record (metadata) will be retained for 7 days, and the fax image (pages) will be deleted upon successful delivery of the fax notification.",
+      "This selections will allow XMedius to recommend security configuration settings needed for compliance. Depending on the compliance profile, printing pages might require sFTP service to securely deliver pages from the cloud to the local network to ensure compliance. Select all that apply."
+    ],
+    "options": [
+      [
+        "Canada (CA)",
+        "Europe (EU)",
+        "United States (US)"
+      ],
+      [
+        "XM Fax",
+        "XM SendSecure"
+      ],
+      [
+        {
+          "value": 0,
+          "label": "0 Days"
+        },
+        {
+          "value": 7,
+          "label": "7 Days"
+        },
+        {
+          "value": 90,
+          "label": "90 Days"
+        }
+      ],
+      [
+        "ePHI/HDS, HIPAA",
+        "Cardholder Data (PAN)/PCI_DSS",
+        "Sensitive PII (SSN, DOB)/GDPR CCPA",
+        "Non-sensitive PII (name, address)/GDPR",
+        "Education Records, Grades/FERPA",
+        "Criminal Justice Information/CJIS",
+        "Financial Information",
+        "Business Confidential",
+        "Other"
+      ]
+    ]
+  },
+  {
+    "header": "Additional Comments",
+    "fields": [
+      {
+        "type": "heading",
+        "text": "Additional Configuration Details",
+        "info": "Note any unique requirements, workflows, or system integrations in this text area.\nThis may include: multiple accounts with separate retention policies, additionally quoted professional services, or custom scripting/API work."
+      },
+      {
+        "type": "area",
+        "required": true,
+        "text": null
+      }
+    ]
+  }
+]
