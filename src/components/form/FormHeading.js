@@ -7,7 +7,7 @@ const styles = makeStyles(theme => ({
     heading: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        // justifyContent: 'space-between'
     },
     popover: {
         width: '15rem',
@@ -22,7 +22,8 @@ const styles = makeStyles(theme => ({
         alignItems: 'center'
     },
     icon: {
-        color: 'gray'
+        color: 'gray',
+        marginLeft: theme.spacing(1)
     }
 }))
 

@@ -7,11 +7,13 @@
         "text": "Company Information"
       },
       {
+        "id": "company-name",
         "type": "text",
         "required": true,
         "text": "Company Name"
       },
       {
+        "id": "company-url",
         "type": "text",
         "required": true,
         "text": "Company Website"
@@ -22,21 +24,25 @@
         "info": "The Account Owner is the person authorized to make policy changes on the Account."
       },
       {
+        "id": "owner-name",
         "type": "text",
         "required": true,
         "text": "Account Owner's Name"
       },
       {
+        "id": "owner-title",
         "type": "text",
         "required": true,
         "text": "Account Owner's Title"
       },
       {
+        "id": "owner-phone",
         "type": "tel",
         "required": true,
         "text": "Account Owner's Phone Number"
       },
       {
+        "id": "owner-email",
         "type": "email",
         "required": true,
         "text": "Account Owner's Email"
@@ -47,21 +53,25 @@
         "info": "The Security and Privacy Officers are individuals in your organization to be contacted for security or privacy related matters.\nThese contacts do not have authority over the account."
       },
       {
+        "id": "security-name",
         "type": "text",
         "required": true,
         "text": "Security Officer's Name"
       },
       {
+        "id": "security-email",
         "type": "email",
         "required": true,
         "text": "Security Officer's Email"
       },
       {
+        "id": "privacy-name",
         "type": "text",
         "required": true,
         "text": "Privacy Officer's Name"
       },
       {
+        "id": "privacy-email",
         "type": "email",
         "required": true,
         "text": "Privacy Officer's Email"
@@ -77,12 +87,14 @@
         "info": "Filling out these fields is recommended for clients who have managed print/professional IT services from their MFP Reseller.\nThe Reseller is required to install the XM Fax and XM SendSecure apps on the MFP for Xerox and HP."
       },
       {
+        "id": "reseller-name",
         "type": "text",
         "hint": 0,
         "required": false,
         "text": "Reseller's Name"
       },
       {
+        "id": "reseller-email",
         "type": "email",
         "hint": 0,
         "required": false,
@@ -93,6 +105,7 @@
         "text": "Reseller Notifications"
       },
       {
+        "id": "ticket-notify",
         "type": "switch",
         "name": "ticketNotifSwitch",
         "hint": 1,
@@ -100,6 +113,7 @@
         "text": "Notify Reseller about new Onboarding Tickets"
       },
       {
+        "id": "resupply-notify",
         "type": "switch",
         "name": "resupplyNotifSwitch",
         "hint": 2,
@@ -111,12 +125,14 @@
         "text": "MFP Installation Contact Information"
       },
       {
+        "id": "installer-email",
         "type": "email",
         "hint": 3,
         "required": true,
         "text": "Reseller Contact's Email"
       },
       {
+        "id": "installer-phone",
         "type": "tel",
         "hint": 3,
         "required": true,
