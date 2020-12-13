@@ -155,18 +155,21 @@
         "info": "This information is used to identify who will be responsible for the configuration of XMedius applications on the OEM specific MFPs."
       },
       {
+        "id": "technical-name",
         "type": "text",
         "hint": 0,
         "required": true,
         "text": "Technical Contact's Name"
       },
       {
+        "id": "technical-phone",
         "type": "tel",
         "hint": 0,
         "required": true,
         "text": "Technical Contact's Phone"
       },
       {
+        "id": "technical-email",
         "type": "email",
         "hint": 0,
         "required": true,
@@ -178,6 +181,7 @@
         "info": "The equipment delivery dates are used for scheduling purposes.\nInbound faxing cannot be completed until one new number is available or one porting request has been completed.\nDepending on the MFPs in use, a server may be required to host the XM Fax software. Additional charges may apply."
       },
       {
+        "id": "install-date",
         "type": "date",
         "name": "installDatePicker",
         "hint": 1,
@@ -185,6 +189,7 @@
         "text": "Install Date"
       },
       {
+        "id": "removal-date",
         "type": "date",
         "name": "removalDatePicker",
         "hint": 1,
@@ -192,6 +197,7 @@
         "text": "Removal Date"
       },
       {
+        "id": "install-apps-box",
         "type": "box",
         "name": "installAppsBox",
         "opt": 0,
@@ -200,6 +206,7 @@
         "size": "full"
       },
       {
+        "id": "integrations-box",
         "type": "box",
         "name": "integrationAppsBox",
         "opt": 1,
@@ -246,6 +253,7 @@
         "info": "This information is used to create the account and setup where the account will be hosted, the account name, and and activation date.\nYou must select at least one solution."
       },
       {
+        "id": "cloud-hosting-select",
         "type": "select",
         "name": "cloudHostingSelect",
         "hint": 0,
@@ -254,12 +262,14 @@
         "text": "Cloud Hosting Locale"
       },
       {
+        "id": "account-name",
         "type": "text",
         "hint": 1,
         "required": true,
         "text": "Account Name"
       },
       {
+        "id": "activation-date",
         "type": "date",
         "name": "activationDatePicker",
         "hint": 2,
@@ -267,6 +277,7 @@
         "text": "Desired Activation Date"
       },
       {
+        "id": "enable-solutions-box",
         "type": "box",
         "name": "enableSolutionsBox",
         "hint": 3,
@@ -281,12 +292,14 @@
         "info": "The administrator(s) will have authority over the account and may be separate from the Account Owner.\nA Primary Administrator is required and it is recommended to have a Secondary Administrator for backup and support."
       },
       {
+        "id": "primary-admin-email",
         "type": "email",
         "hint": 4,
         "required": true,
         "text": "Primary Administrator's Email"
       },
       {
+        "id": "secondary-admin-email",
         "type": "email",
         "required": true,
         "text": "Secondary Administrator's Email"
@@ -297,6 +310,7 @@
         "info": "The minimum retention is 7 days.\nSelect \"Unlimited\" if you do not want faxes to be deleted at all.\nSelect \"Zero Days\" if you want faxes to be deleted immediately after successful delivery (the fax metadata will be retained for 7 days)."
       },
       {
+        "id": "retention-policy-slider",
         "type": "slider",
         "name": "retentionPolicySelect",
         "hint": 5,
@@ -310,6 +324,7 @@
         "info": "Depending on the market, we can configure industry compliance standards.\nThis information can be useful for certain requirements such as automatically printing fax pages at the MFP.\nDepending on the compliance profile, printing pages may require sFTP service to deliver pages."
       },
       {
+        "id": "data-transmit-box",
         "type": "box",
         "name": "dataTransmitBox",
         "hint": 6,
@@ -374,6 +389,7 @@
         "info": "Note any unique requirements, workflows, or system integrations in this text area.\nThis may include: multiple accounts with separate retention policies, additionally quoted professional services, or custom scripting/API work."
       },
       {
+        "id": "comments-area",
         "type": "area",
         "required": true,
         "text": null
