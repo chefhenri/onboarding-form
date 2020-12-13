@@ -35,7 +35,7 @@ export default function FormSlider(props) {
         setChecked(event.target.checked)
     }
 
-    const marks = props.options[props.opt]
+    const marks = props.options[props.option]
 
     const valueText = (value) => {
         return `${value} Days`
@@ -52,7 +52,8 @@ export default function FormSlider(props) {
             <Container className={classes.container} component={"div"} maxWidth={"lg"}>
                 <Grid spacing={2} alignItems={"center"} container>
                     <Grid item sm>
-                        <Slider className={classes.slider} defaultValue={90} value={typeof value === 'number' ? value : 0} marks={marks} step={1} min={0}
+                        <Slider id={props.id} className={classes.slider} defaultValue={90}
+                                value={typeof value === 'number' ? value : 0} marks={marks} step={1} min={0}
                                 valueLabelFormat={labelFormat} getAriaValueText={valueText} valueLabelDisplay={"auto"}
                                 onChange={handleSliderChange} disabled={checked}/>
                     </Grid>

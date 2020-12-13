@@ -50,26 +50,23 @@ export default function FormHeading(props) {
                 {props.text}
                 <Box className={classes.icons} component="span">
                     {props.hasOwnProperty('info') && (
-                        <Tooltip title='Info' placement={"top"} onClick={handleOpen} arrow>
+                        <Tooltip key={`${props.id}-info`} title='Info' placement={"top"} onClick={handleOpen} arrow>
                             <Info className={classes.icon}/>
                         </Tooltip>
                     )}
-                    {/*{props.hasOwnProperty('help') && (*/}
-                    {/*    <Tooltip title='Help' placement={"top"} onClick={handleOpen} arrow>*/}
-                    {/*        <Help className={classes.icon}/>*/}
-                    {/*    </Tooltip>*/}
-                    {/*)}*/}
                     {props.hasOwnProperty('info') && (
-                        <Popover id={popId} open={popOpen} anchorEl={anchor} anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right'
-                        }} transformOrigin={{
+                        <Popover key={`${props.info}-popover`} id={popId} open={popOpen} anchorEl={anchor}
+                                 anchorOrigin={{
+                                     vertical: 'bottom',
+                                     horizontal: 'right'
+                                 }} transformOrigin={{
                             vertical: 'top',
                             horizontal: 'left'
                         }} onClose={handleClose}>
-                            {props.info.split('\n').map(fragment =>
-                                <Typography className={classes.popover}>{fragment}</Typography>)}
-                            {/*<Typography className={classes.popover}>{props.info.split('\n').join(<Divider variant={"middle"}/>)}</Typography>*/}
+                            {props.info.split('\n').map((fragment, idx) =>
+                                <Typography key={`${props.id}-frag-${idx}`} className={classes.popover}>
+                                    {fragment}
+                                </Typography>)}
                         </Popover>
                     )}
                 </Box>

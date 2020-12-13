@@ -7,8 +7,8 @@ export default function FormSwitch(props) {
     return (
         <Grid item sm={6}>
             <FormControlLabel control={
-                <Switch name={props.name} checked={props.checkedState[props.name]} onChange={props.handleChange}
-                        color={"primary"}/>
+                <Switch id={props.id} name={props.name} checked={props.checkedState[props.name]}
+                        onChange={props.handleChange} color={"primary"}/>
             } label={props.text}/>
         </Grid>
     )

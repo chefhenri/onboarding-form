@@ -3,6 +3,7 @@
     "header": "Account Contact Information",
     "fields": [
       {
+        "id": "company-info",
         "type": "heading",
         "text": "Company Information"
       },
@@ -19,6 +20,7 @@
         "text": "Company Website"
       },
       {
+        "id": "owner-info",
         "type": "heading",
         "text": "Account Owner Information",
         "info": "The Account Owner is the person authorized to make policy changes on the Account."
@@ -48,6 +50,7 @@
         "text": "Account Owner's Email"
       },
       {
+        "id": "security-privacy-info",
         "type": "heading",
         "text": "Security and Privacy Officers' Information",
         "info": "The Security and Privacy Officers are individuals in your organization to be contacted for security or privacy related matters.\nThese contacts do not have authority over the account."
@@ -82,6 +85,7 @@
     "header": "Reseller Information",
     "fields": [
       {
+        "id": "reseller-info",
         "type": "heading",
         "text": "Reseller Information",
         "info": "Filling out these fields is recommended for clients who have managed print/professional IT services from their MFP Reseller.\nThe Reseller is required to install the XM Fax and XM SendSecure apps on the MFP for Xerox and HP."
@@ -101,6 +105,7 @@
         "text": "Reseller's Contact Email"
       },
       {
+        "id": "reseller-notifs",
         "type": "heading",
         "text": "Reseller Notifications"
       },
@@ -121,6 +126,7 @@
         "text": "Notify Reseller of Credit resupply"
       },
       {
+        "id": "installation-info",
         "type": "heading",
         "text": "MFP Installation Contact Information"
       },
@@ -150,6 +156,7 @@
     "header": "MFP Information",
     "fields": [
       {
+        "id": "technical-info",
         "type": "heading",
         "text": "Technical Contact Information",
         "info": "This information is used to identify who will be responsible for the configuration of XMedius applications on the OEM specific MFPs."
@@ -176,6 +183,7 @@
         "text": "Technical Contact's Email"
       },
       {
+        "id": "equipment-info",
         "type": "heading",
         "text": "Equipment Information",
         "info": "The equipment delivery dates are used for scheduling purposes.\nInbound faxing cannot be completed until one new number is available or one porting request has been completed.\nDepending on the MFPs in use, a server may be required to host the XM Fax software. Additional charges may apply."
@@ -200,7 +208,7 @@
         "id": "install-apps-box",
         "type": "box",
         "name": "installAppsBox",
-        "opt": 0,
+        "option": 0,
         "required": true,
         "text": "Install XMedius Apps on:",
         "size": "full"
@@ -209,7 +217,7 @@
         "id": "integrations-box",
         "type": "box",
         "name": "integrationAppsBox",
-        "opt": 1,
+        "option": 1,
         "required": true,
         "text": "Configure Advanced Workflow Integration",
         "size": "full"
@@ -248,6 +256,7 @@
     "header": "Configuration Details",
     "fields": [
       {
+        "id": "account-info",
         "type": "heading",
         "text": "Account Configuration",
         "info": "This information is used to create the account and setup where the account will be hosted, the account name, and and activation date.\nYou must select at least one solution."
@@ -257,7 +266,7 @@
         "type": "select",
         "name": "cloudHostingSelect",
         "hint": 0,
-        "opt": 0,
+        "option": 0,
         "required": true,
         "text": "Cloud Hosting Locale"
       },
@@ -281,12 +290,13 @@
         "type": "box",
         "name": "enableSolutionsBox",
         "hint": 3,
-        "opt": 1,
+        "option": 1,
         "required": true,
         "text": "Configure Enabled Solutions",
         "size": "half"
       },
       {
+        "id": "admin-info",
         "type": "heading",
         "text": "Account Administrator Information",
         "info": "The administrator(s) will have authority over the account and may be separate from the Account Owner.\nA Primary Administrator is required and it is recommended to have a Secondary Administrator for backup and support."
@@ -305,6 +315,7 @@
         "text": "Secondary Administrator's Email"
       },
       {
+        "id": "retention-policy",
         "type": "heading",
         "text": "Fax Retention Policy",
         "info": "The minimum retention is 7 days.\nSelect \"Unlimited\" if you do not want faxes to be deleted at all.\nSelect \"Zero Days\" if you want faxes to be deleted immediately after successful delivery (the fax metadata will be retained for 7 days)."
@@ -314,11 +325,12 @@
         "type": "slider",
         "name": "retentionPolicySelect",
         "hint": 5,
-        "opt": 2,
+        "option": 2,
         "required": true,
         "text": "Adjust slider to select XM Fax Retention Policy"
       },
       {
+        "id": "transmission-info",
         "type": "heading",
         "text": "Transmission Data Information",
         "info": "Depending on the market, we can configure industry compliance standards.\nThis information can be useful for certain requirements such as automatically printing fax pages at the MFP.\nDepending on the compliance profile, printing pages may require sFTP service to deliver pages."
@@ -328,7 +340,7 @@
         "type": "box",
         "name": "dataTransmitBox",
         "hint": 6,
-        "opt": 3,
+        "option": 3,
         "required": true,
         "text": "Configure Data Transmission Types",
         "size": "full"
@@ -384,6 +396,7 @@
     "header": "Additional Comments",
     "fields": [
       {
+        "id": "additional-info",
         "type": "heading",
         "text": "Additional Configuration Details",
         "info": "Note any unique requirements, workflows, or system integrations in this text area.\nThis may include: multiple accounts with separate retention policies, additionally quoted professional services, or custom scripting/API work."

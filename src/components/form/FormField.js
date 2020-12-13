@@ -12,35 +12,35 @@ export default function FormField(props) {
     switch (props.type) {
         case 'area':
             return (
-                <FormTextArea {...props}/>
+                <FormTextArea key={props.id} {...props}/>
             )
         case 'heading':
             return (
-                <FormHeading {...props}/>
+                <FormHeading key={props.id} {...props}/>
             )
         case 'box':
             return (
-                <FormCheckbox {...props}/>
+                <FormCheckbox key={props.id} {...props}/>
             )
         case 'date':
             return (
-                <FormDatePicker {...props}/>
+                <FormDatePicker key={props.id} {...props}/>
             )
         case 'select':
             return (
-                <FormSelect {...props}/>
+                <FormSelect key={props.id} {...props}/>
             )
         case 'slider':
             return (
-                <FormSlider {...props}/>
+                <FormSlider key={props.id} {...props}/>
             )
         case 'switch':
             return (
-                <FormSwitch {...props}/>
+                <FormSwitch key={props.id} {...props}/>
             )
         default:
             return (
-                <FormTextField {...props}/>
+                <FormTextField key={props.id} {...props}/>
             )
     }
 }

@@ -11,12 +11,12 @@ export default function FormCheckbox(props) {
                 <FormLabel>{props.text}</FormLabel>
                 <FormGroup row>
                     <Grid spacing={0} container>
-                        {props.options[props.opt].map((value, idx) => (
-                            <Grid sm={4} item>
-                                <FormControlLabel key={`${props.name}Checkbox${idx}`} control={
-                                    <Checkbox name={`${props.name}Opt${idx}`}
-                                                  checked={props.checkedState[`${props.name}Opt${idx}`]}
-                                                  onChange={props.handleCheckChange} color={"primary"}/>
+                        {props.options[props.option].map((value, idx) => (
+                            <Grid key={`${props.id}-opt-${idx}`} sm={4} item>
+                                <FormControlLabel control={
+                                    <Checkbox id={`${props.id}-opt-${idx}`} name={`${props.name}Opt${idx}`}
+                                              checked={props.checkedState[`${props.name}Opt${idx}`]}
+                                              onChange={props.handleCheckChange} color={"primary"}/>
                                 } label={value}/>
                             </Grid>
                         ))}
