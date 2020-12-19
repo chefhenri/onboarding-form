@@ -21,8 +21,14 @@ export default function FormSelect(props) {
         <Grid item sm={6}>
             <FormControl className={classes.formControl} variant={"outlined"} fullWidth>
                 <InputLabel id={labelId}>{props.text}</InputLabel>
-                <Select id={props.id} name={props.name} labelId={labelId} label={props.text} value={props.selectedItem}
-                        onChange={props.handleChange} displayEmpty autoWidth>
+                <Select id={props.id}
+                        name={props.name}
+                        labelId={labelId}
+                        label={props.text}
+                        value={props.selectedItem}
+                        onChange={props.handleChange}
+                        displayEmpty
+                        autoWidth>
                     {props.options[props.option].map((value, idx) => (
                         <MenuItem key={`${value}SelectOpt`} value={idx}>{value}</MenuItem>
                     ))}

@@ -55,14 +55,19 @@ export default function FormHeading(props) {
                         </Tooltip>
                     )}
                     {props.hasOwnProperty('info') && (
-                        <Popover key={`${props.info}-popover`} id={popId} open={popOpen} anchorEl={anchor}
+                        <Popover key={`${props.info}-popover`}
+                                 id={popId}
+                                 open={popOpen}
+                                 anchorEl={anchor}
                                  anchorOrigin={{
                                      vertical: 'bottom',
                                      horizontal: 'right'
-                                 }} transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'left'
-                        }} onClose={handleClose}>
+                                 }}
+                                 transformOrigin={{
+                                     vertical: 'top',
+                                     horizontal: 'left'
+                                 }}
+                                 onClose={handleClose}>
                             {props.info.split('\n').map((fragment, idx) =>
                                 <Typography key={`${props.id}-frag-${idx}`} className={classes.popover}>
                                     {fragment}

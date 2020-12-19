@@ -14,10 +14,13 @@ export default function FormCheckbox(props) {
                         {props.options[props.option].map((value, idx) => (
                             <Grid key={`${props.id}-opt-${idx}`} sm={4} item>
                                 <FormControlLabel control={
-                                    <Checkbox id={`${props.id}-opt-${idx}`} name={`${props.name}Opt${idx}`}
+                                    <Checkbox id={`${props.id}-opt-${idx}`}
+                                              name={`${props.name}Opt${idx}`}
                                               checked={props.checkedState[`${props.name}Opt${idx}`]}
-                                              onChange={props.handleCheckChange} color={"primary"}/>
-                                } label={value}/>
+                                              onChange={props.handleCheckChange}
+                                              color={"primary"}/>
+                                }
+                                                  label={value}/>
                             </Grid>
                         ))}
                     </Grid>

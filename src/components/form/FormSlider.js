@@ -52,25 +52,38 @@ export default function FormSlider(props) {
             <Container className={classes.container} component={"div"} maxWidth={"lg"}>
                 <Grid spacing={2} alignItems={"center"} container>
                     <Grid item sm>
-                        <Slider id={props.id} className={classes.slider} defaultValue={90}
-                                value={typeof value === 'number' ? value : 0} marks={marks} step={1} min={0}
-                                valueLabelFormat={labelFormat} getAriaValueText={valueText} valueLabelDisplay={"auto"}
-                                onChange={handleSliderChange} disabled={checked}/>
+                        <Slider id={props.id}
+                                className={classes.slider}
+                                name={props.name}
+                                defaultValue={90}
+                                value={typeof value === 'number' ? value : 0}
+                                marks={marks} step={1} min={0}
+                                valueLabelFormat={labelFormat}
+                                getAriaValueText={valueText}
+                                valueLabelDisplay={"auto"}
+                                onChange={handleSliderChange}
+                                disabled={checked}/>
                     </Grid>
                     <Grid item>
-                        <Input className={classes.input} value={value} margin={"dense"} onChange={handleInputChange}
+                        <Input className={classes.input}
+                               name={props.name + 'CustomValue'}
+                               value={value}
+                               margin={"dense"}
+                               onChange={handleInputChange}
                                inputProps={{
                                    step: 1,
                                    min: 0,
                                    max: 500,
                                    type: 'number'
-                               }} disabled={checked}/>
+                               }}
+                               disabled={checked}/>
                     </Grid>
                 </Grid>
-                <FormControlLabel control={
-                    <Switch name='retentionSliderUnlimitedCheck' color={"primary"} checked={checked}
-                            onChange={handleChecked}/>
-                } label='Unlimited'/>
+                <FormControlLabel control={<Switch name={props.name + 'UnlimitedCheck'}
+                                                   color={"primary"}
+                                                   checked={checked}
+                                                   onChange={handleChecked}/>}
+                                  label='Unlimited'/>
             </Container>
         </Grid>
     )
