@@ -4,17 +4,20 @@
     "fields": [
       {
         "id": "company-info",
+        "name": "companyInfo",
         "type": "heading",
         "text": "Company Information"
       },
       {
         "id": "company-name",
+        "name": "companyName",
         "type": "text",
         "required": true,
         "text": "Company Name"
       },
       {
         "id": "company-url",
+        "name": "companyUrl",
         "type": "text",
         "required": true,
         "text": "Company Website"
@@ -27,24 +30,28 @@
       },
       {
         "id": "owner-name",
+        "name": "ownerName",
         "type": "text",
         "required": true,
         "text": "Account Owner's Name"
       },
       {
         "id": "owner-title",
+        "name": "ownerTitle",
         "type": "text",
         "required": true,
         "text": "Account Owner's Title"
       },
       {
         "id": "owner-phone",
+        "name": "ownerPhone",
         "type": "tel",
         "required": true,
         "text": "Account Owner's Phone Number"
       },
       {
         "id": "owner-email",
+        "name": "ownerEmail",
         "type": "email",
         "required": true,
         "text": "Account Owner's Email"
@@ -57,24 +64,28 @@
       },
       {
         "id": "security-name",
+        "name": "securityName",
         "type": "text",
         "required": true,
         "text": "Security Officer's Name"
       },
       {
         "id": "security-email",
+        "name": "securityEmail",
         "type": "email",
         "required": true,
         "text": "Security Officer's Email"
       },
       {
         "id": "privacy-name",
+        "name": "privacyName",
         "type": "text",
         "required": true,
         "text": "Privacy Officer's Name"
       },
       {
         "id": "privacy-email",
+        "name": "privacyEmail",
         "type": "email",
         "required": true,
         "text": "Privacy Officer's Email"
@@ -92,6 +103,7 @@
       },
       {
         "id": "reseller-name",
+        "name": "resellerName",
         "type": "text",
         "hint": 0,
         "required": false,
@@ -99,6 +111,7 @@
       },
       {
         "id": "reseller-email",
+        "name": "resellerEmail",
         "type": "email",
         "hint": 0,
         "required": false,
@@ -111,16 +124,16 @@
       },
       {
         "id": "ticket-notify",
-        "type": "switch",
         "name": "ticketNotifSwitch",
+        "type": "switch",
         "hint": 1,
         "required": true,
         "text": "Notify Reseller about new Onboarding Tickets"
       },
       {
         "id": "resupply-notify",
-        "type": "switch",
         "name": "resupplyNotifSwitch",
+        "type": "switch",
         "hint": 2,
         "required": true,
         "text": "Notify Reseller of Credit resupply"
@@ -132,6 +145,7 @@
       },
       {
         "id": "installer-email",
+        "name": "installerEmail",
         "type": "email",
         "hint": 3,
         "required": true,
@@ -139,6 +153,7 @@
       },
       {
         "id": "installer-phone",
+        "name": "installerPhone",
         "type": "tel",
         "hint": 3,
         "required": true,
@@ -163,6 +178,7 @@
       },
       {
         "id": "technical-name",
+        "name": "technicalName",
         "type": "text",
         "hint": 0,
         "required": true,
@@ -170,6 +186,7 @@
       },
       {
         "id": "technical-phone",
+        "name": "technicalPhone",
         "type": "tel",
         "hint": 0,
         "required": true,
@@ -177,6 +194,7 @@
       },
       {
         "id": "technical-email",
+        "name": "technicalEmail",
         "type": "email",
         "hint": 0,
         "required": true,
@@ -190,24 +208,24 @@
       },
       {
         "id": "install-date",
-        "type": "date",
         "name": "installDatePicker",
+        "type": "date",
         "hint": 1,
         "required": true,
         "text": "Install Date"
       },
       {
         "id": "removal-date",
-        "type": "date",
         "name": "removalDatePicker",
+        "type": "date",
         "hint": 1,
         "required": true,
         "text": "Removal Date"
       },
       {
         "id": "install-apps-box",
-        "type": "box",
         "name": "installAppsBox",
+        "type": "box",
         "option": 0,
         "required": true,
         "text": "Install XMedius Apps on:",
@@ -215,8 +233,8 @@
       },
       {
         "id": "integrations-box",
-        "type": "box",
         "name": "integrationAppsBox",
+        "type": "box",
         "option": 1,
         "required": true,
         "text": "Configure Advanced Workflow Integration",
@@ -263,8 +281,8 @@
       },
       {
         "id": "cloud-hosting-select",
-        "type": "select",
         "name": "cloudHostingSelect",
+        "type": "select",
         "hint": 0,
         "option": 0,
         "required": true,
@@ -272,6 +290,7 @@
       },
       {
         "id": "account-name",
+        "name": "accountName",
         "type": "text",
         "hint": 1,
         "required": true,
@@ -279,16 +298,16 @@
       },
       {
         "id": "activation-date",
-        "type": "date",
         "name": "activationDatePicker",
+        "type": "date",
         "hint": 2,
         "required": true,
         "text": "Desired Activation Date"
       },
       {
         "id": "enable-solutions-box",
-        "type": "box",
         "name": "enableSolutionsBox",
+        "type": "box",
         "hint": 3,
         "option": 1,
         "required": true,
@@ -303,6 +322,7 @@
       },
       {
         "id": "primary-admin-email",
+        "name": "primaryAdminEmail",
         "type": "email",
         "hint": 4,
         "required": true,
@@ -310,6 +330,7 @@
       },
       {
         "id": "secondary-admin-email",
+        "name": "secondaryAdminEmail",
         "type": "email",
         "required": true,
         "text": "Secondary Administrator's Email"
@@ -322,8 +343,8 @@
       },
       {
         "id": "retention-policy-slider",
-        "type": "slider",
         "name": "retentionPolicySelect",
+        "type": "slider",
         "hint": 5,
         "option": 2,
         "required": true,
@@ -337,8 +358,8 @@
       },
       {
         "id": "data-transmit-box",
-        "type": "box",
         "name": "dataTransmitBox",
+        "type": "box",
         "hint": 6,
         "option": 3,
         "required": true,
@@ -403,6 +424,7 @@
       },
       {
         "id": "comments-area",
+        "name": "commentsArea",
         "type": "area",
         "required": true,
         "text": null
