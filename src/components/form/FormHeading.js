@@ -33,7 +33,6 @@ export default function FormHeading(props) {
     const [anchor, setAnchor] = React.useState(null)
 
     const handleOpen = (event) => {
-        // setAnchor(document.querySelector('#main'))
         setAnchor(event.currentTarget)
     }
 
@@ -43,6 +42,21 @@ export default function FormHeading(props) {
 
     const popOpen = Boolean(anchor)
     const popId = popOpen ? 'info-popover' : undefined
+
+    const popoverProps = {
+        id: popId,
+        open: popOpen,
+        anchorEl: anchor,
+        anchorOrigin: {
+            vertical: 'bottom',
+            horizontal: 'right'
+        },
+        transformOrigin: {
+            vertical: 'top',
+            horizontal: 'left'
+        },
+        onClose: handleClose
+    }
 
     return (
         <Grid item sm={12}>
@@ -55,19 +69,7 @@ export default function FormHeading(props) {
                         </Tooltip>
                     )}
                     {props.hasOwnProperty('info') && (
-                        <Popover key={`${props.info}-popover`}
-                                 id={popId}
-                                 open={popOpen}
-                                 anchorEl={anchor}
-                                 anchorOrigin={{
-                                     vertical: 'bottom',
-                                     horizontal: 'right'
-                                 }}
-                                 transformOrigin={{
-                                     vertical: 'top',
-                                     horizontal: 'left'
-                                 }}
-                                 onClose={handleClose}>
+                        <Popover key={`${props.info}-popover`} {...popoverProps}>
                             {props.info.split('\n').map((fragment, idx) =>
                                 <Typography key={`${props.id}-frag-${idx}`} className={classes.popover}>
                                     {fragment}

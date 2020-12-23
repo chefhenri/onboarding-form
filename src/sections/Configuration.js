@@ -41,10 +41,15 @@ export default function Configuration(props) {
         <Fragment>
             <Grid container spacing={3}>
                 {props.fields.map((data, idx) => (
-                    <FormField key={`ConfigurationField${idx}`} {...data} options={props.options}
-                               selectedDate={selectedDate} handleDateChange={handleDateChange}
-                               selectedItem={selectedItem[data.name]} handleChange={handleItemChange}
-                               checkedState={checkedState} handleCheckChange={handleCheckedChange}/>
+                    <FormField {...data}
+                               key={`ConfigurationField${idx}`}
+                               options={props.options}
+                               selectedDate={selectedDate}
+                               handleDateChange={handleDateChange}
+                               selectedItem={selectedItem[data.name]}
+                               handleChange={handleItemChange}
+                               checkedState={checkedState}
+                               handleCheckChange={handleCheckedChange}/>
                 ))}
             </Grid>
         </Fragment>

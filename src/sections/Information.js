@@ -35,9 +35,13 @@ export default function Information(props) {
         <Fragment>
             <Grid container spacing={3}>
                 {props.fields.map((data, idx) => (
-                    <FormField key={`InformationField${idx}`} {...data} options={props.options}
-                               selectedDate={selectedDate} handleDateChange={handleDateChange}
-                               checkedState={checkedState} handleCheckChange={handleCheckedChange}/>
+                    <FormField {...data}
+                               key={`InformationField${idx}`}
+                               options={props.options}
+                               selectedDate={selectedDate}
+                               handleDateChange={handleDateChange}
+                               checkedState={checkedState}
+                               handleCheckChange={handleCheckedChange}/>
                 ))}
             </Grid>
         </Fragment>

@@ -16,7 +16,9 @@ export default function Reseller(props) {
         <Fragment>
             <Grid container spacing={3}>
                 {props.fields.map((data, idx) => (
-                    <FormField key={`ResellerField${idx}`} {...data} checkedState={checkedState}
+                    <FormField {...data}
+                               key={`ResellerField${idx}`}
+                               checkedState={checkedState}
                                handleChange={handleChange}/>
                 ))}
             </Grid>

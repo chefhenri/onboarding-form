@@ -17,18 +17,22 @@ export default function FormSelect(props) {
     const classes = styles()
     const labelId = props.text.toLowerCase().replace(' ', '-')
 
+    const selectProps = {
+        id: props.id,
+        name: props.name,
+        label: props.text,
+        labelId: labelId,
+        value: props.selectedItem,
+        onChange: props.handleChange,
+        displayEmpty: true,
+        autoWidth: true
+    }
+
     return (
         <Grid item sm={6}>
             <FormControl className={classes.formControl} variant={"outlined"} fullWidth>
                 <InputLabel id={labelId}>{props.text}</InputLabel>
-                <Select id={props.id}
-                        name={props.name}
-                        labelId={labelId}
-                        label={props.text}
-                        value={props.selectedItem}
-                        onChange={props.handleChange}
-                        displayEmpty
-                        autoWidth>
+                <Select {...selectProps}>
                     {props.options[props.option].map((value, idx) => (
                         <MenuItem key={`${value}SelectOpt`} value={idx}>{value}</MenuItem>
                     ))}

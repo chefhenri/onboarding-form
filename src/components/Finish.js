@@ -5,7 +5,7 @@ import {Typography} from "@material-ui/core";
 const finishText = 'Your order number is #2001539. We have emailed your order confirmation, and will send you an ' +
     'update when your order has shipped.'
 
-export default function Finish(props) {
+export default function Finish() {
     return (
         <div>
             <Typography variant="h5" gutterBottom>

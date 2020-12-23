@@ -7,7 +7,7 @@ export default function Comments(props) {
         <Fragment>
             <Grid container spacing={3}>
                 {props.fields.map((data, idx) => (
-                    <FormField key={`CommentsField${idx}`} {...data}/>
+                    <FormField {...data} key={`CommentsField${idx}`}/>
                 ))}
             </Grid>
         </Fragment>
