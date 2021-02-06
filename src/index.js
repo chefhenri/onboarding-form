@@ -6,7 +6,7 @@ import {MuiPickersUtilsProvider} from '@material-ui/pickers'
 import MomentUtils from '@date-io/moment'
 
 // TODO: Add 'Info' and 'Help' text to headings
-const sectionData = require('./data/onboarding_form.json')
+const sectionData = require('./data/onboarding-form.json')
 
 render(
     <StrictMode>
