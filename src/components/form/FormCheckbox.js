@@ -7,6 +7,7 @@ import {FormControl, FormLabel, Grid} from "@material-ui/core";
 export default function FormCheckbox(props) {
     return (
         <Grid item sm={props.size === 'half' ? 6 : 12}>
+            {/* TODO: Add context consumer */}
             <FormControl component={"fieldset"} fullWidth>
                 <FormLabel>{props.text}</FormLabel>
                 <FormGroup row>

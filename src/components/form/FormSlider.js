@@ -86,6 +86,7 @@ export default function FormSlider(props) {
     // TODO: Add text field to slider for 'Custom' value
     return (
         <Grid sm={12} item>
+            {/* TODO: Add context consumer */}
             <Typography>{props.text}</Typography>
             <Container className={classes.container} component={"div"} maxWidth={"lg"}>
                 <Grid spacing={2} alignItems={"center"} container>

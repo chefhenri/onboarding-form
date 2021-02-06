@@ -14,6 +14,7 @@ export default function FormSwitch(props) {
 
     return (
         <Grid item sm={6}>
+            {/* TODO: Add context consumer */}
             <FormControlLabel control={<Switch {...switchProps}/>} label={props.text}/>
         </Grid>
     )
