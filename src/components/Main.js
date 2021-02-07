@@ -53,7 +53,10 @@ export default function Main(props) {
     const [skipped, setSkipped] = React.useState(new Set());
 
     const [accountData, setAccountData] = React.useState({})
+    const [configData, setConfigData] = React.useState({})
     const [commentsData, setCommentsData] = React.useState({})
+    const [infoData, setInfoData] = React.useState({})
+    const [resellerData, setResellerData] = React.useState({})
 
     const isOptional = (section) => {
         return section === 1 || section === 2
@@ -110,14 +113,26 @@ export default function Main(props) {
                     </FormContext.Provider>
                 )
             case 1:
-                return <Reseller header={props.sections[idx].header} fields={props.sections[idx].fields}
-                                 hints={props.sections[idx].hints}/>
+                return (
+                    <FormContext.Provider value={{data: resellerData, update: setResellerData}}>
+                        <Reseller header={props.sections[idx].header} fields={props.sections[idx].fields}
+                                  hints={props.sections[idx].hints}/>
+                    </FormContext.Provider>
+                )
             case 2:
-                return <Information header={props.sections[idx].header} fields={props.sections[idx].fields}
-                                    hints={props.sections[idx].hints} options={props.sections[idx].options}/>
+                return (
+                    <FormContext.Provider value={{data: infoData, update: setInfoData}}>
+                        <Information header={props.sections[idx].header} fields={props.sections[idx].fields}
+                                     hints={props.sections[idx].hints} options={props.sections[idx].options}/>
+                    </FormContext.Provider>
+                )
             case 3:
-                return <Configuration header={props.sections[idx].header} fields={props.sections[idx].fields}
-                                      hints={props.sections[idx].hints} options={props.sections[idx].options}/>
+                return (
+                    <FormContext.Provider value={{data: configData, update: setConfigData}}>
+                        <Configuration header={props.sections[idx].header} fields={props.sections[idx].fields}
+                                       hints={props.sections[idx].hints} options={props.sections[idx].options}/>
+                    </FormContext.Provider>
+                )
             case 4:
                 return (
                     <FormContext.Provider value={{data: commentsData, update: setCommentsData}}>
