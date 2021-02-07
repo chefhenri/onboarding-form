@@ -8,8 +8,8 @@ export default function Reseller(props) {
         resupplyNotifSwitch: true
     })
 
-    const handleChange = (event) => {
-        setCheckedState({...checkedState, [event.target.name]: event.target.checked})
+    const handleChange = (event, checked) => {
+        setCheckedState({...checkedState, [event.target.name]: checked})
     }
 
     return (

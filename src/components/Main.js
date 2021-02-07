@@ -53,10 +53,25 @@ export default function Main(props) {
     const [skipped, setSkipped] = React.useState(new Set());
 
     const [accountData, setAccountData] = React.useState({})
+
+    // TODO: Add default values
     const [configData, setConfigData] = React.useState({})
     const [commentsData, setCommentsData] = React.useState({})
+
+    // TODO: Add default values
     const [infoData, setInfoData] = React.useState({})
-    const [resellerData, setResellerData] = React.useState({})
+    const [resellerData, setResellerData] = React.useState({
+        ticketNotifSwitch: {
+            id: 'ticket-notify',
+            value: true,
+            label: 'Notify Reseller about new Onboarding Tickets'
+        },
+        resupplyNotifSwitch: {
+            id: 'resupply-notify',
+            value: true,
+            label: 'Notify Reseller of Credit resupply'
+        }
+    })
 
     const isOptional = (section) => {
         return section === 1 || section === 2
