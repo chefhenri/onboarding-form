@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
 import Paper from "@material-ui/core/Paper";
-import {Button, Typography} from "@material-ui/core";
+import {Typography} from "@material-ui/core";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
@@ -12,7 +12,9 @@ import Reseller from "../sections/Reseller";
 import Information from "../sections/Information";
 import Configuration from "../sections/Configuration";
 import Comments from "../sections/Comments";
-import {CommentsContext} from "../contexts/comments-context";
+
+import {FormContext} from '../contexts/form-context'
+import Content from "./Content";
 
 const styles = makeStyles((theme) => ({
     layout: {
@@ -40,14 +42,6 @@ const styles = makeStyles((theme) => ({
     },
     completed: {
         display: 'inline-block',
-    },
-    buttons: {
-        display: 'flex',
-        justifyContent: 'flex-end',
-    },
-    button: {
-        marginTop: theme.spacing(3),
-        marginLeft: theme.spacing(1),
     }
 }))
 
@@ -58,6 +52,7 @@ export default function Main(props) {
     const [active, setActive] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
 
+    const [accountData, setAccountData] = React.useState({})
     const [commentsData, setCommentsData] = React.useState({})
 
     const isOptional = (section) => {
@@ -109,7 +104,11 @@ export default function Main(props) {
     const getSection = (idx) => {
         switch (idx) {
             case 0:
-                return <Account header={props.sections[idx].header} fields={props.sections[idx].fields}/>
+                return (
+                    <FormContext.Provider value={{data: accountData, update: setAccountData}}>
+                        <Account header={props.sections[idx].header} fields={props.sections[idx].fields}/>
+                    </FormContext.Provider>
+                )
             case 1:
                 return <Reseller header={props.sections[idx].header} fields={props.sections[idx].fields}
                                  hints={props.sections[idx].hints}/>
@@ -121,9 +120,9 @@ export default function Main(props) {
                                       hints={props.sections[idx].hints} options={props.sections[idx].options}/>
             case 4:
                 return (
-                    <CommentsContext.Provider value={{data: commentsData, update: setCommentsData}}>
+                    <FormContext.Provider value={{data: commentsData, update: setCommentsData}}>
                         <Comments header={props.sections[idx].header} fields={props.sections[idx].fields}/>
-                    </CommentsContext.Provider>
+                    </FormContext.Provider>
                 )
 
             default:
@@ -138,26 +137,15 @@ export default function Main(props) {
                 <Stepper className={classes.stepper} activeStep={active}>{generateLabels()}</Stepper>
                 <Fragment>
                     {active === props.headers.length ? (
-                        <Finish/>
+                        <Finish account={accountData} comments={commentsData}/>
                     ) : (
-                        <div>
-                            {getSection(active)}
-                            <div>
-                                <Button disabled={active === 0} onClick={handleBack} className={classes.button}>
-                                    Back
-                                </Button>
-                                {isOptional(active) && (
-                                    <Button variant="contained" color="primary" onClick={handleSkip}
-                                            className={classes.button}>
-                                        Skip
-                                    </Button>
-                                )}
-                                <Button variant="contained" color="primary" onClick={handleNext}
-                                        className={classes.button}>
-                                    {active === props.headers.length - 1 ? 'Finish' : 'Next'}
-                                </Button>
-                            </div>
-                        </div>
+                        <Content active={active}
+                                 section={getSection(active)}
+                                 next={handleNext}
+                                 back={handleBack}
+                                 optional={isOptional}
+                                 skip={handleSkip}
+                                 length={props.headers.length - 1}/>
                     )}
                 </Fragment>
             </Paper>

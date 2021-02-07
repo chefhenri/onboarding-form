@@ -1,6 +1,6 @@
 import React from "react";
 
-export const CommentsContext = React.createContext({
+export const FormContext = React.createContext({
     data: null,
     update: () => {}
 })
