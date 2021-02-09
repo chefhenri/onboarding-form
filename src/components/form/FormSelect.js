@@ -18,12 +18,14 @@ export default function FormSelect(props) {
     const classes = styles()
     const labelId = props.text.toLowerCase().replace(' ', '-')
 
+    // TODO: Configure required condition
     const selectProps = {
         id: props.id,
         name: props.name,
         label: props.text,
         labelId: labelId,
         value: props.selectedItem,
+        // required: props.required,
         onChange: props.handleChange,
         displayEmpty: true,
         autoWidth: true

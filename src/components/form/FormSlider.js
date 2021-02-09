@@ -47,7 +47,7 @@ export default function FormSlider(props) {
 
     const sliderProps = {
         id: props.id,
-        name: props.id,
+        name: props.name,
         className: classes.slider,
         defaultValue: 90,
         value: typeof value === 'number' ? value : 0,
@@ -62,14 +62,16 @@ export default function FormSlider(props) {
     }
 
     const switchProps = {
-        name: props.name + 'UnlimitedCheck',
+        id: props.id + '-unlimited-switch',
+        name: props.name,
         color: 'primary',
         checked: checked,
         onChange: handleChecked
     }
 
     const inputProps = {
-        name: props.name + 'CustomValue',
+        id: props.id + '-custom-value',
+        name: props.name,
         className: classes.input,
         value: value,
         margin: 'dense',
@@ -83,7 +85,6 @@ export default function FormSlider(props) {
         onChange: handleInputChange,
     }
 
-    // TODO: Add text field to slider for 'Custom' value
     return (
         <Grid sm={12} item>
             {/* TODO: Add context consumer */}
