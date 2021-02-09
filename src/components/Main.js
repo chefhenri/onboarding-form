@@ -55,15 +55,15 @@ export default function Main(props) {
 
     const [accountData, setAccountData] = React.useState({})
     const [configData, setConfigData] = React.useState({
-        installDatePicker: {
-            id: 'install-date',
+        activationDatePicker: {
+            id: 'activation-date',
             value: moment().day(15),
-            label: 'Install Date'
+            label: 'Desired Activation Date'
         },
-        removalDatePicker: {
-            id: 'removal-date',
-            value: moment().day(29),
-            label: 'Removal Date'
+        retentionPolicySlider: {
+            id: 'retention-policy-slider',
+            value: 90,
+            label: 'Adjust slider to select XM Fax Retention Policy'
         },
         // installAppsBoxOpt0: {
         //     id: 'install-apps-box-opt-0',
@@ -128,15 +128,15 @@ export default function Main(props) {
     })
     const [commentsData, setCommentsData] = React.useState({})
     const [infoData, setInfoData] = React.useState({
-        activationDatePicker: {
-            id: 'activation-date',
+        installDatePicker: {
+            id: 'install-date',
             value: moment().day(15),
-            label: 'Desired Activation Date'
+            label: 'Install Date'
         },
-        retentionPolicySlider: {
-            id: 'retention-policy-slider',
-            value: 90,
-            label: 'Adjust slider to select XM Fax Retention Policy'
+        removalDatePicker: {
+            id: 'removal-date',
+            value: moment().day(29),
+            label: 'Removal Date'
         }
     })
     const [resellerData, setResellerData] = React.useState({

@@ -3,7 +3,6 @@ import {FormControl, Grid, MenuItem} from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import {makeStyles} from "@material-ui/core/styles";
-import {FormContext} from "../../contexts/form-context";
 
 const styles = makeStyles((theme) => ({
     formControl: {
