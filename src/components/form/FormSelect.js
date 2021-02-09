@@ -17,14 +17,12 @@ export default function FormSelect(props) {
     const classes = styles()
     const labelId = props.text.toLowerCase().replace(' ', '-')
 
-    // TODO: Configure required condition
     const selectProps = {
         id: props.id,
         name: props.name,
         label: props.text,
         labelId: labelId,
         value: props.selectedItem,
-        // required: props.required,
         onChange: props.handleChange,
         displayEmpty: true,
         autoWidth: true
@@ -33,7 +31,7 @@ export default function FormSelect(props) {
     return (
         <Grid item sm={6}>
             {/* TODO: Add context consumer */}
-            <FormControl className={classes.formControl} variant={"outlined"} fullWidth>
+            <FormControl className={classes.formControl} variant={"outlined"} required={props.required} fullWidth>
                 <InputLabel id={labelId}>{props.text}</InputLabel>
                 <Select {...selectProps}>
                     {props.options[props.option].map((value, idx) => (
