@@ -64,67 +64,7 @@ export default function Main(props) {
             id: 'retention-policy-slider',
             value: 90,
             label: 'Adjust slider to select XM Fax Retention Policy'
-        },
-        // installAppsBoxOpt0: {
-        //     id: 'install-apps-box-opt-0',
-        //     value: false,
-        //     label: ''
-        // },
-        // installAppsBoxOpt1: {
-        //     id: 'install-apps-box-opt-1',
-        //     value: false,
-        //     label: ''
-        // },
-        // installAppsBoxOpt2: {
-        //     id: 'install-apps-box-opt-2',
-        //     value: false,
-        //     label: ''
-        // },
-        // installAppsBoxOpt3: {
-        //     id: 'install-apps-box-opt-3',
-        //     value: false,
-        //     label: ''
-        // },
-        // installAppsBoxOpt4: {
-        //     id: 'install-apps-box-opt-4',
-        //     value: false,
-        //     label: ''
-        // },
-        // installAppsBoxOpt5: {
-        //     id: 'install-apps-box-opt-5',
-        //     value: false,
-        //     label: ''
-        // },
-        // installAppsBoxOpt6: {
-        //     id: 'install-apps-box-opt-6',
-        //     value: false,
-        //     label: ''
-        // },
-        // installAppsBoxOpt7: {
-        //     id: 'install-apps-box-opt-7',
-        //     value: false,
-        //     label: ''
-        // },
-        // integrationAppsBoxOpt0: {
-        //     id: 'integrations-box-opt-0',
-        //     value: false,
-        //     label: ''
-        // },
-        // integrationAppsBoxOpt1: {
-        //     id: 'integrations-box-opt-1',
-        //     value: false,
-        //     label: ''
-        // },
-        // integrationAppsBoxOpt2: {
-        //     id: 'integrations-box-opt-2',
-        //     value: false,
-        //     label: ''
-        // },
-        // integrationAppsBoxOpt3: {
-        //     id: 'integrations-box-opt-3',
-        //     value: false,
-        //     label: ''
-        // },
+        }
     })
     const [commentsData, setCommentsData] = React.useState({})
     const [infoData, setInfoData] = React.useState({
