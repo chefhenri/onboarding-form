@@ -197,7 +197,6 @@ export default function Main(props) {
         })
     )
 
-    // TODO: Add context providers to other sections
     const getSection = (idx) => {
         switch (idx) {
             case 0:
