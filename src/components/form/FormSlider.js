@@ -1,6 +1,7 @@
 import React from "react";
 import {Container, FormControlLabel, Grid, Input, Slider, Switch, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
+import {FormContext} from "../../contexts/form-context";
 
 const styles = makeStyles(theme => ({
     container: {
@@ -23,16 +24,16 @@ export default function FormSlider(props) {
     const [value, setValue] = React.useState(90)
     const [checked, setChecked] = React.useState(false)
 
-    const handleSliderChange = (event, value) => {
-        setValue(value)
+    const handleSliderChange = (event, newValue) => {
+        setValue(newValue)
     }
 
     const handleInputChange = (event) => {
         setValue(event.target.value === '' ? '' : Number(event.target.value))
     }
 
-    const handleChecked = (event) => {
-        setChecked(event.target.checked)
+    const handleChecked = (checked) => {
+        setChecked(checked)
     }
 
     const marks = props.options[props.option]
@@ -57,8 +58,7 @@ export default function FormSlider(props) {
         valueLabelDisplay: 'auto',
         disabled: checked,
         valueLabelFormat: labelFormat,
-        getAriaValueText: valueText,
-        onChange: handleSliderChange,
+        getAriaValueText: valueText
     }
 
     const switchProps = {
@@ -81,8 +81,7 @@ export default function FormSlider(props) {
             max: 500,
             type: 'number'
         },
-        disabled: checked,
-        onChange: handleInputChange,
+        disabled: checked
     }
 
     return (
@@ -92,13 +91,57 @@ export default function FormSlider(props) {
             <Container className={classes.container} component={"div"} maxWidth={"lg"}>
                 <Grid spacing={2} alignItems={"center"} container>
                     <Grid item sm>
-                        <Slider {...sliderProps}/>
+                        <FormContext.Consumer>
+                            {({data, update}) => (
+                                <Slider {...sliderProps} onChange={(event, value) => {
+                                    handleSliderChange(event, value)
+                                    update({
+                                        ...data,
+                                        [props.name]: {
+                                            id: props.id,
+                                            value: value,
+                                            label: props.text
+                                        }
+                                    })
+                                }}/>
+                            )}
+                        </FormContext.Consumer>
                     </Grid>
                     <Grid item>
-                        <Input {...inputProps}/>
+                        <FormContext.Consumer>
+                            {({data, update}) => (
+                                <Input {...inputProps} onChange={event => {
+                                    handleInputChange(event)
+                                    update({
+                                        ...data,
+                                        [props.name]: {
+                                            id: event.target.id,
+                                            value: event.target.value,
+                                            label: props.text
+                                        }
+                                    })
+                                }}/>
+                            )}
+                        </FormContext.Consumer>
                     </Grid>
                 </Grid>
-                <FormControlLabel control={<Switch {...switchProps}/>} label='Unlimited'/>
+                <FormControlLabel control={
+                    <FormContext.Consumer>
+                        {({data, update}) => (
+                            <Switch {...switchProps} onChange={(event, checked) => {
+                                handleChecked(checked)
+                                update({
+                                    ...data,
+                                    [props.name]: {
+                                        id: event.target.id,
+                                        value: checked,
+                                        label: props.text
+                                    }
+                                })
+                            }}/>
+                        )}
+                    </FormContext.Consumer>
+                } label='Unlimited'/>
             </Container>
         </Grid>
     )
