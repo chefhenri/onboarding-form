@@ -26,16 +26,18 @@ export default function Finish(props) {
                 Information Summary
             </Typography>
             <Typography variant="subtitle1" gutterBottom>
-                {/* FIXME: Change wording? */}
+                {/* FIXME: Wording? */}
                 Please verify the information is correct.
             </Typography>
 
-            {/* TODO: Display section data under subsection headings */}
+            {/* TODO: Reference field data with section field info */}
             <List className={classes.list} subheader={<li/>}>
+                {/* TODO: Loop through section fields */}
                 {['company-info', 'owner-info', 'security-privacy-info'].map(headingId => (
                     <li key={`${headingId}-heading`} className={classes.section}>
                         <ul className={classes.items}>
                             <ListSubheader>Subsection Header</ListSubheader>
+                            {/* TODO: Cross-reference field data with field info */}
                             {Object.values(props.account).map((data, idx) => (
                                 <ListItem key={`${headingId}-item-${idx}`}>
                                     <ListItemText primary={`${data.label}: ${data.value}`}/>

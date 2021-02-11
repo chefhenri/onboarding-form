@@ -1,5 +1,7 @@
 [
   {
+    "id": "acct-contact-info",
+    "name": "acctContactInfo",
     "header": "Account Contact Information",
     "fields": [
       {
@@ -93,6 +95,8 @@
     ]
   },
   {
+    "id": "reseller-info",
+    "name": "resellerInfo",
     "header": "Reseller Information",
     "fields": [
       {
@@ -168,6 +172,8 @@
     ]
   },
   {
+    "id": "mfp-info",
+    "name": "MFPInfo",
     "header": "MFP Information",
     "fields": [
       {
@@ -271,6 +277,8 @@
     ]
   },
   {
+    "id": "config-details",
+    "name": "configDetails",
     "header": "Configuration Details",
     "fields": [
       {
@@ -414,6 +422,8 @@
     ]
   },
   {
+    "id": "add-comments",
+    "name": "addComments",
     "header": "Additional Comments",
     "fields": [
       {
