@@ -9,21 +9,21 @@ export default function FormCheckbox(props) {
     const checkboxProps = idx => ({
         id: `${props.id}-opt-${idx}`,
         name: `${props.name}Opt${idx}`,
-        checked: props.checkedState[`${props.name}Opt${idx}`],
+        checked: props.isChecked[`${props.name}Opt${idx}`],
         color: 'primary'
     })
 
     const generateCheckboxes = () => {
         return (
             <Fragment>
-                {props.options[props.option].map((value, idx) => (
+                {props.options.map((value, idx) => (
                     <Grid key={`${props.id}-opt-${idx}`} sm={4} item>
                         <FormControlLabel control={
                             <SectionContext.Consumer>
                                 {({data, update}) => (
                                     <Checkbox {...checkboxProps(idx)}
                                               onChange={(event, checked) => {
-                                                  props.handleCheckChange(event)
+                                                  props.handleCheckedChange(event)
                                                   update({
                                                       ...data,
                                                       [event.target.name]: {
@@ -44,7 +44,6 @@ export default function FormCheckbox(props) {
     }
 
     return (
-        // TODO: Refactor to reflect template changes
         <Grid item sm={props.size === 'half' ? 6 : 12}>
             <FormControl component={"fieldset"} fullWidth>
                 <FormLabel>{props.text}</FormLabel>

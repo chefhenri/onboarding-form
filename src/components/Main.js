@@ -138,26 +138,25 @@ export default function Main(props) {
     )
 
     const getSection = (idx) => {
+        let sectionData = props.sections[idx]
         switch (idx) {
             case 0:
                 return (
                     <SectionContext.Provider value={{data: accountData, update: setAccountData}}>
-                        <Account {...props.sections[idx]}/>
+                        <Account {...sectionData}/>
                     </SectionContext.Provider>
                 )
             case 1:
                 return (
                     <SectionContext.Provider value={{data: resellerData, update: setResellerData}}>
-                        {/* TODO: Refactor props to reflect template changes */}
-                        <Reseller {...props.sections[idx]}/>
+                        <Reseller {...sectionData}/>
                     </SectionContext.Provider>
                 )
             case 2:
                 return (
                     <SectionContext.Provider value={{data: infoData, update: setInfoData}}>
                         {/* TODO: Refactor props to reflect template changes */}
-                        <Information header={props.sections[idx].header} fields={props.sections[idx].fields}
-                                     hints={props.sections[idx].hints} options={props.sections[idx].options}/>
+                        <Information {...sectionData}/>
                     </SectionContext.Provider>
                 )
             case 3:

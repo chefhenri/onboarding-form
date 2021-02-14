@@ -10,7 +10,7 @@ export default function FormDatePicker(props) {
         name: props.name,
         label: props.text,
         required: props.required,
-        value: props.selectedDate[props.name],
+        value: props.date[props.name],
         variant: 'inline',
         inputVariant: 'outlined',
         format: 'MM/DD/yyyy',
@@ -22,7 +22,7 @@ export default function FormDatePicker(props) {
     }
 
     return (
-        // TODO: Refactor to reflect template changes
+        // TODO: Close on date select
         <Grid item sm={6}>
             <SectionContext.Consumer>
                 {({data, update}) => (

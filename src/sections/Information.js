@@ -3,13 +3,14 @@ import FormField from "../components/form/FormField";
 import {Grid} from "@material-ui/core";
 
 import moment from "moment/moment";
+import FormHeading from "../components/form/FormHeading";
 
 export default function Information(props) {
-    const [selectedDate, setSelectedDate] = React.useState({
+    const [date, setDate] = React.useState({
         installDatePicker: moment().day(15),
         removalDatePicker: moment().day(29)
     })
-    const [checkedState, setCheckedState] = React.useState({
+    const [checked, setChecked] = React.useState({
         installAppsBoxOpt0: false,
         installAppsBoxOpt1: false,
         installAppsBoxOpt2: false,
@@ -24,24 +25,28 @@ export default function Information(props) {
         integrationAppsBoxOpt3: false,
     })
 
-    const handleDateChange = (date, name) => {
-        setSelectedDate({...selectedDate, [name]: date})
+    const handleDateChange = (value, name) => {
+        setDate({...date, [name]: value})
     }
     const handleCheckedChange = (event) => {
-        setCheckedState({...checkedState, [event.target.name]: event.target.checked})
+        setChecked({...checked, [event.target.name]: event.target.checked})
     }
 
     return (
         <Fragment>
             <Grid container spacing={3}>
-                {props.fields.map((data, idx) => (
-                    <FormField {...data}
-                               key={`InformationField${idx}`}
-                               options={props.options}
-                               selectedDate={selectedDate}
-                               handleDateChange={handleDateChange}
-                               checkedState={checkedState}
-                               handleCheckChange={handleCheckedChange}/>
+                {props.subsections.map(subsection => (
+                    <Fragment>
+                        <FormHeading key={`${subsection.id}-heading`} {...subsection}/>
+                        {subsection.fields.map((field, idx) => (
+                            <FormField key={`${props.id}-field-${idx}`}
+                                       date={date}
+                                       isChecked={checked}
+                                       handleDateChange={handleDateChange}
+                                       handleCheckedChange={handleCheckedChange}
+                                       {...field}/>
+                        ))}
+                    </Fragment>
                 ))}
             </Grid>
         </Fragment>
