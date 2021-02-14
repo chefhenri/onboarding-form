@@ -176,27 +176,6 @@ export default function Main(props) {
         }
     }
 
-    const finishProps = {
-        sections: props.sections,
-        data: {
-            account: accountData,
-            reseller: resellerData,
-            info: infoData,
-            config: configData,
-            comments: commentsData
-        }
-    }
-
-    const contentProps = {
-        active: active,
-        next: handleNext,
-        back: handleBack,
-        skip: handleSkip,
-        optional: isOptional,
-        section: getSection(active),
-        length: props.headers.length - 1
-    }
-
     return (
         <main id={'main'} className={classes.layout}>
             <Paper className={classes.paper}>
@@ -208,9 +187,21 @@ export default function Main(props) {
                 </Stepper>
                 <Fragment>
                     {active === props.headers.length ? (
-                        <Finish {...finishProps}/>
+                        <Finish sections={props.sections} data={{
+                            acctContactInfo: accountData,
+                            resellerInfo: resellerData,
+                            MFPInfo: infoData,
+                            configDetails: configData,
+                            addComments: commentsData
+                        }}/>
                     ) : (
-                        <Content {...contentProps}/>
+                        <Content active={active}
+                                 next={handleNext}
+                                 back={handleBack}
+                                 skip={handleSkip}
+                                 optional={isOptional}
+                                 section={getSection(active)}
+                                 length={props.headers.length - 1}/>
                     )}
                 </Fragment>
             </Paper>

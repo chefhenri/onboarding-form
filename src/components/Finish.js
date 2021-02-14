@@ -1,21 +1,15 @@
-import React, {Fragment} from "react";
-import {List, ListItem, ListItemText, ListSubheader, Typography} from "@material-ui/core";
+import React from "react";
+import {
+    Paper,
+    Table, TableBody,
+    TableCell,
+    TableContainer, TableHead, TableRow,
+    Typography
+} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 
 const styles = makeStyles(theme => ({
-    list: {
-        position: 'relative',
-        width: '100%',
-        maxHeight: 300,
-        overflow: 'auto',
-    },
-    section: {
-        backgroundColor: 'inherit'
-    },
-    items: {
-        backgroundColor: 'inherit',
-        padding: 0
-    }
+    table: {}
 }))
 
 export default function Finish(props) {
@@ -27,33 +21,35 @@ export default function Finish(props) {
                 Information Summary
             </Typography>
             <Typography variant="subtitle1" gutterBottom>
-                {/* FIXME: Wording? */}
                 Please verify the information is correct.
             </Typography>
 
-            {props.sectionData.map((section, idx) => (
-                <Fragment>
-                    <Typography variant="h5" component="h2">
-                        {section.header}
-                    </Typography>
-                    <List className={classes.list} subheader={<li/>}>
-                        {section.fields.map((field, idx) => (
-                            <li key={`${section.id}-heading`} className={classes.section}>
-                                <ul className={classes.items}>
-                                    {field.type === 'heading' ? (
-                                        <ListSubheader>{field.text}</ListSubheader>
-                                    ) : (
-                                        // TODO: Cross-reference field data with field info
-                                        <ListItem key={`${field.id}-item`}>
-                                            <ListItemText primary={`${field.text}: placeholder`}/>
-                                        </ListItem>
-                                    )}
-                                </ul>
-                            </li>
-                        ))}
-                    </List>
-                </Fragment>
-            ))}
+            <TableContainer component={Paper}>
+                <Table className={classes.table} aria-label={'summary-table'}>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell align="left">Field description</TableCell>
+                            <TableCell align="right">Field information</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {/*{props.sections.map(section => (*/}
+                        {/*    section.subsections.map(subsection => (*/}
+                        {/*        subsection.fields.map(field => (*/}
+                        {/*            <TableRow>*/}
+                        {/*                <TableCell align="left">*/}
+                        {/*                    {props.data[section.name][field.name].label}*/}
+                        {/*                </TableCell>*/}
+                        {/*                <TableCell align="right">*/}
+                        {/*                    {props.data[section.name][field.name].value}*/}
+                        {/*                </TableCell>*/}
+                        {/*            </TableRow>*/}
+                        {/*        ))*/}
+                        {/*    ))*/}
+                        {/*))}*/}
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </div>
     )
 }
