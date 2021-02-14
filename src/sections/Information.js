@@ -25,7 +25,7 @@ export default function Information(props) {
         integrationAppsBoxOpt3: false,
     })
 
-    const handleDateChange = (value, name) => {
+    const handleDateChange = (name, value) => {
         setDate({...date, [name]: value})
     }
     const handleCheckedChange = (event) => {

@@ -27,7 +27,7 @@ export default function FormDatePicker(props) {
             <SectionContext.Consumer>
                 {({data, update}) => (
                     <KeyboardDatePicker {...fieldProps} onChange={date => {
-                        props.handleDateChange(date, props.name)
+                        props.handleDateChange(props.name, date)
                         update({
                             ...data,
                             [props.name]: {

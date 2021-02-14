@@ -23,7 +23,7 @@ export default function FormCheckbox(props) {
                                 {({data, update}) => (
                                     <Checkbox {...checkboxProps(idx)}
                                               onChange={(event, checked) => {
-                                                  props.handleCheckedChange(event)
+                                                  props.handleCheckedChange(event, checked)
                                                   update({
                                                       ...data,
                                                       [event.target.name]: {

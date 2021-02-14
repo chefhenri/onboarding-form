@@ -3,16 +3,17 @@ import FormField from "../components/form/FormField";
 import {Grid} from "@material-ui/core";
 
 import moment from "moment/moment";
+import FormHeading from "../components/form/FormHeading";
 
 export default function Configuration(props) {
-    const [selectedDate, setSelectedDate] = React.useState({
+    const [date, setDate] = React.useState({
         activationDatePicker: moment().day(15)
     })
-    const [selectedItem, setSelectedItem] = React.useState({
+    const [item, setItem] = React.useState({
         cloudHostingSelect: '',
         retentionPolicySelect: ''
     })
-    const [checkedState, setCheckedState] = React.useState({
+    const [checked, setChecked] = React.useState({
         enableSolutionsBoxOpt0: false,
         enableSolutionsBoxOpt1: false,
         dataTransmitBoxOpt0: false,
@@ -26,30 +27,34 @@ export default function Configuration(props) {
         dataTransmitBoxOpt8: false,
     })
 
-    const handleDateChange = (date, name) => {
-        setSelectedDate({...selectedDate, [name]: date})
+    const handleDateChange = (name, value) => {
+        setDate({...date, [name]: value})
     }
 
     const handleItemChange = (event) => {
-        setSelectedItem({...selectedItem, [event.target.name]: event.target.value})
+        setItem({...item, [event.target.name]: event.target.value})
     }
     const handleCheckedChange = (event) => {
-        setCheckedState({...checkedState, [event.target.name]: event.target.checked})
+        setChecked({...checked, [event.target.name]: event.target.checked})
     }
 
     return (
         <Fragment>
             <Grid container spacing={3}>
-                {props.fields.map((data, idx) => (
-                    <FormField {...data}
-                               key={`ConfigurationField${idx}`}
-                               options={props.options}
-                               selectedDate={selectedDate}
-                               handleDateChange={handleDateChange}
-                               selectedItem={selectedItem[data.name]}
-                               handleChange={handleItemChange}
-                               checkedState={checkedState}
-                               handleCheckChange={handleCheckedChange}/>
+                {props.subsections.map(subsection => (
+                    <Fragment>
+                        <FormHeading key={`${subsection.id}-heading`} {...subsection}/>
+                        {subsection.fields.map((field, idx) => (
+                            <FormField key={`${props.id}-field-${idx}`}
+                                       date={date}
+                                       item={item}
+                                       isChecked={checked}
+                                       handleDateChange={handleDateChange}
+                                       handleItemChange={handleItemChange}
+                                       handleCheckedChange={handleCheckedChange}
+                                       {...field}/>
+                        ))}
+                    </Fragment>
                 ))}
             </Grid>
         </Fragment>
