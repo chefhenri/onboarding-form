@@ -7,11 +7,12 @@ import MomentUtils from '@date-io/moment'
 
 // TODO: Add 'Info' and 'Help' text to headings
 const sectionData = require('./data/onboarding-form.json')
+const sectionHeaders = sectionData.map(section => section.header)
 
 render(
     <StrictMode>
         <MuiPickersUtilsProvider utils={MomentUtils}>
-                <App headers={sectionData.map(section => section.header)} sections={sectionData}/>
+                <App headers={sectionHeaders} sections={sectionData}/>
         </MuiPickersUtilsProvider>
     </StrictMode>,
     document.querySelector('#root')

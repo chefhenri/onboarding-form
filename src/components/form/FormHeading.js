@@ -59,6 +59,7 @@ export default function FormHeading(props) {
     }
 
     return (
+        // TODO: Refactor to reflect template changes
         <Grid item sm={12}>
             <Typography className={classes.heading} variant={"h6"} gutterBottom>
                 {props.text}

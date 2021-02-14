@@ -22,6 +22,7 @@ export default function FormDatePicker(props) {
     }
 
     return (
+        // TODO: Refactor to reflect template changes
         <Grid item sm={6}>
             <SectionContext.Consumer>
                 {({data, update}) => (

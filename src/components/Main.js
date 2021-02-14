@@ -142,12 +142,14 @@ export default function Main(props) {
             case 0:
                 return (
                     <SectionContext.Provider value={{data: accountData, update: setAccountData}}>
+                        {/* TODO: Refactor props to reflect template changes */}
                         <Account header={props.sections[idx].header} fields={props.sections[idx].fields}/>
                     </SectionContext.Provider>
                 )
             case 1:
                 return (
                     <SectionContext.Provider value={{data: resellerData, update: setResellerData}}>
+                        {/* TODO: Refactor props to reflect template changes */}
                         <Reseller header={props.sections[idx].header} fields={props.sections[idx].fields}
                                   hints={props.sections[idx].hints}/>
                     </SectionContext.Provider>
@@ -155,6 +157,7 @@ export default function Main(props) {
             case 2:
                 return (
                     <SectionContext.Provider value={{data: infoData, update: setInfoData}}>
+                        {/* TODO: Refactor props to reflect template changes */}
                         <Information header={props.sections[idx].header} fields={props.sections[idx].fields}
                                      hints={props.sections[idx].hints} options={props.sections[idx].options}/>
                     </SectionContext.Provider>
@@ -162,6 +165,7 @@ export default function Main(props) {
             case 3:
                 return (
                     <SectionContext.Provider value={{data: configData, update: setConfigData}}>
+                        {/* TODO: Refactor props to reflect template changes */}
                         <Configuration header={props.sections[idx].header} fields={props.sections[idx].fields}
                                        hints={props.sections[idx].hints} options={props.sections[idx].options}/>
                     </SectionContext.Provider>
@@ -169,6 +173,7 @@ export default function Main(props) {
             case 4:
                 return (
                     <SectionContext.Provider value={{data: commentsData, update: setCommentsData}}>
+                        {/* TODO: Refactor props to reflect template changes */}
                         <Comments header={props.sections[idx].header} fields={props.sections[idx].fields}/>
                     </SectionContext.Provider>
                 )
@@ -185,12 +190,8 @@ export default function Main(props) {
                 <Stepper className={classes.stepper} activeStep={active}>{generateLabels()}</Stepper>
                 <Fragment>
                     {active === props.headers.length ? (
-                        <Finish accountData={accountData}
-                                resellerData={resellerData}
-                                infoData={infoData}
-                                configData={configData}
-                                commentsData={commentsData}
-                                sectionData={props.sections}/>
+                        // TODO: Provide section data
+                        <Finish/>
                     ) : (
                         <Content active={active}
                                  section={getSection(active)}

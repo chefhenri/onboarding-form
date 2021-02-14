@@ -29,6 +29,7 @@ export default function FormSelect(props) {
     }
 
     return (
+        // TODO: Refactor to reflect template changes
         <Grid item sm={6}>
             {/* TODO: Add context consumer */}
             <FormControl className={classes.formControl} variant={"outlined"} required={props.required} fullWidth>

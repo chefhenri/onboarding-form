@@ -44,8 +44,8 @@ export default function FormCheckbox(props) {
     }
 
     return (
+        // TODO: Refactor to reflect template changes
         <Grid item sm={props.size === 'half' ? 6 : 12}>
-            {/* TODO: Add context consumer */}
             <FormControl component={"fieldset"} fullWidth>
                 <FormLabel>{props.text}</FormLabel>
                 <FormGroup row>

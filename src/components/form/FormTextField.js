@@ -15,8 +15,8 @@ export default function FormTextField(props) {
     }
 
     return (
+        // TODO: Refactor to reflect template changes
         <Grid item sm={6}>
-            {/* TODO: Add context consumer */}
             <SectionContext.Consumer>
                 {({data, update}) => (
                     <TextField {...fieldProps} defaultValue={''} onChange={event => {

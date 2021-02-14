@@ -13,6 +13,7 @@ export default function FormSwitch(props) {
     }
 
     return (
+        // TODO: Refactor to reflect template changes
         <Grid item sm={6}>
             <FormControlLabel control={
                 <SectionContext.Consumer>
