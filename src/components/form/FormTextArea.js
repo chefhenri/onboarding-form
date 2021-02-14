@@ -19,7 +19,6 @@ export default function FormTextArea(props) {
     }
 
     return (
-        // TODO: Refactor to reflect template changes
         <Grid item sm={12}>
             <SectionContext.Consumer>
                 {({data, update}) => (

@@ -161,15 +161,13 @@ export default function Main(props) {
             case 3:
                 return (
                     <SectionContext.Provider value={{data: configData, update: setConfigData}}>
-                        {/* TODO: Refactor props to reflect template changes */}
                         <Configuration {...sectionData}/>
                     </SectionContext.Provider>
                 )
             case 4:
                 return (
                     <SectionContext.Provider value={{data: commentsData, update: setCommentsData}}>
-                        {/* TODO: Refactor props to reflect template changes */}
-                        <Comments header={props.sections[idx].header} fields={props.sections[idx].fields}/>
+                        <Comments {...sectionData}/>
                     </SectionContext.Provider>
                 )
 
