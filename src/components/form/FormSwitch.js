@@ -8,7 +8,7 @@ export default function FormSwitch(props) {
     const switchProps = {
         id: props.id,
         name: props.name,
-        checked: props.checkedState[props.name],
+        checked: props.isChecked[props.name],
         color: 'primary'
     }
 
