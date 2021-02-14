@@ -176,23 +176,41 @@ export default function Main(props) {
         }
     }
 
+    const finishProps = {
+        sections: props.sections,
+        data: {
+            account: accountData,
+            reseller: resellerData,
+            info: infoData,
+            config: configData,
+            comments: commentsData
+        }
+    }
+
+    const contentProps = {
+        active: active,
+        next: handleNext,
+        back: handleBack,
+        skip: handleSkip,
+        optional: isOptional,
+        section: getSection(active),
+        length: props.headers.length - 1
+    }
+
     return (
         <main id={'main'} className={classes.layout}>
             <Paper className={classes.paper}>
-                <Typography component={"h1"} variant={"h4"} align={"center"}>{formTitle}</Typography>
-                <Stepper className={classes.stepper} activeStep={active}>{generateLabels()}</Stepper>
+                <Typography component={"h1"} variant={"h4"} align={"center"}>
+                    {formTitle}
+                </Typography>
+                <Stepper className={classes.stepper} activeStep={active}>
+                    {generateLabels()}
+                </Stepper>
                 <Fragment>
                     {active === props.headers.length ? (
-                        // TODO: Provide section data
-                        <Finish/>
+                        <Finish {...finishProps}/>
                     ) : (
-                        <Content active={active}
-                                 section={getSection(active)}
-                                 next={handleNext}
-                                 back={handleBack}
-                                 optional={isOptional}
-                                 skip={handleSkip}
-                                 length={props.headers.length - 1}/>
+                        <Content {...contentProps}/>
                     )}
                 </Fragment>
             </Paper>
