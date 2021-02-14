@@ -142,16 +142,14 @@ export default function Main(props) {
             case 0:
                 return (
                     <SectionContext.Provider value={{data: accountData, update: setAccountData}}>
-                        {/* TODO: Refactor props to reflect template changes */}
-                        <Account header={props.sections[idx].header} fields={props.sections[idx].fields}/>
+                        <Account {...props.sections[idx]}/>
                     </SectionContext.Provider>
                 )
             case 1:
                 return (
                     <SectionContext.Provider value={{data: resellerData, update: setResellerData}}>
                         {/* TODO: Refactor props to reflect template changes */}
-                        <Reseller header={props.sections[idx].header} fields={props.sections[idx].fields}
-                                  hints={props.sections[idx].hints}/>
+                        <Reseller {...props.sections[idx]}/>
                     </SectionContext.Provider>
                 )
             case 2:

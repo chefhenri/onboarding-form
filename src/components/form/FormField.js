@@ -1,5 +1,4 @@
 import React from "react";
-import FormHeading from "./FormHeading";
 import FormCheckbox from "./FormCheckbox";
 import FormDatePicker from "./FormDatePicker";
 import FormSelect from "./FormSelect";
@@ -14,10 +13,10 @@ export default function FormField(props) {
             return (
                 <FormTextArea key={props.id} {...props}/>
             )
-        case 'heading':
-            return (
-                <FormHeading key={props.id} {...props}/>
-            )
+        // case 'heading':
+        //     return (
+        //         <FormHeading key={props.id} {...props}/>
+        //     )
         case 'box':
             return (
                 <FormCheckbox key={props.id} {...props}/>
