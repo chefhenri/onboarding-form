@@ -2,7 +2,7 @@ import React from "react";
 import {KeyboardDatePicker} from "@material-ui/pickers";
 import moment from "moment/moment";
 import {Grid} from "@material-ui/core";
-import {FormContext} from "../../contexts/form-context";
+import {SectionContext} from "../../contexts/section-context";
 
 export default function FormDatePicker(props) {
     const fieldProps = {
@@ -23,7 +23,7 @@ export default function FormDatePicker(props) {
 
     return (
         <Grid item sm={6}>
-            <FormContext.Consumer>
+            <SectionContext.Consumer>
                 {({data, update}) => (
                     <KeyboardDatePicker {...fieldProps} onChange={date => {
                         props.handleDateChange(date, props.name)
@@ -37,7 +37,7 @@ export default function FormDatePicker(props) {
                         })
                     }}/>
                 )}
-            </FormContext.Consumer>
+            </SectionContext.Consumer>
         </Grid>
     )
 }

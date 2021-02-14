@@ -1,11 +1,12 @@
-import React from "react";
+import React, {Fragment} from "react";
 import {List, ListItem, ListItemText, ListSubheader, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 
 const styles = makeStyles(theme => ({
     list: {
-        width: '100%',
         position: 'relative',
+        width: '100%',
+        maxHeight: 300,
         overflow: 'auto',
     },
     section: {
@@ -30,23 +31,29 @@ export default function Finish(props) {
                 Please verify the information is correct.
             </Typography>
 
-            {/* TODO: Reference field data with section field info */}
-            <List className={classes.list} subheader={<li/>}>
-                {/* TODO: Loop through section fields */}
-                {['company-info', 'owner-info', 'security-privacy-info'].map(headingId => (
-                    <li key={`${headingId}-heading`} className={classes.section}>
-                        <ul className={classes.items}>
-                            <ListSubheader>Subsection Header</ListSubheader>
-                            {/* TODO: Cross-reference field data with field info */}
-                            {Object.values(props.account).map((data, idx) => (
-                                <ListItem key={`${headingId}-item-${idx}`}>
-                                    <ListItemText primary={`${data.label}: ${data.value}`}/>
-                                </ListItem>
-                            ))}
-                        </ul>
-                    </li>
-                ))}
-            </List>
+            {props.sectionData.map((section, idx) => (
+                <Fragment>
+                    <Typography variant="h5" component="h2">
+                        {section.header}
+                    </Typography>
+                    <List className={classes.list} subheader={<li/>}>
+                        {section.fields.map((field, idx) => (
+                            <li key={`${section.id}-heading`} className={classes.section}>
+                                <ul className={classes.items}>
+                                    {field.type === 'heading' ? (
+                                        <ListSubheader>{field.text}</ListSubheader>
+                                    ) : (
+                                        // TODO: Cross-reference field data with field info
+                                        <ListItem key={`${field.id}-item`}>
+                                            <ListItemText primary={`${field.text}: placeholder`}/>
+                                        </ListItem>
+                                    )}
+                                </ul>
+                            </li>
+                        ))}
+                    </List>
+                </Fragment>
+            ))}
         </div>
     )
 }

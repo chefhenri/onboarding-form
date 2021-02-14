@@ -3,7 +3,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import {FormControl, FormLabel, Grid} from "@material-ui/core";
-import {FormContext} from "../../contexts/form-context";
+import {SectionContext} from "../../contexts/section-context";
 
 export default function FormCheckbox(props) {
     const checkboxProps = idx => ({
@@ -19,7 +19,7 @@ export default function FormCheckbox(props) {
                 {props.options[props.option].map((value, idx) => (
                     <Grid key={`${props.id}-opt-${idx}`} sm={4} item>
                         <FormControlLabel control={
-                            <FormContext.Consumer>
+                            <SectionContext.Consumer>
                                 {({data, update}) => (
                                     <Checkbox {...checkboxProps(idx)}
                                               onChange={(event, checked) => {
@@ -34,7 +34,7 @@ export default function FormCheckbox(props) {
                                                   })
                                               }}/>
                                 )}
-                            </FormContext.Consumer>
+                            </SectionContext.Consumer>
                         }
                                           label={value}/>
                     </Grid>

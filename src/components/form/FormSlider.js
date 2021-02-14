@@ -1,7 +1,7 @@
 import React from "react";
 import {Container, FormControlLabel, Grid, Input, Slider, Switch, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
-import {FormContext} from "../../contexts/form-context";
+import {SectionContext} from "../../contexts/section-context";
 
 const styles = makeStyles(theme => ({
     container: {
@@ -91,7 +91,7 @@ export default function FormSlider(props) {
             <Container className={classes.container} component={"div"} maxWidth={"lg"}>
                 <Grid spacing={2} alignItems={"center"} container>
                     <Grid item sm>
-                        <FormContext.Consumer>
+                        <SectionContext.Consumer>
                             {({data, update}) => (
                                 <Slider {...sliderProps} onChange={(event, value) => {
                                     handleSliderChange(event, value)
@@ -105,10 +105,10 @@ export default function FormSlider(props) {
                                     })
                                 }}/>
                             )}
-                        </FormContext.Consumer>
+                        </SectionContext.Consumer>
                     </Grid>
                     <Grid item>
-                        <FormContext.Consumer>
+                        <SectionContext.Consumer>
                             {({data, update}) => (
                                 <Input {...inputProps} onChange={event => {
                                     handleInputChange(event)
@@ -122,11 +122,11 @@ export default function FormSlider(props) {
                                     })
                                 }}/>
                             )}
-                        </FormContext.Consumer>
+                        </SectionContext.Consumer>
                     </Grid>
                 </Grid>
                 <FormControlLabel control={
-                    <FormContext.Consumer>
+                    <SectionContext.Consumer>
                         {({data, update}) => (
                             <Switch {...switchProps} onChange={(event, checked) => {
                                 handleChecked(checked)
@@ -140,7 +140,7 @@ export default function FormSlider(props) {
                                 })
                             }}/>
                         )}
-                    </FormContext.Consumer>
+                    </SectionContext.Consumer>
                 } label='Unlimited'/>
             </Container>
         </Grid>

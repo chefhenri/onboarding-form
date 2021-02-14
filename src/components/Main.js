@@ -13,7 +13,7 @@ import Information from "../sections/Information";
 import Configuration from "../sections/Configuration";
 import Comments from "../sections/Comments";
 
-import {FormContext} from '../contexts/form-context'
+import {SectionContext} from '../contexts/section-context'
 import Content from "./Content";
 import moment from "moment/moment";
 
@@ -141,36 +141,36 @@ export default function Main(props) {
         switch (idx) {
             case 0:
                 return (
-                    <FormContext.Provider value={{data: accountData, update: setAccountData}}>
+                    <SectionContext.Provider value={{data: accountData, update: setAccountData}}>
                         <Account header={props.sections[idx].header} fields={props.sections[idx].fields}/>
-                    </FormContext.Provider>
+                    </SectionContext.Provider>
                 )
             case 1:
                 return (
-                    <FormContext.Provider value={{data: resellerData, update: setResellerData}}>
+                    <SectionContext.Provider value={{data: resellerData, update: setResellerData}}>
                         <Reseller header={props.sections[idx].header} fields={props.sections[idx].fields}
                                   hints={props.sections[idx].hints}/>
-                    </FormContext.Provider>
+                    </SectionContext.Provider>
                 )
             case 2:
                 return (
-                    <FormContext.Provider value={{data: infoData, update: setInfoData}}>
+                    <SectionContext.Provider value={{data: infoData, update: setInfoData}}>
                         <Information header={props.sections[idx].header} fields={props.sections[idx].fields}
                                      hints={props.sections[idx].hints} options={props.sections[idx].options}/>
-                    </FormContext.Provider>
+                    </SectionContext.Provider>
                 )
             case 3:
                 return (
-                    <FormContext.Provider value={{data: configData, update: setConfigData}}>
+                    <SectionContext.Provider value={{data: configData, update: setConfigData}}>
                         <Configuration header={props.sections[idx].header} fields={props.sections[idx].fields}
                                        hints={props.sections[idx].hints} options={props.sections[idx].options}/>
-                    </FormContext.Provider>
+                    </SectionContext.Provider>
                 )
             case 4:
                 return (
-                    <FormContext.Provider value={{data: commentsData, update: setCommentsData}}>
+                    <SectionContext.Provider value={{data: commentsData, update: setCommentsData}}>
                         <Comments header={props.sections[idx].header} fields={props.sections[idx].fields}/>
-                    </FormContext.Provider>
+                    </SectionContext.Provider>
                 )
 
             default:
@@ -185,7 +185,12 @@ export default function Main(props) {
                 <Stepper className={classes.stepper} activeStep={active}>{generateLabels()}</Stepper>
                 <Fragment>
                     {active === props.headers.length ? (
-                        <Finish account={accountData} comments={commentsData}/>
+                        <Finish accountData={accountData}
+                                resellerData={resellerData}
+                                infoData={infoData}
+                                configData={configData}
+                                commentsData={commentsData}
+                                sectionData={props.sections}/>
                     ) : (
                         <Content active={active}
                                  section={getSection(active)}

@@ -2,7 +2,7 @@ import React from "react";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import {Grid} from "@material-ui/core";
-import {FormContext} from "../../contexts/form-context";
+import {SectionContext} from "../../contexts/section-context";
 
 export default function FormSwitch(props) {
     const switchProps = {
@@ -15,7 +15,7 @@ export default function FormSwitch(props) {
     return (
         <Grid item sm={6}>
             <FormControlLabel control={
-                <FormContext.Consumer>
+                <SectionContext.Consumer>
                     {({data, update}) => (
                         <Switch {...switchProps} onChange={(event, checked) => {
                             props.handleChange(event, checked)
@@ -25,7 +25,7 @@ export default function FormSwitch(props) {
                             })
                         }}/>
                     )}
-                </FormContext.Consumer>
+                </SectionContext.Consumer>
             } label={props.text}/>
         </Grid>
     )

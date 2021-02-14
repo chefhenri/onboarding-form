@@ -2,7 +2,7 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import {Grid} from "@material-ui/core";
 
-import {FormContext} from '../../contexts/form-context'
+import {SectionContext} from '../../contexts/section-context'
 
 export default function FormTextArea(props) {
     const fieldProps = {
@@ -20,13 +20,13 @@ export default function FormTextArea(props) {
 
     return (
         <Grid item sm={12}>
-            <FormContext.Consumer>
+            <SectionContext.Consumer>
                 {({data, update}) => (
                     <TextField {...fieldProps} defaultValue={''} onChange={event => {
                         update({...data, [props.name]: {id: props.id, value: event.target.value, label: props.text}})
                     }}/>
                 )}
-            </FormContext.Consumer>
+            </SectionContext.Consumer>
         </Grid>
     )
 }
