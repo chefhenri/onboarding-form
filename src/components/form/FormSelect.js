@@ -3,6 +3,7 @@ import {FormControl, Grid, MenuItem} from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import {makeStyles} from "@material-ui/core/styles";
+import {SectionContext} from "../../contexts/section-context";
 
 const styles = makeStyles((theme) => ({
     formControl: {
@@ -29,15 +30,24 @@ export default function FormSelect(props) {
     }
 
     return (
-        // TODO: Add context consumer
         <Grid item sm={6}>
             <FormControl className={classes.formControl} variant={"outlined"} required={props.required} fullWidth>
                 <InputLabel id={selectProps.labelId}>{props.text}</InputLabel>
-                <Select {...selectProps} onChange={props.handleItemChange}>
-                    {props.options.map((value, idx) => (
-                        <MenuItem key={`${value}-opt`} value={idx}>{value}</MenuItem>
-                    ))}
-                </Select>
+                <SectionContext.Consumer>
+                    {({data, update}) => (
+                        <Select {...selectProps} onChange={event => {
+                            props.handleItemChange(event)
+                            update({
+                                ...data,
+                                [props.name]: {id: props.id, value: event.target.value, label: props.text}
+                            })
+                        }}>
+                            {props.options.map((value, idx) => (
+                                <MenuItem key={`${value}-opt`} value={idx}>{value}</MenuItem>
+                            ))}
+                        </Select>
+                    )}
+                </SectionContext.Consumer>
             </FormControl>
         </Grid>
     )

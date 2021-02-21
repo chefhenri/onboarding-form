@@ -13,10 +13,6 @@ export default function FormField(props) {
             return (
                 <FormTextArea key={props.id} {...props}/>
             )
-        // case 'heading':
-        //     return (
-        //         <FormHeading key={props.id} {...props}/>
-        //     )
         case 'box':
             return (
                 <FormCheckbox key={props.id} {...props}/>
