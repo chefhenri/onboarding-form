@@ -8,7 +8,7 @@ export default function Comments(props) {
         <Fragment>
             <Grid container spacing={3}>
                 {props.subsections.map(subsection => (
-                    <Fragment>
+                    <Fragment key={`${subsection.id}-frag`}>
                         <FormHeading key={`${subsection.id}-heading`} {...subsection}/>
                         {subsection.fields.map((field, idx) => (
                             <FormField key={`${props.id}-field-${idx}`} {...field}/>

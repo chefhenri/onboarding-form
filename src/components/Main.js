@@ -15,7 +15,7 @@ import Comments from "../sections/Comments";
 
 import {SectionContext} from '../contexts/section-context'
 import Content from "./Content";
-import moment from "moment/moment";
+import {DateTime as DT} from "luxon";
 
 const styles = makeStyles((theme) => ({
     layout: {
@@ -57,7 +57,7 @@ export default function Main(props) {
     const [configData, setConfigData] = React.useState({
         activationDatePicker: {
             id: 'activation-date',
-            value: moment().day(15),
+            value: DT.local().plus({weeks: 1}),
             label: 'Desired Activation Date'
         },
         retentionPolicySlider: {
@@ -70,12 +70,12 @@ export default function Main(props) {
     const [infoData, setInfoData] = React.useState({
         installDatePicker: {
             id: 'install-date',
-            value: moment().day(15),
+            value: DT.local().plus({weeks: 1}),
             label: 'Install Date'
         },
         removalDatePicker: {
             id: 'removal-date',
-            value: moment().day(29),
+            value: DT.local().plus({weeks: 4}),
             label: 'Removal Date'
         }
     })

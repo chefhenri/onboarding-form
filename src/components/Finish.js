@@ -9,7 +9,10 @@ import {
 import {makeStyles} from "@material-ui/core/styles";
 
 const styles = makeStyles(theme => ({
-    table: {}
+    table: {},
+    header: {
+        // textAlign: 'left'
+    }
 }))
 
 export default function Finish(props) {
@@ -28,25 +31,24 @@ export default function Finish(props) {
                 <Table className={classes.table} aria-label={'summary-table'}>
                     <TableHead>
                         <TableRow>
-                            <TableCell align="left">Field description</TableCell>
-                            <TableCell align="right">Field information</TableCell>
+                            <TableCell align="left">
+                                <p className={classes.header}>Field description</p>
+                            </TableCell>
+                            <TableCell align="right">
+                                <p className={classes.header}>Field information</p>
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {/*{props.sections.map(section => (*/}
-                        {/*    section.subsections.map(subsection => (*/}
-                        {/*        subsection.fields.map(field => (*/}
-                        {/*            <TableRow>*/}
-                        {/*                <TableCell align="left">*/}
-                        {/*                    {props.data[section.name][field.name].label}*/}
-                        {/*                </TableCell>*/}
-                        {/*                <TableCell align="right">*/}
-                        {/*                    {props.data[section.name][field.name].value}*/}
-                        {/*                </TableCell>*/}
-                        {/*            </TableRow>*/}
-                        {/*        ))*/}
-                        {/*    ))*/}
-                        {/*))}*/}
+                        {/* TODO: Repeat for section field data */}
+                        {/*<TableRow>*/}
+                        {/*    <TableCell align="left">*/}
+                        {/*        <p className={classes.header}>{field.label}</p>*/}
+                        {/*    </TableCell>*/}
+                        {/*    <TableCell align="right">*/}
+                        {/*        <p className={classes.header}>{field.value}</p>*/}
+                        {/*    </TableCell>*/}
+                        {/*</TableRow>*/}
                     </TableBody>
                 </Table>
             </TableContainer>

@@ -85,7 +85,6 @@ export default function FormSlider(props) {
     }
 
     return (
-        // TODO: Refactor to reflect template changes
         <Grid sm={12} item>
             <Typography>{props.text}</Typography>
             <Container className={classes.container} component={"div"} maxWidth={"lg"}>

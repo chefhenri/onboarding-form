@@ -1,8 +1,8 @@
 import React from "react";
-import {KeyboardDatePicker} from "@material-ui/pickers";
-import moment from "moment/moment";
+import {DatePicker} from "@material-ui/pickers";
 import {Grid} from "@material-ui/core";
 import {SectionContext} from "../../contexts/section-context";
+import {DateTime as DT} from "luxon";
 
 export default function FormDatePicker(props) {
     const fieldProps = {
@@ -13,20 +13,20 @@ export default function FormDatePicker(props) {
         value: props.date[props.name],
         variant: 'inline',
         inputVariant: 'outlined',
-        format: 'MM/DD/yyyy',
-        minDate: moment().day(),
+        format: 'MM/dd/yyyy',
+        minDate: DT.local(),
         minDateMessage: 'Date should not be before today',
+        autoOk: true,
         disableToolbar: true,
         disablePast: true,
         fullWidth: true
     }
 
     return (
-        // TODO: Close on date select
         <Grid item sm={6}>
             <SectionContext.Consumer>
                 {({data, update}) => (
-                    <KeyboardDatePicker {...fieldProps} onChange={date => {
+                    <DatePicker {...fieldProps} onChange={date => {
                         props.handleDateChange(props.name, date)
                         update({
                             ...data,

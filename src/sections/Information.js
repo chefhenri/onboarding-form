@@ -2,13 +2,13 @@ import React, {Fragment} from 'react';
 import FormField from "../components/form/FormField";
 import {Grid} from "@material-ui/core";
 
-import moment from "moment/moment";
 import FormHeading from "../components/form/FormHeading";
+import {DateTime as DT} from "luxon";
 
 export default function Information(props) {
     const [date, setDate] = React.useState({
-        installDatePicker: moment().day(15),
-        removalDatePicker: moment().day(29)
+        installDatePicker: DT.local().plus({weeks: 1}),
+        removalDatePicker: DT.local().plus({weeks: 4})
     })
     const [checked, setChecked] = React.useState({
         installAppsBoxOpt0: false,
@@ -36,7 +36,7 @@ export default function Information(props) {
         <Fragment>
             <Grid container spacing={3}>
                 {props.subsections.map(subsection => (
-                    <Fragment>
+                    <Fragment key={`${subsection.id}-frag`}>
                         <FormHeading key={`${subsection.id}-heading`} {...subsection}/>
                         {subsection.fields.map((field, idx) => (
                             <FormField key={`${props.id}-field-${idx}`}
