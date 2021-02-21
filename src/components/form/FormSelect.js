@@ -39,7 +39,11 @@ export default function FormSelect(props) {
                             props.handleItemChange(event)
                             update({
                                 ...data,
-                                [props.name]: {id: props.id, value: event.target.value, label: props.text}
+                                [props.name]: {
+                                    id: props.id,
+                                    value: props.options[event.target.value],
+                                    label: props.text
+                                }
                             })
                         }}>
                             {props.options.map((value, idx) => (
