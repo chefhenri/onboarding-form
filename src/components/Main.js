@@ -190,7 +190,7 @@ export default function Main(props) {
                         <Finish sections={props.sections} data={{
                             acctContactInfo: accountData,
                             resellerInfo: resellerData,
-                            MFPInfo: infoData,
+                            mfpInfo: infoData,
                             configDetails: configData,
                             addComments: commentsData
                         }}/>

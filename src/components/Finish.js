@@ -7,6 +7,7 @@ import {
     Typography
 } from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
+import {dark} from "@material-ui/core/styles/createPalette";
 
 const styles = makeStyles(theme => ({
     table: {},
@@ -17,6 +18,17 @@ const styles = makeStyles(theme => ({
 
 export default function Finish(props) {
     const classes = styles()
+
+    const handleValue = (value) => {
+        switch (typeof value) {
+            case "boolean":
+                return value ? 'Yes' : 'No'
+            case "object":
+                return value.toLocaleString()
+            default:
+                return value
+        }
+    }
 
     return (
         <div>
@@ -41,14 +53,49 @@ export default function Finish(props) {
                     </TableHead>
                     <TableBody>
                         {/* TODO: Repeat for section field data */}
-                        {/*<TableRow>*/}
-                        {/*    <TableCell align="left">*/}
-                        {/*        <p className={classes.header}>{field.label}</p>*/}
-                        {/*    </TableCell>*/}
-                        {/*    <TableCell align="right">*/}
-                        {/*        <p className={classes.header}>{field.value}</p>*/}
-                        {/*    </TableCell>*/}
-                        {/*</TableRow>*/}
+                        {/*{Object.values(props.data.acctContactInfo).map(field => (*/}
+                        {/*    <TableRow>*/}
+                        {/*        <TableCell align="left">*/}
+                        {/*            <p className={classes.header}>{field.label}</p>*/}
+                        {/*        </TableCell>*/}
+                        {/*        <TableCell align="right">*/}
+                        {/*            <p className={classes.header}>{field.value}</p>*/}
+                        {/*        </TableCell>*/}
+                        {/*    </TableRow>*/}
+                        {/*))}*/}
+                        {/*{Object.values(props.data.resellerInfo).map(field => (*/}
+                        {/*    <TableRow>*/}
+                        {/*        <TableCell align="left">*/}
+                        {/*            <p className={classes.header}>{field.label}</p>*/}
+                        {/*        </TableCell>*/}
+                        {/*        <TableCell align="right">*/}
+                        {/*            <p className={classes.header}>{handleValue(field.value)}</p>*/}
+                        {/*        </TableCell>*/}
+                        {/*    </TableRow>*/}
+                        {/*))}*/}
+                        {/*{Object.values(props.data.mfpInfo).map(field => (*/}
+                        {/*    <TableRow>*/}
+                        {/*        <TableCell align="left">*/}
+                        {/*            <p className={classes.header}>{field.label}</p>*/}
+                        {/*        </TableCell>*/}
+                        {/*        <TableCell align="right">*/}
+                        {/*            <p className={classes.header}>{handleValue(field.value)}</p>*/}
+                        {/*        </TableCell>*/}
+                        {/*    </TableRow>*/}
+                        {/*))}*/}
+
+                        {Object.values(props.data).map(section => (
+                            Object.values(section).map(field => (
+                                <TableRow>
+                                    <TableCell align="left">
+                                        <p className={classes.header}>{field.label}</p>
+                                    </TableCell>
+                                    <TableCell align="right">
+                                        <p className={classes.header}>{handleValue(field.value)}</p>
+                                    </TableCell>
+                                </TableRow>
+                            ))
+                        ))}
                     </TableBody>
                 </Table>
             </TableContainer>
