@@ -54,6 +54,8 @@ export default function Main(props) {
     const [skipped, setSkipped] = React.useState(new Set());
 
     const [accountData, setAccountData] = React.useState({})
+
+    // TODO: Add defaults for checkboxes
     const [configData, setConfigData] = React.useState({
         activationDatePicker: {
             id: 'activation-date',
@@ -67,6 +69,8 @@ export default function Main(props) {
         }
     })
     const [commentsData, setCommentsData] = React.useState({})
+
+    // TODO: Add defaults for checkboxes
     const [infoData, setInfoData] = React.useState({
         installDatePicker: {
             id: 'install-date',
