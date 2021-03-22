@@ -8,7 +8,6 @@ export default function FormSwitch(props) {
     const switchProps = {
         id: props.id,
         name: props.name,
-        checked: props.isChecked[props.name],
         color: 'primary'
     }
 
@@ -17,13 +16,14 @@ export default function FormSwitch(props) {
             <FormControlLabel control={
                 <SectionContext.Consumer>
                     {({data, update}) => (
-                        <Switch {...switchProps} onChange={(event, checked) => {
-                            props.handleChange(event, checked)
-                            update({
-                                ...data,
-                                [props.name]: {id: props.id, value: checked, label: props.text}
-                            })
-                        }}/>
+                        <Switch {...switchProps} checked={data[switchProps.name] ? data[switchProps.name].value : false}
+                                onChange={(event, checked) => {
+                                    props.handleChange(event, checked)
+                                    update({
+                                        ...data,
+                                        [props.name]: {id: props.id, value: checked, label: props.text}
+                                    })
+                                }}/>
                     )}
                 </SectionContext.Consumer>
             } label={props.text}/>

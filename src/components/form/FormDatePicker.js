@@ -26,17 +26,18 @@ export default function FormDatePicker(props) {
         <Grid item sm={6}>
             <SectionContext.Consumer>
                 {({data, update}) => (
-                    <DatePicker {...fieldProps} onChange={date => {
-                        props.handleDateChange(props.name, date)
-                        update({
-                            ...data,
-                            [props.name]: {
-                                id: props.id,
-                                value: date,
-                                label: props.text
-                            }
-                        })
-                    }}/>
+                    <DatePicker {...fieldProps} value={data[fieldProps.name] ? data[fieldProps.name].value : DT.local()}
+                                onChange={date => {
+                                    props.handleDateChange(props.name, date)
+                                    update({
+                                        ...data,
+                                        [props.name]: {
+                                            id: props.id,
+                                            value: date,
+                                            label: props.text
+                                        }
+                                    })
+                                }}/>
                 )}
             </SectionContext.Consumer>
         </Grid>

@@ -122,24 +122,26 @@ export default function Main(props) {
         setSkipped(skipped.add(active))
     }
 
-    const generateLabels = () => (
-        props.headers.map((label, idx) => {
-            const sectionProps = {}
-            const labelProps = {}
+    const generateLabels = () => {
+        return (
+            props.headers.map((label, idx) => {
+                const sectionProps = {}
+                const labelProps = {}
 
-            if (isOptional(idx))
-                labelProps.optional = <Typography variant="caption">Optional</Typography>
+                if (isOptional(idx))
+                    labelProps.optional = <Typography variant="caption">Optional</Typography>
 
-            if (isSkipped(idx))
-                sectionProps.completed = false
+                if (isSkipped(idx))
+                    sectionProps.completed = false
 
-            return (
-                <Step key={label} {...sectionProps}>
-                    <StepLabel {...labelProps}>{label}</StepLabel>
-                </Step>
-            )
-        })
-    )
+                return (
+                    <Step key={label} {...sectionProps}>
+                        <StepLabel {...labelProps}>{label}</StepLabel>
+                    </Step>
+                )
+            })
+        )
+    }
 
     const getSection = (idx) => {
         let sectionData = props.sections[idx]

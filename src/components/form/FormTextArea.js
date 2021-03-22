@@ -22,9 +22,13 @@ export default function FormTextArea(props) {
         <Grid item sm={12}>
             <SectionContext.Consumer>
                 {({data, update}) => (
-                    <TextField {...fieldProps} defaultValue={''} onChange={event => {
-                        update({...data, [props.name]: {id: props.id, value: event.target.value, label: props.text}})
-                    }}/>
+                    <TextField {...fieldProps} defaultValue={data[fieldProps.name] ? data[fieldProps.name].value : ''}
+                               onChange={event => {
+                                   update({
+                                       ...data,
+                                       [props.name]: {id: props.id, value: event.target.value, label: props.text}
+                                   })
+                               }}/>
                 )}
             </SectionContext.Consumer>
         </Grid>

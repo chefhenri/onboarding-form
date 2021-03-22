@@ -13,6 +13,8 @@ export default function Configuration(props) {
         cloudHostingSelect: '',
         retentionPolicySelect: ''
     })
+
+    // TODO: Remove
     const [checked, setChecked] = React.useState({
         enableSolutionsBoxOpt0: false,
         enableSolutionsBoxOpt1: false,

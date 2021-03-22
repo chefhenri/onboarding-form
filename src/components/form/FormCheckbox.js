@@ -9,6 +9,7 @@ export default function FormCheckbox(props) {
     const checkboxProps = idx => ({
         id: `${props.id}-opt-${idx}`,
         name: `${props.name}Opt${idx}`,
+        // TODO: Remove
         checked: props.isChecked[`${props.name}Opt${idx}`],
         color: 'primary'
     })
@@ -22,7 +23,9 @@ export default function FormCheckbox(props) {
                             <SectionContext.Consumer>
                                 {({data, update}) => (
                                     <Checkbox {...checkboxProps(idx)}
+                                              checked={data[checkboxProps.name] ? data[checkboxProps.name].value : false}
                                               onChange={(event, checked) => {
+                                                  // TODO: Remove
                                                   props.handleCheckedChange(event, checked)
                                                   update({
                                                       ...data,
