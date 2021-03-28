@@ -6,8 +6,16 @@ import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import {makeStyles} from "@material-ui/core/styles";
 
-import Content from "./Content";
 import Finish from "./Finish";
+import Account from "../sections/Account";
+import Reseller from "../sections/Reseller";
+import Information from "../sections/Information";
+import Configuration from "../sections/Configuration";
+import Comments from "../sections/Comments";
+
+import {SectionContext} from '../contexts/section-context'
+import Content from "./Content";
+import {DateTime as DT} from "luxon";
 
 const styles = makeStyles((theme) => ({
     layout: {
@@ -45,6 +53,49 @@ export default function Main(props) {
     const [active, setActive] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
 
+    const [accountData, setAccountData] = React.useState({})
+
+    // TODO: Add defaults for checkboxes
+    const [configData, setConfigData] = React.useState({
+        activationDatePicker: {
+            id: 'activation-date',
+            value: DT.local().plus({weeks: 1}),
+            label: 'Desired Activation Date'
+        },
+        retentionPolicySlider: {
+            id: 'retention-policy-slider',
+            value: 90,
+            label: 'Adjust slider to select XM Fax Retention Policy'
+        }
+    })
+    const [commentsData, setCommentsData] = React.useState({})
+
+    // TODO: Add defaults for checkboxes
+    const [infoData, setInfoData] = React.useState({
+        installDatePicker: {
+            id: 'install-date',
+            value: DT.local().plus({weeks: 1}),
+            label: 'Install Date'
+        },
+        removalDatePicker: {
+            id: 'removal-date',
+            value: DT.local().plus({weeks: 4}),
+            label: 'Removal Date'
+        }
+    })
+    const [resellerData, setResellerData] = React.useState({
+        ticketNotifSwitch: {
+            id: 'ticket-notify',
+            value: true,
+            label: 'Notify Reseller about new Onboarding Tickets'
+        },
+        resupplyNotifSwitch: {
+            id: 'resupply-notify',
+            value: true,
+            label: 'Notify Reseller of Credit resupply'
+        }
+    })
+
     const isOptional = (section) => {
         return section === 1 || section === 2
     }
@@ -64,47 +115,99 @@ export default function Main(props) {
         setActive(active - 1)
     }
 
-    const handleSkip = (section) => {
+    const handleSkip = () => {
         if (!isOptional(active)) throw new Error(`You can't skip a required section.`)
 
         setActive(active + 1)
         setSkipped(skipped.add(active))
     }
 
-    const generateLabels = () => (
-        props.headers.map((label, idx) => {
-            const sectionProps = {}
-            const labelProps = {}
+    const generateLabels = () => {
+        return (
+            props.headers.map((label, idx) => {
+                const sectionProps = {}
+                const labelProps = {}
 
-            if (isOptional(idx))
-                labelProps.optional = <Typography variant="caption">Optional</Typography>
+                if (isOptional(idx))
+                    labelProps.optional = <Typography variant="caption">Optional</Typography>
 
-            if (isSkipped(idx))
-                sectionProps.completed = false
+                if (isSkipped(idx))
+                    sectionProps.completed = false
 
-            return (
-                <Step key={label} {...sectionProps}>
-                    <StepLabel {...labelProps}>{label}</StepLabel>
-                </Step>
-            )
-        })
-    )
+                return (
+                    <Step key={label} {...sectionProps}>
+                        <StepLabel {...labelProps}>{label}</StepLabel>
+                    </Step>
+                )
+            })
+        )
+    }
+
+    const getSection = (idx) => {
+        let sectionData = props.sections[idx]
+        switch (idx) {
+            case 0:
+                return (
+                    <SectionContext.Provider value={{data: accountData, update: setAccountData}}>
+                        <Account {...sectionData}/>
+                    </SectionContext.Provider>
+                )
+            case 1:
+                return (
+                    <SectionContext.Provider value={{data: resellerData, update: setResellerData}}>
+                        <Reseller {...sectionData}/>
+                    </SectionContext.Provider>
+                )
+            case 2:
+                return (
+                    <SectionContext.Provider value={{data: infoData, update: setInfoData}}>
+                        <Information {...sectionData}/>
+                    </SectionContext.Provider>
+                )
+            case 3:
+                return (
+                    <SectionContext.Provider value={{data: configData, update: setConfigData}}>
+                        <Configuration {...sectionData}/>
+                    </SectionContext.Provider>
+                )
+            case 4:
+                return (
+                    <SectionContext.Provider value={{data: commentsData, update: setCommentsData}}>
+                        <Comments {...sectionData}/>
+                    </SectionContext.Provider>
+                )
+
+            default:
+                throw new Error('Unknown section')
+        }
+    }
 
     return (
         <main id={'main'} className={classes.layout}>
             <Paper className={classes.paper}>
-                <Typography component={"h1"} variant={"h4"} align={"center"}>{formTitle}</Typography>
-                <Stepper className={classes.stepper} activeStep={active}>{generateLabels()}</Stepper>
+                <Typography component={"h1"} variant={"h4"} align={"center"}>
+                    {formTitle}
+                </Typography>
+                <Stepper className={classes.stepper} activeStep={active}>
+                    {generateLabels()}
+                </Stepper>
                 <Fragment>
                     {active === props.headers.length ? (
-                        <Finish/>
+                        <Finish sections={props.sections} data={{
+                            acctContactInfo: accountData,
+                            resellerInfo: resellerData,
+                            mfpInfo: infoData,
+                            configDetails: configData,
+                            addComments: commentsData
+                        }}/>
                     ) : (
-                        <Content {...props}
-                                 active={active}
+                        <Content active={active}
                                  next={handleNext}
                                  back={handleBack}
                                  skip={handleSkip}
-                                 optional={isOptional}/>
+                                 optional={isOptional}
+                                 section={getSection(active)}
+                                 length={props.headers.length - 1}/>
                     )}
                 </Fragment>
             </Paper>

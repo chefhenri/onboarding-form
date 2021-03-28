@@ -1,16 +1,43 @@
 import React from "react";
-import {KeyboardDatePicker} from "@material-ui/pickers";
-import moment from "moment/moment";
+import {DatePicker} from "@material-ui/pickers";
 import {Grid} from "@material-ui/core";
+import {SectionContext} from "../../contexts/section-context";
+import {DateTime as DT} from "luxon";
 
 export default function FormDatePicker(props) {
+    const fieldProps = {
+        id: props.id,
+        name: props.name,
+        label: props.text,
+        required: props.required,
+        variant: 'inline',
+        inputVariant: 'outlined',
+        format: 'MM/dd/yyyy',
+        minDate: DT.local(),
+        minDateMessage: 'Date should not be before today',
+        autoOk: true,
+        disableToolbar: true,
+        disablePast: true,
+        fullWidth: true
+    }
+
     return (
         <Grid item sm={6}>
-            <KeyboardDatePicker name={props.name} label={props.text} variant={"inline"} format={"MM/DD/yyyy"}
-                                minDate={moment().day()} minDateMessage={'Date should not be before today'}
-                                required={props.req} value={props.selectedDate[props.name]}
-                                onChange={date => props.handleDateChange(date, props.name)} disableToolbar
-                                disablePast fullWidth/>
+            <SectionContext.Consumer>
+                {({data, update}) => (
+                    <DatePicker {...fieldProps} value={data[fieldProps.name] ? data[fieldProps.name].value : DT.local()}
+                                onChange={date => {
+                                    update({
+                                        ...data,
+                                        [props.name]: {
+                                            id: props.id,
+                                            value: date,
+                                            label: props.text
+                                        }
+                                    })
+                                }}/>
+                )}
+            </SectionContext.Consumer>
         </Grid>
     )
 }

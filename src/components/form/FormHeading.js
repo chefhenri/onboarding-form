@@ -33,7 +33,6 @@ export default function FormHeading(props) {
     const [anchor, setAnchor] = React.useState(null)
 
     const handleOpen = (event) => {
-        // setAnchor(document.querySelector('#main'))
         setAnchor(event.currentTarget)
     }
 
@@ -44,32 +43,37 @@ export default function FormHeading(props) {
     const popOpen = Boolean(anchor)
     const popId = popOpen ? 'info-popover' : undefined
 
+    const popoverProps = {
+        id: popId,
+        open: popOpen,
+        anchorEl: anchor,
+        anchorOrigin: {
+            vertical: 'bottom',
+            horizontal: 'right'
+        },
+        transformOrigin: {
+            vertical: 'top',
+            horizontal: 'left'
+        },
+        onClose: handleClose
+    }
+
     return (
         <Grid item sm={12}>
             <Typography className={classes.heading} variant={"h6"} gutterBottom>
                 {props.text}
                 <Box className={classes.icons} component="span">
                     {props.hasOwnProperty('info') && (
-                        <Tooltip title='Info' placement={"top"} onClick={handleOpen} arrow>
+                        <Tooltip key={`${props.id}-info`} title='Info' placement={"top"} onClick={handleOpen} arrow>
                             <Info className={classes.icon}/>
                         </Tooltip>
                     )}
-                    {/*{props.hasOwnProperty('help') && (*/}
-                    {/*    <Tooltip title='Help' placement={"top"} onClick={handleOpen} arrow>*/}
-                    {/*        <Help className={classes.icon}/>*/}
-                    {/*    </Tooltip>*/}
-                    {/*)}*/}
                     {props.hasOwnProperty('info') && (
-                        <Popover id={popId} open={popOpen} anchorEl={anchor} anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right'
-                        }} transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'left'
-                        }} onClose={handleClose}>
-                            {props.info.split('\n').map(fragment =>
-                                <Typography className={classes.popover}>{fragment}</Typography>)}
-                            {/*<Typography className={classes.popover}>{props.info.split('\n').join(<Divider variant={"middle"}/>)}</Typography>*/}
+                        <Popover key={`${props.info}-popover`} {...popoverProps}>
+                            {props.info.split('\n').map((fragment, idx) =>
+                                <Typography key={`${props.id}-frag-${idx}`} className={classes.popover}>
+                                    {fragment}
+                                </Typography>)}
                         </Popover>
                     )}
                 </Box>

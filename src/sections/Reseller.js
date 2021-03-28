@@ -1,23 +1,19 @@
-import React, {Fragment, useState} from 'react'
+import React, {Fragment} from 'react'
 import FormField from "../components/form/FormField";
 import {Grid} from "@material-ui/core";
+import FormHeading from "../components/form/FormHeading";
 
 export default function Reseller(props) {
-    const [checkedState, setCheckedState] = useState({
-        ticketNotifSwitch: true,
-        resupplyNotifSwitch: true
-    })
-
-    const handleChange = (event) => {
-        setCheckedState({...checkedState, [event.target.name]: event.target.checked})
-    }
-
     return (
         <Fragment>
             <Grid container spacing={3}>
-                {props.fields.map((data, idx) => (
-                    <FormField key={`ResellerField${idx}`} {...data} checkedState={checkedState}
-                               handleChange={handleChange}/>
+                {props.subsections.map(subsection => (
+                    <Fragment key={`${subsection.id}-frag`}>
+                        <FormHeading key={`${subsection.id}-heading`} {...subsection}/>
+                        {subsection.fields.map((field, idx) => (
+                            <FormField key={`${props.id}-field-${idx}`} {...field}/>
+                        ))}
+                    </Fragment>
                 ))}
             </Grid>
         </Fragment>
