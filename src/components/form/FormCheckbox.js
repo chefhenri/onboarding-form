@@ -20,10 +20,13 @@ export default function FormCheckbox(props) {
                         <FormControlLabel control={
                             <SectionContext.Consumer>
                                 {({data, update}) => (
-                                    // FIXME: 'checked' value does not update on change
                                     <Checkbox {...checkboxProps(idx)}
-                                              checked={data[checkboxProps().name] ? data[checkboxProps().name].value : false}
+                                              checked={data[checkboxProps(idx).name] ?
+                                                  data[checkboxProps(idx).name].value : false}
                                               onChange={(event, checked) => {
+
+                                                  console.log(data[checkboxProps(idx).name])
+
                                                   update({
                                                       ...data,
                                                       [event.target.name]: {
