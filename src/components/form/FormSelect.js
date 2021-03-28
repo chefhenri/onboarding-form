@@ -34,17 +34,18 @@ export default function FormSelect(props) {
                 <InputLabel id={selectProps.labelId}>{props.text}</InputLabel>
                 <SectionContext.Consumer>
                     {({data, update}) => (
-                        // FIXME: Incorrect value provided for select
-                        <Select {...selectProps} value={data[selectProps.name] ? data[selectProps.name].value : ''} onChange={event => {
-                            update({
-                                ...data,
-                                [props.name]: {
-                                    id: props.id,
-                                    value: props.options[event.target.value],
-                                    label: props.text
-                                }
-                            })
-                        }}>
+                        <Select {...selectProps} value={data[selectProps.name] ? data[selectProps.name].idx : ''}
+                                onChange={event => {
+                                    update({
+                                        ...data,
+                                        [props.name]: {
+                                            id: props.id,
+                                            idx: event.target.value,
+                                            value: props.options[event.target.value],
+                                            label: props.text
+                                        }
+                                    })
+                                }}>
                             {props.options.map((value, idx) => (
                                 <MenuItem key={`${value}-opt`} value={idx}>{value}</MenuItem>
                             ))}
