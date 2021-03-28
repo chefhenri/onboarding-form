@@ -18,7 +18,6 @@ export default function FormSwitch(props) {
                     {({data, update}) => (
                         <Switch {...switchProps} checked={data[switchProps.name] ? data[switchProps.name].value : false}
                                 onChange={(event, checked) => {
-                                    props.handleChange(event, checked)
                                     update({
                                         ...data,
                                         [props.name]: {id: props.id, value: checked, label: props.text}

@@ -10,7 +10,6 @@ export default function FormDatePicker(props) {
         name: props.name,
         label: props.text,
         required: props.required,
-        value: props.date[props.name],
         variant: 'inline',
         inputVariant: 'outlined',
         format: 'MM/dd/yyyy',
@@ -28,7 +27,6 @@ export default function FormDatePicker(props) {
                 {({data, update}) => (
                     <DatePicker {...fieldProps} value={data[fieldProps.name] ? data[fieldProps.name].value : DT.local()}
                                 onChange={date => {
-                                    props.handleDateChange(props.name, date)
                                     update({
                                         ...data,
                                         [props.name]: {

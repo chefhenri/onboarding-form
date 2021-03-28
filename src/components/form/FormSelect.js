@@ -24,7 +24,6 @@ export default function FormSelect(props) {
         labelId: props.text
             .toLowerCase()
             .replace(' ', '-'),
-        value: props.item[props.name],
         displayEmpty: true,
         autoWidth: true
     }
@@ -35,8 +34,8 @@ export default function FormSelect(props) {
                 <InputLabel id={selectProps.labelId}>{props.text}</InputLabel>
                 <SectionContext.Consumer>
                     {({data, update}) => (
-                        <Select {...selectProps} onChange={event => {
-                            props.handleItemChange(event)
+                        // FIXME: Incorrect value provided for select
+                        <Select {...selectProps} value={data[selectProps.name] ? data[selectProps.name].value : ''} onChange={event => {
                             update({
                                 ...data,
                                 [props.name]: {
