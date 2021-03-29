@@ -12,7 +12,7 @@ Planned Features:
 3. Field Hints: see helpful information about a form field.
 
 ### Contributing
-Henry Larson - @hxl1116
+[Henry Larson](https://github.com/hxl1116)
 
 ### Authors and Acknowledgement
 The original PDF version of the onboarding form was proposed and created by 
