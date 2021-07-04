@@ -13,7 +13,7 @@ export default function Finish(props) {
                 Please verify the information is correct.
             </Typography>
 
-            <Summary data={props.data}/>
+            <Summary sections={props.data}/>
         </div>
     )
 }
