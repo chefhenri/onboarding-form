@@ -13,27 +13,29 @@ const styles = makeStyles((theme) => ({
     }
 }))
 
-export default function Content(props) {
+const Content = ({active, next, back, skip, optional, section, length}) => {
     const classes = styles()
 
     return (
         <div>
-            {props.section}
+            {section}
             <div>
-                <Button disabled={props.active === 0} onClick={props.back} className={classes.button}>
+                <Button disabled={active === 0} onClick={back} className={classes.button}>
                     Back
                 </Button>
-                {props.optional(props.active) && (
-                    <Button variant="contained" color="primary" onClick={props.skip}
+                {optional(active) && (
+                    <Button variant="contained" color="primary" onClick={skip}
                             className={classes.button}>
                         Skip
                     </Button>
                 )}
-                <Button variant="contained" color="primary" onClick={props.next}
+                <Button variant="contained" color="primary" onClick={next}
                         className={classes.button}>
-                    {props.active === props.length ? 'Finish' : 'Next'}
+                    {active === length ? 'Finish' : 'Next'}
                 </Button>
             </div>
         </div>
     )
 }
+
+export default Content
