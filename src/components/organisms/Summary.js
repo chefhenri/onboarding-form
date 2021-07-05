@@ -1,7 +1,7 @@
 import React from "react";
 import {Paper, TableContainer} from "@material-ui/core";
 
-import SummaryTable from "../components/table/SummaryTable";
+import SummaryTable from "../atoms/SummaryTable";
 
 export default function Summary({sections}) {
     return (

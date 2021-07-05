@@ -1,10 +1,9 @@
 import React, {Fragment} from 'react';
-import FormField from "../components/form/FormField";
+import FormField from "../atoms/FormField";
 import {Grid} from "@material-ui/core";
+import FormHeading from "../atoms/FormHeading";
 
-import FormHeading from "../components/form/FormHeading";
-
-export default function Information(props) {
+export default function Comments(props) {
     return (
         <Fragment>
             <Grid container spacing={3}>

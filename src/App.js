@@ -1,8 +1,8 @@
 import React, {Fragment} from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-import Nav from "./components/Nav";
-import Main from "./components/Main";
+import Nav from "./components/molecules/Nav";
+import Main from "./components/molecules/Main";
 
 const App = (props) => {
     return (

@@ -1,7 +1,9 @@
 import React, {Fragment} from 'react';
 import {Grid} from "@material-ui/core";
-import FormHeading from "../components/form/FormHeading";
-import FormField from "../components/form/FormField";
+import FormHeading from "../atoms/FormHeading";
+import FormField from "../atoms/FormField";
+
+
 
 export default function Account(props) {
     return (

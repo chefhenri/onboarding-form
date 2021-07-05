@@ -7,11 +7,11 @@ import StepLabel from "@material-ui/core/StepLabel";
 import {makeStyles} from "@material-ui/core/styles";
 
 import Finish from "./Finish";
-import Account from "../sections/Account";
-import Reseller from "../sections/Reseller";
-import Information from "../sections/Information";
-import Configuration from "../sections/Configuration";
-import Comments from "../sections/Comments";
+import Account from "../organisms/Account";
+import Reseller from "../organisms/Reseller";
+import Information from "../organisms/Information";
+import Configuration from "../organisms/Configuration";
+import Comments from "../organisms/Comments";
 
 import {SectionContext} from '../contexts/section-context'
 import Content from "./Content";
