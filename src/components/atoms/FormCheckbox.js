@@ -5,7 +5,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 import {SectionContext, SectionDataContext} from "../../utils/app.utils";
 
-export default function FormCheckbox({id, idx, name, text, required}) {
+const FormCheckbox = ({id, idx, name, text, required}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionContext)
 

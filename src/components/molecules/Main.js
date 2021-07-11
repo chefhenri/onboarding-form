@@ -99,6 +99,7 @@ export default function Main(props) {
 
     const getSection = (idx) => {
         let sectionData = props.sections[idx]
+        // TODO: Extract to unified Section component
         switch (idx) {
             case 0:
                 return (<Account {...sectionData}/>)
