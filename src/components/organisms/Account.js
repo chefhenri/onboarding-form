@@ -5,15 +5,15 @@ import FormField from "../atoms/FormField";
 
 
 
-export default function Account(props) {
+export default function Account({id, subsections}) {
     return (
         <Fragment>
             <Grid container spacing={3}>
-                {props.subsections.map(subsection => (
+                {subsections.map(subsection => (
                     <Fragment key={`${subsection.id}-frag`}>
                         <FormHeading key={`${subsection.id}-heading`} {...subsection}/>
                         {subsection.fields.map((field, idx) => (
-                            <FormField key={`${props.id}-field-${idx}`} {...field}/>
+                            <FormField key={`${id}-field-${idx}`} {...field}/>
                         ))}
                     </Fragment>
                 ))}

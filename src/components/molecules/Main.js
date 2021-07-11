@@ -6,16 +6,13 @@ import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import {makeStyles} from "@material-ui/core/styles";
 
+import Content from "./Content";
 import Finish from "./Finish";
 import Account from "../organisms/Account";
 import Reseller from "../organisms/Reseller";
 import Information from "../organisms/Information";
 import Configuration from "../organisms/Configuration";
 import Comments from "../organisms/Comments";
-
-import {SectionContext} from '../contexts/section-context'
-import Content from "./Content";
-import {DateTime as DT} from "luxon";
 
 const styles = makeStyles((theme) => ({
     layout: {

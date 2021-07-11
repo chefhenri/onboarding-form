@@ -1,8 +1,8 @@
-import React, {createContext} from "react";
+import React, {createContext, useState} from "react";
 import {DateTime as DT} from "luxon";
 
 // TODO: Add defaults for checkboxes
-export const SectionContext = createContext([
+export const SectionDataContext = createContext(useState(
     {
         sections: {
             account: {},
@@ -50,7 +50,5 @@ export const SectionContext = createContext([
                 ]
             },
         }
-    },
-    () => {
     }
-])
+))

@@ -1,11 +1,11 @@
 import React from "react";
-import FormCheckbox from "./FormCheckbox";
 import FormDatePicker from "./FormDatePicker";
 import FormSelect from "./FormSelect";
 import FormSwitch from "./FormSwitch";
 import FormTextField from "./FormTextField";
 import FormTextArea from "./FormTextArea";
 import FormSlider from "./FormSlider";
+import FormCheckboxGroup from "../molecules/FormCheckboxGroup";
 
 export default function FormField(props) {
     switch (props.type) {
@@ -15,7 +15,7 @@ export default function FormField(props) {
             )
         case 'box':
             return (
-                <FormCheckbox key={props.id} {...props}/>
+                <FormCheckboxGroup key={props.id} {...props}/>
             )
         case 'date':
             return (

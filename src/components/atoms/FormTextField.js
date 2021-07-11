@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import TextField from "@material-ui/core/TextField";
 import {Grid} from "@material-ui/core";
 
-import {SectionContext} from "../../utils/app.utils";
+import {SectionDataContext} from "../../utils/app.utils";
 
 // const FormTextField = (props) => {
 //     const fieldProps = {
@@ -32,22 +32,41 @@ import {SectionContext} from "../../utils/app.utils";
 //     )
 // }
 
-const FormTextField = (props) => {
-    const [data, setData] = useContext(SectionContext)
+const FormTextField = ({key, id, name, type, text, required, section}) => {
+    const [data, setData] = useContext(SectionDataContext)
+
+    const value = data[section][name] ? data[section][name].value : '';
 
     const fieldProps = {
-        id: props.id,
-        name: props.name,
-        type: props.type,
-        label: props.text,
-        required: props.required,
+        key: key,
+        id: id,
+        name: name,
+        type: type,
+        label: text,
+        required: required,
+        defaultValue: value,
         variant: 'outlined',
         fullWidth: true
     }
 
+    const handleValueChange = (event) => {
+        setData({
+            ...data,
+            [section]: {
+                fields: [
+                    {
+                        id: id,
+                        label: text,
+                        value: event.target.value
+                    }
+                ]
+            }
+        })
+    }
+
     return (
         <Grid item sm={6}>
-            <TextField {...fieldProps} defaultValue={data[fieldProps.name] ? data[fieldProps.name].value : ''}/>
+            <TextField {...fieldProps} onChange={handleValueChange}/>
         </Grid>
     )
 }

@@ -1,61 +1,60 @@
-import React, {Fragment} from "react";
-import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+import React, {useContext} from "react";
+import {Grid} from "@material-ui/core";
 import Checkbox from "@material-ui/core/Checkbox";
-import {FormControl, FormLabel, Grid} from "@material-ui/core";
-import {SectionContext} from "../../contexts/section-context";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
-export default function FormCheckbox(props) {
-    const checkboxProps = idx => ({
-        id: `${props.id}-opt-${idx}`,
-        name: `${props.name}Opt${idx}`,
-        color: 'primary'
-    })
+import {SectionDataContext} from "../../utils/app.utils";
 
-    const generateCheckboxes = () => {
-        return (
-            <Fragment>
-                {props.options.map((value, idx) => (
-                    <Grid key={`${props.id}-opt-${idx}`} sm={4} item>
-                        <FormControlLabel control={
-                            <SectionContext.Consumer>
-                                {({data, update}) => (
-                                    <Checkbox {...checkboxProps(idx)}
-                                              checked={data[checkboxProps(idx).name] ?
-                                                  data[checkboxProps(idx).name].value : false}
-                                              onChange={(event, checked) => {
+export default function FormCheckbox({id, idx, name, text, required}) {
+    const [data, setData] = useContext(SectionDataContext)
 
-                                                  console.log(data[checkboxProps(idx).name])
+    const getId = (idx) => {
+        return `${id}-opt-${idx}`
+    }
 
-                                                  update({
-                                                      ...data,
-                                                      [event.target.name]: {
-                                                          id: event.target.id,
-                                                          value: checked,
-                                                          label: value
-                                                      }
-                                                  })
-                                              }}/>
-                                )}
-                            </SectionContext.Consumer>
-                        }
-                                          label={value}/>
-                    </Grid>
-                ))}
-            </Fragment>
-        )
+    const getName = (idx) => {
+        return `${name}Opt${idx}`
+    }
+
+    const checkboxProps = (idx) => {
+        return {
+            id: getId(idx),
+            name: getName(idx),
+            required: required,
+            color: 'primary'
+        }
+    }
+
+    const isChecked = () => {
+        // TODO: Get section from context
+        let checkbox = data
+            .sections['section']
+            .fields
+            .filter(field => field.id === getId(idx))
+
+        return checkbox.checked
+    }
+
+    const handleChange = ({target}, checked) => {
+        setData({
+            ...data,
+            ['section']: {
+                fields: [{
+                    id: target.id,
+                    label: text,
+                    value: checked
+                }]
+            }
+        })
     }
 
     return (
-        <Grid item sm={props.size === 'half' ? 6 : 12}>
-            <FormControl component={"fieldset"} fullWidth>
-                <FormLabel>{props.text}</FormLabel>
-                <FormGroup row>
-                    <Grid spacing={0} container>
-                        {generateCheckboxes()}
-                    </Grid>
-                </FormGroup>
-            </FormControl>
+        <Grid key={key} sm={4} item>
+            <FormControlLabel label={text} control={
+                <Checkbox {...checkboxProps(idx)} checked={isChecked} onChange={handleChange}/>
+            }/>
         </Grid>
     )
 }
+
+export default FormCheckbox
