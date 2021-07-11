@@ -3,20 +3,21 @@ import FormField from "../atoms/FormField";
 import {Grid} from "@material-ui/core";
 
 import FormHeading from "../atoms/FormHeading";
+import {SectionContext} from "../../utils/app.utils";
 
-export default function Configuration(props) {
+export default function Configuration({id, subsections}) {
     return (
-        <Fragment>
+        <SectionContext.Provider value={'config'}>
             <Grid container spacing={3}>
-                {props.subsections.map(subsection => (
+                {subsections.map(subsection => (
                     <Fragment key={`${subsection.id}-frag`}>
                         <FormHeading key={`${subsection.id}-heading`} {...subsection}/>
                         {subsection.fields.map((field, idx) => (
-                            <FormField key={`${props.id}-field-${idx}`} {...field}/>
+                            <FormField key={`${id}-field-${idx}`} {...field}/>
                         ))}
                     </Fragment>
                 ))}
             </Grid>
-        </Fragment>
+        </SectionContext.Provider>
     );
 }

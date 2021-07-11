@@ -3,10 +3,11 @@ import {Grid} from "@material-ui/core";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
-import {SectionDataContext} from "../../utils/app.utils";
+import {SectionContext, SectionDataContext} from "../../utils/app.utils";
 
 export default function FormCheckbox({id, idx, name, text, required}) {
     const [data, setData] = useContext(SectionDataContext)
+    const section = useContext(SectionContext)
 
     const getId = (idx) => {
         return `${id}-opt-${idx}`
@@ -28,7 +29,7 @@ export default function FormCheckbox({id, idx, name, text, required}) {
     const isChecked = () => {
         // TODO: Get section from context
         let checkbox = data
-            .sections['section']
+            .sections[section]
             .fields
             .filter(field => field.id === getId(idx))
 
