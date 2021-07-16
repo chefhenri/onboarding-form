@@ -4,6 +4,7 @@ import Switch from "@material-ui/core/Switch";
 import {Grid} from "@material-ui/core";
 import {SectionContext} from "../../contexts/section-context";
 
+// TODO: Refactor context consumption
 export default function FormSwitch(props) {
     const switchProps = {
         id: props.id,

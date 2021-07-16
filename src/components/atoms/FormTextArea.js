@@ -4,6 +4,7 @@ import {Grid} from "@material-ui/core";
 
 import {SectionContext} from '../../contexts/section-context'
 
+// TODO: Refactor context consumption
 export default function FormTextArea(props) {
     const fieldProps = {
         id: props.id,

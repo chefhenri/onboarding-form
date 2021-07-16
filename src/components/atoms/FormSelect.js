@@ -14,6 +14,7 @@ const styles = makeStyles((theme) => ({
     }
 }))
 
+// TODO: Refactor context consumption
 export default function FormSelect(props) {
     const classes = styles()
 
