@@ -9,7 +9,7 @@ const styles = makeStyles(theme => ({
     }
 }))
 
-export default function Nav(props) {
+const FormProgress = (props) => {
     const classes = styles()
 
     return (
@@ -22,3 +22,5 @@ export default function Nav(props) {
         </AppBar>
     )
 }
+
+export default FormProgress

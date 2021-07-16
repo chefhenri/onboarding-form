@@ -8,11 +8,11 @@ import {makeStyles} from "@material-ui/core/styles";
 
 import Content from "./Content";
 import Finish from "./Finish";
-import Account from "../organisms/Account";
-import Reseller from "../organisms/Reseller";
-import Information from "../organisms/Information";
-import Configuration from "../organisms/Configuration";
-import Comments from "../organisms/Comments";
+import Account from "./sections/Account";
+import Reseller from "./sections/Reseller";
+import Information from "./sections/Information";
+import Configuration from "./sections/Configuration";
+import Comments from "./sections/Comments";
 
 const styles = makeStyles((theme) => ({
     layout: {

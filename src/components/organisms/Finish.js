@@ -1,7 +1,7 @@
 import React from "react";
 import {Typography} from "@material-ui/core";
 
-import Summary from "../organisms/Summary";
+import Summary from "./Summary";
 
 export default function Finish(props) {
     return (
