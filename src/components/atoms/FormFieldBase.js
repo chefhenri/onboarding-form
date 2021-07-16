@@ -4,10 +4,10 @@ import FormSelect from "./FormSelect";
 import FormSwitch from "./FormSwitch";
 import FormTextField from "./FormTextField";
 import FormTextArea from "./FormTextArea";
-import FormSlider from "./FormSlider";
 import FormCheckboxGroup from "../molecules/FormCheckboxGroup";
+import FormSliderGroup from "../molecules/FormSliderGroup";
 
-export default function FormField(props) {
+export default function FormFieldBase(props) {
     switch (props.type) {
         case 'area':
             return (
@@ -27,7 +27,7 @@ export default function FormField(props) {
             )
         case 'slider':
             return (
-                <FormSlider key={props.id} {...props}/>
+                <FormSliderGroup key={props.id} {...props}/>
             )
         case 'switch':
             return (

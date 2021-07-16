@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import {Grid} from "@material-ui/core";
 import FormHeading from "../../atoms/FormHeading";
-import FormField from "../../atoms/FormField";
+import FormFieldBase from "../../atoms/FormFieldBase";
 import {SectionContext} from "../../../utils/app.utils";
 
 // TODO: Refactor 'SectionContext' provider
@@ -13,7 +13,7 @@ export default function Account({id, subsections}) {
                     <Fragment key={`${subsection.id}-frag`}>
                         <FormHeading key={`${subsection.id}-heading`} {...subsection}/>
                         {subsection.fields.map((field, idx) => (
-                            <FormField key={`${id}-field-${idx}`} {...field}/>
+                            <FormFieldBase key={`${id}-field-${idx}`} {...field}/>
                         ))}
                     </Fragment>
                 ))}

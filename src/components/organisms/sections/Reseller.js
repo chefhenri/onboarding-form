@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import FormField from "../../atoms/FormField";
+import FormFieldBase from "../../atoms/FormFieldBase";
 import {Grid} from "@material-ui/core";
 import FormHeading from "../../atoms/FormHeading";
 import {SectionContext} from "../../../utils/app.utils";
@@ -13,7 +13,7 @@ export default function Reseller({id, subsections}) {
                     <Fragment key={`${subsection.id}-frag`}>
                         <FormHeading key={`${subsection.id}-heading`} {...subsection}/>
                         {subsection.fields.map((field, idx) => (
-                            <FormField key={`${id}-field-${idx}`} {...field}/>
+                            <FormFieldBase key={`${id}-field-${idx}`} {...field}/>
                         ))}
                     </Fragment>
                 ))}
