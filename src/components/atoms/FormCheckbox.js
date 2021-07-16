@@ -27,7 +27,7 @@ const FormCheckbox = ({id, idx, name, text, required}) => {
     }
 
     const isChecked = () => {
-        // TODO: Get section from context
+        // TODO: Get section from props/context
         let checkbox = data
             .sections[section]
             .fields

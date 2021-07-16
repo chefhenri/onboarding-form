@@ -1,17 +1,16 @@
-import React from "react";
+import React, {useContext} from "react";
 import TextField from "@material-ui/core/TextField";
 import {Grid} from "@material-ui/core";
 
-import {SectionContext} from '../../contexts/section-context'
+import {SectionDataContext} from "../../utils/app.utils";
 
-// TODO: Refactor context consumption
-export default function FormTextArea(props) {
+export default function FormTextArea({id, name, text, type, required}) {
     const fieldProps = {
-        id: props.id,
-        name: props.name,
-        type: props.type,
-        label: props.text,
-        required: props.required,
+        id: id,
+        name: name,
+        type: type,
+        label: text,
+        required: required,
         variant: 'outlined',
         rows: 5,
         rowsMax: 10,
@@ -19,19 +18,24 @@ export default function FormTextArea(props) {
         multiline: true
     }
 
+    const [data, setData] = useContext(SectionDataContext)
+
+    const handleChange = ({target}) => {
+        setData({
+            ...data,
+            ['section']: {
+                fields: [{
+                    id: id,
+                    label: text,
+                    value: target.value
+                }]
+            }
+        })
+    }
+
     return (
         <Grid item sm={12}>
-            <SectionContext.Consumer>
-                {({data, update}) => (
-                    <TextField {...fieldProps} defaultValue={data[fieldProps.name] ? data[fieldProps.name].value : ''}
-                               onChange={event => {
-                                   update({
-                                       ...data,
-                                       [props.name]: {id: props.id, value: event.target.value, label: props.text}
-                                   })
-                               }}/>
-                )}
-            </SectionContext.Consumer>
+            <TextField {...fieldProps} onChange={handleChange}/>
         </Grid>
     )
 }

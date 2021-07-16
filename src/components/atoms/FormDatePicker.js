@@ -1,16 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
 import {DatePicker} from "@material-ui/pickers";
 import {Grid} from "@material-ui/core";
-import {SectionContext} from "../../contexts/section-context";
 import {DateTime as DT} from "luxon";
+import {SectionDataContext} from "../../utils/app.utils";
 
-// TODO: Refactor context consumption
-export default function FormDatePicker(props) {
+const FormDatePicker = ({id, name, text, required}) => {
+    const [data, setData] = useContext(SectionDataContext)
+
     const fieldProps = {
-        id: props.id,
-        name: props.name,
-        label: props.text,
-        required: props.required,
+        id: id,
+        name: name,
+        label: text,
+        required: required,
         variant: 'inline',
         inputVariant: 'outlined',
         format: 'MM/dd/yyyy',
@@ -22,23 +23,30 @@ export default function FormDatePicker(props) {
         fullWidth: true
     }
 
+    const getValue = () => {
+        let datePicker = data['section'].fields.filter(field => field.id === id)
+
+        return datePicker.value
+    }
+
+    const handleChange = ({target}, date) => {
+        setData({
+            ...data,
+            ['section']: {
+                fields: [{
+                    id: target.id,
+                    label: text,
+                    value: date
+                }]
+            }
+        })
+    }
+
     return (
         <Grid item sm={6}>
-            <SectionContext.Consumer>
-                {({data, update}) => (
-                    <DatePicker {...fieldProps} value={data[fieldProps.name] ? data[fieldProps.name].value : DT.local()}
-                                onChange={date => {
-                                    update({
-                                        ...data,
-                                        [props.name]: {
-                                            id: props.id,
-                                            value: date,
-                                            label: props.text
-                                        }
-                                    })
-                                }}/>
-                )}
-            </SectionContext.Consumer>
+            <DatePicker {...fieldProps} value={getValue} onChange={handleChange}/>
         </Grid>
     )
 }
+
+export default FormDatePicker

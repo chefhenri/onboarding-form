@@ -1,32 +1,45 @@
-import React from "react";
+import React, {useContext} from "react";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import {Grid} from "@material-ui/core";
-import {SectionContext} from "../../contexts/section-context";
 
-// TODO: Refactor context consumption
-export default function FormSwitch(props) {
+import {SectionDataContext} from "../../utils/app.utils";
+
+const FormSwitch = ({id, name, text}) => {
+    const [data, setData] = useContext(SectionDataContext)
+
     const switchProps = {
-        id: props.id,
-        name: props.name,
+        id: id,
+        name: name,
         color: 'primary'
     }
 
+    const isChecked = () => {
+        let select = data['section'].fields.filter(field => field.id === id)
+
+        return select.checked
+    }
+
+    const handleChange = ({target}, checked) => {
+        setData({
+            ...data,
+            ['section']: {
+                fields: [{
+                    id: target.id,
+                    label: text,
+                    value: checked
+                }]
+            }
+        })
+    }
+
     return (
-        <Grid item sm={6}>
-            <FormControlLabel control={
-                <SectionContext.Consumer>
-                    {({data, update}) => (
-                        <Switch {...switchProps} checked={data[switchProps.name] ? data[switchProps.name].value : false}
-                                onChange={(event, checked) => {
-                                    update({
-                                        ...data,
-                                        [props.name]: {id: props.id, value: checked, label: props.text}
-                                    })
-                                }}/>
-                    )}
-                </SectionContext.Consumer>
-            } label={props.text}/>
+        <Grid sm={6} item>
+            <FormControlLabel label={text} control={
+                <Switch {...switchProps} checked={isChecked} onChange={handleChange}/>
+            }/>
         </Grid>
     )
 }
+
+export default FormSwitch
