@@ -1,11 +1,11 @@
 import React from "react";
-import FormDatePicker from "./FormDatePicker";
-import FormSelect from "./FormSelect";
-import FormSwitch from "./FormSwitch";
-import FormTextField from "./FormTextField";
-import FormTextArea from "./FormTextArea";
-import FormCheckboxGroup from "../molecules/FormCheckboxGroup";
-import FormSliderGroup from "../molecules/FormSliderGroup";
+import FormDatePicker from "../atoms/FormDatePicker";
+import FormSelect from "../atoms/FormSelect";
+import FormSwitch from "../atoms/FormSwitch";
+import FormTextField from "../atoms/FormTextField";
+import FormTextArea from "../atoms/FormTextArea";
+import FormCheckboxGroup from "./FormCheckboxGroup";
+import FormSliderGroup from "./FormSliderGroup";
 
 export default function FormFieldBase(props) {
     switch (props.type) {

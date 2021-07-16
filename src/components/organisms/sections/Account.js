@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import {Grid} from "@material-ui/core";
 import FormHeading from "../../atoms/FormHeading";
-import FormFieldBase from "../../atoms/FormFieldBase";
+import FormFieldBase from "../../molecules/FormFieldBase";
 import {SectionContext} from "../../../utils/app.utils";
 
 // TODO: Refactor 'SectionContext' provider
