@@ -5,7 +5,8 @@ import FormHeading from "../../atoms/FormHeading";
 import FormFieldBase from "../../molecules/FormFieldBase";
 import {SectionNameContext} from "../../../utils/app.utils";
 
-export default function Comments({id, subsections}) {
+// TODO: Add fields to context during generation
+const Comments = ({id, subsections}) => {
     return (
         <SectionNameContext.Provider value={'comments'}>
             <Grid container spacing={3}>
@@ -21,3 +22,5 @@ export default function Comments({id, subsections}) {
         </SectionNameContext.Provider>
     );
 }
+
+export default Comments

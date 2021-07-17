@@ -47,7 +47,7 @@ const FormCheckbox = ({id, idx, name, text, required}) => {
     }
 
     return (
-        <Grid key={key} sm={4} item>
+        <Grid key={'key'} sm={4} item>
             <FormControlLabel label={text} control={
                 <Checkbox {...checkboxProps(idx)} checked={isChecked} onChange={handleChange}/>
             }/>

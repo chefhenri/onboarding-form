@@ -1,13 +1,14 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import {Grid} from "@material-ui/core";
 
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
-const FormSwitch = ({id, name, text}) => {
+const FormSwitch = ({id, initial, name, text}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
+    const [checked, setChecked] = useState(initial)
 
     const switchProps = {
         id: id,
@@ -15,20 +16,15 @@ const FormSwitch = ({id, name, text}) => {
         color: 'primary'
     }
 
-    const isChecked = () => {
-        let select = data[section].fields.filter(field => field.id === id)
-
-        return select.checked
-    }
-
-    const handleChange = ({target}, checked) => {
+    const handleChange = () => {
+        setChecked(!checked)
         setData({
             ...data,
             [section]: {
                 fields: [{
-                    id: target.id,
+                    id: id,
                     label: text,
-                    value: checked
+                    value: !checked
                 }]
             }
         })
@@ -37,7 +33,7 @@ const FormSwitch = ({id, name, text}) => {
     return (
         <Grid sm={6} item>
             <FormControlLabel label={text} control={
-                <Switch {...switchProps} checked={isChecked} onChange={handleChange}/>
+                <Switch {...switchProps} checked={checked} onChange={handleChange}/>
             }/>
         </Grid>
     )

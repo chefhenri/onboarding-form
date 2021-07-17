@@ -135,20 +135,22 @@
         "text": "Reseller Notifications",
         "fields": [
           {
-            "id": "ticket-notify",
-            "name": "ticketNotifSwitch",
-            "type": "switch",
             "hint": 1,
+            "id": "ticket-notify",
+            "initial": true,
+            "name": "ticketNotifSwitch",
             "required": true,
-            "text": "Notify Reseller about new Onboarding Tickets"
+            "text": "Notify Reseller about new Onboarding Tickets",
+            "type": "switch"
           },
           {
-            "id": "resupply-notify",
-            "name": "resupplyNotifSwitch",
-            "type": "switch",
             "hint": 2,
+            "id": "resupply-notify",
+            "initial": true,
+            "name": "resupplyNotifSwitch",
             "required": true,
-            "text": "Notify Reseller of Credit resupply"
+            "text": "Notify Reseller of Credit resupply",
+            "type": "switch"
           }
         ]
       },

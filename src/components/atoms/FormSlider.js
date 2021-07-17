@@ -1,7 +1,7 @@
 import React from "react";
 import {Grid, Slider} from "@material-ui/core";
 
-const FormSlider = ({id, name, option, options, className, handleChange}) => {
+const FormSlider = ({id, name, value, checked, option, options, className, handleChange}) => {
     const sliderProps = {
         id: id,
         name: name,

@@ -1,7 +1,7 @@
 import React from "react";
 import {Grid, Input} from "@material-ui/core";
 
-const FormSliderInput = ({id, disabled, className, handleChange}) => {
+const FormSliderInput = ({id, name, value, disabled, className, handleChange}) => {
     const inputProps = {
         id: id + '-custom-value',
         name: name,

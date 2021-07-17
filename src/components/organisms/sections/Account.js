@@ -5,7 +5,8 @@ import FormHeading from "../../atoms/FormHeading";
 import FormFieldBase from "../../molecules/FormFieldBase";
 import {SectionNameContext} from "../../../utils/app.utils";
 
-export default function Account({id, subsections}) {
+// TODO: Add fields to context during generation
+const Account = ({id, subsections}) => {
     return (
         <SectionNameContext.Provider value={'account'}>
             <Grid container spacing={3}>
@@ -21,3 +22,5 @@ export default function Account({id, subsections}) {
         </SectionNameContext.Provider>
     );
 }
+
+export default Account

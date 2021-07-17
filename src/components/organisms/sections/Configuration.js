@@ -5,7 +5,8 @@ import FormHeading from "../../atoms/FormHeading";
 import FormFieldBase from "../../molecules/FormFieldBase";
 import {SectionNameContext} from "../../../utils/app.utils";
 
-export default function Configuration({id, subsections}) {
+// TODO: Add fields to context during generation
+const Configuration = ({id, subsections}) => {
     return (
         <SectionNameContext.Provider value={'config'}>
             <Grid container spacing={3}>
@@ -21,3 +22,5 @@ export default function Configuration({id, subsections}) {
         </SectionNameContext.Provider>
     );
 }
+
+export default Configuration

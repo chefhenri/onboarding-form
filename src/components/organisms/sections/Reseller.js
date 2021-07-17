@@ -5,7 +5,8 @@ import FormHeading from "../../atoms/FormHeading";
 import FormFieldBase from "../../molecules/FormFieldBase";
 import {SectionNameContext} from "../../../utils/app.utils";
 
-export default function Reseller({id, subsections}) {
+// TODO: Add fields to context during generation
+const Reseller = ({id, subsections}) => {
     return (
         <SectionNameContext.Provider value={'resell'}>
             <Grid container spacing={3}>
@@ -21,3 +22,5 @@ export default function Reseller({id, subsections}) {
         </SectionNameContext.Provider>
     );
 }
+
+export default Reseller

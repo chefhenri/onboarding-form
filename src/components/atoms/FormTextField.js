@@ -1,28 +1,34 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import TextField from "@material-ui/core/TextField";
 import {Grid} from "@material-ui/core";
 
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
-const FormTextField = ({key, id, name, type, text, required}) => {
+// FIXME: TextField not displaying value after re-mounting
+const FormTextField = ({id, name, type, text, required}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
+    // const [value, setValue] = useState('')
 
-    const value = data[section][name] ? data[section][name].value : '';
+    // useEffect(() => {
+    //     console.log(data[section])
+    //     let textField = data[section].fields.filter(field => field.id === id)
+    //
+    //     setValue(textField.value)
+    // }, [])
 
     const fieldProps = {
-        key: key,
         id: id,
         name: name,
         type: type,
         label: text,
         required: required,
-        defaultValue: value,
         variant: 'outlined',
         fullWidth: true
     }
 
-    const handleChange = (event) => {
+    const handleChange = ({target}) => {
+        // setValue(target.value)
         setData({
             ...data,
             [section]: {
@@ -30,7 +36,7 @@ const FormTextField = ({key, id, name, type, text, required}) => {
                     {
                         id: id,
                         label: text,
-                        value: event.target.value
+                        value: target.value
                     }
                 ]
             }

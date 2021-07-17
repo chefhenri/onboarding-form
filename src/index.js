@@ -12,7 +12,7 @@ const sectionHeaders = sectionData.map(section => section.header)
 render(
     <StrictMode>
         <MuiPickersUtilsProvider utils={LuxonUtils}>
-                <App headers={sectionHeaders} sections={sectionData}/>
+            <App headers={sectionHeaders} sections={sectionData}/>
         </MuiPickersUtilsProvider>
     </StrictMode>,
     document.querySelector('#root')
