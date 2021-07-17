@@ -2,10 +2,11 @@ import React, {useContext} from "react";
 import TextField from "@material-ui/core/TextField";
 import {Grid} from "@material-ui/core";
 
-import {SectionDataContext} from "../../utils/app.utils";
+import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
-const FormTextField = ({key, id, name, type, text, required, section}) => {
+const FormTextField = ({key, id, name, type, text, required}) => {
     const [data, setData] = useContext(SectionDataContext)
+    const section = useContext(SectionNameContext)
 
     const value = data[section][name] ? data[section][name].value : '';
 

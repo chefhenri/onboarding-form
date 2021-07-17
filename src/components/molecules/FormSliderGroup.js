@@ -5,7 +5,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import FormSliderSwitch from "../atoms/FormSliderSwitch";
 import FormSliderInput from "../atoms/FormSliderInput";
 import FormSlider from "../atoms/FormSlider";
-import {SectionDataContext} from "../../utils/app.utils";
+import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
 const styles = makeStyles(theme => ({
     container: {
@@ -26,13 +26,14 @@ const FormSliderGroup = ({text}) => {
     const classes = styles()
 
     const [data, setData] = useContext(SectionDataContext)
+    const section = useContext(SectionNameContext)
     const [value, setValue] = useState(90)
     const [checked, setChecked] = useState(false)
 
     const handleDataChange = (target) => {
         setData({
             ...data,
-            ['section']: {
+            [section]: {
                 fields: [{
                     id: target.id,
                     label: text,

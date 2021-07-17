@@ -27,7 +27,7 @@ const styles = makeStyles(theme => ({
     }
 }))
 
-export default function FormHeading(props) {
+export default function FormHeading({id, text, info}) {
     const classes = styles()
 
     const [anchor, setAnchor] = React.useState(null)
@@ -61,17 +61,17 @@ export default function FormHeading(props) {
     return (
         <Grid item sm={12}>
             <Typography className={classes.heading} variant={"h6"} gutterBottom>
-                {props.text}
+                {text}
                 <Box className={classes.icons} component="span">
-                    {props.hasOwnProperty('info') && (
-                        <Tooltip key={`${props.id}-info`} title='Info' placement={"top"} onClick={handleOpen} arrow>
+                    {info && (
+                        <Tooltip key={`${id}-info`} title='Info' placement={"top"} onClick={handleOpen} arrow>
                             <Info className={classes.icon}/>
                         </Tooltip>
                     )}
-                    {props.hasOwnProperty('info') && (
-                        <Popover key={`${props.info}-popover`} {...popoverProps}>
-                            {props.info.split('\n').map((fragment, idx) =>
-                                <Typography key={`${props.id}-frag-${idx}`} className={classes.popover}>
+                    {info && (
+                        <Popover key={`${info}-popover`} {...popoverProps}>
+                            {info.split('\n').map((fragment, idx) =>
+                                <Typography key={`${id}-frag-${idx}`} className={classes.popover}>
                                     {fragment}
                                 </Typography>)}
                         </Popover>

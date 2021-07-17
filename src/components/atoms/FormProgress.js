@@ -9,7 +9,7 @@ const styles = makeStyles(theme => ({
     }
 }))
 
-const FormProgress = (props) => {
+const FormProgress = () => {
     const classes = styles()
 
     return (

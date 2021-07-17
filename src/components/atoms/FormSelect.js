@@ -4,7 +4,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import {makeStyles} from "@material-ui/core/styles";
 
-import {SectionDataContext} from "../../utils/app.utils";
+import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
 const styles = makeStyles((theme) => ({
     formControl: {
@@ -17,6 +17,7 @@ const styles = makeStyles((theme) => ({
 
 const FormSelect = ({id, name, text, options, required}) => {
     const [data, setData] = useContext(SectionDataContext)
+    const section = useContext(SectionNameContext)
 
     const classes = styles()
 
@@ -32,7 +33,7 @@ const FormSelect = ({id, name, text, options, required}) => {
     }
 
     const getValue = () => {
-        let select = data['section'].fields.filter(field => field.id === id)
+        let select = data[section].fields.filter(field => field.id === id)
 
         return select.idx
     }
@@ -40,7 +41,7 @@ const FormSelect = ({id, name, text, options, required}) => {
     const handleChange = ({target}) => {
         setData({
             ...data,
-            ['section']: {
+            [section]: {
                 fields: [{
                     id: id,
                     label: text,

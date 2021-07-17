@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import TextField from "@material-ui/core/TextField";
 import {Grid} from "@material-ui/core";
 
-import {SectionDataContext} from "../../utils/app.utils";
+import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
 export default function FormTextArea({id, name, text, type, required}) {
     const fieldProps = {
@@ -19,11 +19,12 @@ export default function FormTextArea({id, name, text, type, required}) {
     }
 
     const [data, setData] = useContext(SectionDataContext)
+    const section = useContext(SectionNameContext)
 
     const handleChange = ({target}) => {
         setData({
             ...data,
-            ['section']: {
+            [section]: {
                 fields: [{
                     id: id,
                     label: text,
