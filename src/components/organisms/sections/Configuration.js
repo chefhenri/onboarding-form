@@ -1,14 +1,13 @@
 import React, {Fragment} from 'react';
-import FormFieldBase from "../../molecules/FormFieldBase";
 import {Grid} from "@material-ui/core";
 
 import FormHeading from "../../atoms/FormHeading";
-import {SectionContext} from "../../../utils/app.utils";
+import FormFieldBase from "../../molecules/FormFieldBase";
+import {SectionNameContext} from "../../../utils/app.utils";
 
-// TODO: Refactor 'SectionContext' provider
 export default function Configuration({id, subsections}) {
     return (
-        <SectionContext.Provider value={'config'}>
+        <SectionNameContext.Provider value={'config'}>
             <Grid container spacing={3}>
                 {subsections.map(subsection => (
                     <Fragment key={`${subsection.id}-frag`}>
@@ -19,6 +18,6 @@ export default function Configuration({id, subsections}) {
                     </Fragment>
                 ))}
             </Grid>
-        </SectionContext.Provider>
+        </SectionNameContext.Provider>
     );
 }

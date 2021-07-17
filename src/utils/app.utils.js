@@ -1,6 +1,8 @@
 import React, {createContext, useState} from "react";
 import {DateTime as DT} from "luxon";
 
+export const SectionNameContext = createContext(null)
+
 // TODO: Add defaults for checkboxes
 export const SectionDataContext = createContext(useState(
     {
