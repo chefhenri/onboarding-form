@@ -6,13 +6,11 @@ import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import {makeStyles} from "@material-ui/core/styles";
 
+import {SectionNameContext} from "../../utils/app.utils";
+
+import Section from "./Section";
 import Content from "./Content";
 import Finish from "./Finish";
-import Account from "./sections/Account";
-import Reseller from "./sections/Reseller";
-import Information from "./sections/Information";
-import Configuration from "./sections/Configuration";
-import Comments from "./sections/Comments";
 
 const styles = makeStyles((theme) => ({
     layout: {
@@ -45,7 +43,7 @@ const styles = makeStyles((theme) => ({
 
 const formTitle = 'MFP Onboarding Form'
 
-export default function Main(props) {
+const Main = (props) => {
     const classes = styles()
     const [active, setActive] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
@@ -99,18 +97,37 @@ export default function Main(props) {
 
     const getSection = (idx) => {
         let sectionData = props.sections[idx]
-        // TODO: Extract to unified Section component
         switch (idx) {
             case 0:
-                return (<Account {...sectionData}/>)
+                return (
+                    <SectionNameContext.Provider value={'account'}>
+                        <Section {...sectionData}/>
+                    </SectionNameContext.Provider>
+                )
             case 1:
-                return (<Reseller {...sectionData}/>)
+                return (
+                    <SectionNameContext.Provider value={'resell'}>
+                        <Section {...sectionData}/>
+                    </SectionNameContext.Provider>
+                )
             case 2:
-                return (<Information {...sectionData}/>)
+                return (
+                    <SectionNameContext.Provider value={'info'}>
+                        <Section {...sectionData}/>
+                    </SectionNameContext.Provider>
+                )
             case 3:
-                return (<Configuration {...sectionData}/>)
+                return (
+                    <SectionNameContext.Provider value={'config'}>
+                        <Section {...sectionData}/>
+                    </SectionNameContext.Provider>
+                )
             case 4:
-                return (<Comments {...sectionData}/>)
+                return (
+                    <SectionNameContext.Provider value={'comments'}>
+                        <Section {...sectionData}/>
+                    </SectionNameContext.Provider>
+                )
             default:
                 throw new Error('Unknown section')
         }
@@ -127,6 +144,7 @@ export default function Main(props) {
                 <Stepper className={classes.stepper} activeStep={active}>
                     {generateLabels()}
                 </Stepper>
+                {/* TODO: Extract to component (ContentWrapper) */}
                 <Fragment>
                     {active === props.headers.length ? (
                         <Finish sections={props.sections}/>
@@ -144,3 +162,5 @@ export default function Main(props) {
         </main>
     )
 }
+
+export default Main

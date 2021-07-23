@@ -8,7 +8,8 @@ import FormTextArea from "../atoms/FormTextArea";
 import FormCheckboxGroup from "./FormCheckboxGroup";
 import FormSliderGroup from "./FormSliderGroup";
 
-export default function FormFieldBase(props) {
+// TODO: Destructure props, add self to SectionDataContext upon mounting
+const FormFieldBase = (props) => {
     switch (props.type) {
         case 'area':
             return (
@@ -40,3 +41,5 @@ export default function FormFieldBase(props) {
             )
     }
 }
+
+export default FormFieldBase

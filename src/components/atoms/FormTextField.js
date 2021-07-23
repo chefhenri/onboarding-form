@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext} from "react";
 import TextField from "@material-ui/core/TextField";
 import {Grid} from "@material-ui/core";
 
@@ -8,14 +8,6 @@ import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 const FormTextField = ({id, name, type, text, required}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
-    // const [value, setValue] = useState('')
-
-    // useEffect(() => {
-    //     console.log(data[section])
-    //     let textField = data[section].fields.filter(field => field.id === id)
-    //
-    //     setValue(textField.value)
-    // }, [])
 
     const fieldProps = {
         id: id,
@@ -27,8 +19,13 @@ const FormTextField = ({id, name, type, text, required}) => {
         fullWidth: true
     }
 
+    const getDefault = () => {
+        let field = data[section].fields.filter(field => id === field.id)
+
+        return field.value
+    }
+
     const handleChange = ({target}) => {
-        // setValue(target.value)
         setData({
             ...data,
             [section]: {
