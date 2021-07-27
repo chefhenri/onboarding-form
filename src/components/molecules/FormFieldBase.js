@@ -24,7 +24,7 @@ const FormFieldBase = ({id, name, type, text, required, hint, initial, options, 
                 }
             ]
         })
-    }, [])
+    })
 
     switch (type) {
         case 'area':

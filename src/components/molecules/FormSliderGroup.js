@@ -22,7 +22,7 @@ const styles = makeStyles(theme => ({
     }
 }))
 
-const FormSliderGroup = ({text}) => {
+const FormSliderGroup = ({id, text}) => {
     const classes = styles()
 
     const [data, setData] = useContext(SectionDataContext)
@@ -31,32 +31,31 @@ const FormSliderGroup = ({text}) => {
     const [checked, setChecked] = useState(false)
 
     // TODO: Refactor data update to match new pattern
-    const handleDataChange = (target) => {
+    const handleDataChange = () => {
         setData({
             ...data,
-            [section]: {
-                fields: [{
-                    id: target.id,
-                    label: text,
+            [section]: [
+                {
+                    id: id,
                     value: value
-                }]
-            }
+                }
+            ]
         })
     }
 
     const handleSliderChange = ({target}, value) => {
         setValue(value)
-        handleDataChange(target)
+        handleDataChange()
     }
 
     const handleInputChange = ({target}) => {
         setValue(target.value === '' ? '' : Number(target.value))
-        handleDataChange(target)
+        handleDataChange()
     }
 
     const handleSwitchChange = ({target}, checked) => {
         setChecked(checked)
-        handleDataChange(target)
+        handleDataChange()
     }
 
     return (

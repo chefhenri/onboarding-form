@@ -19,25 +19,21 @@ const FormTextField = ({id, name, text, type, required}) => {
         fullWidth: true
     }
 
-    const getDefault = () => {
-        let field = data[section].fields.filter(field => id === field.id)
+    // const getDefault = () => {
+    //     let field = data[section].fields.filter(field => id === field.id)
+    //
+    //     return field.value
+    // }
 
-        return field.value
-    }
-
-    // TODO: Refactor data update to match new pattern
     const handleChange = ({target}) => {
         setData({
             ...data,
-            [section]: {
-                fields: [
-                    {
-                        id: id,
-                        label: text,
-                        value: target.value
-                    }
-                ]
-            }
+            [section]: [
+                {
+                    id: id,
+                    value: target.value
+                }
+            ]
         })
     }
 

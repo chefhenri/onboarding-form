@@ -33,17 +33,15 @@ const FormCheckbox = ({id, idx, name, text, required}) => {
         return checkbox.checked
     }
 
-    // TODO: Refactor data update to match new pattern
     const handleChange = ({target}, checked) => {
         setData({
             ...data,
-            [section]: {
-                fields: [{
-                    id: target.id,
-                    label: text,
+            [section]: [
+                {
+                    id: id,
                     value: checked
-                }]
-            }
+                }
+            ]
         })
     }
 

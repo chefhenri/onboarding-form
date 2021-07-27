@@ -16,18 +16,16 @@ const FormSwitch = ({id, name, text, initial}) => {
         color: 'primary'
     }
 
-    // TODO: Refactor data update to match new pattern
     const handleChange = () => {
         setChecked(!checked)
         setData({
             ...data,
-            [section]: {
-                fields: [{
+            [section]: [
+                {
                     id: id,
-                    label: text,
                     value: !checked
-                }]
-            }
+                }
+            ]
         })
     }
 

@@ -31,17 +31,15 @@ const FormDatePicker = ({id, name, text, required}) => {
         return datePicker.value
     }
 
-    // TODO: Refactor data update to match new pattern
     const handleChange = ({target}, date) => {
         setData({
             ...data,
-            [section]: {
-                fields: [{
-                    id: target.id,
-                    label: text,
+            [section]: [
+                {
+                    id: id,
                     value: date
-                }]
-            }
+                }
+            ]
         })
     }
 

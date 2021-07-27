@@ -38,18 +38,15 @@ const FormSelect = ({id, name, text, required, options}) => {
         return select.idx
     }
 
-    // TODO: Refactor data update to match new pattern
     const handleChange = ({target}) => {
         setData({
             ...data,
-            [section]: {
-                fields: [{
+            [section]: [
+                {
                     id: id,
-                    label: text,
-                    idx: target.value,
                     value: options[target.value]
-                }]
-            }
+                }
+            ]
         })
     }
 
