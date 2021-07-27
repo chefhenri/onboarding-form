@@ -4,7 +4,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 
 import FormCheckbox from "../atoms/FormCheckbox";
 
-const FormCheckboxGroup = ({key, size, id, name, text, options, required}) => {
+const FormCheckboxGroup = ({id, name, text, required, options, size}) => {
     const generateOptions = () => (
         <>
             {options.map((option, idx) => (
@@ -14,7 +14,7 @@ const FormCheckboxGroup = ({key, size, id, name, text, options, required}) => {
     )
 
     return (
-        <Grid key={key} sm={size === 'half' ? 6 : 12} item>
+        <Grid sm={size === 'half' ? 6 : 12} item>
             <FormControl component={"fieldset"} fullWidth>
                 <FormLabel>{text}</FormLabel>
                 <FormGroup row>

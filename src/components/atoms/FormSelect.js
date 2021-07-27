@@ -15,7 +15,7 @@ const styles = makeStyles((theme) => ({
     }
 }))
 
-const FormSelect = ({id, name, text, options, required}) => {
+const FormSelect = ({id, name, text, required, options}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
 
@@ -38,6 +38,7 @@ const FormSelect = ({id, name, text, options, required}) => {
         return select.idx
     }
 
+    // TODO: Refactor data update to match new pattern
     const handleChange = ({target}) => {
         setData({
             ...data,

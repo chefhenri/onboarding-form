@@ -21,6 +21,7 @@ export default function FormTextArea({id, name, text, type, required}) {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
 
+    // TODO: Refactor data update to match new pattern
     const handleChange = ({target}) => {
         setData({
             ...data,

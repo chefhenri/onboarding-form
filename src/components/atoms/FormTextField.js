@@ -5,7 +5,7 @@ import {Grid} from "@material-ui/core";
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
 // FIXME: TextField not displaying value after re-mounting
-const FormTextField = ({id, name, type, text, required}) => {
+const FormTextField = ({id, name, text, type, required}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
 
@@ -25,6 +25,7 @@ const FormTextField = ({id, name, type, text, required}) => {
         return field.value
     }
 
+    // TODO: Refactor data update to match new pattern
     const handleChange = ({target}) => {
         setData({
             ...data,

@@ -5,7 +5,7 @@ import {Grid} from "@material-ui/core";
 
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
-const FormSwitch = ({id, initial, name, text}) => {
+const FormSwitch = ({id, name, text, initial}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
     const [checked, setChecked] = useState(initial)
@@ -16,6 +16,7 @@ const FormSwitch = ({id, initial, name, text}) => {
         color: 'primary'
     }
 
+    // TODO: Refactor data update to match new pattern
     const handleChange = () => {
         setChecked(!checked)
         setData({
