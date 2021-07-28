@@ -22,7 +22,8 @@ const styles = makeStyles(theme => ({
     }
 }))
 
-const FormSliderGroup = ({id, text}) => {
+// TODO: Load previous state from context (ref. FormTextField)
+const FormSliderControlGroup = ({id, text}) => {
     const classes = styles()
 
     const [data, setData] = useContext(SectionDataContext)
@@ -71,4 +72,4 @@ const FormSliderGroup = ({id, text}) => {
     )
 }
 
-export default FormSliderGroup
+export default FormSliderControlGroup

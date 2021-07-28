@@ -15,6 +15,7 @@ const styles = makeStyles((theme) => ({
     }
 }))
 
+// TODO: Load previous state from context (ref. FormTextField)
 const FormSelect = ({id, name, text, required, options}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
@@ -32,6 +33,7 @@ const FormSelect = ({id, name, text, required, options}) => {
         autoWidth: true
     }
 
+    // FIXME: Assuming wrong pattern from context
     const getValue = () => {
         let select = data[section].fields.filter(field => field.id === id)
 

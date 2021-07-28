@@ -4,7 +4,11 @@ import {Grid} from "@material-ui/core";
 
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
-export default function FormTextArea({id, name, text, type, required}) {
+// TODO: Load previous state from context (ref. FormTextField)
+const FormTextArea = ({id, name, text, type, required}) => {
+    const [data, setData] = useContext(SectionDataContext)
+    const section = useContext(SectionNameContext)
+
     const fieldProps = {
         id: id,
         name: name,
@@ -17,9 +21,6 @@ export default function FormTextArea({id, name, text, type, required}) {
         fullWidth: true,
         multiline: true
     }
-
-    const [data, setData] = useContext(SectionDataContext)
-    const section = useContext(SectionNameContext)
 
     const handleChange = ({target}) => {
         setData({
@@ -39,3 +40,5 @@ export default function FormTextArea({id, name, text, type, required}) {
         </Grid>
     )
 }
+
+export default FormTextArea

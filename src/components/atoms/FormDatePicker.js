@@ -5,6 +5,7 @@ import {DateTime as DT} from "luxon";
 
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
+// TODO: Load previous state from context (ref. FormTextField)
 const FormDatePicker = ({id, name, text, required}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
@@ -25,6 +26,7 @@ const FormDatePicker = ({id, name, text, required}) => {
         fullWidth: true
     }
 
+    // FIXME: Assuming wrong pattern from context
     const getValue = () => {
         let datePicker = data[section].fields.filter(field => field.id === id)
 

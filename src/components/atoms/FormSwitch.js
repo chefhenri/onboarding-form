@@ -5,6 +5,7 @@ import {Grid} from "@material-ui/core";
 
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
+// TODO: Load previous state from context (ref. FormTextField)
 const FormSwitch = ({id, name, text, initial}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
