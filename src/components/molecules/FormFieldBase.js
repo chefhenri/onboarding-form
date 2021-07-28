@@ -1,6 +1,5 @@
-import React, {useContext, useEffect} from "react";
+import React from "react";
 
-import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 import FormDatePicker from "../atoms/FormDatePicker";
 import FormSelect from "../atoms/FormSelect";
 import FormSwitch from "../atoms/FormSwitch";
@@ -11,21 +10,6 @@ import FormSliderGroup from "./FormSliderGroup";
 
 // TODO: Add 'hint' prop to component props
 const FormFieldBase = ({id, name, type, text, required, hint, initial, options, size}) => {
-    const [data, setData] = useContext(SectionDataContext)
-    const section = useContext(SectionNameContext)
-
-    useEffect(() => {
-        setData({
-            ...data,
-            [section]: [
-                {
-                    id: id,
-                    value: initial
-                }
-            ]
-        })
-    })
-
     switch (type) {
         case 'area':
             return (

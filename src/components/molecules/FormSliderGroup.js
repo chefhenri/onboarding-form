@@ -30,7 +30,6 @@ const FormSliderGroup = ({id, text}) => {
     const [value, setValue] = useState(90)
     const [checked, setChecked] = useState(false)
 
-    // TODO: Refactor data update to match new pattern
     const handleDataChange = () => {
         setData({
             ...data,

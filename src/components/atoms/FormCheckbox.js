@@ -5,6 +5,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
+// TODO: Convert 'checked' status to local state
 const FormCheckbox = ({id, idx, name, text, required}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
@@ -27,7 +28,6 @@ const FormCheckbox = ({id, idx, name, text, required}) => {
     }
 
     const isChecked = () => {
-        // TODO: Get section from props/context
         let checkbox = data[section].fields.filter(field => field.id === getId(idx))
 
         return checkbox.checked
