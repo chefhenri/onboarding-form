@@ -1,16 +1,9 @@
-import React, {Fragment} from "react";
+import React from "react";
 import Paper from "@material-ui/core/Paper";
-import {Typography} from "@material-ui/core";
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
 import {makeStyles} from "@material-ui/core/styles";
 
-import {SectionNameContext} from "../../utils/app.utils";
-
-import Section from "./Section";
-import Content from "./Content";
-import Finish from "./Finish";
+import FormHeader from "../molecules/FormHeader";
+import ContentWrapper from "../molecules/ContentWrapper";
 
 const styles = makeStyles((theme) => ({
     layout: {
@@ -41,9 +34,7 @@ const styles = makeStyles((theme) => ({
     }
 }))
 
-const formTitle = 'MFP Onboarding Form'
-
-const Main = (props) => {
+const Main = ({headers, sections}) => {
     const classes = styles()
     const [active, setActive] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
@@ -74,90 +65,22 @@ const Main = (props) => {
         setSkipped(skipped.add(active))
     }
 
-    const generateLabels = () => {
-        return (
-            props.headers.map((label, idx) => {
-                const sectionProps = {}
-                const labelProps = {}
-
-                if (isOptional(idx))
-                    labelProps.optional = <Typography variant="caption">Optional</Typography>
-
-                if (isSkipped(idx))
-                    sectionProps.completed = false
-
-                return (
-                    <Step key={label} {...sectionProps}>
-                        <StepLabel {...labelProps}>{label}</StepLabel>
-                    </Step>
-                )
-            })
-        )
-    }
-
-    const getSection = (idx) => {
-        let sectionData = props.sections[idx]
-        switch (idx) {
-            case 0:
-                return (
-                    <SectionNameContext.Provider value={'account'}>
-                        <Section {...sectionData}/>
-                    </SectionNameContext.Provider>
-                )
-            case 1:
-                return (
-                    <SectionNameContext.Provider value={'resell'}>
-                        <Section {...sectionData}/>
-                    </SectionNameContext.Provider>
-                )
-            case 2:
-                return (
-                    <SectionNameContext.Provider value={'info'}>
-                        <Section {...sectionData}/>
-                    </SectionNameContext.Provider>
-                )
-            case 3:
-                return (
-                    <SectionNameContext.Provider value={'config'}>
-                        <Section {...sectionData}/>
-                    </SectionNameContext.Provider>
-                )
-            case 4:
-                return (
-                    <SectionNameContext.Provider value={'comments'}>
-                        <Section {...sectionData}/>
-                    </SectionNameContext.Provider>
-                )
-            default:
-                throw new Error('Unknown section')
-        }
-    }
-
     return (
         <main id={'main'} className={classes.layout}>
             <Paper className={classes.paper}>
-                {/* TODO: Extract to component */}
-                <Typography component={"h1"} variant={"h4"} align={"center"}>
-                    {formTitle}
-                </Typography>
-                {/* TODO: Extract to component */}
-                <Stepper className={classes.stepper} activeStep={active}>
-                    {generateLabels()}
-                </Stepper>
-                {/* TODO: Extract to component (ContentWrapper) */}
-                <Fragment>
-                    {active === props.headers.length ? (
-                        <Finish sections={props.sections}/>
-                    ) : (
-                        <Content active={active}
-                                 next={handleNext}
-                                 back={handleBack}
-                                 skip={handleSkip}
-                                 optional={isOptional}
-                                 section={getSection(active)}
-                                 length={props.headers.length - 1}/>
-                    )}
-                </Fragment>
+                <FormHeader
+                    headers={headers}
+                    active={active}
+                    optional={isOptional}
+                    skipped={isSkipped}/>
+                <ContentWrapper
+                    headers={headers}
+                    sections={sections}
+                    active={active}
+                    next={handleNext}
+                    back={handleBack}
+                    skip={handleSkip}
+                    optional={isOptional}/>
             </Paper>
         </main>
     )

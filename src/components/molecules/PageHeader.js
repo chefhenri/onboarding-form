@@ -9,7 +9,7 @@ const styles = makeStyles(theme => ({
     }
 }))
 
-const FormProgress = () => {
+const PageHeader = () => {
     const classes = styles()
 
     return (
@@ -23,4 +23,4 @@ const FormProgress = () => {
     )
 }
 
-export default FormProgress
+export default PageHeader

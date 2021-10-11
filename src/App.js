@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import {SectionDataContext} from "./utils/app.utils";
-import FormProgress from "./components/atoms/FormProgress";
+import PageHeader from "./components/molecules/PageHeader";
 import Main from "./components/organisms/Main";
 
 const App = (props) => {
@@ -17,7 +17,7 @@ const App = (props) => {
     return (
         <SectionDataContext.Provider value={useSectionData}>
             <CssBaseline/>
-            <FormProgress/>
+            <PageHeader/>
             <Main {...props}/>
         </SectionDataContext.Provider>
     );
