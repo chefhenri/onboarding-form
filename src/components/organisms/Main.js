@@ -3,7 +3,7 @@ import Paper from "@material-ui/core/Paper";
 import {makeStyles} from "@material-ui/core/styles";
 
 import FormHeader from "../molecules/FormHeader";
-import ContentWrapper from "../molecules/ContentWrapper";
+import Content from "./Content";
 
 const styles = makeStyles((theme) => ({
     layout: {
@@ -73,7 +73,7 @@ const Main = ({headers, sections}) => {
                     active={active}
                     optional={isOptional}
                     skipped={isSkipped}/>
-                <ContentWrapper
+                <Content
                     headers={headers}
                     sections={sections}
                     active={active}

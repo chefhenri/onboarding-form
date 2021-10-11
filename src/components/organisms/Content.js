@@ -1,41 +1,64 @@
 import React from "react";
-import {Button} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
 
-const styles = makeStyles((theme) => ({
-    buttons: {
-        display: 'flex',
-        justifyContent: 'flex-end',
-    },
-    button: {
-        marginTop: theme.spacing(3),
-        marginLeft: theme.spacing(1),
+import Finish from "./Finish";
+import ContentBtnGroup from "../molecules/ContentBtnGroup";
+import Section from "./Section";
+
+import {SectionNameContext} from "../../utils/app.utils";
+
+const Content = ({headers, sections, active, next, back, skip, optional}) => {
+    const getSection = (idx) => {
+        let sectionData = sections[idx]
+        switch (idx) {
+            case 0:
+                return (
+                    <SectionNameContext.Provider value={'account'}>
+                        <Section {...sectionData}/>
+                    </SectionNameContext.Provider>
+                )
+            case 1:
+                return (
+                    <SectionNameContext.Provider value={'resell'}>
+                        <Section {...sectionData}/>
+                    </SectionNameContext.Provider>
+                )
+            case 2:
+                return (
+                    <SectionNameContext.Provider value={'info'}>
+                        <Section {...sectionData}/>
+                    </SectionNameContext.Provider>
+                )
+            case 3:
+                return (
+                    <SectionNameContext.Provider value={'config'}>
+                        <Section {...sectionData}/>
+                    </SectionNameContext.Provider>
+                )
+            case 4:
+                return (
+                    <SectionNameContext.Provider value={'comments'}>
+                        <Section {...sectionData}/>
+                    </SectionNameContext.Provider>
+                )
+            default:
+                throw new Error('Unknown section')
+        }
     }
-}))
 
-const Content = ({active, next, back, skip, optional, section, length}) => {
-    const classes = styles()
-
-    return (
-        <div>
-            {section}
-            <div>
-                <Button disabled={active === 0} onClick={back} className={classes.button}>
-                    Back
-                </Button>
-                {optional(active) && (
-                    <Button variant="contained" color="primary" onClick={skip}
-                            className={classes.button}>
-                        Skip
-                    </Button>
-                )}
-                <Button variant="contained" color="primary" onClick={next}
-                        className={classes.button}>
-                    {active === length ? 'Finish' : 'Next'}
-                </Button>
-            </div>
-        </div>
-    )
+    return (<>
+        {active === headers.length ? (
+            <Finish sections={sections}/>
+        ) : (<>
+            {getSection(active)}
+            <ContentBtnGroup
+                active={active}
+                next={next}
+                back={back}
+                skip={skip}
+                optional={optional}
+                length={headers.length - 1}/>
+        </>)}
+    </>)
 }
 
 export default Content

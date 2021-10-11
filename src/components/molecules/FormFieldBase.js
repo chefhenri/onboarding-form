@@ -6,10 +6,10 @@ import FormSwitch from "../atoms/FormSwitch";
 import FormTextField from "../atoms/FormTextField";
 import FormTextArea from "../atoms/FormTextArea";
 import FormCheckboxGroup from "./FormCheckboxGroup";
-import FormSliderControlGroup from "./FormSliderControlGroup";
+import FormSliderCtrlGroup from "./FormSliderCtrlGroup";
 
 // TODO: Add 'hint' prop to component props
-const FormFieldBase = ({id, name, type, text, required, hint, initial, options, size}) => {
+const FormFieldBase = ({id, name, type, text, required, initial, options, size}) => {
     switch (type) {
         case 'area':
             return (
@@ -29,7 +29,7 @@ const FormFieldBase = ({id, name, type, text, required, hint, initial, options, 
             )
         case 'slider':
             return (
-                <FormSliderControlGroup key={id} {...{text}}/>
+                <FormSliderCtrlGroup key={id} {...{text}}/>
             )
         case 'switch':
             return (
