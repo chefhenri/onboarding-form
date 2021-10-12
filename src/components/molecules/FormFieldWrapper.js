@@ -1,15 +1,15 @@
 import React from "react";
 
-import FormDatePicker from "../atoms/FormDatePicker";
-import FormSelect from "../atoms/FormSelect";
-import FormSwitch from "../atoms/FormSwitch";
-import FormTextField from "../atoms/FormTextField";
 import FormTextArea from "../atoms/FormTextArea";
 import FormCheckboxGroup from "./FormCheckboxGroup";
+import FormDatePicker from "../atoms/FormDatePicker";
+import FormSelect from "../atoms/FormSelect";
 import FormSliderCtrlGroup from "./FormSliderCtrlGroup";
+import FormSwitch from "../atoms/FormSwitch";
+import FormTextField from "../atoms/FormTextField";
 
-// TODO: Add 'hint' prop to component props
-const FormFieldBase = ({id, name, type, text, required, initial, options, size}) => {
+const FormFieldWrapper = ({id, name, type, text, required, initial, options, size}) => {
+    // TODO: Add 'hint' prop to component props
     switch (type) {
         case 'area':
             return (
@@ -42,4 +42,4 @@ const FormFieldBase = ({id, name, type, text, required, initial, options, size})
     }
 }
 
-export default FormFieldBase
+export default FormFieldWrapper

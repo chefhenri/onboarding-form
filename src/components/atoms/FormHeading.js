@@ -68,6 +68,7 @@ export default function FormHeading({id, text, info}) {
                             <Info className={classes.icon}/>
                         </Tooltip>
                     )}
+                    {/* FIXME: popover not displaying 'Info' instead of actual info prop */}
                     {info && (
                         <Popover key={`${info}-popover`} {...popoverProps}>
                             {info.split('\n').map((fragment, idx) =>

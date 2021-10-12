@@ -49,6 +49,7 @@ const Content = ({headers, sections, active, next, back, skip, optional}) => {
         {active === headers.length ? (
             <Finish sections={sections}/>
         ) : (<>
+            {/*<Section {...sections[active]}/>*/}
             {getSection(active)}
             <ContentBtnGroup
                 active={active}
