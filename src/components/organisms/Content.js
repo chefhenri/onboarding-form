@@ -4,7 +4,14 @@ import Finish from "./Finish";
 import ContentBtnGroup from "../molecules/ContentBtnGroup";
 import Section from "./Section";
 
-import {SectionNameContext} from "../../utils/app.utils";
+import {
+    ACCOUNT_INFO_SECTION_NAME,
+    ADD_COMMENTS_SECTION_NAME,
+    CONFIG_DETAILS_SECTION_NAME,
+    MFP_INFO_SECTION_NAME,
+    RESELLER_INFO_SECTION_NAME,
+    SectionNameContext
+} from "../../utils/app.utils";
 
 const Content = ({headers, sections, active, next, back, skip, optional}) => {
     const getSection = (idx) => {
@@ -12,31 +19,31 @@ const Content = ({headers, sections, active, next, back, skip, optional}) => {
         switch (idx) {
             case 0:
                 return (
-                    <SectionNameContext.Provider value={'account'}>
+                    <SectionNameContext.Provider value={ACCOUNT_INFO_SECTION_NAME}>
                         <Section {...sectionData}/>
                     </SectionNameContext.Provider>
                 )
             case 1:
                 return (
-                    <SectionNameContext.Provider value={'resell'}>
+                    <SectionNameContext.Provider value={RESELLER_INFO_SECTION_NAME}>
                         <Section {...sectionData}/>
                     </SectionNameContext.Provider>
                 )
             case 2:
                 return (
-                    <SectionNameContext.Provider value={'info'}>
+                    <SectionNameContext.Provider value={MFP_INFO_SECTION_NAME}>
                         <Section {...sectionData}/>
                     </SectionNameContext.Provider>
                 )
             case 3:
                 return (
-                    <SectionNameContext.Provider value={'config'}>
+                    <SectionNameContext.Provider value={CONFIG_DETAILS_SECTION_NAME}>
                         <Section {...sectionData}/>
                     </SectionNameContext.Provider>
                 )
             case 4:
                 return (
-                    <SectionNameContext.Provider value={'comments'}>
+                    <SectionNameContext.Provider value={ADD_COMMENTS_SECTION_NAME}>
                         <Section {...sectionData}/>
                     </SectionNameContext.Provider>
                 )
@@ -49,7 +56,6 @@ const Content = ({headers, sections, active, next, back, skip, optional}) => {
         {active === headers.length ? (
             <Finish sections={sections}/>
         ) : (<>
-            {/*<Section {...sections[active]}/>*/}
             {getSection(active)}
             <ContentBtnGroup
                 active={active}

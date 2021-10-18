@@ -9,7 +9,9 @@ const Section = ({subsections}) => {
         <Grid container spacing={3}>
             {subsections.map((subsection) => (<>
                 <FormHeading key={`${subsection.id}-subsection`} {...subsection}/>
-                {subsection['fields'].map((field) => (<FormFieldWrapper {...field}/>))}
+                {subsection['fields'].map((field) => (
+                    <FormFieldWrapper key={`${field.id}-field-wrapper`} {...field}/>
+                ))}
             </>))}
         </Grid>
     )

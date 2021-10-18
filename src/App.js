@@ -1,18 +1,12 @@
 import React, {useState} from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-import {SectionDataContext} from "./utils/app.utils";
+import {initSectionData, SectionDataContext} from "./utils/app.utils";
 import PageHeader from "./components/molecules/PageHeader";
 import Main from "./components/organisms/Main";
 
 const App = (props) => {
-    const useSectionData = useState({
-        account: [],
-        resell: [],
-        info: [],
-        config: [],
-        comments: []
-    })
+    const useSectionData = useState(initSectionData(props.sections))
 
     return (
         <SectionDataContext.Provider value={useSectionData}>

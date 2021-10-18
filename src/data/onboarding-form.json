@@ -88,6 +88,7 @@
   },
   {
     "id": "reseller-info",
+    "name": "resellerInfo",
     "header": "Reseller Information",
     "subsections": [
       {
@@ -163,6 +164,7 @@
   },
   {
     "id": "mfp-info",
+    "name": "mfpInfo",
     "header": "MFP Information",
     "subsections": [
       {
@@ -258,6 +260,7 @@
   },
   {
     "id": "config-details",
+    "name": "configDetails",
     "header": "Configuration Details",
     "subsections": [
       {
@@ -392,6 +395,7 @@
   },
   {
     "id": "add-comments",
+    "name": "addComments",
     "header": "Additional Comments",
     "subsections": [
       {
