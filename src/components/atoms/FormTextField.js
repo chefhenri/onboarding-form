@@ -8,10 +8,7 @@ const FormTextField = ({id, name, text, type, required}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
 
-    const [value, setValue] = useState(() => {
-        if (data[section].filter(field => field.id === id).length === 0) return ''
-        else return data[section].filter(field => field.id === id)[0].value
-    })
+    const [value, setValue] = useState(data[section][name].value)
 
     const fieldProps = {
         id: id,
@@ -28,12 +25,13 @@ const FormTextField = ({id, name, text, type, required}) => {
 
         setData({
             ...data,
-            [section]: [
-                {
-                    id: id,
+            [section]: {
+                ...data[section],
+                [name]: {
+                    ...data[section][name],
                     value: target.value
                 }
-            ]
+            }
         })
     }
 

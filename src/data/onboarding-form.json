@@ -10,12 +10,14 @@
         "fields": [
           {
             "id": "company-name",
+            "name": "companyName",
             "type": "text",
             "required": true,
             "text": "Company Name"
           },
           {
             "id": "company-url",
+            "name": "companyURL",
             "type": "text",
             "required": true,
             "text": "Company Website"
@@ -29,24 +31,28 @@
         "fields": [
           {
             "id": "owner-name",
+            "name": "ownerName",
             "type": "text",
             "required": true,
             "text": "Account Owner's Name"
           },
           {
             "id": "owner-title",
+            "name": "ownerTitle",
             "type": "text",
             "required": true,
             "text": "Account Owner's Title"
           },
           {
             "id": "owner-phone",
+            "name": "ownerPhone",
             "type": "tel",
             "required": true,
             "text": "Account Owner's Phone Number"
           },
           {
             "id": "owner-email",
+            "name": "ownerEmail",
             "type": "email",
             "required": true,
             "text": "Account Owner's Email"
@@ -60,24 +66,28 @@
         "fields": [
           {
             "id": "security-name",
+            "name": "securityName",
             "type": "text",
             "required": true,
             "text": "Security Officer's Name"
           },
           {
             "id": "security-email",
+            "name": "securityEmail",
             "type": "email",
             "required": true,
             "text": "Security Officer's Email"
           },
           {
             "id": "privacy-name",
+            "name": "privacyName",
             "type": "text",
             "required": true,
             "text": "Privacy Officer's Name"
           },
           {
             "id": "privacy-email",
+            "name": "privacyEmail",
             "type": "email",
             "required": true,
             "text": "Privacy Officer's Email"
@@ -98,6 +108,7 @@
         "fields": [
           {
             "id": "reseller-name",
+            "name": "resellerName",
             "type": "text",
             "hint-id": 0,
             "required": false,
@@ -105,6 +116,7 @@
           },
           {
             "id": "reseller-email",
+            "name": "resellerEmail",
             "type": "email",
             "hint-id": 0,
             "required": false,
@@ -119,6 +131,7 @@
           {
             "hint-id": 1,
             "id": "ticket-notify",
+            "name": "ticketNotify",
             "initial": true,
             "required": true,
             "text": "Notify Reseller about new Onboarding Tickets",
@@ -127,6 +140,7 @@
           {
             "hint-id": 2,
             "id": "resupply-notify",
+            "name": "resupplyNotif",
             "initial": true,
             "required": true,
             "text": "Notify Reseller of Credit resupply",
@@ -140,6 +154,7 @@
         "fields": [
           {
             "id": "installer-email",
+            "name": "installerEmail",
             "type": "email",
             "hint-id": 3,
             "required": true,
@@ -147,6 +162,7 @@
           },
           {
             "id": "installer-phone",
+            "name": "installerPhone",
             "type": "tel",
             "hint-id": 3,
             "required": true,
@@ -174,6 +190,7 @@
         "fields": [
           {
             "id": "technical-name",
+            "name": "technicalName",
             "type": "text",
             "hint-id": 0,
             "required": true,
@@ -181,6 +198,7 @@
           },
           {
             "id": "technical-phone",
+            "name": "technicalPhone",
             "type": "tel",
             "hint-id": 0,
             "required": true,
@@ -188,6 +206,7 @@
           },
           {
             "id": "technical-email",
+            "name": "technicalEmail",
             "type": "email",
             "hint-id": 0,
             "required": true,
@@ -202,6 +221,7 @@
         "fields": [
           {
             "id": "install-date",
+            "name": "installDate",
             "type": "date",
             "hint-id": 1,
             "required": true,
@@ -209,6 +229,7 @@
           },
           {
             "id": "removal-date",
+            "name": "removalDate",
             "type": "date",
             "hint-id": 1,
             "required": true,
@@ -216,6 +237,7 @@
           },
           {
             "id": "install-apps",
+            "name": "installApps",
             "type": "box",
             "options": [
               "Xerox iSeries",
@@ -234,6 +256,7 @@
           },
           {
             "id": "integrations",
+            "name": "integrations",
             "type": "box",
             "options": [
               "Print Confirmation Pages",
@@ -270,6 +293,7 @@
         "fields": [
           {
             "id": "cloud-hosting",
+            "name": "cloudHosting",
             "type": "select",
             "hint-id": 0,
             "options": [
@@ -282,6 +306,7 @@
           },
           {
             "id": "account-name",
+            "nameL": "accountName",
             "type": "text",
             "hint-id": 1,
             "required": true,
@@ -289,6 +314,7 @@
           },
           {
             "id": "activation-date",
+            "name": "activationDate",
             "type": "date",
             "hint-id": 2,
             "required": true,
@@ -296,6 +322,7 @@
           },
           {
             "id": "enable-solutions",
+            "name": "enableSolutions",
             "type": "box",
             "hint-id": 3,
             "options": [
@@ -315,6 +342,7 @@
         "fields": [
           {
             "id": "primary-admin-email",
+            "name": "primaryAdminEmail",
             "type": "email",
             "hint-id": 4,
             "required": true,
@@ -322,6 +350,7 @@
           },
           {
             "id": "secondary-admin-email",
+            "name": "secondaryAdminEmail",
             "type": "email",
             "required": true,
             "text": "Secondary Administrator's Email"
@@ -335,6 +364,7 @@
         "fields": [
           {
             "id": "retention-policy",
+            "name": "retentionPolicy",
             "type": "slider",
             "hint-id": 5,
             "options": [
@@ -363,6 +393,7 @@
         "fields": [
           {
             "id": "data-transmit",
+            "name": "dataTransmit",
             "type": "box",
             "hint-id": 6,
             "options": [
@@ -400,6 +431,7 @@
     "subsections": [
       {
         "id": "additional-info",
+        "name": "additionalInfo",
         "text": "Additional Configuration Details",
         "info": "Note any unique requirements, workflows, or system integrations in this text area.\nThis may include: multiple accounts with separate retention policies, additionally quoted professional services, or custom scripting/API work.",
         "fields": [

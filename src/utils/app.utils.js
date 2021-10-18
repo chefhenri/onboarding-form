@@ -22,16 +22,26 @@ export const SectionDataContext = createContext(null)
  */
 export const initSectionData = (template) => {
     let sections = {
-        [ACCOUNT_INFO_SECTION_NAME]: [],
-        [RESELLER_INFO_SECTION_NAME]: [],
-        [MFP_INFO_SECTION_NAME]: [],
-        [CONFIG_DETAILS_SECTION_NAME]: [],
-        [ADD_COMMENTS_SECTION_NAME]: []
+        [ACCOUNT_INFO_SECTION_NAME]: {},
+        [RESELLER_INFO_SECTION_NAME]: {},
+        [MFP_INFO_SECTION_NAME]: {},
+        [CONFIG_DETAILS_SECTION_NAME]: {},
+        [ADD_COMMENTS_SECTION_NAME]: {}
     }
 
     template.forEach(section => {
-        section['subsections'].forEach(subsection => sections[section.name].push(subsection['fields']))
-        console.log(sections[section.name])
+        section['subsections'].forEach(subsection => {
+            subsection['fields'].forEach(field => {
+                sections[section.name][field.name] = {
+                    id: field.id,
+                    type: field.type,
+                    text: field.text,
+                    value: null
+                }
+            })
+        })
+
+        // console.log(sections[section.name])
     })
 
     return sections
