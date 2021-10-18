@@ -1,26 +1,13 @@
 import React, {useContext, useState} from "react";
 import {Container, Grid, Typography} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
 
 import FormSliderSwitch from "../atoms/FormSliderSwitch";
 import FormSliderInput from "../atoms/FormSliderInput";
 import FormSlider from "../atoms/FormSlider";
-import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
-const styles = makeStyles(theme => ({
-    container: {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "flex-start"
-    },
-    slider: {
-        marginRight: theme.spacing(2)
-    },
-    input: {
-        width: '3rem',
-        marginRight: '1rem'
-    }
-}))
+import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
+import {styles} from "../../styles/form.styles";
+
 
 // TODO: Load previous state from context (ref. FormTextField)
 const FormSliderCtrlGroup = ({id, text}) => {

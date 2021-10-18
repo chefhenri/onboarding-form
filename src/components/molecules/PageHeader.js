@@ -1,13 +1,8 @@
 import React from "react";
 import {Toolbar, Typography} from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
-import {makeStyles} from "@material-ui/core/styles";
 
-const styles = makeStyles(theme => ({
-    appBar: {
-        position: 'relative'
-    }
-}))
+import {styles} from "../../styles/app.styles";
 
 const PageHeader = () => {
     const classes = styles()

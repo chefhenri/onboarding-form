@@ -4,15 +4,8 @@ import {Typography} from "@material-ui/core";
 import Stepper from "@material-ui/core/Stepper";
 import StepLabel from "@material-ui/core/StepLabel";
 
-import {makeStyles} from "@material-ui/core/styles";
-
 import {formTitle} from "../../utils/app.utils";
-
-const styles = makeStyles((theme) => ({
-    stepper: {
-        padding: theme.spacing(3, 0, 5),
-    },
-}))
+import {styles} from "../../styles/form.styles";
 
 const FormHeader = ({headers, active, optional, skipped}) => {
     const classes = styles()

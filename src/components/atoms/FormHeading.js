@@ -1,31 +1,8 @@
 import React from "react";
 import {Box, Divider, Grid, Popover, Tooltip, Typography} from "@material-ui/core";
 import {Info} from "@material-ui/icons";
-import {makeStyles} from "@material-ui/core/styles";
 
-const styles = makeStyles(theme => ({
-    heading: {
-        display: 'flex',
-        flexDirection: 'row',
-        // justifyContent: 'space-between'
-    },
-    popover: {
-        width: '15rem',
-        paddingTop: theme.spacing(1),
-        paddingRight: theme.spacing(2),
-        paddingBottom: theme.spacing(1),
-        paddingLeft: theme.spacing(2)
-    },
-    icons: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center'
-    },
-    icon: {
-        color: 'gray',
-        marginLeft: theme.spacing(1)
-    }
-}))
+import {styles} from "../../styles/form.styles";
 
 export default function FormHeading({id, text, info}) {
     const classes = styles()
@@ -68,7 +45,6 @@ export default function FormHeading({id, text, info}) {
                             <Info className={classes.icon}/>
                         </Tooltip>
                     )}
-                    {/* FIXME: popover not displaying 'Info' instead of actual info prop */}
                     {info && (
                         <Popover key={`${info}-popover`} {...popoverProps}>
                             {info.split('\n').map((fragment, idx) =>

@@ -3,7 +3,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 import {initSectionData, SectionDataContext} from "./utils/app.utils";
 import PageHeader from "./components/molecules/PageHeader";
-import Main from "./components/organisms/Main";
+import Main from "./pages/Main";
 
 const App = (props) => {
     const useSectionData = useState(initSectionData(props.sections))

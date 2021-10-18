@@ -1,17 +1,7 @@
 import React from "react";
 import {Button} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
 
-const styles = makeStyles((theme) => ({
-    buttons: {
-        display: 'flex',
-        justifyContent: 'flex-end',
-    },
-    button: {
-        marginTop: theme.spacing(3),
-        marginLeft: theme.spacing(1),
-    }
-}))
+import {styles} from "../../styles/content.styles";
 
 const ContentBtnGroup = ({active, next, back, skip, optional, length}) => {
     const classes = styles()

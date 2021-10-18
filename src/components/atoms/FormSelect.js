@@ -2,18 +2,9 @@ import React, {useContext} from "react";
 import {FormControl, Grid, MenuItem} from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
-import {makeStyles} from "@material-ui/core/styles";
 
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
-
-const styles = makeStyles((theme) => ({
-    formControl: {
-        minWidth: 120,
-    },
-    selectEmpty: {
-        marginTop: theme.spacing(2),
-    }
-}))
+import {styles} from "../../styles/form.styles";
 
 // TODO: Load previous state from context (ref. FormTextField)
 const FormSelect = ({id, name, text, required, options}) => {
