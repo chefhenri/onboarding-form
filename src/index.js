@@ -5,7 +5,7 @@ import App from './App';
 import {MuiPickersUtilsProvider} from '@material-ui/pickers'
 import LuxonUtils from '@date-io/luxon'
 
-const sectionData = require('./data/onboarding-form.json')
+const sectionData = require('./onboarding-form.json')
 const sectionHeaders = sectionData.map(section => section.header)
 
 render(

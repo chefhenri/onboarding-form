@@ -36,6 +36,8 @@
     "web-vitals": "^1.1.0"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
     "webpack": "^4.44.2"
   }
 }
