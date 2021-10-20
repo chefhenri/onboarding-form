@@ -251,7 +251,7 @@
               "Email Only"
             ],
             "required": true,
-            "text": "Install XMedius Apps on:",
+            "text": "Installation Platforms",
             "size": "full"
           },
           {

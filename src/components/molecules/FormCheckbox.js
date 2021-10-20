@@ -6,22 +6,11 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 import {getOptId, getOptName} from "../../utils/form.utils";
 
-const FormCheckbox = ({id, idx, name, text, required}) => {
+const FormCheckbox = ({id, idx, name, option, required}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
 
-    // FIXME: Assuming incorrect context data pattern
-    const [checked, setChecked] = useState(
-        data[section].filter(field => field.id === getOptId(id, idx)).checked || false
-    )
-
-    // const getId = (idx) => {
-    //     return `${id}-opt-${idx}`
-    // }
-    //
-    // const getName = (idx) => {
-    //     return `${name}Opt${idx}`
-    // }
+    const [checked, setChecked] = useState(data[section][name].value[getOptName(name, idx)].checked || false)
 
     const checkboxProps = (idx) => {
         return {
@@ -32,23 +21,29 @@ const FormCheckbox = ({id, idx, name, text, required}) => {
         }
     }
 
-    // FIXME: Deep merge data with context
     const handleChange = ({target}, checked) => {
         setChecked(checked)
         setData({
             ...data,
-            [section]: [
-                {
-                    id: id,
-                    value: checked
+            [section]: {
+                ...data[section],
+                [name]: {
+                    ...data[section][name],
+                    value: {
+                        ...data[section][name].value,
+                        [getOptName(name, idx)]: {
+                            text: option,
+                            checked: checked
+                        }
+                    }
                 }
-            ]
+            }
         })
     }
 
     return (
-        <Grid key={'key'} sm={4} item>
-            <FormControlLabel label={text} control={
+        <Grid sm={4} item>
+            <FormControlLabel label={option} control={
                 <Checkbox {...checkboxProps(idx)} checked={checked} onChange={handleChange}/>
             }/>
         </Grid>

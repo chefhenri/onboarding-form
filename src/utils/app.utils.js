@@ -1,4 +1,5 @@
 import {createContext} from "react";
+import {getOptName} from "./form.utils";
 
 /**
  * Constants
@@ -29,6 +30,7 @@ export const initSectionData = (template) => {
         [ADD_COMMENTS_SECTION_NAME]: {}
     }
 
+    // Initialize field data
     template.forEach(section => {
         section['subsections'].forEach(subsection => {
             subsection['fields'].forEach(field => {
@@ -36,12 +38,21 @@ export const initSectionData = (template) => {
                     id: field.id,
                     type: field.type,
                     text: field.text,
-                    value: field.initial || null
+                    value: field.type === 'box' ? {} : field.initial || null
+                }
+
+                // Initialize checkbox option data
+                if (field.type === 'box') {
+                    field.options.forEach((opt, idx) => {
+                        sections[section.name][field.name].value[getOptName(field.name, idx)] = {
+                            checked: false,
+                            text: opt
+                        }
+                    })
                 }
             })
         })
 
-        // console.log(sections[section.name])
     })
 
     return sections

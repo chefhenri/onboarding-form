@@ -4,11 +4,13 @@ import FormGroup from "@material-ui/core/FormGroup";
 
 import FormCheckbox from "../molecules/FormCheckbox";
 
+import {getOptName} from "../../utils/form.utils";
+
 const FormCheckboxGroup = ({id, name, text, required, options, size}) => {
     const generateOptions = () => (
         <>
             {options.map((option, idx) => (
-                <FormCheckbox id={id} idx={idx} name={name} text={option} required={required}/>
+                <FormCheckbox key={getOptName(name, idx)} {...{id, idx, name, option, required}}/>
             ))}
         </>
     )

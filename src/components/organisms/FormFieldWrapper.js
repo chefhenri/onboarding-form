@@ -2,9 +2,7 @@ import React from "react";
 
 import FormTextArea from "../molecules/FormTextArea";
 import FormCheckboxGroup from "./FormCheckboxGroup";
-import FormDatePicker from "../molecules/FormDatePicker";
 import FormSelect from "../molecules/FormSelect";
-import FormSliderGroup from "./FormSliderGroup";
 import FormSwitch from "../molecules/FormSwitch";
 import FormTextField from "../molecules/FormTextField";
 
@@ -21,7 +19,9 @@ const FormFieldWrapper = ({id, name, type, text, required, initial, options, siz
             )
         case 'date':
             return (
-                <FormDatePicker key={id} {...{id, name, text, required}}/>
+                // FIXME: Broken, see component
+                // <FormDatePicker key={id} {...{id, name, text, required}}/>
+                <></>
             )
         case 'select':
             return (
@@ -29,7 +29,9 @@ const FormFieldWrapper = ({id, name, type, text, required, initial, options, siz
             )
         case 'slider':
             return (
-                <FormSliderGroup key={id} {...{text}}/>
+                // FIXME: Broken, see component
+                // <FormSliderGroup key={id} {...{id, name, text}}/>
+                <></>
             )
         case 'switch':
             return (
