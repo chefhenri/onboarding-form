@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useState} from "react";
 import {Container, Grid, Typography} from "@material-ui/core";
 
 import FormSliderSwitch from "../molecules/FormSliderSwitch";
@@ -53,10 +53,6 @@ const FormSliderGroup = ({id, name, text, options}) => {
         if (value < SLIDER_MIN_VAL) setValue(SLIDER_MIN_VAL)
         if (value > SLIDER_MAX_VAL) setValue(SLIDER_MAX_VAL)
     }
-
-    useEffect(() => {
-        console.log(value, ' - group')
-    })
 
     return (
         <Grid sm={12} item>

@@ -6,6 +6,7 @@ import FormSwitch from "../molecules/FormSwitch";
 import FormTextField from "../molecules/FormTextField";
 import FormDatePicker from "../molecules/FormDatePicker";
 import FormSliderGroup from "./FormSliderGroup";
+import FormSelect from "../molecules/FormSelect";
 
 const FormFieldWrapper = ({id, name, type, text, required, initial, options, size}) => {
     // TODO: Add 'hint' prop to component props
@@ -24,8 +25,7 @@ const FormFieldWrapper = ({id, name, type, text, required, initial, options, siz
             )
         case 'select':
             return (
-                // <FormSelect key={id} {...{id, name, text, required, options}}/>
-                <></>
+                <FormSelect key={id} {...{id, name, text, required, options}}/>
             )
         case 'slider':
             return (
