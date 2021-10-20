@@ -1,34 +1,32 @@
 import React from "react";
 import {Grid, Slider} from "@material-ui/core";
+import {getLabelFmt, getValueText, SLIDER_DEFAULT_VAL, SLIDER_MIN_VAL, SLIDER_STEP} from "../../utils/form.utils";
 
-const FormSlider = ({id, name, value, checked, option, options, className, handleChange}) => {
-    const sliderProps = {
-        id: id,
-        name: name,
-        className: className,
-        defaultValue: 90,
-        value: typeof value === 'number' ? value : 0,
-        marks: options[option],
-        step: 1,
-        min: 0,
+import {styles} from "../../styles/form.styles";
+
+const FormSlider = ({id, name, value, isDisabled, markOpts, handleChange}) => {
+    const classes = styles()
+
+    const sliderConfig = {
+        min: SLIDER_MIN_VAL,
+        step: SLIDER_STEP,
+        defaultValue: SLIDER_DEFAULT_VAL,
+        disabled: isDisabled,
+        marks: markOpts,
         valueLabelDisplay: 'auto',
-        disabled: checked,
-    }
-
-    const valueText = (value) => {
-        return `${value} Days`
-    }
-
-    const labelFormat = (value) => {
-        return value
+        className: classes.slider,
+        valueLabelFormat: getLabelFmt,
+        getAriaValueText: getValueText
     }
 
     return (
         <Grid item sm>
-            <Slider {...sliderProps}
-                    getAriaValueText={valueText}
-                    valueLabelFormat={labelFormat}
-                    onChange={handleChange}/>
+            <Slider
+                {...sliderConfig}
+                id={id}
+                name={name}
+                value={typeof value === 'number' ? value : 0}
+                onChange={handleChange}/>
         </Grid>
     )
 }

@@ -7,7 +7,6 @@ export const styles = makeStyles((theme) => ({
     heading: {
         display: 'flex',
         flexDirection: 'row',
-        // justifyContent: 'space-between'
     },
     popover: {
         width: '15rem',

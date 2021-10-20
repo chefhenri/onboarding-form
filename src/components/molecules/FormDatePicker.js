@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useState} from "react";
 import {KeyboardDatePicker} from "@material-ui/pickers";
 import {Grid} from "@material-ui/core";
 import {DateTime as DT} from 'luxon'
@@ -26,10 +26,6 @@ const FormDatePicker = ({id, name, text, required}) => {
             }
         })
     }
-
-    useEffect(() => {
-        console.log(date)
-    }, [date])
 
     return (
         <Grid item sm={6}>

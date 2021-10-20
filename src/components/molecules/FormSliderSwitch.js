@@ -3,15 +3,13 @@ import {FormControlLabel, Switch} from "@material-ui/core";
 
 const FormSliderSwitch = ({id, name, checked, handleChange}) => {
     const switchProps = {
-        id: id + '-unlimited-switch',
-        name: name,
         color: 'primary',
         checked: checked,
     }
 
     return (
         <FormControlLabel control={
-            <Switch {...switchProps} onChange={handleChange}/>
+            <Switch id={id} name={name} {...switchProps} onChange={handleChange}/>
         } label='Unlimited'/>
     )
 }

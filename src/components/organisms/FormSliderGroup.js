@@ -1,19 +1,22 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Container, Grid, Typography} from "@material-ui/core";
 
 import FormSliderSwitch from "../molecules/FormSliderSwitch";
 import FormSliderInput from "../molecules/FormSliderInput";
 import FormSlider from "../molecules/FormSlider";
 
+import {SLIDER_DEFAULT_VAL, SLIDER_MAX_VAL, SLIDER_MIN_VAL, SLIDER_UNLIMITED_VAL} from "../../utils/form.utils";
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
+
 import {styles} from "../../styles/form.styles";
 
-const FormSliderGroup = ({id, name, text}) => {
+const FormSliderGroup = ({id, name, text, options}) => {
     const classes = styles()
 
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
-    const [value, setValue] = useState(90)
+
+    const [value, setValue] = useState(data[section][name].value || SLIDER_DEFAULT_VAL)
     const [checked, setChecked] = useState(false)
 
     const handleDataChange = (value) => {
@@ -34,25 +37,52 @@ const FormSliderGroup = ({id, name, text}) => {
         handleDataChange(value)
     }
 
-    const handleInputChange = ({target}, value) => {
-        setValue(value === '' ? '' : Number(value))
-        handleDataChange(value)
+    const handleInputChange = ({target}) => {
+        setValue(target.value === '' ? '' : Number(target.value))
+        handleDataChange(target.value)
     }
 
     const handleSwitchChange = ({target}, checked) => {
         setChecked(checked)
-        handleDataChange(checked)
+        setValue(SLIDER_DEFAULT_VAL)
+        if (checked) handleDataChange(SLIDER_UNLIMITED_VAL)
+        else handleDataChange(SLIDER_DEFAULT_VAL)
     }
+
+    const handleBlur = () => {
+        if (value < SLIDER_MIN_VAL) setValue(SLIDER_MIN_VAL)
+        if (value > SLIDER_MAX_VAL) setValue(SLIDER_MAX_VAL)
+    }
+
+    useEffect(() => {
+        console.log(value, ' - group')
+    })
 
     return (
         <Grid sm={12} item>
             <Typography>{text}</Typography>
             <Container className={classes.container} component={"div"} maxWidth={"lg"}>
                 <Grid spacing={2} alignItems={"center"} container>
-                    <FormSlider className={classes.slider} value={value} handleChange={handleSliderChange}/>
-                    <FormSliderInput disabled={checked} className={classes.input} handleChange={handleInputChange}/>
+                    <FormSlider
+                        id={`${id}-slider`}
+                        name={`${name}Slider`}
+                        value={value}
+                        markOpts={options}
+                        isDisabled={checked}
+                        handleChange={handleSliderChange}/>
+                    <FormSliderInput
+                        id={`${id}-input`}
+                        name={`${name}Input`}
+                        value={value}
+                        isDisabled={checked}
+                        handleBlur={handleBlur}
+                        handleChange={handleInputChange}/>
                 </Grid>
-                <FormSliderSwitch handleChange={handleSwitchChange}/>
+                <FormSliderSwitch
+                    id={`${id}-switch`}
+                    name={`${name}Switch`}
+                    checked={checked}
+                    handleChange={handleSwitchChange}/>
             </Container>
         </Grid>
     )
