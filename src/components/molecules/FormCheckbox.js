@@ -6,11 +6,11 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 import {getOptId, getOptName} from "../../utils/form.utils";
 
-// TODO: Convert 'checked' status to local state
-// TODO: Load previous state from context (ref. FormTextField)
 const FormCheckbox = ({id, idx, name, text, required}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
+
+    // FIXME: Assuming incorrect context data pattern
     const [checked, setChecked] = useState(
         data[section].filter(field => field.id === getOptId(id, idx)).checked || false
     )
@@ -32,6 +32,7 @@ const FormCheckbox = ({id, idx, name, text, required}) => {
         }
     }
 
+    // FIXME: Deep merge data with context
     const handleChange = ({target}, checked) => {
         setChecked(checked)
         setData({

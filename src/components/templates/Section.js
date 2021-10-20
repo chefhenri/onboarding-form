@@ -1,8 +1,8 @@
 import React, {Fragment} from "react";
 import {Grid} from "@material-ui/core";
 
-import FormHeading from "../atoms/FormHeading";
-import FormFieldWrapper from "../molecules/FormFieldWrapper";
+import FormHeading from "../molecules/FormHeading";
+import FormFieldWrapper from "../organisms/FormFieldWrapper";
 
 const Section = ({subsections}) => {
     return (

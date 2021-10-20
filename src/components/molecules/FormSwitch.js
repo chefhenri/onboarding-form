@@ -5,11 +5,11 @@ import {Grid} from "@material-ui/core";
 
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
-// TODO: Load previous state from context (ref. FormTextField)
 const FormSwitch = ({id, name, text, initial}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
-    const [checked, setChecked] = useState(initial)
+
+    const [checked, setChecked] = useState(data[section][name].value || initial)
 
     const switchProps = {
         id: id,
@@ -17,16 +17,18 @@ const FormSwitch = ({id, name, text, initial}) => {
         color: 'primary'
     }
 
-    const handleChange = () => {
-        setChecked(!checked)
+    const handleChange = ({target}, checked) => {
+        setChecked(checked)
+
         setData({
             ...data,
-            [section]: [
-                {
-                    id: id,
-                    value: !checked
+            [section]: {
+                ...data[section],
+                [name]: {
+                    ...data[section][name],
+                    value: checked
                 }
-            ]
+            }
         })
     }
 

@@ -1,12 +1,12 @@
 import React from "react";
 
-import FormTextArea from "../atoms/FormTextArea";
+import FormTextArea from "../molecules/FormTextArea";
 import FormCheckboxGroup from "./FormCheckboxGroup";
-import FormDatePicker from "../atoms/FormDatePicker";
-import FormSelect from "../atoms/FormSelect";
-import FormSliderCtrlGroup from "./FormSliderCtrlGroup";
-import FormSwitch from "../atoms/FormSwitch";
-import FormTextField from "../atoms/FormTextField";
+import FormDatePicker from "../molecules/FormDatePicker";
+import FormSelect from "../molecules/FormSelect";
+import FormSliderGroup from "./FormSliderGroup";
+import FormSwitch from "../molecules/FormSwitch";
+import FormTextField from "../molecules/FormTextField";
 
 const FormFieldWrapper = ({id, name, type, text, required, initial, options, size}) => {
     // TODO: Add 'hint' prop to component props
@@ -29,7 +29,7 @@ const FormFieldWrapper = ({id, name, type, text, required, initial, options, siz
             )
         case 'slider':
             return (
-                <FormSliderCtrlGroup key={id} {...{text}}/>
+                <FormSliderGroup key={id} {...{text}}/>
             )
         case 'switch':
             return (

@@ -6,7 +6,6 @@ import Select from "@material-ui/core/Select";
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 import {styles} from "../../styles/form.styles";
 
-// TODO: Load previous state from context (ref. FormTextField)
 const FormSelect = ({id, name, text, required, options}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
@@ -31,6 +30,7 @@ const FormSelect = ({id, name, text, required, options}) => {
         return select.idx
     }
 
+    // FIXME: Deep merge data with context
     const handleChange = ({target}) => {
         setData({
             ...data,

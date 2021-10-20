@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import {initSectionData, SectionDataContext} from "./utils/app.utils";
-import PageHeader from "./components/molecules/PageHeader";
+import PageHeader from "./components/atoms/PageHeader";
 import Main from "./pages/Main";
 
 const App = (props) => {

@@ -5,7 +5,6 @@ import {DateTime as DT} from "luxon";
 
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 
-// TODO: Load previous state from context (ref. FormTextField)
 const FormDatePicker = ({id, name, text, required}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
@@ -33,6 +32,7 @@ const FormDatePicker = ({id, name, text, required}) => {
         return datePicker.value
     }
 
+    // FIXME: Deep merge data with context
     const handleChange = ({target}, date) => {
         setData({
             ...data,

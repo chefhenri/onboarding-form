@@ -1,8 +1,8 @@
 import React from "react";
 import Paper from "@material-ui/core/Paper";
 
-import FormHeader from "../components/molecules/FormHeader";
-import Content from "../components/organisms/Content";
+import FormHeader from "../components/organisms/FormHeader";
+import Content from "../components/templates/Content";
 
 import {styles} from "../styles/main.styles";
 

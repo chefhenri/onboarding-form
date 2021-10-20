@@ -1,16 +1,14 @@
 import React, {useContext, useState} from "react";
 import {Container, Grid, Typography} from "@material-ui/core";
 
-import FormSliderSwitch from "../atoms/FormSliderSwitch";
-import FormSliderInput from "../atoms/FormSliderInput";
-import FormSlider from "../atoms/FormSlider";
+import FormSliderSwitch from "../molecules/FormSliderSwitch";
+import FormSliderInput from "../molecules/FormSliderInput";
+import FormSlider from "../molecules/FormSlider";
 
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
 import {styles} from "../../styles/form.styles";
 
-
-// TODO: Load previous state from context (ref. FormTextField)
-const FormSliderCtrlGroup = ({id, text}) => {
+const FormSliderGroup = ({id, text}) => {
     const classes = styles()
 
     const [data, setData] = useContext(SectionDataContext)
@@ -18,6 +16,7 @@ const FormSliderCtrlGroup = ({id, text}) => {
     const [value, setValue] = useState(90)
     const [checked, setChecked] = useState(false)
 
+    // FIXME: Deep merge data with context
     const handleDataChange = () => {
         setData({
             ...data,
@@ -59,4 +58,4 @@ const FormSliderCtrlGroup = ({id, text}) => {
     )
 }
 
-export default FormSliderCtrlGroup
+export default FormSliderGroup

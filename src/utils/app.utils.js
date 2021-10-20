@@ -36,7 +36,7 @@ export const initSectionData = (template) => {
                     id: field.id,
                     type: field.type,
                     text: field.text,
-                    value: null
+                    value: field.initial || null
                 }
             })
         })

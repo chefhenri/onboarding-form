@@ -2,7 +2,7 @@ import React from "react";
 import {FormControl, FormLabel, Grid} from "@material-ui/core";
 import FormGroup from "@material-ui/core/FormGroup";
 
-import FormCheckbox from "../atoms/FormCheckbox";
+import FormCheckbox from "../molecules/FormCheckbox";
 
 const FormCheckboxGroup = ({id, name, text, required, options, size}) => {
     const generateOptions = () => (
