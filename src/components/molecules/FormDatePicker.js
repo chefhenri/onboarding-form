@@ -1,34 +1,19 @@
-import React, {useContext, useState} from "react";
-import {DatePicker} from "@material-ui/pickers";
+import React, {useContext, useEffect, useState} from "react";
+import {KeyboardDatePicker} from "@material-ui/pickers";
 import {Grid} from "@material-ui/core";
-import {DateTime as DT} from "luxon";
+import {DateTime as DT} from 'luxon'
 
 import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
+import {DATE_PICKER_FMT, MIN_DATE_MSG} from "../../utils/form.utils";
 
 const FormDatePicker = ({id, name, text, required}) => {
     const [data, setData] = useContext(SectionDataContext)
     const section = useContext(SectionNameContext)
 
-    const [value, setValue] = useState(data[section][name].value || null)
+    const [date, setDate] = useState(data[section][name].value || null)
 
-    const fieldProps = {
-        id: id,
-        name: name,
-        label: text,
-        required: required,
-        variant: 'inline',
-        inputVariant: 'outlined',
-        format: 'MM/dd/yyyy',
-        minDate: DT.local(),
-        minDateMessage: 'Date should not be before today',
-        autoOk: true,
-        disableToolbar: true,
-        disablePast: true,
-        fullWidth: true
-    }
-
-    const handleChange = ({target}, date) => {
-        setValue(date)
+    const handleChange = (date) => {
+        setDate(date)
 
         setData({
             ...data,
@@ -42,10 +27,28 @@ const FormDatePicker = ({id, name, text, required}) => {
         })
     }
 
+    useEffect(() => {
+        console.log(date)
+    }, [date])
+
     return (
         <Grid item sm={6}>
-            {/* FIXME: Implement DatePicker component from new package version */}
-            <DatePicker {...fieldProps} value={value} onChange={handleChange}/>
+            <KeyboardDatePicker
+                autoOk
+                fullWidth
+                id={id}
+                name={name}
+                label={text}
+                required={required}
+                value={date}
+                placeholder={DT.local().plus({days: 14}).toLocaleString()}
+                format={DATE_PICKER_FMT}
+                minDate={DT.local()}
+                variant='inline'
+                inputVariant='outlined'
+                minDateMessage={MIN_DATE_MSG}
+                InputAdornmentProps={{position: 'start'}}
+                onChange={handleChange}/>
         </Grid>
     )
 }
