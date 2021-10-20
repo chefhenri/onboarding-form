@@ -5,6 +5,7 @@ import FormCheckboxGroup from "./FormCheckboxGroup";
 import FormSelect from "../molecules/FormSelect";
 import FormSwitch from "../molecules/FormSwitch";
 import FormTextField from "../molecules/FormTextField";
+import FormDatePicker from "../molecules/FormDatePicker";
 
 const FormFieldWrapper = ({id, name, type, text, required, initial, options, size}) => {
     // TODO: Add 'hint' prop to component props
@@ -20,8 +21,8 @@ const FormFieldWrapper = ({id, name, type, text, required, initial, options, siz
         case 'date':
             return (
                 // FIXME: Broken, see component
-                // <FormDatePicker key={id} {...{id, name, text, required}}/>
-                <></>
+                <FormDatePicker key={id} {...{id, name, text, required}}/>
+                // <></>
             )
         case 'select':
             return (
