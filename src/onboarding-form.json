@@ -6,8 +6,6 @@
     "subsections": [
       {
         "id": "company-info",
-        "name": "companyInfo",
-        "type": "heading",
         "text": "Company Information",
         "fields": [
           {
@@ -19,7 +17,7 @@
           },
           {
             "id": "company-url",
-            "name": "companyUrl",
+            "name": "companyURL",
             "type": "text",
             "required": true,
             "text": "Company Website"
@@ -28,7 +26,6 @@
       },
       {
         "id": "owner-info",
-        "type": "heading",
         "text": "Account Owner Information",
         "info": "The Account Owner is the person authorized to make policy changes on the Account.",
         "fields": [
@@ -64,7 +61,6 @@
       },
       {
         "id": "security-privacy-info",
-        "type": "heading",
         "text": "Security and Privacy Officers' Information",
         "info": "The Security and Privacy Officers are individuals in your organization to be contacted for security or privacy related matters.\nThese contacts do not have authority over the account.",
         "fields": [
@@ -107,7 +103,6 @@
     "subsections": [
       {
         "id": "reseller-info",
-        "type": "heading",
         "text": "Reseller Information",
         "info": "Filling out these fields is recommended for clients who have managed print/professional IT services from their MFP Reseller.\nThe Reseller is required to install the XM Fax and XM SendSecure apps on the MFP for Xerox and HP.",
         "fields": [
@@ -115,7 +110,7 @@
             "id": "reseller-name",
             "name": "resellerName",
             "type": "text",
-            "hint": 0,
+            "hint-id": 0,
             "required": false,
             "text": "Reseller's Name"
           },
@@ -123,7 +118,7 @@
             "id": "reseller-email",
             "name": "resellerEmail",
             "type": "email",
-            "hint": 0,
+            "hint-id": 0,
             "required": false,
             "text": "Reseller's Contact Email"
           }
@@ -131,37 +126,37 @@
       },
       {
         "id": "reseller-notifs",
-        "type": "heading",
         "text": "Reseller Notifications",
         "fields": [
           {
+            "hint-id": 1,
             "id": "ticket-notify",
-            "name": "ticketNotifSwitch",
-            "type": "switch",
-            "hint": 1,
+            "name": "ticketNotify",
+            "initial": true,
             "required": true,
-            "text": "Notify Reseller about new Onboarding Tickets"
+            "text": "Notify Reseller about new Onboarding Tickets",
+            "type": "switch"
           },
           {
+            "hint-id": 2,
             "id": "resupply-notify",
-            "name": "resupplyNotifSwitch",
-            "type": "switch",
-            "hint": 2,
+            "name": "resupplyNotif",
+            "initial": true,
             "required": true,
-            "text": "Notify Reseller of Credit resupply"
+            "text": "Notify Reseller of Credit resupply",
+            "type": "switch"
           }
         ]
       },
       {
         "id": "installation-info",
-        "type": "heading",
         "text": "MFP Installation Contact Information",
         "fields": [
           {
             "id": "installer-email",
             "name": "installerEmail",
             "type": "email",
-            "hint": 3,
+            "hint-id": 3,
             "required": true,
             "text": "Reseller Contact's Email"
           },
@@ -169,7 +164,7 @@
             "id": "installer-phone",
             "name": "installerPhone",
             "type": "tel",
-            "hint": 3,
+            "hint-id": 3,
             "required": true,
             "text": "Reseller Contact's Phone"
           }
@@ -185,12 +180,11 @@
   },
   {
     "id": "mfp-info",
-    "name": "MFPInfo",
+    "name": "mfpInfo",
     "header": "MFP Information",
     "subsections": [
       {
         "id": "technical-info",
-        "type": "heading",
         "text": "Technical Contact Information",
         "info": "This information is used to identify who will be responsible for the configuration of XMedius applications on the OEM specific MFPs.",
         "fields": [
@@ -198,7 +192,7 @@
             "id": "technical-name",
             "name": "technicalName",
             "type": "text",
-            "hint": 0,
+            "hint-id": 0,
             "required": true,
             "text": "Technical Contact's Name"
           },
@@ -206,7 +200,7 @@
             "id": "technical-phone",
             "name": "technicalPhone",
             "type": "tel",
-            "hint": 0,
+            "hint-id": 0,
             "required": true,
             "text": "Technical Contact's Phone"
           },
@@ -214,7 +208,7 @@
             "id": "technical-email",
             "name": "technicalEmail",
             "type": "email",
-            "hint": 0,
+            "hint-id": 0,
             "required": true,
             "text": "Technical Contact's Email"
           }
@@ -222,29 +216,28 @@
       },
       {
         "id": "equipment-info",
-        "type": "heading",
         "text": "Equipment Information",
         "info": "The equipment delivery dates are used for scheduling purposes.\nInbound faxing cannot be completed until one new number is available or one porting request has been completed.\nDepending on the MFPs in use, a server may be required to host the XM Fax software. Additional charges may apply.",
         "fields": [
           {
             "id": "install-date",
-            "name": "installDatePicker",
+            "name": "installDate",
             "type": "date",
-            "hint": 1,
+            "hint-id": 1,
             "required": true,
             "text": "Install Date"
           },
           {
             "id": "removal-date",
-            "name": "removalDatePicker",
+            "name": "removalDate",
             "type": "date",
-            "hint": 1,
+            "hint-id": 1,
             "required": true,
             "text": "Removal Date"
           },
           {
-            "id": "install-apps-box",
-            "name": "installAppsBox",
+            "id": "install-apps",
+            "name": "installApps",
             "type": "box",
             "options": [
               "Xerox iSeries",
@@ -258,12 +251,12 @@
               "Email Only"
             ],
             "required": true,
-            "text": "Install XMedius Apps on:",
+            "text": "Installation Platforms",
             "size": "full"
           },
           {
-            "id": "integrations-box",
-            "name": "integrationAppsBox",
+            "id": "integrations",
+            "name": "integrations",
             "type": "box",
             "options": [
               "Print Confirmation Pages",
@@ -295,15 +288,14 @@
     "subsections": [
       {
         "id": "account-info",
-        "type": "heading",
         "text": "Account Configuration",
         "info": "This information is used to create the account and setup where the account will be hosted, the account name, and and activation date.\nYou must select at least one solution.",
         "fields": [
           {
-            "id": "cloud-hosting-select",
-            "name": "cloudHostingSelect",
+            "id": "cloud-hosting",
+            "name": "cloudHosting",
             "type": "select",
-            "hint": 0,
+            "hint-id": 0,
             "options": [
               "Canada (CA)",
               "Europe (EU)",
@@ -316,23 +308,23 @@
             "id": "account-name",
             "name": "accountName",
             "type": "text",
-            "hint": 1,
+            "hint-id": 1,
             "required": true,
             "text": "Account Name"
           },
           {
             "id": "activation-date",
-            "name": "activationDatePicker",
+            "name": "activationDate",
             "type": "date",
-            "hint": 2,
+            "hint-id": 2,
             "required": true,
             "text": "Desired Activation Date"
           },
           {
-            "id": "enable-solutions-box",
-            "name": "enableSolutionsBox",
+            "id": "enable-solutions",
+            "name": "enableSolutions",
             "type": "box",
-            "hint": 3,
+            "hint-id": 3,
             "options": [
               "XM Fax",
               "XM SendSecure"
@@ -345,7 +337,6 @@
       },
       {
         "id": "admin-info",
-        "type": "heading",
         "text": "Account Administrator Information",
         "info": "The administrator(s) will have authority over the account and may be separate from the Account Owner.\nA Primary Administrator is required and it is recommended to have a Secondary Administrator for backup and support.",
         "fields": [
@@ -353,7 +344,7 @@
             "id": "primary-admin-email",
             "name": "primaryAdminEmail",
             "type": "email",
-            "hint": 4,
+            "hint-id": 4,
             "required": true,
             "text": "Primary Administrator's Email"
           },
@@ -368,15 +359,14 @@
       },
       {
         "id": "fax-policy",
-        "type": "heading",
         "text": "Fax Retention Policy",
         "info": "The minimum retention is 7 days.\nSelect \"Unlimited\" if you do not want faxes to be deleted at all.\nSelect \"Zero Days\" if you want faxes to be deleted immediately after successful delivery (the fax metadata will be retained for 7 days).",
         "fields": [
           {
-            "id": "retention-policy-slider",
-            "name": "retentionPolicySlider",
+            "id": "retention-policy",
+            "name": "retentionPolicy",
             "type": "slider",
-            "hint": 5,
+            "hint-id": 5,
             "options": [
               {
                 "value": 0,
@@ -385,6 +375,14 @@
               {
                 "value": 7,
                 "label": "7 Days"
+              },
+              {
+                "value": 30,
+                "label": "30 Days"
+              },
+              {
+                "value": 60,
+                "label": "60 Days"
               },
               {
                 "value": 90,
@@ -398,15 +396,14 @@
       },
       {
         "id": "transmission-info",
-        "type": "heading",
         "text": "Transmission Data Information",
         "info": "Depending on the market, we can configure industry compliance standards.\nThis information can be useful for certain requirements such as automatically printing fax pages at the MFP.\nDepending on the compliance profile, printing pages may require sFTP service to deliver pages.",
         "fields": [
           {
-            "id": "data-transmit-box",
-            "name": "dataTransmitBox",
+            "id": "data-transmit",
+            "name": "dataTransmit",
             "type": "box",
-            "hint": 6,
+            "hint-id": 6,
             "options": [
               "ePHI/HDS, HIPAA",
               "Cardholder Data (PAN)/PCI_DSS",
@@ -442,13 +439,12 @@
     "subsections": [
       {
         "id": "additional-info",
-        "type": "heading",
+        "name": "additionalInfo",
         "text": "Additional Configuration Details",
         "info": "Note any unique requirements, workflows, or system integrations in this text area.\nThis may include: multiple accounts with separate retention policies, additionally quoted professional services, or custom scripting/API work.",
         "fields": [
           {
-            "id": "comments-area",
-            "name": "commentsArea",
+            "id": "comments",
             "type": "area",
             "required": true,
             "text": null

@@ -1,16 +1,19 @@
-import React, {Fragment} from "react";
+import React, {useState} from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-import Nav from "./components/Nav";
-import Main from "./components/Main";
+import {initSectionData, SectionDataContext} from "./utils/app.utils";
+import PageHeader from "./components/atoms/PageHeader";
+import Main from "./pages/Main";
 
 const App = (props) => {
+    const useSectionData = useState(initSectionData(props.sections))
+
     return (
-        <Fragment>
+        <SectionDataContext.Provider value={useSectionData}>
             <CssBaseline/>
-            <Nav/>
+            <PageHeader/>
             <Main {...props}/>
-        </Fragment>
+        </SectionDataContext.Provider>
     );
 }
 

@@ -6,7 +6,7 @@ const TerserWebpackPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
-const formData = require('./src/data/onboarding-form.json')
+const formData = require('./src/onboarding-form.json')
 
 module.exports = (_env, argv) => {
     const isProduction = argv.mode === 'production';
