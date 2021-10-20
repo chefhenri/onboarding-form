@@ -10,15 +10,10 @@ const FormTextArea = ({id, name, text, type, required}) => {
 
     const [value, setValue] = useState(data[section][name].value)
 
-    const fieldProps = {
-        id: id,
-        name: name,
-        type: type,
-        label: text,
-        required: required,
+    const fieldConfig = {
         variant: 'outlined',
-        rows: 5,
-        rowsMax: 10,
+        minRows: 5,
+        maxRows: 10,
         fullWidth: true,
         multiline: true
     }
@@ -40,7 +35,15 @@ const FormTextArea = ({id, name, text, type, required}) => {
 
     return (
         <Grid item sm={12}>
-            <TextField {...fieldProps} defaultValue={value} onChange={handleChange}/>
+            <TextField
+                {...fieldConfig}
+                id={id}
+                name={name}
+                type={type}
+                label={text}
+                required={required}
+                defaultValue={value}
+                onChange={handleChange}/>
         </Grid>
     )
 }

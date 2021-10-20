@@ -57,3 +57,13 @@ export const initSectionData = (template) => {
 
     return sections
 }
+
+export const getCurrentSectionName = (idx) => {
+    return [
+        ACCOUNT_INFO_SECTION_NAME,
+        RESELLER_INFO_SECTION_NAME,
+        MFP_INFO_SECTION_NAME,
+        CONFIG_DETAILS_SECTION_NAME,
+        ADD_COMMENTS_SECTION_NAME
+    ].at(idx)
+}

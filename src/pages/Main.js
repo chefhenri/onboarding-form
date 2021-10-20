@@ -1,10 +1,12 @@
 import React from "react";
 import Paper from "@material-ui/core/Paper";
 
+import ContentBtnGroup from "../components/molecules/ContentBtnGroup";
 import FormHeader from "../components/organisms/FormHeader";
-import Content from "../components/templates/Content";
+import Summary from "../components/templates/Summary";
 
 import {styles} from "../styles/main.styles";
+import Section from "../components/templates/Section";
 
 const Main = ({headers, sections}) => {
     const classes = styles()
@@ -45,14 +47,18 @@ const Main = ({headers, sections}) => {
                     active={active}
                     optional={isOptional}
                     skipped={isSkipped}/>
-                <Content
-                    headers={headers}
-                    sections={sections}
-                    active={active}
-                    next={handleNext}
-                    back={handleBack}
-                    skip={handleSkip}
-                    optional={isOptional}/>
+                {active === headers.length ? (
+                    <Summary/>
+                ) : (<>
+                    <Section data={sections[active]} active={active}/>
+                    <ContentBtnGroup
+                        active={active}
+                        next={handleNext}
+                        back={handleBack}
+                        skip={handleSkip}
+                        optional={isOptional}
+                        length={headers.length - 1}/>
+                </>)}
             </Paper>
         </main>
     )
