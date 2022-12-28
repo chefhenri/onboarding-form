@@ -1,14 +1,15 @@
 import React, {useContext, useState} from "react";
-import {Container, Grid, Typography} from "@material-ui/core";
 
-import FormSliderSwitch from "../molecules/FormSliderSwitch";
-import FormSliderInput from "../molecules/FormSliderInput";
-import FormSlider from "../molecules/FormSlider";
+import {Container, Grid, Typography} from "@mui/material";
 
-import {SLIDER_DEFAULT_VAL, SLIDER_MAX_VAL, SLIDER_MIN_VAL, SLIDER_UNLIMITED_VAL} from "../../utils/form.utils";
-import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
+import FormSliderSwitch from "../../molecules/form/FormSliderSwitch";
+import FormSliderInput from "../../molecules/form/FormSliderInput";
+import FormSlider from "../../molecules/form/FormSlider";
 
-import {styles} from "../../styles/form.styles";
+import {SLIDER_DEFAULT_VAL, SLIDER_MAX_VAL, SLIDER_MIN_VAL, SLIDER_UNLIMITED_VAL} from "../../../utils/form.utils";
+import {SectionDataContext, SectionNameContext} from "../../../utils/app.utils";
+
+import {styles} from "../../../styles/form.styles";
 
 const FormSliderGroup = ({id, name, text, options}) => {
     const classes = styles()

@@ -1,9 +1,7 @@
 import React, {useContext, useState} from "react";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
-import {Grid} from "@material-ui/core";
 
-import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
+import {SectionDataContext, SectionNameContext} from "../../../utils/app.utils";
+import {FormControlLabel, Grid, Switch} from "@mui/material";
 
 const FormSwitch = ({id, name, text, initial}) => {
     const [data, setData] = useContext(SectionDataContext)

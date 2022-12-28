@@ -1,10 +1,9 @@
 import React, {useContext, useState} from "react";
-import {FormControl, Grid, MenuItem} from "@material-ui/core";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
 
-import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
-import {styles} from "../../styles/form.styles";
+import {FormControl, Grid, InputLabel, MenuItem, Select} from "@mui/material";
+
+import {SectionDataContext, SectionNameContext} from "../../../utils/app.utils";
+import {styles} from "../../../styles/form.styles";
 
 const FormSelect = ({id, name, text, required, options}) => {
     const classes = styles()

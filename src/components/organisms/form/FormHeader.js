@@ -1,11 +1,10 @@
 import React from "react";
-import Step from "@material-ui/core/Step";
-import {Typography} from "@material-ui/core";
-import Stepper from "@material-ui/core/Stepper";
-import StepLabel from "@material-ui/core/StepLabel";
 
-import {formTitle} from "../../utils/app.utils";
-import {styles} from "../../styles/form.styles";
+import {Step, StepLabel, Stepper, Typography} from "@mui/material";
+
+import {formTitle} from "../../../utils/app.utils";
+
+import {styles} from "../../../styles/form.styles";
 
 const FormHeader = ({headers, active, optional, skipped}) => {
     const classes = styles()

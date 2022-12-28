@@ -1,8 +1,9 @@
 import React, {Fragment} from "react";
-import {Grid} from "@material-ui/core";
 
-import FormHeading from "../molecules/FormHeading";
-import FormFieldWrapper from "../organisms/FormFieldWrapper";
+import {Grid} from "@mui/material";
+
+import FormHeading from "../molecules/form/FormHeading";
+import FormFieldWrapper from "../organisms/form/FormFieldWrapper";
 import {getCurrentSectionName, SectionNameContext} from "../../utils/app.utils";
 
 const Section = ({data, active}) => {

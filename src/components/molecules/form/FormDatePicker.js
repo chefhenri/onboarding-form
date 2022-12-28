@@ -1,10 +1,12 @@
 import React, {useContext, useState} from "react";
-import {KeyboardDatePicker} from "@material-ui/pickers";
-import {Grid} from "@material-ui/core";
+
+import {Grid, Typography} from "@mui/material";
+
 import {DateTime as DT} from 'luxon'
 
-import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
-import {DATE_PICKER_FMT, MIN_DATE_MSG} from "../../utils/form.utils";
+import {SectionDataContext, SectionNameContext} from "../../../utils/app.utils";
+import {DATE_PICKER_FMT, MIN_DATE_MSG} from "../../../utils/form.utils";
+import {DatePicker} from "@mui/x-date-pickers";
 
 const FormDatePicker = ({id, name, text, required}) => {
     const [data, setData] = useContext(SectionDataContext)
@@ -29,7 +31,7 @@ const FormDatePicker = ({id, name, text, required}) => {
 
     return (
         <Grid item sm={6}>
-            <KeyboardDatePicker
+            <DatePicker
                 autoOk
                 fullWidth
                 id={id}
@@ -44,7 +46,7 @@ const FormDatePicker = ({id, name, text, required}) => {
                 inputVariant='outlined'
                 minDateMessage={MIN_DATE_MSG}
                 InputAdornmentProps={{position: 'start'}}
-                onChange={handleChange}/>
+                onChange={handleChange} renderInput={<p/>}/>
         </Grid>
     )
 }

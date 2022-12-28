@@ -1,7 +1,9 @@
 import React from "react";
-import {Grid, Input} from "@material-ui/core";
-import {styles} from "../../styles/form.styles";
-import {SLIDER_MAX_VAL, SLIDER_MIN_VAL, SLIDER_STEP} from "../../utils/form.utils";
+
+import {Grid, Input} from "@mui/material";
+
+import {styles} from "../../../styles/form.styles";
+import {SLIDER_MAX_VAL, SLIDER_MIN_VAL, SLIDER_STEP} from "../../../utils/form.utils";
 
 const FormSliderInput = ({id, name, value, isDisabled, handleBlur, handleChange}) => {
     const classes = styles()

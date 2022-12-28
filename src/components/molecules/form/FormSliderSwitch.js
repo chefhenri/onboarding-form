@@ -1,5 +1,5 @@
 import React from "react";
-import {FormControlLabel, Switch} from "@material-ui/core";
+import {FormControlLabel, Switch} from "@mui/material";
 
 const FormSliderSwitch = ({id, name, checked, handleChange}) => {
     const switchProps = {

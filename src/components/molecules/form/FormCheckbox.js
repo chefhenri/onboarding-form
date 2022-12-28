@@ -1,10 +1,8 @@
 import React, {useContext, useState} from "react";
-import {Grid} from "@material-ui/core";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+import {Checkbox, FormControlLabel, Grid} from "@mui/material";
 
-import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
-import {getOptId, getOptName} from "../../utils/form.utils";
+import {SectionDataContext, SectionNameContext} from "../../../utils/app.utils";
+import {getOptId, getOptName} from "../../../utils/form.utils";
 
 const FormCheckbox = ({id, idx, name, option, required}) => {
     const [data, setData] = useContext(SectionDataContext)

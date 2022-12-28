@@ -1,8 +1,10 @@
 import React from "react";
-import {Grid, Slider} from "@material-ui/core";
-import {getLabelFmt, getValueText, SLIDER_DEFAULT_VAL, SLIDER_MIN_VAL, SLIDER_STEP} from "../../utils/form.utils";
 
-import {styles} from "../../styles/form.styles";
+import {Grid, Slider} from "@mui/material";
+
+import {getLabelFmt, getValueText, SLIDER_DEFAULT_VAL, SLIDER_MIN_VAL, SLIDER_STEP} from "../../../utils/form.utils";
+
+import {styles} from "../../../styles/form.styles";
 
 const FormSlider = ({id, name, value, isDisabled, markOpts, handleChange}) => {
     const classes = styles()

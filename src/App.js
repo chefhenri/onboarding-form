@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import {CssBaseline} from "@mui/material";
 
 import {initSectionData, SectionDataContext} from "./utils/app.utils";
-import PageHeader from "./components/atoms/PageHeader";
-import Main from "./pages/Main";
+import PageHeader from "./components/molecules/PageHeader";
+import Main from "./components/templates/Main";
 
 const App = (props) => {
     const useSectionData = useState(initSectionData(props.sections))

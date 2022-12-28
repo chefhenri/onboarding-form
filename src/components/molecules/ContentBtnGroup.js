@@ -1,7 +1,7 @@
 import React from "react";
-import {Button} from "@material-ui/core";
 
 import {styles} from "../../styles/content.styles";
+import {Button} from "@mui/material";
 
 const ContentBtnGroup = ({active, next, back, skip, optional, length}) => {
     const classes = styles()

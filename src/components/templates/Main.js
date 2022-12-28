@@ -1,15 +1,15 @@
 import React from "react";
-import Paper from "@material-ui/core/Paper";
 
-import ContentBtnGroup from "../components/molecules/ContentBtnGroup";
-import FormHeader from "../components/organisms/FormHeader";
-import Summary from "../components/templates/Summary";
+import ContentBtnGroup from "../molecules/ContentBtnGroup";
+import FormHeader from "../organisms/form/FormHeader";
+import Summary from "./Summary";
+import Section from "./Section";
 
-import {styles} from "../styles/main.styles";
-import Section from "../components/templates/Section";
+import {styles} from "../../styles/main.styles";
+import {Paper} from "@mui/material";
 
 const Main = ({headers, sections}) => {
-    const classes = styles()
+    const {layout, paper} = styles()
     const [active, setActive] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
 
@@ -40,8 +40,8 @@ const Main = ({headers, sections}) => {
     }
 
     return (
-        <main id={'main'} className={classes.layout}>
-            <Paper className={classes.paper}>
+        <main id={'main'} className={layout}>
+            <Paper className={paper}>
                 <FormHeader
                     headers={headers}
                     active={active}

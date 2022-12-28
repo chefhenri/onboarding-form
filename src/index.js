@@ -1,18 +1,19 @@
 import React, {StrictMode} from 'react';
-import {render} from 'react-dom';
+import {createRoot} from 'react-dom/client';
 import App from './App';
 
-import {MuiPickersUtilsProvider} from '@material-ui/pickers'
 import LuxonUtils from '@date-io/luxon'
+import {LocalizationProvider} from "@mui/x-date-pickers";
 
 const sectionData = require('./onboarding-form.json')
 const sectionHeaders = sectionData.map(section => section.header)
 
-render(
+let root = createRoot(document.querySelector('#root'))
+
+root.render(
     <StrictMode>
-        <MuiPickersUtilsProvider utils={LuxonUtils}>
+        <LocalizationProvider dateAdapter={LuxonUtils}>
             <App headers={sectionHeaders} sections={sectionData}/>
-        </MuiPickersUtilsProvider>
-    </StrictMode>,
-    document.querySelector('#root')
+        </LocalizationProvider>
+    </StrictMode>
 );

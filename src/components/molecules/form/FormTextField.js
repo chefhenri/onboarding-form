@@ -1,8 +1,7 @@
 import React, {useContext, useState} from "react";
-import TextField from "@material-ui/core/TextField";
-import {Grid} from "@material-ui/core";
 
-import {SectionDataContext, SectionNameContext} from "../../utils/app.utils";
+import {SectionDataContext, SectionNameContext} from "../../../utils/app.utils";
+import {Grid, TextField} from "@mui/material";
 
 const FormTextField = ({id, name, text, type, required}) => {
     const [data, setData] = useContext(SectionDataContext)

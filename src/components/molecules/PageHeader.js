@@ -1,8 +1,7 @@
 import React from "react";
-import {Toolbar, Typography} from "@material-ui/core";
-import AppBar from "@material-ui/core/AppBar";
 
 import {styles} from "../../styles/app.styles";
+import {AppBar, Toolbar, Typography} from "@mui/material";
 
 const PageHeader = () => {
     const classes = styles()
