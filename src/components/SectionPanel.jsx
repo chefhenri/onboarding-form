@@ -3,8 +3,19 @@ import {Box, Container, Paper, Typography} from "@mui/material";
 import SectionStepper from "./SectionStepper";
 import SectionForm from "./SectionForm";
 import SectionControl from "./SectionControl";
+import {useState} from "react";
 
 const SectionPanel = () => {
+    const [activeStep, setActiveStep] = useState(0)
+
+    const handleNext = () => {
+        setActiveStep((currentStep) => currentStep + 1)
+    }
+
+    const handleBack = () => {
+        setActiveStep((currentStep) => currentStep - 1)
+    }
+
     return (
             <Container fixed>
                 <Paper sx={{ marginTop: '2rem', padding: '2rem' }}>
@@ -13,9 +24,9 @@ const SectionPanel = () => {
                             Placeholder
                         </Typography>
                     </Box>
-                    <SectionStepper />
+                    <SectionStepper active={activeStep} />
                     <SectionForm />
-                    <SectionControl />
+                    <SectionControl active={activeStep} next={handleNext} back={handleBack} />
                 </Paper>
             </Container>
     )

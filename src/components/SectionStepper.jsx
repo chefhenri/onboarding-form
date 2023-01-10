@@ -1,5 +1,3 @@
-import {useState} from "react";
-
 import {Box, Step, Stepper, StepLabel, Typography} from "@mui/material";
 
 const steps = [
@@ -8,17 +6,7 @@ const steps = [
     {label: 'Create an ad', optional: false}
 ];
 
-const SectionStepper = () => {
-    const [activeStep, setActiveStep] = useState(0)
-
-    const handleNext = () => {
-        setActiveStep(currentStep => currentStep + 1)
-    }
-
-    const handleBack = () => {
-        setActiveStep(currentStep => currentStep - 1)
-    }
-
+const SectionStepper = ({ active }) => {
     const getLabelProps = (optional = false) => {
         let props = {}
 
@@ -29,7 +17,7 @@ const SectionStepper = () => {
 
     return (
             <Box sx={{ width: '100%', marginBottom: '2rem' }}>
-                <Stepper activeStep={activeStep}>
+                <Stepper activeStep={active}>
                     {steps.map(({ label, optional }, idx) => {
                         let labelProps = getLabelProps(optional)
 
