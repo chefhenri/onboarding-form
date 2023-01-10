@@ -2,7 +2,7 @@ import {ThemeProvider, createTheme} from "@mui/material/styles";
 import {CssBaseline} from "@mui/material";
 
 import Nav from "./components/Nav";
-import SectionPanel from "./components/SectionPanel";
+import SectionPanel from "./components/section/SectionPanel";
 
 const darkTheme = createTheme({
     palette: {
