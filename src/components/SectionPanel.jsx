@@ -18,26 +18,42 @@ const SectionPanel = () => {
     const [skipped, setSkipped] = useState(new Set())
 
     const handleNext = () => {
+        let revisedSkipped = new Set(skipped.values())
+
+        // Remove step from skipped if previously skipped, but later completed
+        if (isSkipped(activeStep)) {
+            revisedSkipped.delete(activeStep)
+        }
+
+        // Update skipped steps
+        setSkipped(new Set(revisedSkipped.values()))
+
+        // Set the active step to the next step
         setActiveStep((currentStep) => currentStep + 1)
     }
 
     const handleBack = () => {
+        // Set the active step to the previous step
         setActiveStep((currentStep) => currentStep - 1)
-    }
-
-    const isOptional = () => {
-        return steps[activeStep].optional
     }
 
     const handleSkip = () => {
         // Check if the step is optional
         if (!isOptional()) throw new Error('You cannot skip a step that isn\'t optional.')
 
-        // Add the optional step to the set of skipped steps
-        setSkipped((skipped) => new Set(skipped.values()).add(activeStep))
-
         // Index the stepper
         handleNext()
+
+        // Add the optional step to the set of skipped steps
+        setSkipped((skipped) => new Set(skipped.values()).add(activeStep))
+    }
+
+    const isOptional = () => {
+        return steps[activeStep].optional
+    }
+
+    const isSkipped = (step) => {
+        return skipped.has(step)
     }
 
     return (
@@ -48,7 +64,7 @@ const SectionPanel = () => {
                             Placeholder
                         </Typography>
                     </Box>
-                    <SectionStepper steps={steps} active={activeStep} />
+                    <SectionStepper steps={steps} active={activeStep} isSkipped={isSkipped} />
                     <SectionForm />
                     <SectionControl active={activeStep} next={handleNext} back={handleBack} skip={handleSkip} optional={steps[activeStep].optional} numSteps={steps.length} />
                 </Paper>
