@@ -1,12 +1,6 @@
 import {Box, Step, Stepper, StepLabel, Typography} from "@mui/material";
 
-const steps = [
-    {label: 'Select campaign settings', optional: false},
-    {label: 'Create an ad group', optional: true},
-    {label: 'Create an ad', optional: false}
-];
-
-const SectionStepper = ({ active }) => {
+const SectionStepper = ({ steps, active }) => {
     const getLabelProps = (optional = false) => {
         let props = {}
 
