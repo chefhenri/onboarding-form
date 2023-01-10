@@ -21,9 +21,7 @@ const SectionPanel = () => {
         let revisedSkipped = new Set(skipped.values())
 
         // Remove step from skipped if previously skipped, but later completed
-        if (isSkipped(activeStep)) {
-            revisedSkipped.delete(activeStep)
-        }
+        if (isSkipped(activeStep)) revisedSkipped.delete(activeStep)
 
         // Update skipped steps
         setSkipped(new Set(revisedSkipped.values()))
@@ -41,11 +39,11 @@ const SectionPanel = () => {
         // Check if the step is optional
         if (!isOptional()) throw new Error('You cannot skip a step that isn\'t optional.')
 
-        // Index the stepper
-        handleNext()
-
         // Add the optional step to the set of skipped steps
         setSkipped((skipped) => new Set(skipped.values()).add(activeStep))
+
+        // Index the stepper
+        handleNext()
     }
 
     const isOptional = () => {
@@ -66,7 +64,13 @@ const SectionPanel = () => {
                     </Box>
                     <SectionStepper steps={steps} active={activeStep} isSkipped={isSkipped} />
                     <SectionForm />
-                    <SectionControl active={activeStep} next={handleNext} back={handleBack} skip={handleSkip} optional={steps[activeStep].optional} numSteps={steps.length} />
+                    <SectionControl
+                        active={activeStep}
+                        next={handleNext}
+                        back={handleBack}
+                        skip={handleSkip}
+                        optional={steps[activeStep].optional}
+                        numSteps={steps.length} />
                 </Paper>
             </Container>
     )

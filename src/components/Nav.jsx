@@ -1,4 +1,4 @@
-import {AppBar, Container, Toolbar, Typography} from "@mui/material";
+import {AppBar, Toolbar, Typography} from "@mui/material";
 
 const Nav = () => {
     return (
