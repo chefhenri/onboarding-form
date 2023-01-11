@@ -1,8 +1,7 @@
 import {Box, Grid} from "@mui/material";
-
-import FormHeading from "../FormHeading";
-import FormTextField from "../FormTextField";
-import FormAreaField from "../FormAreaField";
+import FormHeading from "../form/FormHeading";
+import FormTextField from "../form/FormTextField";
+import FormAreaField from "../form/FormAreaField";
 
 const fields = Array(6).fill(0)
 
