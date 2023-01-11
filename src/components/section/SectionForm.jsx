@@ -9,7 +9,7 @@ const fields = Array(6).fill(0)
 
 const SectionForm = () => {
     return (
-            <Box>
+            <Box sx={{ overflowY: 'scroll', height: '600px' }}>
                 <Grid container spacing="24">
                     <FormHeading text={"Placeholder"} />
                     {fields.map((_, idx) => (
