@@ -4,6 +4,7 @@
             "id": "place-holder",
             "name": "placeHolder",
             "header": "Place Holder",
+            "required": true,
             "subsections": [
                 {
                     "id": "place-holder",

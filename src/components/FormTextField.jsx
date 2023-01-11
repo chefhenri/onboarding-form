@@ -1,9 +1,9 @@
 import {Grid, TextField} from "@mui/material";
 
-const FormTextField = ({ fieldKey, label }) => {
+const FormTextField = ({ label, required = true }) => {
     return (
-            <Grid item xs={6} key={fieldKey}>
-                <TextField fullWidth variant="outlined" label={label} />
+            <Grid item xs={6}>
+                <TextField fullWidth variant="outlined" {...{ label, required }} />
             </Grid>
     )
 }

@@ -13,7 +13,7 @@ const steps = [
     {label: 'Launch an ad', optional: false}
 ];
 
-const SectionPanel = () => {
+const SectionPanel = ({ schema }) => {
     const [activeStep, setActiveStep] = useState(0)
     const [skipped, setSkipped] = useState(new Set())
 
@@ -56,7 +56,7 @@ const SectionPanel = () => {
 
     return (
             <Container fixed>
-                <Paper sx={{ marginTop: '14rem', padding: '2rem' }}>
+                <Paper sx={{ marginTop: '14rem', padding: '2rem', borderRadius: '10px' }} elevation={6}>
                     <Box>
                         <Typography variant="h4" sx={{ textAlign: 'center', marginBottom: '2rem' }}>
                             Placeholder
