@@ -5,22 +5,22 @@ import FormAreaField from "../form/FormAreaField";
 import FormSwitchField from "../form/FormSwitchField";
 import FormCheckboxGroup from "../form/FormCheckboxGroup";
 
-const fields = Array(6).fill(0)
-
 const SectionForm = () => {
     return (
             <Box sx={{ overflowY: 'scroll', height: '600px' }}>
                 <Grid container spacing="24">
-                    <FormHeading text={"Placeholder"} />
-                    {fields.map((_, idx) => (
-                            <FormTextField key={idx} label={'Placeholder'} />
-                    ))}
-                    <FormHeading text={"Placeholder"} />
+                    <FormHeading text={"Text Fields"} />
+                    <FormTextField label={'Placeholder'} />
+                    <FormTextField label={'Placeholder'} />
+
+                    <FormHeading text={"Switches"} />
                     <FormSwitchField/>
                     <FormSwitchField/>
+
+                    <FormHeading text={"Text Area"} />
                     <FormAreaField />
 
-                    <FormHeading text={"Placeholder"} />
+                    <FormHeading text={"Checkbox Group"} />
                     <FormCheckboxGroup />
                 </Grid>
             </Box>
