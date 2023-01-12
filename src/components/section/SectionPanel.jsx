@@ -39,11 +39,11 @@ const SectionPanel = ({ schema }) => {
         // Check if the step is optional
         if (!isOptional()) throw new Error('You cannot skip a step that isn\'t optional.')
 
-        // Add the optional step to the set of skipped steps
-        setSkipped((skipped) => new Set(skipped.values()).add(activeStep))
-
         // Index the stepper
         handleNext()
+
+        // Add the optional step to the set of skipped steps
+        setSkipped((skipped) => new Set(skipped.values()).add(activeStep))
     }
 
     const isOptional = () => {
