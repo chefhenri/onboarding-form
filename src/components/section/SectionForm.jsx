@@ -4,6 +4,7 @@ import FormTextField from "../form/FormTextField";
 import FormAreaField from "../form/FormAreaField";
 import FormSwitchField from "../form/FormSwitchField";
 import FormCheckboxGroup from "../form/FormCheckboxGroup";
+import FormDateField from "../form/FormDateField";
 
 const SectionForm = () => {
     return (
@@ -12,6 +13,10 @@ const SectionForm = () => {
                     <FormHeading text={"Text Fields"} />
                     <FormTextField label={'Placeholder'} />
                     <FormTextField label={'Placeholder'} />
+
+                    <FormHeading text={"Date Pickers"} />
+                    <FormDateField />
+                    <FormDateField />
 
                     <FormHeading text={"Switches"} />
                     <FormSwitchField/>
