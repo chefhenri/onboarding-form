@@ -56,7 +56,7 @@ const SectionPanel = ({ schema }) => {
 
     return (
             <Container fixed>
-                <Paper sx={{ marginTop: '14rem', padding: '2rem', borderRadius: '10px' }} elevation={6}>
+                <Paper sx={{ marginTop: '12rem', padding: '2rem', borderRadius: '10px' }} elevation={6}>
                     <Box>
                         <Typography variant="h4" sx={{ textAlign: 'center', marginBottom: '2rem' }}>
                             Placeholder
