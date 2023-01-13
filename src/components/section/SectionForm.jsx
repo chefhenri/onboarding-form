@@ -6,10 +6,11 @@ import FormSwitchField from "../form/FormSwitchField";
 import FormCheckboxGroup from "../form/FormCheckboxGroup";
 import FormDateField from "../form/FormDateField";
 import FormSelectField from "../form/FormSelectField";
+import FormSliderField from "../form/FormSliderField";
 
 const SectionForm = () => {
     return (
-            <Box sx={{ overflowY: 'scroll', height: '600px' }}>
+            <Box sx={{ height: '600px', overflowY: 'scroll' }}>
                 <Grid container spacing="24">
                     <FormHeading text={"Text Fields"} />
                     <FormTextField label={'Placeholder'} />
@@ -19,6 +20,9 @@ const SectionForm = () => {
                     <FormDateField />
                     <FormDateField />
 
+                    <FormHeading text={"Checkbox Group"} />
+                    <FormCheckboxGroup />
+
                     <FormHeading text={"Switches"} />
                     <FormSwitchField/>
                     <FormSwitchField/>
@@ -26,11 +30,11 @@ const SectionForm = () => {
                     <FormHeading text={"Select"} />
                     <FormSelectField />
 
+                    <FormHeading text={"Slider"} />
+                    <FormSliderField />
+
                     <FormHeading text={"Text Area"} />
                     <FormAreaField />
-
-                    <FormHeading text={"Checkbox Group"} />
-                    <FormCheckboxGroup />
                 </Grid>
             </Box>
     )
