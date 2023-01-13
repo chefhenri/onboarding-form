@@ -1,4 +1,4 @@
-import {Chip, Divider, Grid, Input, Slider, Typography} from "@mui/material";
+import {Grid, Input, Slider, Typography} from "@mui/material";
 import {useState} from "react";
 
 const marks = [
