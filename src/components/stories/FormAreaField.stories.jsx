@@ -19,8 +19,5 @@ const Template = (args) => {
     )
 }
 
-export const Empty = Template.bind({})
-Empty.args = { prompt: 'ex. something specific...' }
-
-export const Not_Empty = Template.bind({})
-Not_Empty.args = { ...Empty.args, value: 'Something very specific...' }
+export const Default = Template.bind({})
+Default.args = { prompt: 'ex. something specific...' }

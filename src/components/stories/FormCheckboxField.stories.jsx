@@ -11,7 +11,7 @@ export default {
 }
 
 const Template = (args) => {
-    const [checked, setChecked] = useState(false)
+    const [checked, setChecked] = useState(args.defaultChecked)
 
     const toggle = () => {
         setChecked(!checked)
@@ -26,8 +26,5 @@ const Template = (args) => {
     )
 }
 
-export const Checked = Template.bind({})
-Checked.args = { defaultChecked: true }
-
-export const Unchecked = Template.bind({})
-Unchecked.args = { defaultChecked: false }
+export const Default = Template.bind({})
+Default.args = { defaultChecked: false }

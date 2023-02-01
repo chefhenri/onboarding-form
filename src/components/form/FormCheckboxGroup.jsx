@@ -3,7 +3,7 @@ import { FormControl, FormGroup, FormLabel, Grid } from "@mui/material";
 import FormCheckboxField from "./FormCheckboxField";
 import { useState } from "react";
 
-const FormCheckboxGroup = () => {
+const FormCheckboxGroup = ({ label, required }) => {
     const [checked, setChecked] = useState({
         0: false,
         1: false,
@@ -20,8 +20,8 @@ const FormCheckboxGroup = () => {
     return (
         <Grid item xs={12}>
             <Grid container>
-                <FormControl component="fieldset" variant="standard" fullWidth>
-                    <FormLabel component="legend">Placeholder</FormLabel>
+                <FormControl component="fieldset" variant="standard" required={required} fullWidth>
+                    <FormLabel component="legend">{label}</FormLabel>
                     <FormGroup row>
                         {Object.keys(checked).map((name, idx) => (
                             <FormCheckboxField {...{ name, checked: checked[name], handler: handleChecked }} key={idx} />

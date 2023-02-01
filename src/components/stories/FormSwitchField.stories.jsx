@@ -26,8 +26,5 @@ const Template = (args) => {
     )
 }
 
-export const Checked = Template.bind({})
-Checked.args = { defaultChecked: true }
-
-export const Un_Checked = Template.bind({})
-Un_Checked.args = { defaultChecked: false }
+export const Default = Template.bind({})
+Default.args = { defaultChecked: false }
