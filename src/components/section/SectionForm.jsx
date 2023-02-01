@@ -1,4 +1,4 @@
-import {Box, Grid} from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import FormHeading from "../form/FormHeading";
 import FormTextField from "../form/FormTextField";
 import FormAreaField from "../form/FormAreaField";
@@ -10,33 +10,33 @@ import FormSliderField from "../form/FormSliderField";
 
 const SectionForm = () => {
     return (
-            <Box sx={{ height: '600px', overflowY: 'scroll' }}>
-                <Grid container spacing="24">
-                    <FormHeading heading={"Text Fields"} />
-                    <FormTextField label={'Placeholder'} />
-                    <FormTextField label={'Placeholder'} />
+        <Box sx={{ height: '600px', overflowY: 'scroll' }}>
+            <Grid container spacing="24">
+                <FormHeading heading={"Text Fields"} />
+                <FormTextField label={'Placeholder'} />
+                <FormTextField label={'Placeholder'} />
 
-                    <FormHeading heading={"Date Pickers"} />
-                    <FormDateField />
-                    <FormDateField />
+                <FormHeading heading={"Date Pickers"} />
+                <FormDateField />
+                <FormDateField />
 
-                    <FormHeading heading={"Checkbox Group"} />
-                    <FormCheckboxGroup />
+                <FormHeading heading={"Checkbox Group"} />
+                <FormCheckboxGroup />
 
-                    <FormHeading heading={"Switches"} />
-                    <FormSwitchField/>
-                    <FormSwitchField/>
+                <FormHeading heading={"Switches"} />
+                <FormSwitchField />
+                <FormSwitchField />
 
-                    <FormHeading heading={"Select"} />
-                    <FormSelectField />
+                <FormHeading heading={"Select"} />
+                <FormSelectField />
 
-                    <FormHeading heading={"Slider"} />
-                    <FormSliderField />
+                <FormHeading heading={"Slider"} />
+                <FormSliderField />
 
-                    <FormHeading heading={"Text Area"} />
-                    <FormAreaField />
-                </Grid>
-            </Box>
+                <FormHeading heading={"Text Area"} />
+                <FormAreaField />
+            </Grid>
+        </Box>
     )
 }
 

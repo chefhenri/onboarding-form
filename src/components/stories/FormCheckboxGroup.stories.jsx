@@ -1,7 +1,7 @@
 // FormCheckboxGroup.stories.jsx
 
 import FormCheckboxGroup from "../form/FormCheckboxGroup";
-import {Container, Paper} from "@mui/material";
+import { Container, Paper } from "@mui/material";
 
 export default {
     title: "Checkbox Group",
@@ -10,10 +10,10 @@ export default {
 
 export const Default = () => {
     return (
-            <Container>
-                <Paper sx={{ padding: '2rem' }}>
-                    <FormCheckboxGroup />
-                </Paper>
-            </Container>
+        <Container>
+            <Paper sx={{ padding: '2rem' }}>
+                <FormCheckboxGroup />
+            </Paper>
+        </Container>
     )
 }

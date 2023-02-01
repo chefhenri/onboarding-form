@@ -1,6 +1,6 @@
 // FormHeading.stories.jsx
 
-import {Container, Paper} from "@mui/material";
+import { Container, Paper } from "@mui/material";
 
 import FormHeading from "../form/FormHeading";
 
@@ -11,11 +11,11 @@ export default {
 
 const Template = (args) => {
     return (
-            <Container>
-                <Paper sx={{ padding: '2rem' }}>
-                    <FormHeading {...args} />
-                </Paper>
-            </Container>
+        <Container>
+            <Paper sx={{ padding: '2rem' }}>
+                <FormHeading {...args} />
+            </Paper>
+        </Container>
     )
 }
 

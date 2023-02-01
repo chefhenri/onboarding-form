@@ -1,7 +1,7 @@
 // FormCheckboxField.stories.jsx
 
-import {useState} from "react";
-import {Container, Paper} from "@mui/material";
+import { useState } from "react";
+import { Container, Paper } from "@mui/material";
 
 import FormCheckboxField from "../form/FormCheckboxField";
 
@@ -18,16 +18,16 @@ const Template = (args) => {
     }
 
     return (
-            <Container>
-                <Paper sx={{ padding: '2rem' }}>
-                    <FormCheckboxField {...args} handler={toggle} />
-                </Paper>
-            </Container>
+        <Container>
+            <Paper sx={{ padding: '2rem' }}>
+                <FormCheckboxField {...args} handler={toggle} />
+            </Paper>
+        </Container>
     )
 }
 
 export const Checked = Template.bind({})
-Checked.args = {defaultChecked: true}
+Checked.args = { defaultChecked: true }
 
 export const Unchecked = Template.bind({})
-Unchecked.args = {defaultChecked: false}
+Unchecked.args = { defaultChecked: false }
