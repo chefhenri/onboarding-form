@@ -1,5 +1,7 @@
 // FormAreaField.stories.jsx
 
+import {Container, Paper} from "@mui/material";
+
 import FormAreaField from "../form/FormAreaField";
 
 export default {
@@ -7,7 +9,15 @@ export default {
     component: FormAreaField
 }
 
-const Template = (args) => <FormAreaField {...args} />
+const Template = (args) => {
+    return (
+            <Container>
+                <Paper sx={{ padding: '2rem' }}>
+                    <FormAreaField {...args} />
+                </Paper>
+            </Container>
+    )
+}
 
 export const Empty = Template.bind({})
 Empty.args = { prompt: 'ex. something specific...' }
