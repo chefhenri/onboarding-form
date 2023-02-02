@@ -14,8 +14,8 @@ const FormSelectField = () => {
                 <Select
                     displayEmpty
                     value={selectValue}
-                    onChange={handleSelectChange}
                     input={<OutlinedInput />}
+                    onChange={handleSelectChange}
                     renderValue={(selected) => {
                         return selected.length === 0 ? <em>Placeholder</em> : selected
                     }}>
