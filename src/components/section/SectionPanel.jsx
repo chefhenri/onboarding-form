@@ -1,16 +1,16 @@
-import {Box, Container, Paper, Typography} from "@mui/material";
+import { Box, Container, Paper, Typography } from "@mui/material";
 
 import SectionStepper from "./SectionStepper";
 import SectionForm from "./SectionForm";
 import SectionControl from "./SectionControl";
-import {useState} from "react";
+import { useState } from "react";
 
 const steps = [
-    {label: 'Select campaign settings', optional: false},
-    {label: 'Create an ad group', optional: true},
-    {label: 'Create an ad', optional: false},
-    {label: 'Buy adspace', optional: false},
-    {label: 'Launch an ad', optional: false}
+    { label: 'Select campaign settings', optional: false },
+    { label: 'Create an ad group', optional: true },
+    { label: 'Create an ad', optional: false },
+    { label: 'Buy adspace', optional: false },
+    { label: 'Launch an ad', optional: false }
 ];
 
 const SectionPanel = ({ schema }) => {
@@ -55,24 +55,24 @@ const SectionPanel = ({ schema }) => {
     }
 
     return (
-            <Container fixed>
-                <Paper sx={{ marginTop: '12rem', padding: '2rem', borderRadius: '10px' }} elevation={6}>
-                    <Box>
-                        <Typography variant="h4" sx={{ textAlign: 'center', marginBottom: '2rem' }}>
-                            Placeholder
-                        </Typography>
-                    </Box>
-                    <SectionStepper steps={steps} active={activeStep} isSkipped={isSkipped} />
-                    <SectionForm />
-                    <SectionControl
-                        active={activeStep}
-                        next={handleNext}
-                        back={handleBack}
-                        skip={handleSkip}
-                        optional={steps[activeStep].optional}
-                        numSteps={steps.length} />
-                </Paper>
-            </Container>
+        <Container fixed>
+            <Paper sx={{ marginTop: '12vmin', padding: '2rem', borderRadius: '10px' }} elevation={6}>
+                <Box>
+                    <Typography variant="h4" sx={{ textAlign: 'center', marginBottom: '2rem' }}>
+                        Placeholder
+                    </Typography>
+                </Box>
+                <SectionStepper steps={steps} active={activeStep} isSkipped={isSkipped} />
+                <SectionForm />
+                <SectionControl
+                    active={activeStep}
+                    next={handleNext}
+                    back={handleBack}
+                    skip={handleSkip}
+                    optional={steps[activeStep].optional}
+                    numSteps={steps.length} />
+            </Paper>
+        </Container>
     )
 }
 
