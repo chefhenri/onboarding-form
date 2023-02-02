@@ -4,11 +4,11 @@ import { Container, Paper } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 
-import FormDateField from "../form/FormDateField";
+import FormDatePicker from "../form/FormDatePicker";
 
 export default {
     title: 'Date Picker',
-    component: FormDateField,
+    component: FormDatePicker,
     decorators: [
         (Story) => (
             <LocalizationProvider dateAdapter={AdapterMoment}>
@@ -22,6 +22,6 @@ export default {
     ]
 }
 
-const Template = (args) => <FormDateField {...args}/>
+const Template = (args) => <FormDatePicker {...args}/>
 
 export const Default = Template.bind({})

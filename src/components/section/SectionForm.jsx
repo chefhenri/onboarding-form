@@ -1,12 +1,12 @@
 import { Box, Grid } from "@mui/material";
 import FormHeading from "../form/FormHeading";
 import FormTextField from "../form/FormTextField";
-import FormAreaField from "../form/FormAreaField";
-import FormSwitchField from "../form/FormSwitchField";
+import FormTextArea from "../form/FormTextArea";
+import FormSwitch from "../form/FormSwitch";
 import FormCheckboxGroup from "../form/FormCheckboxGroup";
-import FormDateField from "../form/FormDateField";
-import FormSelectField from "../form/FormSelectField";
-import FormSliderField from "../form/FormSliderField";
+import FormDatePicker from "../form/FormDatePicker";
+import FormSelect from "../form/FormSelect";
+import FormSlider from "../form/FormSlider";
 
 const SectionForm = () => {
     return (
@@ -17,24 +17,24 @@ const SectionForm = () => {
                 <FormTextField label={'Placeholder'} />
 
                 <FormHeading label={"Date Pickers"} />
-                <FormDateField />
-                <FormDateField />
+                <FormDatePicker />
+                <FormDatePicker />
 
                 <FormHeading label={"Checkbox Group"} />
                 <FormCheckboxGroup />
 
                 <FormHeading label={"Switches"} />
-                <FormSwitchField />
-                <FormSwitchField />
+                <FormSwitch />
+                <FormSwitch />
 
                 <FormHeading label={"Select"} />
-                <FormSelectField />
+                <FormSelect />
 
                 <FormHeading label={"Slider"} />
-                <FormSliderField />
+                <FormSlider />
 
                 <FormHeading label={"Text Area"} />
-                <FormAreaField />
+                <FormTextArea />
             </Grid>
         </Box>
     )

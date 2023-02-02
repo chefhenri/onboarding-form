@@ -1,6 +1,6 @@
 import { Checkbox, FormControlLabel, Grid } from "@mui/material";
 
-const FormCheckboxField = ({ name, checked, handler }) => {
+const FormCheckbox = ({ name, checked, handler }) => {
         return (
                 <Grid item xs={4}>
                         <FormControlLabel control={
@@ -14,4 +14,4 @@ const FormCheckboxField = ({ name, checked, handler }) => {
         )
 }
 
-export default FormCheckboxField
+export default FormCheckbox

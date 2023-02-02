@@ -6,7 +6,7 @@ import moment from "moment";
 
 const DATE_FMT = 'MM/DD/YYYY'
 
-const FormDateField = () => {
+const FormDatePicker = () => {
     const [date, setDate] = useState(moment())
 
     const handleDateChange = (newDate) => {
@@ -25,4 +25,4 @@ const FormDateField = () => {
     )
 }
 
-export default FormDateField
+export default FormDatePicker

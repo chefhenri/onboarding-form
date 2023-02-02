@@ -2,18 +2,18 @@
 
 import { Container, Paper } from "@mui/material";
 
-import FormAreaField from "../form/FormAreaField";
+import FormTextArea from "../form/FormTextArea";
 
 export default {
     title: "Text Area",
-    component: FormAreaField
+    component: FormTextArea
 }
 
 const Template = (args) => {
     return (
         <Container>
             <Paper sx={{ padding: '2rem' }}>
-                <FormAreaField {...args} />
+                <FormTextArea {...args} />
             </Paper>
         </Container>
     )

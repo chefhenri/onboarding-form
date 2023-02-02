@@ -1,11 +1,11 @@
 // FormSelectField.stories.jsx
 
 import { Container, Paper } from "@mui/material";
-import FormSelectField from "../form/FormSelectField";
+import FormSelect from "../form/FormSelect";
 
 export default {
     title: 'Select',
-    component: FormSelectField,
+    component: FormSelect,
     decorators: [
         (Story) => (
             <Container>
@@ -17,4 +17,4 @@ export default {
     ]
 }
 
-export const Default = <FormSelectField />
+export const Default = <FormSelect />

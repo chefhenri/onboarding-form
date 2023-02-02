@@ -1,13 +1,13 @@
-// FormCheckboxField.stories.jsx
+// FormSwitchField.stories.jsx
 
 import { useState } from "react";
+
+import FormSwitch from "../form/FormSwitch";
 import { Container, Paper } from "@mui/material";
 
-import FormCheckboxField from "../form/FormCheckboxField";
-
 export default {
-    title: "Checkbox",
-    component: FormCheckboxField
+    title: 'Switch',
+    component: FormSwitch
 }
 
 const Template = (args) => {
@@ -20,7 +20,7 @@ const Template = (args) => {
     return (
         <Container>
             <Paper sx={{ padding: '2rem' }}>
-                <FormCheckboxField {...args} handler={toggle} />
+                <FormSwitch {...args} checked={checked} handler={toggle} />
             </Paper>
         </Container>
     )

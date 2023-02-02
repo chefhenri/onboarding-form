@@ -1,6 +1,6 @@
 import { Grid, TextField } from "@mui/material";
 
-const FormAreaField = ({ prompt, value }) => {
+const FormTextArea = ({ prompt, value }) => {
     return (
         <Grid item xs={12}>
             <TextField fullWidth multiline variant="outlined" rows={5} placeholder={prompt} value={value} />
@@ -8,4 +8,4 @@ const FormAreaField = ({ prompt, value }) => {
     )
 }
 
-export default FormAreaField
+export default FormTextArea

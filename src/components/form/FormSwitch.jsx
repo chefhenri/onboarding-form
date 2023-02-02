@@ -1,6 +1,6 @@
 import { FormControlLabel, Grid, Switch } from "@mui/material";
 
-const FormSwitchField = ({ checked, defaultChecked, handler }) => {
+const FormSwitch = ({ checked, defaultChecked, handler }) => {
     return (
         <Grid item xs={6}>
             <FormControlLabel
@@ -15,4 +15,4 @@ const FormSwitchField = ({ checked, defaultChecked, handler }) => {
     )
 }
 
-export default FormSwitchField
+export default FormSwitch

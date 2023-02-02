@@ -25,7 +25,7 @@ const marks = [
     },
 ]
 
-const FormSliderField = ({ _default = 90 }) => {
+const FormSlider = ({ _default = 90 }) => {
     const [sliderValue, setSliderValue] = useState(_default)
 
     const handleSliderChange = (event, newValue) => {
@@ -70,4 +70,4 @@ const FormSliderField = ({ _default = 90 }) => {
     )
 }
 
-export default FormSliderField
+export default FormSlider

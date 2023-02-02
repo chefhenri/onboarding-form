@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FormControl, Grid, MenuItem, OutlinedInput, Select } from "@mui/material";
 
-const FormSelectField = () => {
+const FormSelect = () => {
     const [selectValue, setSelectValue] = useState('')
 
     const handleSelectChange = (event) => {
@@ -28,4 +28,4 @@ const FormSelectField = () => {
     )
 }
 
-export default FormSelectField
+export default FormSelect
