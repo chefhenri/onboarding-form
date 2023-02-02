@@ -12,28 +12,28 @@ const SectionForm = () => {
     return (
         <Box sx={{ height: '600px', overflowY: 'scroll' }}>
             <Grid container spacing="24">
-                <FormHeading heading={"Text Fields"} />
+                <FormHeading label={"Text Fields"} info="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
                 <FormTextField label={'Placeholder'} />
                 <FormTextField label={'Placeholder'} />
 
-                <FormHeading heading={"Date Pickers"} />
+                <FormHeading label={"Date Pickers"} />
                 <FormDateField />
                 <FormDateField />
 
-                <FormHeading heading={"Checkbox Group"} />
+                <FormHeading label={"Checkbox Group"} />
                 <FormCheckboxGroup />
 
-                <FormHeading heading={"Switches"} />
+                <FormHeading label={"Switches"} />
                 <FormSwitchField />
                 <FormSwitchField />
 
-                <FormHeading heading={"Select"} />
+                <FormHeading label={"Select"} />
                 <FormSelectField />
 
-                <FormHeading heading={"Slider"} />
+                <FormHeading label={"Slider"} />
                 <FormSliderField />
 
-                <FormHeading heading={"Text Area"} />
+                <FormHeading label={"Text Area"} />
                 <FormAreaField />
             </Grid>
         </Box>

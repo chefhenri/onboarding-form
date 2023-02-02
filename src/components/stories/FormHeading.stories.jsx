@@ -20,4 +20,4 @@ const Template = (args) => {
 }
 
 export const Default = Template.bind({})
-Default.args = { heading: 'Some Heading' }
+Default.args = { label: 'Some Heading' }
