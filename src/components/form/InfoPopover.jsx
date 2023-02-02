@@ -1,4 +1,4 @@
-import { Box, Paper, Popover, Typography } from "@mui/material"
+import { Paper, Popover, Typography } from "@mui/material"
 
 const InfoPopover = ({ text, anchor, isOpen, handleClose }) => {
     return (
