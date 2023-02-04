@@ -84,10 +84,18 @@ const Wrapper = () => {
     const subsections = sections[activeSection].subsections
     const headings = sections.map(section => section.heading)
 
+    const handleNextSection = () => {
+        setActiveSection(activeSection + 1)
+    }
+
+    const handleBackSection = () => {
+        setActiveSection(activeSection + 1)
+    }
+
     return (
         <Container sx={{ mt: '8rem' }}>
             <Stack direction="row" spacing={4}>
-                <FormPanel {...{ subsections }} />
+                <FormPanel {...{ subsections }} nextSection={handleNextSection} />
                 <Stack direction="column" spacing={4}>
                     <ContentsPanel {...{headings}} />
                     <InfoPanel />

@@ -1,4 +1,4 @@
-import { Box, Paper, Stack, Typography } from "@mui/material"
+import { Paper, Stack, Typography } from "@mui/material"
 import ContentsStepper from "./ContentsStepper"
 
 const ContentsPanel = ({ headings }) => {
