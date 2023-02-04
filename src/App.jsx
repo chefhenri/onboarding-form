@@ -4,7 +4,6 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 
 import Nav from "./components/Nav"
-import SectionPanel from "./components/section/SectionPanel";
 import Wrapper from "./components/panels/Wrapper";
 
 const App = () => {
