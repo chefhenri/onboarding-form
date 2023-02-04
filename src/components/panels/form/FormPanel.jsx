@@ -5,7 +5,6 @@ import FormNav from "./FormNav"
 import FormTextField from "./fields/TextField"
 
 const FormPanel = ({ subsections }) => {
-    const [activeSection, setActiveSection] = useState(0)
     const [activeSubsection, setActiveSubsection] = useState(0)
 
     const subsection = subsections[activeSubsection]
