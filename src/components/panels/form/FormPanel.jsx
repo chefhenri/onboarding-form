@@ -1,7 +1,8 @@
-import { Box, Paper, Stack, Typography } from "@mui/material"
+import { Box, Grid, Paper, Stack, Typography } from "@mui/material"
+import FormTextField from "./fields/TextField"
 import FormNav from "./FormNav"
 
-const FormPanel = () => {
+const FormPanel = ({ subsection: { heading, fields } }) => {
     return (
         <Paper elevation={3} sx={{ width: '920px', height: '600px', borderRadius: '15px' }}>
             <Stack spacing={6} sx={{ height: '100%', padding: '2rem' }}>
@@ -13,8 +14,13 @@ const FormPanel = () => {
                 <Box>
                     <Box component="div" sx={{ width: '80px', height: '5px', bgcolor: '#0066FF', borderTopLeftRadius: '50px', borderTopRightRadius: '50px' }} />
                     <Typography component="div" variant="h6" sx={{ fontWeight: 700 }}>
-                        Subheading
+                        {heading}
                     </Typography>
+                    <Grid container spacing={2}>
+                        {fields.map(({ label, required }, idx) => (
+                            <FormTextField {...{ label, required }} />
+                        ))}
+                    </Grid>
                 </Box>
                 <FormNav />
             </Stack>
