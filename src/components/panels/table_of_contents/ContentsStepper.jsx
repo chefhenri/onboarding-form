@@ -1,10 +1,16 @@
-import { Stack } from "@mui/material"
+import { Step, StepLabel, Stepper } from "@mui/material"
 
-const ContentsStepper = () => {
+const ContentsStepper = ({ headings }) => {
     return (
-        <Stack>
-
-        </Stack>
+        <Stepper orientation="vertical">
+            {headings.map((heading, idx) => (
+                <Step key={`section-${idx}-heading`}>
+                    <StepLabel>
+                        {heading}
+                    </StepLabel>
+                </Step>
+            ))}
+        </Stepper>
     )
 }
 
