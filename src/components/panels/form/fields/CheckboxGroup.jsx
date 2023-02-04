@@ -1,6 +1,6 @@
 import { FormControl, FormGroup, FormLabel, Grid } from "@mui/material";
 
-import FormCheckbox from "./FormCheckbox";
+import FormCheckbox from "./Checkbox";
 import { useState } from "react";
 
 const FormCheckboxGroup = ({ label, required }) => {
