@@ -4,7 +4,7 @@ import FormNav from "./FormNav"
 
 const FormPanel = ({ subsection: { heading, fields } }) => {
     return (
-        <Paper elevation={3} sx={{ width: '920px', height: '600px', borderRadius: '15px' }}>
+        <Paper elevation={3} sx={{ width: '920px', height: '800px', borderRadius: '15px' }}>
             <Stack spacing={6} sx={{ height: '100%', padding: '2rem' }}>
                 <Box sx={{ width: '100%', textAlign: 'center' }}>
                     <Typography component="div" variant="h5" sx={{ fontWeight: 700 }}>
