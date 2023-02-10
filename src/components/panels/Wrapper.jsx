@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react"
+import { useReducer } from "react"
 import { Container, Stack } from "@mui/material"
 
 import FormPanel from "./form/FormPanel"
@@ -79,16 +79,18 @@ const sections = [
 ]
 
 const sectionReducer = (state, action) => {
+    console.info(action.type)
+
     switch (action.type) {
         case 'next_section': {
             return {
                 activeSection: state.activeSection + 1,
-                activeSubsection: state.activeSubsection
+                activeSubsection: 0
             }
         } case 'prev_section': {
             return {
                 activeSection: state.activeSection - 1,
-                activeSubsection: state.activeSubsection
+                activeSubsection: action.payload.index
             }
         } case 'next_subsection': {
             return {
@@ -121,38 +123,26 @@ const Wrapper = () => {
     // Prevent going before first section
     const canDecrementSection = sectionState.activeSection > 0
 
-    // Allows going after last subsection to trigger going to next section
-    const canIncrementSubsection = sectionState.activeSubsection <= subsections.length
+    // Prevent going after last subsection
+    const canIncrementSubsection = sectionState.activeSubsection < subsections.length - 1
 
-    // Allows going before first subsection to trigger going to previous section
-    const canDecrementSubsection = sectionState.activeSubsection >= 0
+    // Prevent going before first subsection
+    const canDecrementSubsection = sectionState.activeSubsection > 0
 
     const handleNext = () => {
-        if (canIncrementSection) sectionDispatch({ type: 'next_section' })
+        if (canIncrementSubsection) sectionDispatch({ type: 'next_subsection' })
+        else if (canIncrementSection) sectionDispatch({ type: 'next_section' })
     }
 
     const handleBack = () => {
-        if (canDecrementSection) sectionDispatch({ type: 'prev_section' })
+        if (canDecrementSubsection) sectionDispatch({ type: 'prev_subsection' })
+        else if (canDecrementSection) sectionDispatch({ type: 'prev_section', payload: { index: subsections.length - 1 } })
     }
-
-    // const [activeSection, setActiveSection] = useState(0)
-    // const [activeSubsection, setActiveSubsection] = useState(0)
-
-    // const subsections = sections[activeSection].subsections
-    // const headings = sections.map(section => section.heading)
-
-    // const handleNextSection = () => {
-    //     setActiveSection(activeSection + 1)
-    // }
-
-    // const handleBackSection = () => {
-    //     setActiveSection(activeSection + 1)
-    // }
 
     return (
         <Container sx={{ mt: '8rem' }}>
             <Stack direction="row" spacing={4}>
-                <FormPanel {...{ subsections, handleNext, handleBack }} />
+                <FormPanel {...{ subsections, handleNext, handleBack }} activeSubsection={sectionState.activeSubsection} />
                 <Stack direction="column" spacing={4}>
                     <ContentsPanel {...{ headings }} activeSection={sectionState.activeSection} />
                     <InfoPanel />

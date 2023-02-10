@@ -1,26 +1,11 @@
-import { useState } from "react"
+// import { useState } from "react"
 import { Box, Grid, Paper, Stack, Typography } from "@mui/material"
 
 import FormNav from "./FormNav"
 import FormTextField from "./fields/TextField"
 
-const FormPanel = ({ subsections, handleNext, handleBack }) => {
-    const [activeSubsection, setActiveSubsection] = useState(0)
-
+const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack }) => {
     const subsection = subsections[activeSubsection]
-
-    // const handleNext = () => {
-    //     if (activeSubsection === totalSubsections - 1) {
-    //         nextSection()
-    //         setActiveSubsection(0)
-    //     } else {
-    //         setActiveSubsection(activeSubsection + 1)
-    //     }
-    // }
-
-    // const handleBack = () => {
-    //     setActiveSubsection(activeSubsection - 1)
-    // }
 
     return (
         <Paper elevation={3} sx={{ width: '920px', height: '700px', borderRadius: '15px' }}>
