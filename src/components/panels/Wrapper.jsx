@@ -24,6 +24,7 @@ const sections = [
             },
             {
                 heading: 'Account Owner Information',
+                info: "The Account Owner is the person authorized to make policy changes on the Account.",
                 fields: [
                     {
                         label: 'Account Owner Name',
@@ -50,6 +51,7 @@ const sections = [
         subsections: [
             {
                 heading: 'Reseller Contact Information',
+                info: "Filling out these fields is recommended for clients who have managed print/professional IT services from their MFP Reseller.\nThe Reseller is required to install the XM Fax and XM SendSecure apps on the MFP for Xerox and HP.",
                 fields: [
                     {
                         label: 'Reseller Name',
@@ -107,22 +109,23 @@ const sectionReducer = (state, action) => {
 }
 
 const Wrapper = () => {
-    const [sectionState, sectionDispatch] = useReducer(sectionReducer, {
+    const [{ activeSection, activeSubsection }, sectionDispatch] = useReducer(sectionReducer, {
         activeSection: 0,
         activeSubsection: 0
     })
 
-    const subsections = sections[sectionState.activeSection].subsections
+    const subsections = sections[activeSection].subsections
     const headings = sections.map(section => section.heading)
+    const info = sections[activeSection].subsections[activeSubsection].info
 
     const canNavigate = {
         back: {
-            section: sectionState.activeSection > 0,
-            subsection: sectionState.activeSubsection > 0
+            section: activeSection > 0,
+            subsection: activeSubsection > 0
         },
         next: {
-            section: sectionState.activeSection < sections.length - 1,
-            subsection: sectionState.activeSubsection < subsections.length - 1
+            section: activeSection < sections.length - 1,
+            subsection: activeSubsection < subsections.length - 1
         }
     }
 
@@ -139,10 +142,10 @@ const Wrapper = () => {
     return (
         <Container sx={{ mt: '8rem' }}>
             <Stack direction="row" spacing={4}>
-                <FormPanel {...{ subsections, handleNext, handleBack, canNavigate }} activeSubsection={sectionState.activeSubsection} />
+                <FormPanel {...{ subsections, handleNext, handleBack, canNavigate }} activeSubsection={activeSubsection} />
                 <Stack direction="column" spacing={4}>
-                    <ContentsPanel {...{ headings }} activeSection={sectionState.activeSection} />
-                    <InfoPanel />
+                    <ContentsPanel {...{ headings }} activeSection={activeSection} />
+                    <InfoPanel {...{ info }} />
                 </Stack>
             </Stack>
         </Container>
