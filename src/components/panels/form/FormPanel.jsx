@@ -4,25 +4,23 @@ import { Box, Grid, Paper, Stack, Typography } from "@mui/material"
 import FormNav from "./FormNav"
 import FormTextField from "./fields/TextField"
 
-const FormPanel = ({ subsections, nextSection }) => {
+const FormPanel = ({ subsections, handleNext, handleBack }) => {
     const [activeSubsection, setActiveSubsection] = useState(0)
 
-    const totalSubsections = subsections.length
     const subsection = subsections[activeSubsection]
 
-    // TODO: Cycle sections when subsections are complete
-    const handleNext = () => {
-        if (activeSubsection === totalSubsections) {
-            nextSection()
-            setActiveSubsection(0)
-        } else {
-            setActiveSubsection(activeSubsection + 1)
-        }
-    }
+    // const handleNext = () => {
+    //     if (activeSubsection === totalSubsections - 1) {
+    //         nextSection()
+    //         setActiveSubsection(0)
+    //     } else {
+    //         setActiveSubsection(activeSubsection + 1)
+    //     }
+    // }
 
-    const handleBack = () => {
-        setActiveSubsection(activeSubsection - 1)
-    }
+    // const handleBack = () => {
+    //     setActiveSubsection(activeSubsection - 1)
+    // }
 
     return (
         <Paper elevation={3} sx={{ width: '920px', height: '700px', borderRadius: '15px' }}>

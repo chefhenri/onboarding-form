@@ -1,8 +1,8 @@
 import { Step, StepLabel, Stepper } from "@mui/material"
 
-const ContentsStepper = ({ headings }) => {
+const ContentsStepper = ({ headings, activeSection }) => {
     return (
-        <Stepper orientation="vertical">
+        <Stepper orientation="vertical" activeStep={activeSection}>
             {headings.map((heading, idx) => (
                 <Step key={`section-${idx}-heading`}>
                     <StepLabel>
