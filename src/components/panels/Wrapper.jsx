@@ -79,8 +79,6 @@ const sections = [
 ]
 
 const sectionReducer = (state, action) => {
-    console.info(action.type)
-
     switch (action.type) {
         case 'next_section': {
             return {
