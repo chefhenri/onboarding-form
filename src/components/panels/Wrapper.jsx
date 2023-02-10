@@ -117,32 +117,31 @@ const Wrapper = () => {
     const subsections = sections[sectionState.activeSection].subsections
     const headings = sections.map(section => section.heading)
 
-    // Prevent going after last section
-    const canIncrementSection = sectionState.activeSection < sections.length - 1
-
-    // Prevent going before first section
-    const canDecrementSection = sectionState.activeSection > 0
-
-    // Prevent going after last subsection
-    const canIncrementSubsection = sectionState.activeSubsection < subsections.length - 1
-
-    // Prevent going before first subsection
-    const canDecrementSubsection = sectionState.activeSubsection > 0
+    const canNavigate = {
+        back: {
+            section: sectionState.activeSection > 0,
+            subsection: sectionState.activeSubsection > 0
+        },
+        next: {
+            section: sectionState.activeSection < sections.length - 1,
+            subsection: sectionState.activeSubsection < subsections.length - 1
+        }
+    }
 
     const handleNext = () => {
-        if (canIncrementSubsection) sectionDispatch({ type: 'next_subsection' })
-        else if (canIncrementSection) sectionDispatch({ type: 'next_section' })
+        if (canNavigate.next.subsection) sectionDispatch({ type: 'next_subsection' })
+        else if (canNavigate.next.section) sectionDispatch({ type: 'next_section' })
     }
 
     const handleBack = () => {
-        if (canDecrementSubsection) sectionDispatch({ type: 'prev_subsection' })
-        else if (canDecrementSection) sectionDispatch({ type: 'prev_section', payload: { index: subsections.length - 1 } })
+        if (canNavigate.back.subsection) sectionDispatch({ type: 'prev_subsection' })
+        else if (canNavigate.back.section) sectionDispatch({ type: 'prev_section', payload: { index: subsections.length - 1 } })
     }
 
     return (
         <Container sx={{ mt: '8rem' }}>
             <Stack direction="row" spacing={4}>
-                <FormPanel {...{ subsections, handleNext, handleBack }} activeSubsection={sectionState.activeSubsection} />
+                <FormPanel {...{ subsections, handleNext, handleBack, canNavigate }} activeSubsection={sectionState.activeSubsection} />
                 <Stack direction="column" spacing={4}>
                     <ContentsPanel {...{ headings }} activeSection={sectionState.activeSection} />
                     <InfoPanel />

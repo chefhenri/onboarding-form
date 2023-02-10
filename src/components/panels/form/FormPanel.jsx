@@ -4,7 +4,7 @@ import { Box, Grid, Paper, Stack, Typography } from "@mui/material"
 import FormNav from "./FormNav"
 import FormTextField from "./fields/TextField"
 
-const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack }) => {
+const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack, canNavigate }) => {
     const subsection = subsections[activeSubsection]
 
     return (
@@ -28,7 +28,7 @@ const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack }) =>
                         </Grid>
                     </Box>
                 </Stack>
-                <FormNav {...{ subsections, activeSubsection, handleNext, handleBack }} />
+                <FormNav {...{ subsections, activeSubsection, handleNext, handleBack, canNavigate }} />
             </Stack>
         </Paper>
     )
