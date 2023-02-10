@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useReducer } from "react"
 import { Container, Stack } from "@mui/material"
 
 import FormPanel from "./form/FormPanel"
@@ -78,18 +78,70 @@ const sections = [
     }
 ]
 
-const Wrapper = () => {
-    const [activeSection, setActiveSection] = useState(0)
+const sectionReducer = (state, action) => {
+    switch (action.type) {
+        case 'next_section': {
+            return {
+                activeSection: state.activeSection + 1,
+                activeSubsection: 0
+            }
+        } case 'prev_section': {
+            return {
+                activeSection: state.activeSection - 1,
+                activeSubsection: action.payload.index
+            }
+        } case 'next_subsection': {
+            return {
+                activeSection: state.activeSection,
+                activeSubsection: state.activeSubsection + 1
+            }
+        } case 'prev_subsection': {
+            return {
+                activeSection: state.activeSection,
+                activeSubsection: state.activeSubsection - 1
+            }
+        } default: {
+            throw new Error('Uknown action: ' + action.type)
+        }
+    }
+}
 
-    const subsections = sections[activeSection].subsections
+const Wrapper = () => {
+    const [sectionState, sectionDispatch] = useReducer(sectionReducer, {
+        activeSection: 0,
+        activeSubsection: 0
+    })
+
+    const subsections = sections[sectionState.activeSection].subsections
     const headings = sections.map(section => section.heading)
+
+    const canNavigate = {
+        back: {
+            section: sectionState.activeSection > 0,
+            subsection: sectionState.activeSubsection > 0
+        },
+        next: {
+            section: sectionState.activeSection < sections.length - 1,
+            subsection: sectionState.activeSubsection < subsections.length - 1
+        }
+    }
+
+    const handleNext = () => {
+        if (canNavigate.next.subsection) sectionDispatch({ type: 'next_subsection' })
+        else if (canNavigate.next.section) sectionDispatch({ type: 'next_section' })
+    }
+
+    const handleBack = () => {
+        if (canNavigate.back.subsection) sectionDispatch({ type: 'prev_subsection' })
+        else if (canNavigate.back.section) sectionDispatch({ type: 'prev_section', payload: { index: subsections.length - 1 } })
+    }
 
     return (
         <Container sx={{ mt: '8rem' }}>
             <Stack direction="row" spacing={4}>
-                <FormPanel {...{ subsections }} />
+                <FormPanel {...{ subsections, handleNext, handleBack, canNavigate }} activeSubsection={sectionState.activeSubsection} />
                 <Stack direction="column" spacing={4}>
-                    <ContentsPanel {...{headings}} />
+                    <ContentsPanel {...{ headings }} activeSection={sectionState.activeSection} />
                     <InfoPanel />
                 </Stack>
             </Stack>
