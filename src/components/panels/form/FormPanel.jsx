@@ -7,7 +7,6 @@ const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack, canN
     const subsection = subsections[activeSubsection]
 
     return (
-        // TODO: Narrow surface to make more room for InfoPanel
         <Paper elevation={3} sx={{ width: '920px', height: '700px', borderRadius: '15px' }}>
             <Stack sx={{ height: '100%', padding: '2rem', justifyContent: 'space-between' }}>
                 <Stack spacing={6}>
