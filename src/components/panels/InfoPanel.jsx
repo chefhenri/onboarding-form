@@ -1,12 +1,29 @@
-import { Paper, Typography } from "@mui/material"
+import { Divider, Fade, Paper, Stack, Typography } from "@mui/material"
+
+import { Info } from "feather-icons-react/build/IconComponents"
 
 const InfoPanel = ({ info }) => {
+    const showPanel = info ? true : false
+
     return (
-        // TODO: Add ::before element to fade overflow text
-        // TODO: Widen surface to make more room for info text
-        <Paper elevation={3} sx={{ width: '200px', height: '270px', padding: '1rem', borderRadius: '15px', overflowY: 'auto' }}>
-            <Typography>{info}</Typography>
-        </Paper>
+        <Fade in={showPanel}>
+            <Paper elevation={3} sx={{
+                width: '260px',
+                padding: '1rem',
+                overflow: 'auto',
+                borderRadius: '15px',
+                backgroundColor: 'lightgray'
+            }}>
+                <Stack spacing={1} sx={{ position: 'relative' }}>
+                    <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
+                        <Info size={20} />
+                        <Typography component="div" variant="h6">Info</Typography>
+                    </Stack>
+                    <Divider />
+                    <Typography variant="body1">{info}</Typography>
+                </Stack>
+            </Paper>
+        </Fade>
     )
 }
 
