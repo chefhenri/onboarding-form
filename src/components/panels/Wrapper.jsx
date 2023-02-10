@@ -3,7 +3,7 @@ import { Container, Stack } from "@mui/material"
 
 import FormPanel from "./form/FormPanel"
 import ContentsPanel from "./table_of_contents/ContentsPanel"
-import InfoPanel from "./InfoPanel"
+import InfoPanel from "./info/InfoPanel"
 
 const sections = [
     {
