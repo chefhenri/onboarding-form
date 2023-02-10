@@ -1,0 +1,336 @@
+sections:
+  - id: acct-contact-info
+    name: acctContactInfo
+    heading: Account Contact Information
+    subsections:
+      - id: company-info
+        heading: Company Information
+        fields:
+          - id: company-name
+            name: companyName
+            type: text
+            label: Company Name
+            required: Yes
+          - id: company-url
+            name: companyUrl
+            type: text
+            label: Company Website
+            required: No
+      - id: owner-info
+        heading: Account Owner Information
+        info: >
+          The Account Owner is the person 
+          authorized to make policy changes 
+          on the Account.
+        fields:
+          - id: owner-name
+            name: ownerName
+            type: text
+            label: Account Owner's Name
+            required: Yes
+          - id: owner-title
+            name: ownerTitle
+            type: text
+            label: Account Owner's Title
+            required: Yes
+          - id: owner-phone
+            name: ownerPhone
+            type: tel
+            label: Account Owner's Phone Number
+            required: Yes
+          - id: owner-email
+            name: ownerEmail
+            type: email
+            label: Account Owner's Email
+            required: Yes
+      - id: security-privacy-info
+        heading: Security and Privacy Officers' Information
+        info: >
+          "The Security and Privacy Officers 
+          are individuals in your organization 
+          to be contacted for security or 
+          privacy related matters.
+          \nThese contacts do not have authority 
+          over the account."
+        fields:
+          - id: security-name
+            name: securityName
+            type: text
+            label: Security Officer's Name
+            required: Yes
+          - id: security-email
+            name: securityEmail
+            type: email
+            label: Security Officer's Email
+            required: Yes
+          - id: privacy-name
+            name: privacyName
+            type: text
+            label: Privacy Officer's Name
+            required: Yes
+          - id: privacy-email
+            name: privacyEmail
+            type: email
+            label: Privacy Officer's Email
+            required: Yes
+  - id: reseller-info
+    name: resellerInfo
+    heading: Reseller Information
+    subsections:
+      - id: reseller-info
+        heading: Reseller Information
+        info: >
+          "Filling out these fields is 
+          recommended for clients who have 
+          managed print/professional IT 
+          services from their MFP Reseller.
+          \nThe Reseller is required to 
+          install the XM Fax and XM 
+          SendSecure apps on the MFP 
+          for Xerox and HP."
+        fields:
+          - id: reseller-name
+            name: resellerName
+            type: text
+            label: Reseller's Name
+            required: No
+          - id: reseller-email
+            name: resellerEmail
+            type: email
+            label: Reseller's Contact Email
+            required: No
+      - id: reseller-notifs
+        heading: Reseller Notifications
+        fields:
+          - id: ticket-notify
+            name: ticketNotify
+            type: switch
+            label: Notify Reseller about new Onboarding Tickets
+            defautl: On
+            required: Yes
+          - id: resupply-notify
+            name: resupplyNotif
+            type: switch
+            label: Notify Reseller of Credit resupply
+            defautl: On
+            required: Yes
+      - id: installation-info
+        heading: MFP Installation Contact Information
+        fields:
+          - id: installer-email
+            name: installerEmail
+            type: email
+            label: Reseller Contact's Email
+            required: Yes
+          - id: installer-phone
+            name: installerPhone
+            type: tel
+            label: Reseller Contact's Phone
+            required: Yes
+  - id: mfp-info
+    name: mfpInfo
+    heading: MFP Information
+    subsections:
+      - id: technical-info
+        heading: Technical Contact Information
+        info: >
+          This information is used to 
+          identify who will be responsible 
+          for the configuration of XMedius 
+          applications on the OEM specific MFPs.
+        fields:
+          - id: technical-name
+            name: technicalName
+            type: text
+            label: Technical Contact's Name
+            required: Yes
+          - id: technical-phone
+            name: technicalPhone
+            type: tel
+            label: Technical Contact's Phone
+            required: Yes
+          - id: technical-email
+            name: technicalEmail
+            type: email
+            label: Technical Contact's Email
+            required: Yes
+      - id: equipment-info
+        heading: Equipment Information
+        info: >
+          "The equipment delivery dates 
+          are used for scheduling purposes.
+          \nInbound faxing cannot be completed 
+          until one new number is available or 
+          one porting request has been completed.
+          \nDepending on the MFPs in use, a server 
+          may be required to host the XM Fax 
+          software. Additional charges may apply."
+        fields:
+          - id: install-date
+            name: installDate
+            type: date
+            label: Install Date
+            required: Yes
+          - id: removal-date
+            name: removalDate
+            type: date
+            label: Removal Date
+            required: Yes
+          - id: install-apps
+            name: installApps
+            type: checkbox
+            size: full
+            label: Installation Platforms
+            options:
+              - Xerox iSeries
+              - Xerox VersaLink or AltaLink
+              - Xerox Legacy EIP only capable devices
+              - HP Workpath
+              - Ricoh ESO (SDK/J or SmartOP)
+              - Toshiba eBRIDGE
+              - Sharp OSA
+              - Lexmark eSF
+              - Email Only
+            required: Yes
+          - id: integrations
+            name: integrations
+            type: checkbox
+            size: full
+            label: Configure Advanced Workflow Integration
+            options:
+              - Print Confirmation Pages
+              - Print Incoming Pages
+              - Active Directory Synchronization
+              - Single Sign-On
+            required: Yes
+  - id: config-details
+    name: configDetails
+    heading: Configuration Details
+    subsections:
+      - id: account-info
+        heading: Account Configuration
+        info: >
+          "This information is used to 
+          create the account and setup 
+          where the account will be hosted, 
+          the account name, and and activation date.
+          \nYou must select at least one solution."
+        fields:
+          - id: cloud-hosting
+            name: cloudHosting
+            type: select
+            label: Cloud Hosting Locale
+            options:
+              - Canada (CA)
+              - Europe (EU)
+              - United States (US)
+            required: Yes
+          - id: account-name
+            name: accountName
+            type: text
+            label: Account Name
+            required: Yes
+          - id: activation-date
+            name: activationDate
+            type: date
+            label: Desired Activation Date
+            required: Yes
+          - id: enable-solutions
+            name: enableSolutions
+            type: checkbox
+            size: half
+            label: Configure Enabled Solutions
+            options:
+              - XM Fax
+              - XM SendSecure
+            required: Yes
+      - id: admin-info
+        heading: Account Administrator Information
+        info: >
+          "The administrator(s) will have 
+          authority over the account and 
+          may be separate from the Account Owner.
+          \nA Primary Administrator is required 
+          and it is recommended to have a 
+          Secondary Administrator for backup and support."
+        fields:
+          - id: primary-admin-email
+            name: primaryAdminEmail
+            type: email
+            label: Primary Administrator's Email
+            required: Yes
+          - id: secondary-admin-email
+            name: secondaryAdminEmail
+            type: email
+            label: Secondary Administrator's Email
+            required: Yes
+      - id: fax-policy
+        heading: Fax Retention Policy
+        info: >
+          "The minimum retention is 7 days.
+          \nSelect \"Unlimited\" if you do 
+          not want faxes to be deleted at all.
+          \nSelect \"Zero Days\" if you want 
+          faxes to be deleted immediately after 
+          successful delivery (the fax metadata 
+          will be retained for 7 days)."
+        fields:
+          - id: retention-policy
+            name: retentionPolicy
+            type: slider
+            label: Adjust slider to select XM Fax Retention Policy
+            options:
+              - 0
+              - 7
+              - 30
+              - 60
+              - 90
+            required: Yes
+      - id: transmission-info
+        heading: Transmission Data Information
+        info: >
+          "Depending on the market, we can 
+          configure industry compliance standards.
+          \nThis information can be useful for 
+          certain requirements such as automatically 
+          printing fax pages at the MFP.
+          \nDepending on the compliance profile, 
+          printing pages may require sFTP service 
+          to deliver pages."
+        fields:
+          - id: data-transmit
+            name: dataTransmit
+            type: checkbox
+            size: full
+            label: Configure Data Transmission Types
+            options:
+             - ePHI/HDS, HIPAA
+             - Cardholder Data (PAN)/PCI_DSS
+             - Sensitive PII (SSN, DOB)/GDPR CCPA
+             - Non-sensitive PII (name, address)/GDPR
+             - Education Records, Grades/FERPA
+             - Criminal Justice Information/CJIS
+             - Financial Information
+             - Business Confidential
+             - Other
+            required: Yes
+  - id: add-comments
+    name: addComments
+    heading: Additional Comments
+    subsections:
+      - id: additional-info
+        heading: Additional Configuration Details
+        info: >
+          "Note any unique requirements, 
+          workflows, or system integrations 
+          in this text area.
+          \nThis may include: multiple accounts 
+          with separate retention policies, 
+          additionally quoted professional 
+          services, or custom scripting/API work."
+        fields:
+          - id: comments
+            name: comments
+            type: textarea
+            label: ~
+            required: Yes
