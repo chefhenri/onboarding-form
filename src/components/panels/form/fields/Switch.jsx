@@ -9,7 +9,7 @@ const FormSwitch = ({ id, name, type, label, default: defaultChecked, required }
     }
 
     return (
-        <Grid item sx={{ marginTop: '1rem' }}>
+        <Grid item xs={6}>
             <FormControlLabel
                 control={
                     <Switch

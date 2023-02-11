@@ -6,7 +6,8 @@ import moment from "moment";
 
 const DATE_FMT = 'MM/DD/YYYY'
 
-const FormDatePicker = () => {
+// TODO: Add prop for default date from 'onboarding-form.json'
+const FormDatePicker = ({ id, name, label, required }) => {
     const [date, setDate] = useState(moment())
 
     const handleDateChange = (newDate) => {
@@ -16,11 +17,17 @@ const FormDatePicker = () => {
     return (
         <Grid item xs={6}>
             <DesktopDatePicker
-                label={"Placeholder"}
+                {...{ id, name, label }}
                 inputFormat={DATE_FMT}
                 value={date}
                 onChange={handleDateChange}
-                renderInput={(props) => (<TextField {...props} fullWidth />)} />
+                renderInput={(props) => (
+                    <TextField
+                        {...props}
+                        variant="standard"
+                        required={required}
+                        fullWidth />
+                )} />
         </Grid>
     )
 }
