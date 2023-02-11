@@ -5,80 +5,80 @@ import FormPanel from "./form/FormPanel"
 import ContentsPanel from "./table_of_contents/ContentsPanel"
 import InfoPanel from "./info/InfoPanel"
 
-// const sections = [
-//     {
-//         heading: 'Account Contact Information',
-//         subsections: [
-//             {
-//                 heading: 'Company Information',
-//                 fields: [
-//                     {
-//                         label: 'Company Name',
-//                         required: true
-//                     },
-//                     {
-//                         label: 'Company Website',
-//                         required: true
-//                     }
-//                 ]
-//             },
-//             {
-//                 heading: 'Account Owner Information',
-//                 info: "The Account Owner is the person authorized to make policy changes on the Account.",
-//                 fields: [
-//                     {
-//                         label: 'Account Owner Name',
-//                         required: true
-//                     },
-//                     {
-//                         label: 'Account Owner Title',
-//                         required: true
-//                     },
-//                     {
-//                         label: 'Account Owner Phone',
-//                         required: true
-//                     },
-//                     {
-//                         label: 'Account Owner Email',
-//                         required: true
-//                     }
-//                 ]
-//             }
-//         ]
-//     },
-//     {
-//         heading: 'Reseller Information',
-//         subsections: [
-//             {
-//                 heading: 'Reseller Contact Information',
-//                 info: "Filling out these fields is recommended for clients who have managed print/professional IT services from their MFP Reseller.\nThe Reseller is required to install the XM Fax and XM SendSecure apps on the MFP for Xerox and HP.",
-//                 fields: [
-//                     {
-//                         label: 'Reseller Name',
-//                         required: true
-//                     },
-//                     {
-//                         label: 'Reseller Email',
-//                         required: true
-//                     }
-//                 ]
-//             },
-//             {
-//                 heading: 'Installation Contact Information',
-//                 fields: [
-//                     {
-//                         label: 'Contact Email',
-//                         required: true
-//                     },
-//                     {
-//                         label: 'Contact Phone',
-//                         required: true
-//                     }
-//                 ]
-//             }
-//         ]
-//     }
-// ]
+const sections = [
+    {
+        heading: 'Account Contact Information',
+        subsections: [
+            {
+                heading: 'Company Information',
+                fields: [
+                    {
+                        label: 'Company Name',
+                        required: true
+                    },
+                    {
+                        label: 'Company Website',
+                        required: true
+                    }
+                ]
+            },
+            {
+                heading: 'Account Owner Information',
+                info: "The Account Owner is the person authorized to make policy changes on the Account.",
+                fields: [
+                    {
+                        label: 'Account Owner Name',
+                        required: true
+                    },
+                    {
+                        label: 'Account Owner Title',
+                        required: true
+                    },
+                    {
+                        label: 'Account Owner Phone',
+                        required: true
+                    },
+                    {
+                        label: 'Account Owner Email',
+                        required: true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        heading: 'Reseller Information',
+        subsections: [
+            {
+                heading: 'Reseller Contact Information',
+                info: "Filling out these fields is recommended for clients who have managed print/professional IT services from their MFP Reseller.\nThe Reseller is required to install the XM Fax and XM SendSecure apps on the MFP for Xerox and HP.",
+                fields: [
+                    {
+                        label: 'Reseller Name',
+                        required: true
+                    },
+                    {
+                        label: 'Reseller Email',
+                        required: true
+                    }
+                ]
+            },
+            {
+                heading: 'Installation Contact Information',
+                fields: [
+                    {
+                        label: 'Contact Email',
+                        required: true
+                    },
+                    {
+                        label: 'Contact Phone',
+                        required: true
+                    }
+                ]
+            }
+        ]
+    }
+]
 
 const sectionReducer = (state, action) => {
     switch (action.type) {
@@ -108,7 +108,7 @@ const sectionReducer = (state, action) => {
     }
 }
 
-const Wrapper = ({ sections }) => {
+const Wrapper = () => {
     const [{ activeSection, activeSubsection }, sectionDispatch] = useReducer(sectionReducer, {
         activeSection: 0,
         activeSubsection: 0
@@ -117,8 +117,6 @@ const Wrapper = ({ sections }) => {
     const subsections = sections[activeSection].subsections
     const headings = sections.map(section => section.heading)
     const info = sections[activeSection].subsections[activeSubsection].info
-
-    console.log(info);
 
     const canNavigate = {
         back: {
@@ -138,8 +136,6 @@ const Wrapper = ({ sections }) => {
 
     const handleBack = () => {
         if (canNavigate.back.subsection) sectionDispatch({ type: 'prev_subsection' })
-
-        // !FIXME: Gets last index of current section rather than the one before
         else if (canNavigate.back.section) sectionDispatch({ type: 'prev_section', payload: { index: subsections.length - 1 } })
     }
 

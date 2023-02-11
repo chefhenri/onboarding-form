@@ -6,13 +6,13 @@ import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import Nav from "./components/Nav"
 import Wrapper from "./components/panels/Wrapper";
 
-function App({ sections }) {
+function App() {
   return (
     <>
       <LocalizationProvider dateAdapter={AdapterMoment}>
         <CssBaseline />
         <Nav />
-        <Wrapper {...{ sections }} />
+        <Wrapper />
       </LocalizationProvider>
     </>
   )
