@@ -6,7 +6,7 @@ const FormStepper = ({ headings, activeSubsection }) => {
         <Stepper activeStep={activeSubsection}>
             {headings.map((heading, idx) => (
                 <Step key={`subsection-${idx}`}>
-                    <StepLabel />
+                    <StepLabel>{heading}</StepLabel>
                 </Step>
             ))}
         </Stepper>
