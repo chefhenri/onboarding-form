@@ -43,8 +43,6 @@ const Wrapper = ({ sections }) => {
     const headings = sections.map(section => section.heading)
     const info = sections[activeSection].subsections[activeSubsection].info
 
-    console.log(info);
-
     const canNavigate = {
         back: {
             section: activeSection > 0,
@@ -64,8 +62,11 @@ const Wrapper = ({ sections }) => {
     const handleBack = () => {
         if (canNavigate.back.subsection) sectionDispatch({ type: 'prev_subsection' })
 
-        // !FIXME: Gets last index of current section rather than the one before
-        else if (canNavigate.back.section) sectionDispatch({ type: 'prev_section', payload: { index: subsections.length - 1 } })
+        else if (canNavigate.back.section) {
+            let index = sections[activeSection - 1].subsections.length - 1
+
+            sectionDispatch({ type: 'prev_section', payload: { index } })
+        }
     }
 
     return (
