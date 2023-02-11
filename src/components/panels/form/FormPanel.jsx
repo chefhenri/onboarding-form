@@ -21,9 +21,12 @@ const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack, canN
                             {subsection.heading}
                         </Typography>
                         <Grid container spacing={2}>
-                            {subsection.fields.map(field => (
-                                <FormTextField key={`${subsection.heading}-${field.id}-field`} {...field} />
-                            ))}
+                            {subsection.fields.map(field => {
+                                switch (field.type) {
+                                    default:
+                                        return <FormTextField key={`${subsection.heading}-${field.id}-field`} {...field} />
+                                }
+                            })}
                         </Grid>
                     </Box>
                 </Stack>
