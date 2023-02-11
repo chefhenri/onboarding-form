@@ -26,6 +26,7 @@ const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack, canN
                             {subsection.fields.map(field => {
                                 let key = `${subsection.heading}-${field.id}-field`
 
+                                // TODO: Add case for 'checkbox', 'select', 'slider', 'textarea'
                                 switch (field.type) {
                                     case 'date':
                                         return <FormDatePicker key={key} {...field} />
