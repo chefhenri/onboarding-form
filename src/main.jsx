@@ -6,8 +6,10 @@ import YAML from 'yaml'
 
 import App from './App'
 
+import { sections } from './assets/onboarding-form.json'
+
 ReactDOM.createRoot(document.querySelector('#root')).render(
   <React.StrictMode>
-    <App />
+    <App {...{ sections }} />
   </React.StrictMode>,
 )
