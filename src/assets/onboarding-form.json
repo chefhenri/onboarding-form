@@ -132,7 +132,7 @@
               "name": "ticketNotify",
               "type": "switch",
               "label": "Notify Reseller about new Onboarding Tickets",
-              "defautl": true,
+              "default": true,
               "required": true
             },
             {
@@ -140,7 +140,7 @@
               "name": "resupplyNotif",
               "type": "switch",
               "label": "Notify Reseller of Credit resupply",
-              "defautl": true,
+              "default": true,
               "required": true
             }
           ]

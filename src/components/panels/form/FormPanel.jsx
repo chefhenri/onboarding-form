@@ -2,6 +2,7 @@ import { Box, Grid, Paper, Stack, Typography } from "@mui/material"
 
 import FormNav from "./FormNav"
 import FormTextField from "./fields/TextField"
+import FormSwitch from './fields/Switch'
 
 const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack, canNavigate }) => {
     const subsection = subsections[activeSubsection]
@@ -22,9 +23,13 @@ const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack, canN
                         </Typography>
                         <Grid container spacing={2}>
                             {subsection.fields.map(field => {
+                                let key = `${subsection.heading}-${field.id}-field`
+
                                 switch (field.type) {
+                                    case 'switch':
+                                        return <FormSwitch key={key} {...field} />
                                     default:
-                                        return <FormTextField key={`${subsection.heading}-${field.id}-field`} {...field} />
+                                        return <FormTextField key={key} {...field} />
                                 }
                             })}
                         </Grid>
