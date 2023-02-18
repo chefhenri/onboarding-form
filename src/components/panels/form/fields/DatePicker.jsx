@@ -6,9 +6,8 @@ import moment from "moment";
 
 const DATE_FMT = 'MM/DD/YYYY'
 
-// TODO: Add prop for default date from 'onboarding-form.json'
-const FormDatePicker = ({ id, name, label, required }) => {
-    const [date, setDate] = useState(moment())
+const FormDatePicker = ({ id, name, label, delta, deltaUnit, required }) => {
+    const [date, setDate] = useState(moment().add(delta, deltaUnit))
 
     const handleDateChange = (newDate) => {
         setDate(newDate)

@@ -210,6 +210,8 @@
               "name": "installDate",
               "type": "date",
               "label": "Install Date",
+              "delta": 7,
+              "deltaUnit": "d",
               "required": true
             },
             {
@@ -217,6 +219,8 @@
               "name": "removalDate",
               "type": "date",
               "label": "Removal Date",
+              "delta": 1,
+              "deltaUnit": "y",
               "required": true
             },
             {
@@ -290,6 +294,8 @@
               "name": "activationDate",
               "type": "date",
               "label": "Desired Activation Date",
+              "delta": 14,
+              "deltaUnit": "d",
               "required": true
             },
             {
