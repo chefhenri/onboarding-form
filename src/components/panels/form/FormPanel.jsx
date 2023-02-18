@@ -4,6 +4,7 @@ import FormNav from "./FormNav"
 import FormTextField from "./fields/TextField"
 import FormSwitch from './fields/Switch'
 import FormDatePicker from './fields/DatePicker'
+import FormCheckboxGroup from "./fields/CheckboxGroup"
 
 const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack, canNavigate }) => {
     const subsection = subsections[activeSubsection]
@@ -28,6 +29,8 @@ const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack, canN
 
                                 // TODO: Add case for 'checkbox', 'select', 'slider', 'textarea'
                                 switch (field.type) {
+                                    case 'checkbox':
+                                        return <FormCheckboxGroup key={key} {...field} />
                                     case 'date':
                                         return <FormDatePicker key={key} {...field} />
                                     case 'switch':

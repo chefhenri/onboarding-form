@@ -3,12 +3,18 @@ import { FormControl, FormGroup, FormLabel, Grid } from "@mui/material";
 import FormCheckbox from "./Checkbox";
 import { useState } from "react";
 
-const FormCheckboxGroup = ({ label, required }) => {
-    const [checked, setChecked] = useState({
-        0: false,
-        1: false,
-        2: false
-    })
+const sizes = {
+    'half': 6,
+    'full': 12
+}
+
+// !FIXME: Reducer appends empty option, cannot toggle checkbox
+const FormCheckboxGroup = ({ size, label, options, required }) => {
+    // Map list of options to object to track 'checked' state
+    const [checked, setChecked] = useState(options.reduce((a, v) => ({
+        ...a,
+        [v]: false
+    }), {}))
 
     const handleChecked = (event) => {
         setChecked((prevChecked) => ({
@@ -18,13 +24,13 @@ const FormCheckboxGroup = ({ label, required }) => {
     }
 
     return (
-        <Grid item xs={12}>
+        <Grid item xs={sizes[size]}>
             <Grid container>
                 <FormControl component="fieldset" variant="standard" required={required} fullWidth>
                     <FormLabel component="legend">{label}</FormLabel>
                     <FormGroup row>
-                        {Object.keys(checked).map((name, idx) => (
-                            <FormCheckbox {...{ name, checked: checked[name], handler: handleChecked }} key={idx} />
+                        {Object.keys(checked).map((label, idx) => (
+                            <FormCheckbox {...{ label, checked: checked[label], handler: handleChecked }} key={idx} />
                         ))}
                     </FormGroup>
                 </FormControl>
