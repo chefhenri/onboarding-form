@@ -1,13 +1,12 @@
 import { useState } from "react";
 
 import { Grid, TextField } from "@mui/material";
-import { DesktopDatePicker } from "@mui/x-date-pickers";
-import moment from "moment";
+import { DatePicker } from "@mui/x-date-pickers";
 
 const DATE_FMT = 'MM/DD/YYYY'
 
-const FormDatePicker = ({ id, name, label, delta, deltaUnit, required }) => {
-    const [date, setDate] = useState(moment().add(delta, deltaUnit))
+const FormDatePicker = ({ id, name, label, required }) => {
+    const [date, setDate] = useState(null)
 
     const handleDateChange = (newDate) => {
         setDate(newDate)
@@ -15,10 +14,11 @@ const FormDatePicker = ({ id, name, label, delta, deltaUnit, required }) => {
 
     return (
         <Grid item xs={6}>
-            <DesktopDatePicker
+            <DatePicker
                 {...{ id, name, label }}
-                inputFormat={DATE_FMT}
+                disablePast
                 value={date}
+                inputFormat={DATE_FMT}
                 onChange={handleDateChange}
                 renderInput={(props) => (
                     <TextField

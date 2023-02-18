@@ -170,15 +170,11 @@ sections:
             name: installDate
             type: date
             label: Install Date
-            delta: 7
-            deltaUnit: d
             required: Yes
           - id: removal-date
             name: removalDate
             type: date
             label: Removal Date
-            delta: 1
-            deltaUnit: y
             required: Yes
           - id: install-apps
             name: installApps
@@ -238,8 +234,6 @@ sections:
             name: activationDate
             type: date
             label: Desired Activation Date
-            delta: 14
-            deltaUnit: d
             required: Yes
           - id: enable-solutions
             name: enableSolutions
