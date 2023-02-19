@@ -1,27 +1,25 @@
+import _ from 'lodash';
 import { useState } from "react";
-import { FormControl, Grid, MenuItem, OutlinedInput, Select } from "@mui/material";
+import { FormControl, Grid, InputLabel, MenuItem, Select } from "@mui/material";
 
-const FormSelect = ({id, name, label, options, required}) => {
-    const [selectValue, setSelectValue] = useState('')
+const FormSelect = ({ id, name, label, options, required }) => {
+    const [value, setValue] = useState('')
+    const labelId = _.kebabCase([label, 'label'])
 
-    const handleSelectChange = (event) => {
-        setSelectValue(event.target.value)
+    const handleChange = (event) => {
+        setValue(event.target.value)
     }
 
     return (
-        <Grid item xs={12}>
-            <FormControl fullWidth>
-                <Select
-                    displayEmpty
-                    value={selectValue}
-                    input={<OutlinedInput />}
-                    onChange={handleSelectChange}
-                    renderValue={(selected) => {
-                        return selected.length === 0 ? <em>Placeholder</em> : selected
-                    }}>
-                    <MenuItem disabled value="">
-                        <em>Placeholder</em>
-                    </MenuItem>
+        <Grid item xs={6}>
+            <FormControl fullWidth variant="filled">
+                <InputLabel id={labelId}>{label}</InputLabel>
+                <Select {...{ id, name, label, value, required, labelId }} displayEmpty onChange={handleChange}>
+                    {options.map(({label, value}) => (
+                        <MenuItem value={value}>
+                            {label}
+                        </MenuItem>
+                    ))}
                 </Select>
             </FormControl>
         </Grid>

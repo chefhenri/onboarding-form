@@ -27,6 +27,7 @@ const FormCheckboxGroup = ({ label, options, required }) => {
         }))
     }
 
+    // TODO: Convert input name style to camelCase
     return (
         <Grid item xs={12}>
             <Grid container>
