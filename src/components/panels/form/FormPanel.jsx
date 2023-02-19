@@ -20,10 +20,10 @@ const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack, canN
                     </Box>
                     <Box>
                         <Box component="div" sx={{ width: '80px', height: '5px', bgcolor: '#0066FF', borderTopLeftRadius: '50px', borderTopRightRadius: '50px' }} />
-                        <Typography component="div" variant="h6" sx={{ fontWeight: 700 }}>
+                        <Typography component="div" variant="h6" sx={{ fontWeight: 700, marginBottom: '1rem' }}>
                             {subsection.heading}
                         </Typography>
-                        <Grid container spacing={2} sx={{ marginTop: '1rem' }}>
+                        <Grid container rowSpacing={3} columnSpacing={2}>
                             {subsection.fields.map(field => {
                                 let key = `${subsection.heading}-${field.id}-field`
 

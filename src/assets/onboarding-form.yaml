@@ -179,7 +179,6 @@ sections:
           - id: install-apps
             name: installApps
             type: checkbox
-            size: full
             label: Installation Platforms
             options:
               - Xerox iSeries
@@ -195,7 +194,6 @@ sections:
           - id: integrations
             name: integrations
             type: checkbox
-            size: full
             label: Configure Advanced Workflow Integration
             options:
               - Print Confirmation Pages
@@ -238,7 +236,6 @@ sections:
           - id: enable-solutions
             name: enableSolutions
             type: checkbox
-            size: half
             label: Configure Enabled Solutions
             options:
               - XM Fax
@@ -301,7 +298,6 @@ sections:
           - id: data-transmit
             name: dataTransmit
             type: checkbox
-            size: full
             label: Configure Data Transmission Types
             options:
              - ePHI/HDS, HIPAA
