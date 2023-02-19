@@ -270,9 +270,18 @@
               "type": "select",
               "label": "Cloud Hosting Locale",
               "options": [
-                "Canada (CA)",
-                "Europe (EU)",
-                "United States (US)"
+                {
+                  "label": "Canada (CA)",
+                  "value": "ca"
+                },
+                {
+                  "label": "Europe (EU)",
+                  "value": "eu"
+                },
+                {
+                  "label": "United States (US)",
+                  "value": "us"
+                }
               ],
               "required": true
             },
