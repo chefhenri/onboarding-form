@@ -1,71 +1,67 @@
-
-import { Grid, Input, Slider, Typography } from "@mui/material";
 import { useState } from "react";
+import { FormControlLabel, FormHelperText, Grid, Input, Slider, Switch } from "@mui/material";
 
-const marks = [
-    {
-        value: 0,
-        label: '0 Days',
-    },
-    {
-        value: 7,
-        label: '7 Days',
-    },
-    {
-        value: 30,
-        label: '30 Days',
-    },
-    {
-        value: 60,
-        label: '60 Days',
-    },
-    {
-        value: 90,
-        label: '90 Days',
-    },
-]
+const FormSlider = ({ id, name, label, options, required }) => {
+    const [sliderValue, setSliderValue] = useState(0)
+    const [unlimited, setUnlimited] = useState(false)
+    const marks = options.map(option => ({
+        value: option,
+        label: option + ' days'
+    }))
 
-const FormSlider = ({ _default = 90 }) => {
-    const [sliderValue, setSliderValue] = useState(_default)
+    const isNum = typeof sliderValue === 'number'
 
-    const handleSliderChange = (event, newValue) => {
-        setSliderValue(newValue)
+    const handleSliderChange = (event, newVal) => {
+        setSliderValue(newVal)
     }
 
     const handleInputChange = (event) => {
         let val = event.target.value
+        let isEmpty = event.target.value === ''
 
-        setSliderValue(val === '' ? '' : Number(val))
+        setSliderValue(isEmpty ? '' : Number(val))
+    }
+
+    const handleSwitchChange = () => {
+        setUnlimited(!unlimited)
     }
 
     const handleInputBlur = () => {
-        if (sliderValue < 0) setSliderValue(0)
+        if (sliderValue < 0 || sliderValue === '') setSliderValue(0)
+    }
+
+    const getValueText = (value) => {
+        return `${value} days`
     }
 
     return (
         <Grid item xs={12}>
-            <Typography>Placeholder</Typography>
             <Grid container spacing={2} alignItems="center">
                 <Grid item xs sx={{ marginLeft: '1.5rem' }}>
                     <Slider
                         step={1}
                         marks={marks}
-                        defaultValue={_default}
-                        value={typeof sliderValue === 'number' ? sliderValue : 0}
+                        value={isNum ? sliderValue : 0}
+                        disabled={unlimited}
                         valueLabelDisplay="auto"
                         onChange={handleSliderChange}
-                        getAriaValueText={(value) => `${value} Days`} />
+                        getAriaValueText={getValueText} />
                 </Grid>
                 <Grid item>
                     <Input
-                        sx={{ width: '4.5rem' }}
+                        sx={{ width: '5rem' }}
                         inputProps={{ min: 0, type: 'number' }}
                         value={sliderValue}
-                        endAdornment="Days"
+                        disabled={unlimited}
+                        endAdornment="days"
                         onChange={handleInputChange}
                         onBlur={handleInputBlur} />
                 </Grid>
             </Grid>
+            <FormHelperText>{label}</FormHelperText>
+            <FormControlLabel control={
+                <Switch value={unlimited} onChange={handleSwitchChange} />
+            } label="Unlimited" sx={{marginTop: '1rem'}}/>
         </Grid>
     )
 }

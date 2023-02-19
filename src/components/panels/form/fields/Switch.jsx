@@ -1,6 +1,7 @@
 import { FormControlLabel, Grid, Switch } from "@mui/material";
 import { useState } from "react";
 
+// TODO: Rename 'default' param - reserved keyword
 const FormSwitch = ({ id, name, type, label, default: defaultChecked, required }) => {
     const [checked, setChecked] = useState(defaultChecked)
 
