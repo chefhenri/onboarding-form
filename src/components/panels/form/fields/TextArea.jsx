@@ -1,9 +1,9 @@
 import { Grid, TextField } from "@mui/material";
 
-const FormTextArea = ({ prompt, value }) => {
+const FormTextArea = ({ id, name, label, required }) => {
     return (
         <Grid item xs={12}>
-            <TextField fullWidth multiline variant="outlined" rows={5} placeholder={prompt} value={value} />
+            <TextField fullWidth multiline variant="filled" rows={5} {...{id, name, label, required}} />
         </Grid>
     )
 }

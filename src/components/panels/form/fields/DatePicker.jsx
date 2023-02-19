@@ -23,7 +23,7 @@ const FormDatePicker = ({ id, name, label, required }) => {
                 renderInput={(props) => (
                     <TextField
                         {...props}
-                        variant="standard"
+                        variant="filled"
                         required={required}
                         fullWidth />
                 )} />

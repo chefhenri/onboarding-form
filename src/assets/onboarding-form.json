@@ -386,7 +386,7 @@
               "id": "comments",
               "name": "comments",
               "type": "textarea",
-              "label": null,
+              "label": "Additional Comments",
               "required": true
             }
           ]

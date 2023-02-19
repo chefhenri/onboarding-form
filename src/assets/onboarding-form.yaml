@@ -328,5 +328,5 @@ sections:
           - id: comments
             name: comments
             type: textarea
-            label: ~
+            label: Additional Comments
             required: Yes
