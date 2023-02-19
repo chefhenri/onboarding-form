@@ -29,7 +29,7 @@ const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack, canN
                             {subsection.fields.map(field => {
                                 let key = `${subsection.heading}-${field.id}-field`
 
-                                // TODO: Add case for 'select', 'slider'
+                                // TODO: Add case for 'slider'
                                 switch (field.type) {
                                     case 'checkbox':
                                         return <FormCheckboxGroup key={key} {...field} />
