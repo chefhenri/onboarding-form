@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FormControlLabel, FormHelperText, Grid, Input, Slider, Switch } from "@mui/material";
 
 const FormSlider = ({ id, name, label, options, required }) => {
-    const [sliderValue, setSliderValue] = useState(0)
+    const [sliderValue, setSliderValue] = useState(90)
     const [unlimited, setUnlimited] = useState(false)
     const marks = options.map(option => ({
         value: option,
@@ -12,7 +12,8 @@ const FormSlider = ({ id, name, label, options, required }) => {
     const isNum = typeof sliderValue === 'number'
 
     const handleSliderChange = (event, newVal) => {
-        setSliderValue(newVal)
+        if (newVal > 0 && newVal < 7) setSliderValue(7)
+        else setSliderValue(newVal)
     }
 
     const handleInputChange = (event) => {
@@ -27,7 +28,9 @@ const FormSlider = ({ id, name, label, options, required }) => {
     }
 
     const handleInputBlur = () => {
-        if (sliderValue < 0 || sliderValue === '') setSliderValue(0)
+        if (sliderValue === '') setSliderValue(0)
+        else if (sliderValue === 0) setSliderValue(0)
+        else if (sliderValue < 7 && sliderValue > 0) setSliderValue(7)
     }
 
     const getValueText = (value) => {
