@@ -35,28 +35,28 @@
               "name": "ownerName",
               "type": "text",
               "label": "Account Owner's Name",
-              "required": true
+              "required": false
             },
             {
               "id": "owner-title",
               "name": "ownerTitle",
               "type": "text",
               "label": "Account Owner's Title",
-              "required": true
+              "required": false
             },
             {
               "id": "owner-phone",
               "name": "ownerPhone",
               "type": "tel",
               "label": "Account Owner's Phone Number",
-              "required": true
+              "required": false
             },
             {
               "id": "owner-email",
               "name": "ownerEmail",
               "type": "email",
               "label": "Account Owner's Email",
-              "required": true
+              "required": false
             }
           ]
         },
@@ -104,7 +104,7 @@
       "subsections": [
         {
           "id": "reseller-info",
-          "heading": "Reseller Information",
+          "heading": "Reseller Information & Notifications",
           "info": "Filling out these fields is recommended for clients who have managed print/professional IT services from their MFP Reseller.\nThe Reseller is required to install the XM Fax and XM SendSecure apps on the MFP for Xerox and HP.",
           "fields": [
             {
@@ -120,19 +120,13 @@
               "type": "email",
               "label": "Reseller's Contact Email",
               "required": false
-            }
-          ]
-        },
-        {
-          "id": "reseller-notifs",
-          "heading": "Reseller Notifications",
-          "fields": [
+            },
             {
               "id": "ticket-notify",
               "name": "ticketNotify",
               "type": "switch",
               "label": "Notify Reseller about new Onboarding Tickets",
-              "defautl": true,
+              "default": true,
               "required": true
             },
             {
@@ -140,7 +134,7 @@
               "name": "resupplyNotif",
               "type": "switch",
               "label": "Notify Reseller of Credit resupply",
-              "defautl": true,
+              "default": true,
               "required": true
             }
           ]
@@ -148,6 +142,7 @@
         {
           "id": "installation-info",
           "heading": "MFP Installation Contact Information",
+          "info": "For Xerox and HP: The reseller is required to install the XM Fax and XM SendSecure apps on the MFP. XMedius Pro Services, when purchased, will assist with configuring XM Fax and XM SendSecure on the MFP.",
           "fields": [
             {
               "id": "installer-email",
@@ -210,20 +205,19 @@
               "name": "installDate",
               "type": "date",
               "label": "Install Date",
-              "required": true
+              "required": false
             },
             {
               "id": "removal-date",
               "name": "removalDate",
               "type": "date",
               "label": "Removal Date",
-              "required": true
+              "required": false
             },
             {
               "id": "install-apps",
               "name": "installApps",
               "type": "checkbox",
-              "size": "full",
               "label": "Installation Platforms",
               "options": [
                 "Xerox iSeries",
@@ -234,6 +228,7 @@
                 "Toshiba eBRIDGE",
                 "Sharp OSA",
                 "Lexmark eSF",
+                "PaperCut",
                 "Email Only"
               ],
               "required": true
@@ -242,7 +237,6 @@
               "id": "integrations",
               "name": "integrations",
               "type": "checkbox",
-              "size": "full",
               "label": "Configure Advanced Workflow Integration",
               "options": [
                 "Print Confirmation Pages",
@@ -272,9 +266,18 @@
               "type": "select",
               "label": "Cloud Hosting Locale",
               "options": [
-                "Canada (CA)",
-                "Europe (EU)",
-                "United States (US)"
+                {
+                  "label": "Canada (CA)",
+                  "value": "ca"
+                },
+                {
+                  "label": "Europe (EU)",
+                  "value": "eu"
+                },
+                {
+                  "label": "United States (US)",
+                  "value": "us"
+                }
               ],
               "required": true
             },
@@ -296,7 +299,6 @@
               "id": "enable-solutions",
               "name": "enableSolutions",
               "type": "checkbox",
-              "size": "half",
               "label": "Configure Enabled Solutions",
               "options": [
                 "XM Fax",
@@ -330,13 +332,13 @@
         {
           "id": "fax-policy",
           "heading": "Fax Retention Policy",
-          "info": "\"The minimum retention is 7 days. \nSelect \"Unlimited\" if you do  not want faxes to be deleted at all. \nSelect \"Zero Days\" if you want  faxes to be deleted immediately after  successful delivery (the fax metadata  will be retained for 7 days).\"\n",
+          "info": "The minimum retention is 7 days. \nSelect \"Unlimited\" if you do  not want faxes to be deleted at all. \nSelect \"Zero Days\" if you want  faxes to be deleted immediately after  successful delivery (the fax metadata  will be retained for 7 days).",
           "fields": [
             {
               "id": "retention-policy",
               "name": "retentionPolicy",
               "type": "slider",
-              "label": "Adjust slider to select XM Fax Retention Policy",
+              "label": "Adjust slider to set XM Fax Retention Policy",
               "options": [
                 0,
                 7,
@@ -357,7 +359,6 @@
               "id": "data-transmit",
               "name": "dataTransmit",
               "type": "checkbox",
-              "size": "full",
               "label": "Configure Data Transmission Types",
               "options": [
                 "ePHI/HDS, HIPAA",
@@ -390,8 +391,8 @@
               "id": "comments",
               "name": "comments",
               "type": "textarea",
-              "label": null,
-              "required": true
+              "label": "Additional Comments",
+              "required": false
             }
           ]
         }

@@ -1,9 +1,16 @@
+import { useState } from "react";
 import { Grid, TextField } from "@mui/material";
 
-const FormTextArea = ({ prompt, value }) => {
+const FormTextArea = ({ id, name, label, required }) => {
+    const [value, setValue] = useState('')
+
+    const handleChange = (event) => {
+        setValue(event.target.value)
+    }
+
     return (
         <Grid item xs={12}>
-            <TextField fullWidth multiline variant="outlined" rows={5} placeholder={prompt} value={value} />
+            <TextField fullWidth multiline variant="filled" rows={5} {...{id, name, label, required, value}} onChange={event => handleChange(event)} />
         </Grid>
     )
 }

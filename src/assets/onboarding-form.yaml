@@ -106,13 +106,13 @@ sections:
             name: ticketNotify
             type: switch
             label: Notify Reseller about new Onboarding Tickets
-            defautl: On
+            default: On
             required: Yes
           - id: resupply-notify
             name: resupplyNotif
             type: switch
             label: Notify Reseller of Credit resupply
-            defautl: On
+            default: On
             required: Yes
       - id: installation-info
         heading: MFP Installation Contact Information
@@ -179,7 +179,6 @@ sections:
           - id: install-apps
             name: installApps
             type: checkbox
-            size: full
             label: Installation Platforms
             options:
               - Xerox iSeries
@@ -195,7 +194,6 @@ sections:
           - id: integrations
             name: integrations
             type: checkbox
-            size: full
             label: Configure Advanced Workflow Integration
             options:
               - Print Confirmation Pages
@@ -221,9 +219,12 @@ sections:
             type: select
             label: Cloud Hosting Locale
             options:
-              - Canada (CA)
-              - Europe (EU)
-              - United States (US)
+              - label: Canada (CA)
+                value: ca
+              - label: Europe (EU)
+                value: eu
+              - label: United States (US)
+                value: us
             required: Yes
           - id: account-name
             name: accountName
@@ -238,7 +239,6 @@ sections:
           - id: enable-solutions
             name: enableSolutions
             type: checkbox
-            size: half
             label: Configure Enabled Solutions
             options:
               - XM Fax
@@ -301,7 +301,6 @@ sections:
           - id: data-transmit
             name: dataTransmit
             type: checkbox
-            size: full
             label: Configure Data Transmission Types
             options:
              - ePHI/HDS, HIPAA
@@ -332,5 +331,5 @@ sections:
           - id: comments
             name: comments
             type: textarea
-            label: ~
+            label: Additional Comments
             required: Yes
