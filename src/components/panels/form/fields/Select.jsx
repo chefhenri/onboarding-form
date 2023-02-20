@@ -10,6 +10,7 @@ const FormSelect = ({ id, name, label, options, required }) => {
         setValue(event.target.value)
     }
 
+    // TODO: Add 'key' attr to menu items
     return (
         <Grid item xs={6}>
             <FormControl fullWidth variant="filled">

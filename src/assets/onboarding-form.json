@@ -332,13 +332,13 @@
         {
           "id": "fax-policy",
           "heading": "Fax Retention Policy",
-          "info": "\"The minimum retention is 7 days. \nSelect \"Unlimited\" if you do  not want faxes to be deleted at all. \nSelect \"Zero Days\" if you want  faxes to be deleted immediately after  successful delivery (the fax metadata  will be retained for 7 days).\"\n",
+          "info": "The minimum retention is 7 days. \nSelect \"Unlimited\" if you do  not want faxes to be deleted at all. \nSelect \"Zero Days\" if you want  faxes to be deleted immediately after  successful delivery (the fax metadata  will be retained for 7 days).",
           "fields": [
             {
               "id": "retention-policy",
               "name": "retentionPolicy",
               "type": "slider",
-              "label": "Adjust slider to select XM Fax Retention Policy",
+              "label": "Adjust slider to set XM Fax Retention Policy",
               "options": [
                 0,
                 7,
