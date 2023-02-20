@@ -1,6 +1,6 @@
 import { Box, Grid, Paper, Stack, Typography } from "@mui/material"
 
-import FormNav from "./FormNav"
+import FormNav from "./Nav"
 import FormCheckboxGroup from "./fields/CheckboxGroup"
 import FormDatePicker from "./fields/DatePicker"
 import FormSwitch from "./fields/Switch"

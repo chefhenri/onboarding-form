@@ -1,5 +1,5 @@
 import { Paper, Stack, Typography } from "@mui/material"
-import ContentsStepper from "./ContentsStepper"
+import ContentsStepper from "./Stepper"
 
 const ContentsPanel = ({ headings, activeSection }) => {
     return (
