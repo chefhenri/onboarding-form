@@ -11,15 +11,23 @@ function App({ sections }) {
 
   const theme = useMemo(() => createTheme({
     palette: {
-      mode: prefersLightMode ? 'light' : 'dark',
       primary: {
         main: '#0066FF'
       },
-      background: {
-        panel: {
-          info: prefersLightMode ? '#E7EAEF' : 'background.paper'
+      ...(prefersLightMode ? {
+        mode: 'light',
+        background: {
+          panel: {
+            info: '#E7EAEF'
+          }
+        },
+        text: {
+          primary: '#101C2F',
+          secondary: '#3F4D62'
         }
-      }
+      } : {
+        mode: 'dark'
+      }),
     }
   }), [prefersLightMode])
 
