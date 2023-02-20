@@ -1,4 +1,5 @@
 import { styled } from "@mui/material";
+import { grey } from "@mui/material/colors";
 import { Check } from "feather-icons-react/build/IconComponents";
 
 const StyledIconRoot = styled('div')(({ theme, ownerState }) => ({
@@ -9,26 +10,50 @@ const StyledIconRoot = styled('div')(({ theme, ownerState }) => ({
     ...(ownerState.active && {
         color: 'palette.primary.main'
     }),
-    '& .StyledStepIcon-completed': {
-        color: 'palette.primary.main',
-        zIndex: 1,
-        fontSize: '1rem'
-    },
     '& .StyledStepIcon-circle': {
         width: 8,
         height: 8,
         borderRadius: '50%',
-        backgroundColor: 'currentColor'
-    }
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: '#0066FF',
+        transitionDuration: '300ms',
+        transitionProperty: 'background-color',
+        transitionTimingFunction: 'ease-in-out'
+    },
+    '& .StyledStepIcon-active': {
+        width: 8,
+        height: 8,
+        borderRadius: '50%',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: '#0066FF',
+        backgroundColor: '#0066FF',
+        transitionDuration: '300ms',
+        transitionProperty: 'background-color',
+        transitionTimingFunction: 'ease-in-out'
+    },
+    '& .StyledStepIcon-completed': {
+        width: 8,
+        height: 8,
+        borderRadius: '50%',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: '#0066FF',
+        backgroundColor: '#0066FF',
+        transitionDuration: '300ms',
+        transitionProperty: 'background-color',
+        transitionTimingFunction: 'ease-in-out'
+    },
 }))
 
-const StyledStepIcon = ({ active = false, completed = true, className }) => {
+const StyledStepIcon = ({ active, completed, className }) => {
     return (
-        <StyledIconRoot {...{ ownerState: active, className }}>
+        <StyledIconRoot {...{ ownerState: active, className }} sx={{borderWidth: '1px', borderColor: '#0066FF'}}>
             {completed ? (
-                <Check className="StyledStepIcon-completed" />
+                <div className="StyledStepIcon-completed" />
             ) : (
-                <div className="StyledStepIcon-circle" />
+                <div className={active ? 'StyledStepIcon-active' : 'StyledStepIcon-circle'} />
             )}
         </StyledIconRoot>
     )
