@@ -35,28 +35,28 @@
               "name": "ownerName",
               "type": "text",
               "label": "Account Owner's Name",
-              "required": true
+              "required": false
             },
             {
               "id": "owner-title",
               "name": "ownerTitle",
               "type": "text",
               "label": "Account Owner's Title",
-              "required": true
+              "required": false
             },
             {
               "id": "owner-phone",
               "name": "ownerPhone",
               "type": "tel",
               "label": "Account Owner's Phone Number",
-              "required": true
+              "required": false
             },
             {
               "id": "owner-email",
               "name": "ownerEmail",
               "type": "email",
               "label": "Account Owner's Email",
-              "required": true
+              "required": false
             }
           ]
         },
@@ -104,7 +104,7 @@
       "subsections": [
         {
           "id": "reseller-info",
-          "heading": "Reseller Information",
+          "heading": "Reseller Information & Notifications",
           "info": "Filling out these fields is recommended for clients who have managed print/professional IT services from their MFP Reseller.\nThe Reseller is required to install the XM Fax and XM SendSecure apps on the MFP for Xerox and HP.",
           "fields": [
             {
@@ -120,13 +120,7 @@
               "type": "email",
               "label": "Reseller's Contact Email",
               "required": false
-            }
-          ]
-        },
-        {
-          "id": "reseller-notifs",
-          "heading": "Reseller Notifications",
-          "fields": [
+            },
             {
               "id": "ticket-notify",
               "name": "ticketNotify",
@@ -148,6 +142,7 @@
         {
           "id": "installation-info",
           "heading": "MFP Installation Contact Information",
+          "info": "For Xerox and HP: The reseller is required to install the XM Fax and XM SendSecure apps on the MFP. XMedius Pro Services, when purchased, will assist with configuring XM Fax and XM SendSecure on the MFP.",
           "fields": [
             {
               "id": "installer-email",
@@ -210,14 +205,14 @@
               "name": "installDate",
               "type": "date",
               "label": "Install Date",
-              "required": true
+              "required": false
             },
             {
               "id": "removal-date",
               "name": "removalDate",
               "type": "date",
               "label": "Removal Date",
-              "required": true
+              "required": false
             },
             {
               "id": "install-apps",
@@ -233,6 +228,7 @@
                 "Toshiba eBRIDGE",
                 "Sharp OSA",
                 "Lexmark eSF",
+                "PaperCut",
                 "Email Only"
               ],
               "required": true
