@@ -14,6 +14,11 @@ function App({ sections }) {
       mode: prefersLightMode ? 'light' : 'dark',
       primary: {
         main: '#0066FF'
+      },
+      background: {
+        panel: {
+          info: prefersLightMode ? '#E7EAEF' : 'background.paper'
+        }
       }
     }
   }), [prefersLightMode])
