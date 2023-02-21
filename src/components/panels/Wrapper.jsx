@@ -1,9 +1,9 @@
 import { useReducer } from "react"
 import { Container, Stack } from "@mui/material"
 
-import FormPanel from "./form/FormPanel"
-import ContentsPanel from "./table_of_contents/ContentsPanel"
-import InfoPanel from "./info/InfoPanel"
+import FormPanel from "./form/Panel"
+import ContentsPanel from "./table_of_contents/Panel"
+import InfoPanel from "./info/Panel"
 
 const sectionReducer = (state, action) => {
     switch (action.type) {

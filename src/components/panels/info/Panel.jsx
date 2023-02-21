@@ -1,6 +1,6 @@
 import { Divider, Fade, Paper, Stack, Typography } from "@mui/material"
 
-import InfoHeading from './InfoHeading'
+import InfoHeading from './Heading'
 
 const InfoPanel = ({ info }) => {
     const showPanel = info ? true : false

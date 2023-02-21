@@ -1,5 +1,5 @@
 import { Button, Stack } from "@mui/material"
-import FormStepper from "./FormStepper"
+import FormStepper from "./fields/stepper/Stepper"
 
 const FormNav = ({ subsections, activeSubsection, handleNext, handleBack, canNavigate }) => {
     const headings = subsections.map(subsection => subsection.heading)
