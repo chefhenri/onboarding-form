@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { FormControl, Grid, InputLabel, MenuItem, Select } from "@mui/material";
 
 import { update } from '../../../../slice.js'
+import { useEffect } from 'react';
 
-const FormSelect = ({ id, name, label, options, required }) => {    
+const FormSelect = ({ id, name, label, options, required }) => {
     const dispatch = useDispatch()
     const value = useSelector((state) => state.form[name])
-    
+
     const labelId = _.kebabCase([label, 'label'])
 
     const handleChange = (event) => {
@@ -22,11 +23,11 @@ const FormSelect = ({ id, name, label, options, required }) => {
                     id,
                     name,
                     label,
-                    value,
                     labelId,
                     required,
                 }}
                     displayEmpty
+                    value={value || ''}
                     onChange={handleChange}>
                     {options.map(({ label, value }, idx) => (
                         <MenuItem key={_.kebabCase([name, 'opt', idx])} value={value}>

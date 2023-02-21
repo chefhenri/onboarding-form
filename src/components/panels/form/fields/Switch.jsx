@@ -1,8 +1,8 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { FormControlLabel, Grid, Switch } from "@mui/material";
 
 import { update } from '../../../../slice.js'
-import { useEffect } from 'react';
 
 const FormSwitch = ({ id, name, label, _default }) => {
     const checked = useSelector((state) => state.form[name])
@@ -12,7 +12,7 @@ const FormSwitch = ({ id, name, label, _default }) => {
         dispatch(update({ name, value: !checked }))
     }
 
-    // Init field in store
+    // Init store record
     useEffect(() => {
         checked === undefined
             && dispatch(update({ name, value: _default }))
