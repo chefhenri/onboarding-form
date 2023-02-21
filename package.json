@@ -17,13 +17,16 @@
     "@mui/lab": "^5.0.0-alpha.114",
     "@mui/material": "^5.11.0",
     "@mui/x-date-pickers": "^5.0.12",
+    "@reduxjs/toolkit": "^1.9.3",
     "feather-icons-react": "^0.6.2",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5"
   },
   "devDependencies": {
+    "@redux-devtools/core": "^3.13.1",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react-swc": "^3.0.0",
