@@ -8,7 +8,7 @@ import { update } from '../../../../slice'
 const DATE_FMT = 'MM/DD/YYYY'
 
 const FormDatePicker = ({ id, name, label, required }) => {
-    const value = useSelector((state) => state.form[name])
+    const date = useSelector((state) => state.form[name])
     const dispatch = useDispatch()
 
     const handleChange = (date) => {
@@ -24,7 +24,7 @@ const FormDatePicker = ({ id, name, label, required }) => {
                     label
                 }}
                 disablePast
-                value={value || null}
+                value={date || null}
                 inputFormat={DATE_FMT}
                 onChange={handleChange}
                 renderInput={(props) => (

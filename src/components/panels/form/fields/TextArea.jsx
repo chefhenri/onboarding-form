@@ -18,13 +18,13 @@ const FormTextArea = ({ id, name, label, required }) => {
                     id,
                     name,
                     label,
-                    required,
-                    value
+                    required
                 }}
                 rows={5}
                 fullWidth
                 multiline
                 variant="filled"
+                value={value || ''}
                 onChange={event => handleChange(event)} />
         </Grid>
     )
