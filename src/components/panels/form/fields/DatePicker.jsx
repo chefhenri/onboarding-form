@@ -18,7 +18,11 @@ const FormDatePicker = ({ id, name, label, required }) => {
     return (
         <Grid item xs={6}>
             <DatePicker
-                {...{ id, name, label }}
+                {...{
+                    id,
+                    name,
+                    label
+                }}
                 disablePast
                 value={value || null}
                 inputFormat={DATE_FMT}
