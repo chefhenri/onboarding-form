@@ -6,7 +6,7 @@ import { createTheme, CssBaseline, ThemeProvider, useMediaQuery } from "@mui/mat
 import Nav from "./components/Nav"
 import Wrapper from "./components/panels/Wrapper";
 
-function App({ sections }) {
+const App = ({ sections }) => {
   const prefersLightMode = useMediaQuery('(prefers-color-scheme: light)')
 
   const theme = useMemo(() => createTheme({
