@@ -4,6 +4,7 @@ import { FormControl, FormGroup, FormLabel, Grid } from "@mui/material";
 
 import FormCheckbox from "./Checkbox";
 
+// TODO: Init store record to house checkbox options within
 const FormCheckboxGroup = ({ id, name, label, options, required }) => {
     // Map list of options to object to track 'checked' state
     const [status, setStatus] = useState(options.reduce((acc, val, idx) => ({

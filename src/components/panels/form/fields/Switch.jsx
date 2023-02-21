@@ -9,13 +9,13 @@ const FormSwitch = ({ id, name, label, _default }) => {
     const dispatch = useDispatch()
 
     const handleChange = () => {
-        dispatch(update({ name, value: !checked }))
+        dispatch(update({ name, label, value: !checked }))
     }
 
     // Init store record
     useEffect(() => {
         checked === undefined
-            && dispatch(update({ name, value: _default }))
+            && dispatch(update({ name, label, value: _default }))
     }, [])
 
     return (

@@ -5,7 +5,7 @@ export const formSlice = createSlice({
     initialState: {},
     reducers: {
         update: (state, action) => {
-            let { name, value } = action.payload
+            let { name, label, value } = action.payload
 
             console.log(`name: ${name}, value: ${value}`);
 

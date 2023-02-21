@@ -8,7 +8,7 @@ const FormTextField = ({ id, name, type, label, required }) => {
     const dispatch = useDispatch()
 
     const handleChange = (event) => {
-        dispatch(update({ name, value: event.target.value }))
+        dispatch(update({ name, label, value: event.target.value }))
     }
 
     return (

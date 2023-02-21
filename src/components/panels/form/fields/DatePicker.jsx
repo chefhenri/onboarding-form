@@ -12,7 +12,7 @@ const FormDatePicker = ({ id, name, label, required }) => {
     const dispatch = useDispatch()
 
     const handleChange = (date) => {
-        dispatch(update({ name, value: moment(date, DATE_FMT).toISOString() }))
+        dispatch(update({ name, label, value: moment(date, DATE_FMT).toISOString() }))
     }
 
     return (

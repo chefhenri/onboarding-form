@@ -12,7 +12,7 @@ const FormSelect = ({ id, name, label, options, required }) => {
     const labelId = _.kebabCase([label, 'label'])
 
     const handleChange = (event) => {
-        dispatch(update({ name, value: event.target.value }))
+        dispatch(update({ name, label, value: event.target.value }))
     }
 
     return (
