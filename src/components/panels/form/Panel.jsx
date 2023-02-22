@@ -1,6 +1,7 @@
 import { Box, Grid, Paper, Stack, Typography } from "@mui/material"
 
 import FormNav from "./Nav"
+import FormHeading from "./Heading"
 import FormCheckboxGroup from "./fields/CheckboxGroup"
 import FormDatePicker from "./fields/DatePicker"
 import FormSwitch from "./fields/Switch"
@@ -9,7 +10,15 @@ import FormTextField from "./fields/TextField"
 import FormSelect from "./fields/Select"
 import FormSlider from "./fields/Slider"
 
-const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack, canNavigate }) => {
+const FormPanel = ({
+    sectionHeading,
+    subsections,
+    activeSubsection,
+    handleNext,
+    handleBack,
+    canNavigate,
+    inReview
+}) => {
     const subsection = subsections[activeSubsection]
 
     return (
@@ -18,14 +27,11 @@ const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack, canN
                 <Stack spacing={6}>
                     <Box sx={{ width: '100%', textAlign: 'center' }}>
                         <Typography component="div" variant="h5" sx={{ fontWeight: 700 }}>
-                            Section Heading
+                            {sectionHeading}
                         </Typography>
                     </Box>
                     <Box>
-                        <Box component="div" sx={{ width: '80px', height: '5px', bgcolor: '#0066FF', borderTopLeftRadius: '50px', borderTopRightRadius: '50px' }} />
-                        <Typography component="div" variant="h6" sx={{ fontWeight: 700, marginBottom: '1rem' }}>
-                            {subsection.heading}
-                        </Typography>
+                        <FormHeading heading={subsection.heading} />
                         <Grid container rowSpacing={3} columnSpacing={2}>
                             {subsection.fields.map(field => {
                                 let key = `${subsection.heading}-${field.id}-field`
@@ -50,7 +56,14 @@ const FormPanel = ({ subsections, activeSubsection, handleNext, handleBack, canN
                         </Grid>
                     </Box>
                 </Stack>
-                <FormNav {...{ subsections, activeSubsection, handleNext, handleBack, canNavigate }} />
+                <FormNav {...{
+                    subsections,
+                    activeSubsection,
+                    handleNext,
+                    handleBack,
+                    canNavigate,
+                    inReview
+                }} />
             </Stack>
         </Paper>
     )
