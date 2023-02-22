@@ -2,11 +2,11 @@ import { Paper, Stack } from "@mui/material"
 
 import ReviewNav from "./Nav"
 
-const ReviewPanel = ({ subsections }) => {
+const ReviewPanel = ({ subsections, handleBack }) => {
     return (
-        <Paper elevation={3} sx={{ width: '920px', height: '700px', borderRadius: '15px' }}>
+        <Paper elevation={3} sx={{ height: '50vh', borderRadius: '15px' }}>
             <Stack sx={{ height: '100%', padding: '2rem', justifyContent: 'space-between' }}>
-                <ReviewNav />
+                <ReviewNav {...{ handleBack }} />
             </Stack>
         </Paper>
     )

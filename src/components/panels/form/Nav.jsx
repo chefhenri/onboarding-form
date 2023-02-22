@@ -11,11 +11,11 @@ const FormNav = ({
 }) => {
     const headings = subsections.map(subsection => subsection.heading)
 
-    // Can navigate back if there is an available section or subsection
-    const canNavBack = canNavigate.back.section || canNavigate.back.subsection || inReview
+    // Can navigate back if there is an available section or subsection or in review
+    const canNavBack = (canNavigate.back.section || canNavigate.back.subsection) || !inReview
 
-    // Can navigate next if there is an available section or subsection
-    const canNavNext = canNavigate.next.section || canNavigate.next.subsection || !inReview
+    // Can navigate next if there is an available section or subsection or not in review
+    const canNavNext = (canNavigate.next.section || canNavigate.next.subsection) || !inReview
 
     return (
         <Stack direction="row" sx={{ justifyContent: 'space-between' }} >

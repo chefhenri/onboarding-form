@@ -22,7 +22,7 @@ const FormPanel = ({
     const subsection = subsections[activeSubsection]
 
     return (
-        <Paper elevation={3} sx={{ width: '920px', height: '700px', borderRadius: '15px' }}>
+        <Paper elevation={3} sx={{ height: '50vh', borderRadius: '15px' }}>
             <Stack sx={{ height: '100%', padding: '2rem', justifyContent: 'space-between' }}>
                 <Stack spacing={6}>
                     <Box sx={{ width: '100%', textAlign: 'center' }}>

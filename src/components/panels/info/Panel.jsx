@@ -3,12 +3,9 @@ import { Divider, Fade, Paper, Stack, Typography } from "@mui/material"
 import InfoHeading from './Heading'
 
 const InfoPanel = ({ info }) => {
-    const showPanel = info ? true : false
-
     return (
-            <Fade in={showPanel}>
+            <Fade in={info ? true : false}>
                 <Paper elevation={3} sx={{
-                    width: '260px',
                     padding: '1rem',
                     overflow: 'auto',
                     borderRadius: '15px',
