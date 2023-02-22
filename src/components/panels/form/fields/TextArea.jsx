@@ -8,7 +8,7 @@ const FormTextArea = ({ id, name, label, required }) => {
     const dispatch = useDispatch()
 
     const handleChange = (event) => {
-        dispatch(update({ name, label, value: event.target.value }))
+        dispatch(update({ name, value: event.target.value }))
     }
 
     return (

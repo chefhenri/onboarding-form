@@ -4,7 +4,7 @@ import { FormControlLabel, FormHelperText, Grid, Input, Slider, Switch } from "@
 
 import { update } from '../../../../slice.js'
 
-const FormSlider = ({ id, name, label, options, required, _default = 90 }) => {
+const FormSlider = ({ id, name, label, options, _default = 90 }) => {
     const value = useSelector((state) => state.form[name])
     const dispatch = useDispatch()
     
@@ -23,7 +23,7 @@ const FormSlider = ({ id, name, label, options, required, _default = 90 }) => {
         if (newVal > 0 && newVal < 7) dispatch(update({ name, label, value: 7 }))
 
         // Set value to selected value otherwise
-        else dispatch(update({ name, label, value: newVal }))
+        else dispatch(update({ name, value: newVal }))
     }
 
     const handleInputChange = (event) => {
@@ -31,33 +31,37 @@ const FormSlider = ({ id, name, label, options, required, _default = 90 }) => {
         let isEmpty = event.target.value === ''
 
         // Allow 'empty' val within input field, otherwise update numerical value
-        dispatch(update({ name, label, value: isEmpty ? '' : Number(val) }))
+        dispatch(update({ name, value: isEmpty ? '' : Number(val) }))
     }
 
     const handleSwitchChange = () => {
         // Reset slider, input to default when re-enabled
-        if (isBool && value) dispatch(update({ name, label, value: _default }))
+        if (isBool && value) dispatch(update({ name, value: _default }))
 
         // Set value to 'true' when 'unlimited' switch is checked
-        else dispatch(update({ name, label, value: true }))
+        else dispatch(update({ name, value: true }))
     }
 
     const handleInputBlur = () => {
         // Set the value to 0 when input value is deleted
-        if (isEmpty) dispatch(update({ name, label, value: 0 }))
+        if (isEmpty) dispatch(update({ name, value: 0 }))
 
         // Set the value to 7 when attempting to enter values 1-6
-        else if (value < 7 && value > 0) dispatch(update({ name, label, value: 7 }))
+        else if (value < 7 && value > 0) dispatch(update({ name, value: 7 }))
     }
 
     const getValueText = (value) => {
         return `${value} days`
     }
 
+    const invokeDispatch = (value) => {
+        dispatch(update({ name, value }))
+    }
+
     // Init store record with default value: 90 days
     useEffect(() => {
         value === undefined
-            && dispatch(update({ name, label, value: _default }))
+            && dispatch(update({ name, value: _default }))
     }, [])
 
     return (
