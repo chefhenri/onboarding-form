@@ -1,4 +1,4 @@
-import { Step, StepConnector, StepLabel, Stepper, styled } from "@mui/material"
+import { Step, Stepper, StepLabel } from "@mui/material"
 import StyledConnector from "./Connector"
 import StyledStepIcon from "./StepIcon"
 

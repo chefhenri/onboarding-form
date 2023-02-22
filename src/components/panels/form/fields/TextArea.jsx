@@ -1,16 +1,31 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux'
 import { Grid, TextField } from "@mui/material";
 
+import { update } from '../../../../slice'
+
 const FormTextArea = ({ id, name, label, required }) => {
-    const [value, setValue] = useState('')
+    const value = useSelector((state) => state.form[name])
+    const dispatch = useDispatch()
 
     const handleChange = (event) => {
-        setValue(event.target.value)
+        dispatch(update({ name, value: event.target.value }))
     }
 
     return (
         <Grid item xs={12}>
-            <TextField fullWidth multiline variant="filled" rows={5} {...{id, name, label, required, value}} onChange={event => handleChange(event)} />
+            <TextField
+                {...{
+                    id,
+                    name,
+                    label,
+                    required
+                }}
+                rows={5}
+                fullWidth
+                multiline
+                variant="filled"
+                value={value || ''}
+                onChange={event => handleChange(event)} />
         </Grid>
     )
 }

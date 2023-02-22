@@ -1,23 +1,36 @@
 import _ from 'lodash';
-import { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux'
 import { FormControl, Grid, InputLabel, MenuItem, Select } from "@mui/material";
 
+import { update } from '../../../../slice.js'
+import { useEffect } from 'react';
+
 const FormSelect = ({ id, name, label, options, required }) => {
-    const [value, setValue] = useState('')
+    const dispatch = useDispatch()
+    const value = useSelector((state) => state.form[name])
+
     const labelId = _.kebabCase([label, 'label'])
 
     const handleChange = (event) => {
-        setValue(event.target.value)
+        dispatch(update({ name, label, value: event.target.value }))
     }
 
-    // TODO: Add 'key' attr to menu items
     return (
         <Grid item xs={6}>
             <FormControl fullWidth variant="filled">
                 <InputLabel id={labelId}>{label}</InputLabel>
-                <Select {...{ id, name, label, value, required, labelId }} displayEmpty onChange={handleChange}>
-                    {options.map(({label, value}) => (
-                        <MenuItem value={value}>
+                <Select {...{
+                    id,
+                    name,
+                    label,
+                    labelId,
+                    required,
+                }}
+                    displayEmpty
+                    value={value || ''}
+                    onChange={handleChange}>
+                    {options.map(({ label, value }, idx) => (
+                        <MenuItem key={_.kebabCase([name, 'opt', idx])} value={value}>
                             {label}
                         </MenuItem>
                     ))}

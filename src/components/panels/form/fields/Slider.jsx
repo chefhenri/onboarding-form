@@ -1,41 +1,68 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux'
 import { FormControlLabel, FormHelperText, Grid, Input, Slider, Switch } from "@mui/material";
 
-const FormSlider = ({ id, name, label, options, required }) => {
-    const [sliderValue, setSliderValue] = useState(90)
-    const [unlimited, setUnlimited] = useState(false)
+import { update } from '../../../../slice.js'
+
+const FormSlider = ({ id, name, label, options, _default = 90 }) => {
+    const value = useSelector((state) => state.form[name])
+    const dispatch = useDispatch()
+    
+    const isEmpty = value === ''
+    const isNum = typeof value === 'number'
+    const isBool = typeof value === 'boolean'
+    const sliderDisabled = isBool && value
+
     const marks = options.map(option => ({
         value: option,
         label: option + ' days'
     }))
 
-    const isNum = typeof sliderValue === 'number'
-
     const handleSliderChange = (event, newVal) => {
-        if (newVal > 0 && newVal < 7) setSliderValue(7)
-        else setSliderValue(newVal)
+        // Set value to 7 when attempting to select values 1-6
+        if (newVal > 0 && newVal < 7) dispatch(update({ name, label, value: 7 }))
+
+        // Set value to selected value otherwise
+        else dispatch(update({ name, value: newVal }))
     }
 
     const handleInputChange = (event) => {
         let val = event.target.value
         let isEmpty = event.target.value === ''
 
-        setSliderValue(isEmpty ? '' : Number(val))
+        // Allow 'empty' val within input field, otherwise update numerical value
+        dispatch(update({ name, value: isEmpty ? '' : Number(val) }))
     }
 
     const handleSwitchChange = () => {
-        setUnlimited(!unlimited)
+        // Reset slider, input to default when re-enabled
+        if (isBool && value) dispatch(update({ name, value: _default }))
+
+        // Set value to 'true' when 'unlimited' switch is checked
+        else dispatch(update({ name, value: true }))
     }
 
     const handleInputBlur = () => {
-        if (sliderValue === '') setSliderValue(0)
-        else if (sliderValue === 0) setSliderValue(0)
-        else if (sliderValue < 7 && sliderValue > 0) setSliderValue(7)
+        // Set the value to 0 when input value is deleted
+        if (isEmpty) dispatch(update({ name, value: 0 }))
+
+        // Set the value to 7 when attempting to enter values 1-6
+        else if (value < 7 && value > 0) dispatch(update({ name, value: 7 }))
     }
 
     const getValueText = (value) => {
         return `${value} days`
     }
+
+    const invokeDispatch = (value) => {
+        dispatch(update({ name, value }))
+    }
+
+    // Init store record with default value: 90 days
+    useEffect(() => {
+        value === undefined
+            && dispatch(update({ name, value: _default }))
+    }, [])
 
     return (
         <Grid item xs={12}>
@@ -44,8 +71,8 @@ const FormSlider = ({ id, name, label, options, required }) => {
                     <Slider
                         step={1}
                         marks={marks}
-                        value={isNum ? sliderValue : 0}
-                        disabled={unlimited}
+                        value={isNum ? value : 0}
+                        disabled={sliderDisabled}
                         valueLabelDisplay="auto"
                         onChange={handleSliderChange}
                         getAriaValueText={getValueText} />
@@ -54,8 +81,8 @@ const FormSlider = ({ id, name, label, options, required }) => {
                     <Input
                         sx={{ width: '5rem' }}
                         inputProps={{ min: 0, type: 'number' }}
-                        value={sliderValue}
-                        disabled={unlimited}
+                        value={isNum ? value : ''}
+                        disabled={sliderDisabled}
                         endAdornment="days"
                         onChange={handleInputChange}
                         onBlur={handleInputBlur} />
@@ -63,8 +90,8 @@ const FormSlider = ({ id, name, label, options, required }) => {
             </Grid>
             <FormHelperText>{label}</FormHelperText>
             <FormControlLabel control={
-                <Switch value={unlimited} onChange={handleSwitchChange} />
-            } label="Unlimited" sx={{marginTop: '1rem'}}/>
+                <Switch checked={sliderDisabled} onChange={handleSwitchChange} />
+            } label="Unlimited" sx={{ marginTop: '1rem' }} />
         </Grid>
     )
 }
