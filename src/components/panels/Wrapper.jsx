@@ -84,7 +84,7 @@ const Wrapper = ({ sections }) => {
                         </Box>
                     </Fade>
                     <Fade in={!inReview} timeout={{appear: 0, enter: 350, exit: 0}} unmountOnExit>
-                        <Box sx={{ width: '75%' }}>
+                        <Box sx={{ width: '100%', minWidth: '70%' }}>
                             <FormPanel {...{
                                 sectionHeading,
                                 subsections,
@@ -97,7 +97,7 @@ const Wrapper = ({ sections }) => {
                         </Box>
                     </Fade>
                     <Fade in={!inReview} timeout={{appear: 0, enter: 350, exit: 0}} unmountOnExit>
-                        <Stack direction="column" spacing={4} sx={{ width: '20%' }}>
+                        <Stack direction="column" spacing={4} sx={{ width: '30%' }}>
                             <ContentsPanel {...{ headings }} activeSection={activeSection} />
                             <InfoPanel {...{ info }} />
                         </Stack>
