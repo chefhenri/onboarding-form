@@ -4,7 +4,6 @@ import { FormControlLabel, FormHelperText, Grid, Input, Slider, Switch } from "@
 
 import { update } from '../../../../slice.js'
 
-// TODO: Handle numerical value vs boolean value
 const FormSlider = ({ id, name, label, options, required, _default = 90 }) => {
     const value = useSelector((state) => state.form[name])
     const dispatch = useDispatch()
