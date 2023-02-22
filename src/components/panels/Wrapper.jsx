@@ -40,7 +40,7 @@ const Wrapper = ({ sections }) => {
         activeSubsection: 0
     })
 
-    const [inReview, setInReview] = useState(false)
+    const [inReview, setInReview] = useState(true)
 
     const sectionHeading = sections[activeSection].heading
     const subsections = sections[activeSection].subsections
