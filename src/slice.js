@@ -1,8 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import { sampleData } from './assets/sample-form-data.json'
+
 export const formSlice = createSlice({
     name: 'form',
-    initialState: {},
+    initialState: {
+        ...sampleData
+    },
     reducers: {
         update: (state, action) => {
             let { name, value } = action.payload

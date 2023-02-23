@@ -47,7 +47,7 @@ const StyledIconRoot = styled('div')(({ theme, ownerState }) => ({
 
 const StyledStepIcon = ({ active, completed, className }) => {
     return (
-        <StyledIconRoot {...{ ownerState: active, className }} sx={{borderWidth: '1px', borderColor: '#0066FF'}}>
+        <StyledIconRoot {...{ ownerState: active, className }} sx={{ borderWidth: '1px', borderColor: '#0066FF' }}>
             {completed ? (
                 <div className="StyledStepIcon-completed" />
             ) : (

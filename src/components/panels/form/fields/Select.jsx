@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { FormControl, Grid, InputLabel, MenuItem, Select } from "@mui/material";
 
 import { update } from '../../../../slice.js'
-import { useEffect } from 'react';
 
 const FormSelect = ({ id, name, label, options, required }) => {
     const dispatch = useDispatch()

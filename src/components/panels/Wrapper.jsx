@@ -78,30 +78,30 @@ const Wrapper = ({ sections }) => {
     return (
         <Container sx={{ mt: '8rem' }}>
             <Stack direction="row" spacing={4}>
-                    <Fade in={inReview} timeout={{appear: 0, enter: 350, exit: 0}} unmountOnExit>
-                        <Box sx={{ width: '100%' }}>
-                            <ReviewPanel {...{ sections, handleBack }} />
-                        </Box>
-                    </Fade>
-                    <Fade in={!inReview} timeout={{appear: 0, enter: 350, exit: 0}} unmountOnExit>
-                        <Box sx={{ width: '100%', minWidth: '70%' }}>
-                            <FormPanel {...{
-                                sectionHeading,
-                                subsections,
-                                handleNext,
-                                handleBack,
-                                canNavigate,
-                                inReview
-                            }}
-                                activeSubsection={activeSubsection} />
-                        </Box>
-                    </Fade>
-                    <Fade in={!inReview} timeout={{appear: 0, enter: 350, exit: 0}} unmountOnExit>
-                        <Stack direction="column" spacing={4} sx={{ width: '30%' }}>
-                            <ContentsPanel {...{ headings }} activeSection={activeSection} />
-                            <InfoPanel {...{ info }} />
-                        </Stack>
-                    </Fade>
+                <Fade in={inReview} timeout={{ appear: 0, enter: 350, exit: 0 }} unmountOnExit>
+                    <Box sx={{ width: '100%' }}>
+                        <ReviewPanel {...{ sections, handleBack }} />
+                    </Box>
+                </Fade>
+                <Fade in={!inReview} timeout={{ appear: 0, enter: 350, exit: 0 }} unmountOnExit>
+                    <Box sx={{ width: '100%', minWidth: '70%' }}>
+                        <FormPanel {...{
+                            sectionHeading,
+                            subsections,
+                            handleNext,
+                            handleBack,
+                            canNavigate,
+                            inReview
+                        }}
+                            activeSubsection={activeSubsection} />
+                    </Box>
+                </Fade>
+                <Fade in={!inReview} timeout={{ appear: 0, enter: 350, exit: 0 }} unmountOnExit>
+                    <Stack direction="column" spacing={4} sx={{ width: '30%' }}>
+                        <ContentsPanel {...{ headings }} activeSection={activeSection} />
+                        <InfoPanel {...{ info }} />
+                    </Stack>
+                </Fade>
             </Stack>
         </Container>
     )

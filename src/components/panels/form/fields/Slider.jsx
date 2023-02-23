@@ -7,7 +7,7 @@ import { update } from '../../../../slice.js'
 const FormSlider = ({ id, name, label, options, _default = 90 }) => {
     const value = useSelector((state) => state.form[name])
     const dispatch = useDispatch()
-    
+
     const isEmpty = value === ''
     const isNum = typeof value === 'number'
     const isBool = typeof value === 'boolean'

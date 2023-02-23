@@ -1,22 +1,29 @@
 import _ from 'lodash'
-import { Box, Grid } from "@mui/material"
+import { Box, Divider, Grid, Typography } from "@mui/material"
+import { useSelector } from 'react-redux'
+import { Fragment } from 'react'
+import ReviewRecord from './Record'
 
-import ReviewHeading from './Heading'
-
-// TODO: Render subsection field data, get data from redux store
 const ReviewContainer = ({ sections }) => {
-    return (
-        <Box>
-            <Grid container rowSpacing={3} columnSpacing={2}>
-                {sections.map(({ heading, subsections }) => (
-                    <>
-                        <ReviewHeading {...{ heading }} key={_.kebabCase([heading, 'review', 'heading'])} />
-                        {subsections.map(({ heading, fields }) => (
-                            <Grid item xs={6}>
+    const formData = useSelector((state) => state.form)
 
+    return (
+        <Box sx={{ marginBottom: '2rem', overflowY: 'scroll' }}>
+            <Grid container rowSpacing={6} columnSpacing={2}>
+                {sections.map(({ id, subsections }) => (
+                    <Fragment key={_.kebabCase([id, 'review'])}>
+                        {subsections.map(({ id, heading, fields }) => (
+                            <Grid key={_.kebabCase([id, 'review'])} item xs={12}>
+                                <Typography component="h4" variant="h6">{heading}</Typography>
+                                <Divider sx={{ marginY: '1rem' }} />
+                                <Grid container rowSpacing={2}>
+                                    {fields.map(({ id, name, type, label, options }) => (
+                                        <ReviewRecord key={_.kebabCase([id, 'review'])} {...{ id, type, label, value: formData[name], options }} />
+                                    ))}
+                                </Grid>
                             </Grid>
                         ))}
-                    </>
+                    </Fragment>
                 ))}
             </Grid>
         </Box>
