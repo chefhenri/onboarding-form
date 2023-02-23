@@ -80,7 +80,7 @@ const Wrapper = ({ sections }) => {
             <Stack direction="row" spacing={4}>
                     <Fade in={inReview} timeout={{appear: 0, enter: 350, exit: 0}} unmountOnExit>
                         <Box sx={{ width: '100%' }}>
-                            <ReviewPanel {...{ subsections, handleBack }} />
+                            <ReviewPanel {...{ sections, handleBack }} />
                         </Box>
                     </Fade>
                     <Fade in={!inReview} timeout={{appear: 0, enter: 350, exit: 0}} unmountOnExit>

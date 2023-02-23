@@ -1,6 +1,6 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography } from "@mui/material"
 
-const FormHeading = ({ heading }) => {
+const ReviewHeading = ({ heading }) => {
     return (
         <>
             <Box
@@ -25,4 +25,4 @@ const FormHeading = ({ heading }) => {
     )
 }
 
-export default FormHeading
+export default ReviewHeading
