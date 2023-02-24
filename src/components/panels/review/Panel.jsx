@@ -1,7 +1,7 @@
 import { Box, Paper, Stack, Typography } from "@mui/material"
 
 import ReviewNav from "./Nav"
-import ReviewContainer from "./Container"
+import ReviewTable from "./table/Table"
 
 const ReviewPanel = ({ sections, handleBack }) => {
     return (
@@ -12,7 +12,7 @@ const ReviewPanel = ({ sections, handleBack }) => {
                         Review
                     </Typography>
                 </Box>
-                <ReviewContainer {...{ sections }} />
+                <ReviewTable {...{ sections }} />
                 <ReviewNav {...{ handleBack }} />
             </Stack>
         </Paper>
