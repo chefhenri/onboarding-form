@@ -1,13 +1,28 @@
+import _ from 'lodash'
 import moment from "moment"
+import { useSelector } from "react-redux"
 import { Grid, Stack, Typography } from "@mui/material"
 
 const DATE_FMT = 'MM/DD/YYYY'
 
-const ReviewRecord = ({ type, label, value, options }) => {
+const ReviewRecord = ({ id, name, type, label, value, options }) => {
+    const formData = useSelector((state) => state.form)
+
     const getFormattedValue = () => {
         switch (type) {
             case 'checkbox':
-                return 
+                return (
+                    options.map((opt, idx) => {
+                        let nom = _.camelCase([name, 'opt', idx])
+                        let val = formData[nom]
+
+                        console.log(nom, val);
+
+                        return (
+                            <span>{opt}: {val ? 'Yes' : 'No'}</span>
+                        )
+                    })
+                )
             case 'date':
                 return moment(value).format(DATE_FMT)
             case 'select':
@@ -28,7 +43,7 @@ const ReviewRecord = ({ type, label, value, options }) => {
                     <span>{label}:</span>
                 </Typography>
                 <Typography sx={{ fontWeight: 500 }}>
-                    <span>{getFormattedValue()}</span>
+                    {getFormattedValue()}
                 </Typography>
             </Stack>
         </Grid>

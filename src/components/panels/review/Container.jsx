@@ -18,7 +18,7 @@ const ReviewContainer = ({ sections }) => {
                                 <Divider sx={{ marginY: '1rem' }} />
                                 <Grid container rowSpacing={2}>
                                     {fields.map(({ id, name, type, label, options }) => (
-                                        <ReviewRecord key={_.kebabCase([id, 'review'])} {...{ id, type, label, value: formData[name], options }} />
+                                        <ReviewRecord key={_.kebabCase([id, 'review'])} {...{ id, name, type, label, value: formData[name], options }} />
                                     ))}
                                 </Grid>
                             </Grid>
