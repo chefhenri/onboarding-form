@@ -5,69 +5,16 @@ import { Stack, Table, TableBody, TableCell, TableRow, Typography } from "@mui/m
 
 const DATE_FMT = 'MM/DD/YYYY'
 
+// TODO: Adjust styling - data presentation (iconography, color)
 const TableRecord = ({ heading, subsections }) => {
     const formData = useSelector((state) => state.form)
-
-    // const getFormattedValue = () => {
-    //     switch (type) {
-    //         case 'checkbox':
-    //             return (
-    //                 <Stack spacing={1}>
-    //                     {options.map((opt, idx) => {
-    //                         let nom = _.camelCase([name, 'opt', idx])
-
-    //                         return (
-    //                             <Stack direction="row" spacing={1}>
-    //                                 <Typography>
-    //                                     {opt}:
-    //                                 </Typography>
-    //                                 <Typography sx={{ fontWeight: 500 }}>
-    //                                     {formData[nom] ? 'Yes' : 'No'}
-    //                                 </Typography>
-    //                             </Stack>
-    //                         )
-    //                     })}
-    //                 </Stack >
-    //             )
-    //         case 'date':
-    //             return (
-    //                 <Typography sx={{ fontWeight: 500 }}>
-    //                     {moment(value).format(DATE_FMT)}
-    //                 </Typography>
-    //             )
-    //         case 'select':
-    //             return (
-    //                 <Typography sx={{ fontWeight: 500 }}>
-    //                     {options.filter(option => option.value === value)[0].label}
-    //                 </Typography>
-    //             )
-    //         case 'slider':
-    //             return (
-    //                 <Typography sx={{ fontWeight: 500 }}>
-    //                     {typeof value === 'boolean' ? 'Unlimited' : value}
-    //                 </Typography>
-    //             )
-    //         case 'switch':
-    //             return (
-    //                 <Typography sx={{ fontWeight: 500 }}>
-    //                     {value ? 'Yes' : 'No'}
-    //                 </Typography>
-    //             )
-    //         default:
-    //             return (
-    //                 <Typography sx={{ fontWeight: 500 }}>
-    //                     {value}
-    //                 </Typography>
-    //             )
-    //     }
-    // }
 
     const formatValue = (name, type, options) => {
         let value = formData[name]
 
-        switch(type) {
+        switch (type) {
             case 'checkbox':
-                return
+                return value ? 'Yes' : 'No'
             case 'date':
                 return moment(value).format(DATE_FMT)
             case 'select':
@@ -85,19 +32,41 @@ const TableRecord = ({ heading, subsections }) => {
         <TableRow>
             <TableCell colSpan={2}>
                 <Typography variant="h6">{heading}</Typography>
-                <Table>
+                <Table size="small">
                     <TableBody>
                         {subsections.map(({ fields }) => {
                             return fields.map(({ id, name, type, label, options }) => {
+                                let fmtGroup = type === 'checkbox'
+
                                 return (
-                                    <TableRow key={_.kebabCase([id, 'cell'])}>
-                                        <TableCell>
-                                            <Typography>{label}</Typography>
-                                        </TableCell>
-                                        <TableCell>
-                                            <Typography>{formatValue(name, type, options)}</Typography>
-                                        </TableCell>
-                                    </TableRow>
+                                    fmtGroup ? (
+                                        <TableRow key={_.kebabCase([id, 'cell'])}>
+                                            <TableCell colSpan={1} sx={{verticalAlign: 'initial'}}>
+                                                <Typography>{label}</Typography>
+                                            </TableCell>
+                                            <TableCell>
+                                                {options.map((opt, idx) => {
+                                                    let nom = _.kebabCase([name, opt, idx])
+
+                                                    return (
+                                                        <Stack direction="row-reverse" spacing={2}>
+                                                            <Typography>{formatValue(nom, type)}</Typography>
+                                                            <Typography>{opt}</Typography>
+                                                        </Stack>
+                                                    )
+                                                })}
+                                            </TableCell>
+                                        </TableRow>
+                                    ) : (
+                                        <TableRow key={_.kebabCase([id, 'cell'])}>
+                                            <TableCell>
+                                                <Typography>{label}</Typography>
+                                            </TableCell>
+                                            <TableCell align="right">
+                                                <Typography>{formatValue(name, type, options)}</Typography>
+                                            </TableCell>
+                                        </TableRow>
+                                    )
                                 )
                             })
                         })}

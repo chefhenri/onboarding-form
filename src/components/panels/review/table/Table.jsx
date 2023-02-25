@@ -3,6 +3,7 @@ import { Table, TableBody, TableContainer } from "@mui/material"
 
 import TableRecord from "./Record"
 
+// TODO: Adjust styling - section divider
 const ReviewTable = ({ sections }) => {
     return (
         <TableContainer sx={{ marginY: '2rem', overflowY: 'scroll' }}>
