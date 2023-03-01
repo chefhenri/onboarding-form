@@ -1,27 +1,13 @@
-import { Box, Typography } from "@mui/material"
+import { Button, Fade, Stack, Typography } from "@mui/material"
 
-const ReviewHeading = ({ heading }) => {
+const ReviewHeading = ({ heading, show }) => {
     return (
-        <>
-            <Box
-                component="div"
-                sx={{
-                    width: '80px',
-                    height: '5px',
-                    bgcolor: '#0066FF',
-                    borderTopLeftRadius: '50px',
-                    borderTopRightRadius: '50px'
-                }} />
-            <Typography
-                component="div"
-                variant="h6"
-                sx={{
-                    fontWeight: 700,
-                    marginBottom: '1rem'
-                }}>
-                {heading}
-            </Typography>
-        </>
+        <Stack direction="row" width="100%" spacing={1}>
+            <Typography variant="h6">{heading}</Typography>
+            <Fade in={show}>
+                <Button>Edit</Button>
+            </Fade>
+        </Stack>
     )
 }
 

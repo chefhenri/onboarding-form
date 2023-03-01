@@ -1,13 +1,21 @@
 import _ from 'lodash'
 import moment from 'moment'
 import { useSelector } from "react-redux"
+import { Fragment, useState } from 'react'
 import { Divider, ListItem, Stack, Typography } from "@mui/material"
-import { Fragment } from 'react'
+import ReviewHeading from './Heading'
 
 const DATE_FMT = 'MM/DD/YYYY'
 
+// TODO: Add handle for review heading 'edit' button
 const ReviewItem = ({ heading, subsections }) => {
     const formData = useSelector((state) => state.form)
+
+    const [showEdit, setShowEdit] = useState(false)
+
+    const toggleShowEdit = () => {
+        setShowEdit(!showEdit)
+    }
 
     const formatValue = (name, type, options) => {
         let value = formData[name]
@@ -31,9 +39,9 @@ const ReviewItem = ({ heading, subsections }) => {
     }
 
     return (
-        <ListItem>
+        <ListItem onMouseEnter={toggleShowEdit} onMouseLeave={toggleShowEdit}>
             <Stack direction="column" width="100%" spacing={1}>
-                <Typography variant="h6">{heading}</Typography>
+                <ReviewHeading {...{ heading, show: showEdit }} />
                 {subsections.map(({ fields }) => {
                     return fields.map(({ id, name, type, label, options }) => {
                         let fmtGroup = type === 'checkbox'
