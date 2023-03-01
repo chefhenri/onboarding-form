@@ -12,6 +12,8 @@ const ReviewItem = ({ heading, subsections }) => {
     const formatValue = (name, type, options) => {
         let value = formData[name]
 
+        if (value === undefined) return
+
         switch (type) {
             case 'checkbox':
                 return value ? 'Yes' : 'No'

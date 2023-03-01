@@ -5,7 +5,7 @@ import { sampleData } from './assets/sample-form-data.json'
 export const formSlice = createSlice({
     name: 'form',
     initialState: {
-        ...sampleData
+        // ...sampleData
     },
     reducers: {
         update: (state, action) => {
