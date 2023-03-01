@@ -2,6 +2,7 @@ import { Step, StepLabel, Stepper } from "@mui/material"
 import StyledConnector from "./Connector"
 import StyledStepIcon from "./StepIcon"
 
+// TODO: Allow steps navigation via step label click
 const ContentsStepper = ({ headings, activeSection }) => {
     return (
         <Stepper orientation="vertical" activeStep={activeSection} connector={<StyledConnector />}>
