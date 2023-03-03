@@ -237,7 +237,7 @@
               "id": "integrations",
               "name": "integrations",
               "type": "checkbox",
-              "label": "Configure Advanced Workflow Integration",
+              "label": "Advanced Workflow Integration Configuration",
               "options": [
                 "Print Confirmation Pages",
                 "Print Incoming Pages",
@@ -299,7 +299,7 @@
               "id": "enable-solutions",
               "name": "enableSolutions",
               "type": "checkbox",
-              "label": "Configure Enabled Solutions",
+              "label": "Enabled Solutions Configuration",
               "options": [
                 "XM Fax",
                 "XM SendSecure"
@@ -359,7 +359,7 @@
               "id": "data-transmit",
               "name": "dataTransmit",
               "type": "checkbox",
-              "label": "Configure Data Transmission Types",
+              "label": "Data Transmission Types Configuration",
               "options": [
                 "ePHI/HDS, HIPAA",
                 "Cardholder Data (PAN)/PCI_DSS",

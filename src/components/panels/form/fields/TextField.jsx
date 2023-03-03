@@ -3,6 +3,7 @@ import { Grid, TextField } from "@mui/material";
 
 import { update } from '../../../../slice.js'
 
+// TODO: Add input masking (where applicable)
 const FormTextField = ({ id, name, type, label, required }) => {
     const value = useSelector((state) => state.form[name])
     const dispatch = useDispatch()
