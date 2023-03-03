@@ -76,7 +76,9 @@ const Wrapper = ({ sections }) => {
                 </Fade>
                 <Fade in={!inReview} timeout={{ appear: 0, enter: 350, exit: 0 }} unmountOnExit>
                     <Stack direction="column" spacing={4} sx={{ width: '30%' }}>
-                        <ContentsPanel {...{ headings }} activeSection={activeSection} />
+                        <SectionCtx.Provider value={sectionDispatch}>
+                            <ContentsPanel {...{ headings }} activeSection={activeSection} />
+                        </SectionCtx.Provider>
                         <InfoPanel {...{ info }} />
                     </Stack>
                 </Fade>
