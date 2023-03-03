@@ -1,6 +1,4 @@
 export const sectionReducer = (state, action) => {
-    console.log(action);
-
     switch (action.type) {
         case 'set_section': {
             return {
