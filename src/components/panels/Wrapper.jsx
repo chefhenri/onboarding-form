@@ -1,39 +1,13 @@
 import { useReducer, useState } from "react"
-import { Box, Collapse, Container, Fade, Grow, Stack } from "@mui/material"
+import { Box, Container, Fade, Stack } from "@mui/material"
+
+import { SectionCtx, ReviewCtx } from "../../contexts"
+import { sectionReducer } from "../../reducers"
 
 import FormPanel from "./form/Panel"
 import ContentsPanel from "./table_of_contents/Panel"
 import InfoPanel from "./info/Panel"
 import ReviewPanel from "./review/Panel"
-import { TransitionGroup } from "react-transition-group"
-
-const sectionReducer = (state, action) => {
-    switch (action.type) {
-        case 'next_section': {
-            return {
-                activeSection: state.activeSection + 1,
-                activeSubsection: 0
-            }
-        } case 'prev_section': {
-            return {
-                activeSection: state.activeSection - 1,
-                activeSubsection: action.payload.index
-            }
-        } case 'next_subsection': {
-            return {
-                activeSection: state.activeSection,
-                activeSubsection: state.activeSubsection + 1
-            }
-        } case 'prev_subsection': {
-            return {
-                activeSection: state.activeSection,
-                activeSubsection: state.activeSubsection - 1
-            }
-        } default: {
-            throw new Error('Uknown action: ' + action.type)
-        }
-    }
-}
 
 const Wrapper = ({ sections }) => {
     const [{ activeSection, activeSubsection }, sectionDispatch] = useReducer(sectionReducer, {
@@ -80,7 +54,11 @@ const Wrapper = ({ sections }) => {
             <Stack direction="row" spacing={4}>
                 <Fade in={inReview} timeout={{ appear: 0, enter: 350, exit: 0 }} unmountOnExit>
                     <Box sx={{ width: '100%' }}>
-                        <ReviewPanel {...{ sections, handleBack }} />
+                        <SectionCtx.Provider value={sectionDispatch}>
+                            <ReviewCtx.Provider value={setInReview}>
+                                <ReviewPanel {...{ sections, handleBack }} />
+                            </ReviewCtx.Provider>
+                        </SectionCtx.Provider>
                     </Box>
                 </Fade>
                 <Fade in={!inReview} timeout={{ appear: 0, enter: 350, exit: 0 }} unmountOnExit>
