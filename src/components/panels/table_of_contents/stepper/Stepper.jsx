@@ -5,7 +5,6 @@ import { SectionCtx } from "../../../../contexts"
 import StyledConnector from "./Connector"
 import StyledStepIcon from "./StepIcon"
 
-// TODO: Allow steps navigation via step label click
 const ContentsStepper = ({ headings, activeSection }) => {
     const setSection = useContext(SectionCtx)
 
