@@ -50,6 +50,7 @@ const Wrapper = ({ sections }) => {
     }
 
     return (
+        // TOOD: Push TOC past center viewing panel
         <Container sx={{ mt: '8rem' }}>
             <Stack direction="row" spacing={4}>
                 <Fade in={inReview} timeout={{ appear: 0, enter: 350, exit: 0 }} unmountOnExit>
