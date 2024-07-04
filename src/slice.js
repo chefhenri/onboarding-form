@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const formSlice = createSlice({
     name: 'form',
+    initialState: {},
     reducers: {
         update: (state, action) => {
             let { name, value } = action.payload
