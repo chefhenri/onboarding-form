@@ -18,7 +18,7 @@ const FormNav = ({
     const canNavReview = (!canNavigate.next.section && !canNavigate.next.subsection) && !inReview
 
     return (
-        <Stack direction="row" sx={{ justifyContent: 'space-between' }} >
+        <Stack direction="row" sx={{ marginTop: '2rem', justifyContent: 'space-between' }} >
             <Button variant="outlined" onClick={handleBack} disabled={!canNavBack}>
                 Back
             </Button>
